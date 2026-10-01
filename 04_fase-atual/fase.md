@@ -31,7 +31,7 @@ tarefas que já têm um.
 
 ## Primeiro: fundamento no Skip; depois: conexões
 
-- [ ] Criar a base do sistema no Skip
+- [x] Criar a base do sistema no Skip
   > SPEC-1-000 (spec-1-000-fundamento-skip.md), CA-F1. Reutilizar o projeto Skip conectado, criar as coleções nativas e o contrato interno da aplicação, sem chamada a ERP ou canal externo. Antes de acesso e conectores; CL-001/002 não bloqueiam o fundamento. Evidência: 05_entregas/fase-1/spec-1-000/. Teste humano antes de avançar.
 
 - [ ] Montar as telas com dados de demonstração
