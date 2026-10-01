@@ -1,0 +1,3 @@
+[submodule "07-sistemas/mcc-automacao-fabrica"]
+	path = 07-sistemas/mcc-automacao-fabrica
+	url = https://github.com/KeomaTargino/mcc-automacao-fabrica
