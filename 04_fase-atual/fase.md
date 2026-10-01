@@ -37,7 +37,7 @@ tarefas que já têm um.
 - [x] Montar as telas com dados de demonstração
   > SPEC-1-000 (spec-1-000-fundamento-skip.md), CA-F2, CA-F3. Construir navegação, catálogo e os quatro blocos do painel com fixtures sintéticas e aviso permanente de demonstração. Antes de acesso e conectores; CL-001/002 não bloqueiam o fundamento. Evidência: 05_entregas/fase-1/spec-1-000/. Teste humano antes de avançar.
 
-- [ ] Conferir o fundamento antes das conexões
+- [x] Conferir o fundamento antes das conexões
   > SPEC-1-000 (spec-1-000-fundamento-skip.md), CA-F1–F4. Provar navegação, contratos internos, estados vazio/erro e isolamento das fixtures; liberar as próximas levas somente após teste humano explícito. Antes de acesso e conectores; CL-001/002 não bloqueiam o fundamento. Evidência: 05_entregas/fase-1/spec-1-000/. Teste humano antes de avançar.
 
 
