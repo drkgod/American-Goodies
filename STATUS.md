@@ -3,14 +3,14 @@
 # Status operacional
 
 **Fase atual:** 1 — Painel operacional integrado.  
-**Estado:** pacote da Fase 1 no repositório do cliente; implementação e testes pendentes.  
+**Estado:** fundamento no Skip implementado (CA-F1 concluída); telas de demonstração e conferência do fundamento pendentes; levas de acesso e conexão não iniciadas.  
 **Repositório:** [drkgod/American-Goodies](https://github.com/drkgod/American-Goodies), privado, branch `main`.  
 **Ambiente:** Skip + MCP do Skip + Skip Cloud. **Fonte principal:** Omie.
 
-18 tasks abertas e seis SPECs com TDD acoplado. Nenhuma task concluída. UUIDs: 15 recebidos; 3 pendentes. IDs e visibilidade recebidos do portal preservados.
+18 tasks: 1 concluída (5,6%), 17 abertas. Seis SPECs com TDD acoplado. UUIDs: 15 recebidos; 3 pendentes. IDs e visibilidade recebidos do portal preservados.
 
 ## Antes da execução
 
 Confirmar o projeto Skip existente, matriz de acesso por área e acessos autorizados Omie/Nuvemshop. Reutilizar conexões do agente executor. Não criar banco externo.
 
-**Próxima ação:** abrir 04_fase-atual/fase.md e executar a primeira task elegível, seguindo a SPEC e o teste humano. A publicação deste pacote não implementa o produto nem comprova testes/aceite.
+**Próxima ação:** executar a task "Montar as telas com dados de demonstração" (SPEC-1-000, CA-F2/F3), seguindo a SPEC e o teste humano. O fundamento concluído não implementa integração real nem comprova dados do Omie.
