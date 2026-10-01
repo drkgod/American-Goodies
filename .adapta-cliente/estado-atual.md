@@ -6,11 +6,11 @@
 - owner_informativo: desconhecido
 - spec: 04_fase-atual/specs/spec-1-000-fundamento-skip.md
 - analise: .adapta-cliente/analises/spec-1-000-ca-f1.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente
+- etapa: implementando
+- autorizacao_implementacao: confirmada 2026-10-01T14:40-03:00 — "sim" (Mr Cheney, resposta ao relatório de análise)
 - teste_humano: pendente
 - verificacao_automatica: pendente
 - aprendizado: pendente
-- ultima_acao: análise profunda da task "Criar a base do sistema no Skip" concluída em 2026-10-01; relatório em .adapta-cliente/analises/spec-1-000-ca-f1.md
-- proxima_acao: aguardar autorização para implementar
-- atualizado_em: 2026-10-01T14:45:00-03:00
+- ultima_acao: autorização recebida; implementação da task iniciada
+- proxima_acao: implementar fundamento (migrations, provider, telas, testes) e registrar evidência
+- atualizado_em: 2026-10-01T14:41:00-03:00
