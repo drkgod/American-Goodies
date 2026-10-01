@@ -3,14 +3,14 @@
 # Status operacional
 
 **Fase atual:** 1 — Painel operacional integrado.  
-**Estado:** fundamento no Skip implementado e telas de demonstração provadas (CA-F1 e CA-F2/F3 concluídas); conferência final do fundamento pendente; levas de acesso e conexão não iniciadas.  
+**Estado:** leva de fundamento (SPEC-1-000) concluída e aceita — CA-F1 a F4 provadas; leva de acesso (SPEC-1-001) liberada; conexões Omie/Nuvemshop ainda não iniciadas.  
 **Repositório:** [drkgod/American-Goodies](https://github.com/drkgod/American-Goodies), privado, branch `main`.  
 **Ambiente:** Skip + MCP do Skip + Skip Cloud. **Fonte principal:** Omie.
 
-18 tasks: 2 concluídas (11,1%), 16 abertas. Seis SPECs com TDD acoplado. UUIDs: 15 recebidos; 3 pendentes. IDs e visibilidade recebidos do portal preservados.
+18 tasks: 3 concluídas (16,7%), 15 abertas. Seis SPECs com TDD acoplado. UUIDs: 15 recebidos; 3 pendentes. IDs e visibilidade recebidos do portal preservados.
 
 ## Antes da execução
 
 Confirmar o projeto Skip existente, matriz de acesso por área e acessos autorizados Omie/Nuvemshop. Reutilizar conexões do agente executor. Não criar banco externo.
 
-**Próxima ação:** executar a task "Conferir o fundamento antes das conexões" (SPEC-1-000, CA-F1–F4) — última da leva de fundamento; libera as próximas levas somente após teste humano explícito.
+**Próxima ação:** executar a task "Confirmar acessos e papéis" (SPEC-1-001, CA-A1) — primeira da leva de acesso. Pré-condições: CL-003 e CL-004 (acessos/papéis aprovados pelo cliente).
