@@ -34,7 +34,7 @@ tarefas que já têm um.
 - [x] Criar a base do sistema no Skip
   > SPEC-1-000 (spec-1-000-fundamento-skip.md), CA-F1. Reutilizar o projeto Skip conectado, criar as coleções nativas e o contrato interno da aplicação, sem chamada a ERP ou canal externo. Antes de acesso e conectores; CL-001/002 não bloqueiam o fundamento. Evidência: 05_entregas/fase-1/spec-1-000/. Teste humano antes de avançar.
 
-- [ ] Montar as telas com dados de demonstração
+- [x] Montar as telas com dados de demonstração
   > SPEC-1-000 (spec-1-000-fundamento-skip.md), CA-F2, CA-F3. Construir navegação, catálogo e os quatro blocos do painel com fixtures sintéticas e aviso permanente de demonstração. Antes de acesso e conectores; CL-001/002 não bloqueiam o fundamento. Evidência: 05_entregas/fase-1/spec-1-000/. Teste humano antes de avançar.
 
 - [ ] Conferir o fundamento antes das conexões
