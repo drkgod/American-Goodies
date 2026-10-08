@@ -3,26 +3,28 @@
 # Status operacional
 
 **Fase atual:** 1 — Painel operacional integrado.  
-**Estado:** fundamento (SPEC-1-000) 3/3 aceito; acesso (SPEC-1-001) 3/3 aceito; conexões Omie (SPEC-1-002) **3/3 implementadas e provadas com leitura REAL** (v0.0.18–0.0.37, QA ok) — **aguardando teste humano**; demais tasks bloqueadas por insumos externos (CL-002, matriz nominal) ou por próximo degrau (SPEC-1-004 parcialmente executável).  
+**Estado:** fundamento (SPEC-1-000) e acesso (SPEC-1-001) concluídos e aceitos; **SPEC-1-002 (Omie) toda implementada com leitura REAL** (1055 itens reconciliados, conferência 1055=1055, credencial inválida sem retry, recuperação provada) e **SPEC-1-003 (Nuvemshop) task 1 implementada com dados REAIS** (3343 pedidos reais classificados: 277 pendentes, 369 cancelados, 2687 pagos sem vínculo, 10 não mapeados) — **tudo aguardando teste humano**; tasks restantes bloqueadas por insumos externos.  
 **Repositório:** [drkgod/American-Goodies](https://github.com/drkgod/American-Goodies), privado, branch `main`.  
-**Ambiente:** Skip + MCP do Skip + Skip Cloud. **Fonte principal:** Omie.
+**Ambiente:** Skip + MCP do Skip + Skip Cloud. **Fontes:** Omie (CL-001 ✓) + Nuvemshop (CL-002 ✓).
 
-18 tasks: 6 concluídas (33,3%), 3 em andamento (implementadas, aguardando teste humano), 9 abertas — todas com insumo externo pendente.
-
-## Integração Omie — estado real
-
-- **Leitura real funcionando**: `ListarPosEstoque` reconciliado na conta (1055 registros/22 páginas); lote ativo com **1055 itens = nTotRegistros exato** (conferência provada).
-- Credenciais em secrets do servidor (`OMIE_APP_KEY/SECRET`); nunca em repo/UI/log.
-- Rate limit do Omie: HTTP 500 REDUNDANT (janela ~60s) — retry em etapas separadas cobre.
-- Recurso `produtos`: conta com 0 produtos — reconciliar quando o cadastro do ERP tiver itens (SPEC-1-004).
+18 tasks: 6 concluídas (33,3%), 4 em andamento (implementadas com dados reais, aguardando teste humano), 8 abertas.
 
 ## Bloqueios ativos (com dono da resolução)
 
 | Bloqueio | Afeta | Quem resolve |
 |---|---|---|
-| **Teste humano pendente** — CA-O1/O2, CA-O3/O4 e conferência (a5b75aca) | Conclusão da SPEC-1-002 (3 tasks) | **Cliente/champion** (roteiros nas evidências) |
-| **CL-002** — acesso Nuvemshop | SPEC-1-003 (pedidos) | **Cliente** |
-| **Matriz nominal** (CL-003) — aprovar contas Skip → áreas | Concessão de acesso real | **Cliente** |
-| Cadastro de produtos vazio no Omie | SPEC-1-004 (catálogo/fichas) | **Cliente** (povoar ERP) |
+| **Teste humano** — 4 evidências (3 da SPEC-1-002 + 1 da SPEC-1-003) | Conclusão das levas de conexão | **Cliente/champion** |
+| **Referência de vínculo** — integração atual Nuvemshop→Omie não grava `codigo_pedido_integracao` | CA-N3 (vínculo/crosswalk, task b0502049) | **Consultor** (decidir origem da referência; lacuna registrada) |
+| **Matriz nominal** (CL-003) — aprovar contas Skip → áreas | Concessão de acesso real por pessoa | **Cliente** |
+| **Cadastro Omie vazio** — recurso produtos com 0 registros na conta | SPEC-1-004 (catálogo/fichas) | **Cliente** (povoar cadastro no ERP) |
 
-**Próxima ação:** testes humanos das 3 tasks da SPEC-1-002 e/ou fornecer CL-002; a fila segue sozinha quando o insumo chegar (cron de recuperação a cada 4h verifica secrets).
+~~CL-001~~ **RESOLVIDO 2026-10-08 13:19** · ~~CL-002~~ **RESOLVIDO 2026-10-08 13:40** — credenciais como secrets do projeto; integrações reais provadas e reconciliadas.
+
+## O que já está pronto e provado
+
+- Fundamento no Skip (coleções, provider, telas com fixtures e banner).
+- Acesso por área: login nativo, guarda de rotas, menu por perfil, autorização no servidor, revogação em sessão, logout limpo (T1–T8, 8/8).
+- **Sync Omie REAL**: sync/iniciar·pagina·estado + conferir-fonte; allowlist de consulta, lease 5min + geração, upsert idempotente por chave de origem, ativação atômica por lote, fim por metadatagem, retry transitório em etapas separadas (2s/5s, máx. 3), 401/403 sem retry, lote anterior intacto em falha, recuperação conclui uma vez, conferência com contagem reconciliada (1055=1055).
+- **Sync Nuvemshop REAL**: 3343 pedidos reais; classificação na precedência da SPEC (pendente/pago sem vínculo/cancelado/não mapeado); visão por área com aviso de total não consolidável; sem escrita nos canais.
+
+**Próxima ação:** teste humano das 4 evidências (roteiros em 05_entregas/) — o cron de recuperação (4h, silencioso) retoma a fila sozinho quando os insumos chegarem.
