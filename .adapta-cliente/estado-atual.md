@@ -1,16 +1,16 @@
 # Estado atual — Adapta Cliente
 
 - schema_version: adapta-cliente-state/v2
-- task_id: b0502049-e8d5-480b-b3c0-01b69a05c7a4 (task "Relacionar pedidos de canais sem duplicação", SPEC-1-003, CA-N3) — implementada e provada, aguardando teste humano
+- task_id: f2bda37f-9ce6-4014-a8d7-152e7e313fba (task "Testar pagamento pendente e falha do canal", SPEC-1-003, CA-N1–N4) — implementada e provada com dados reais; aguardando teste humano
+- task_anterior_pendente_teste: b0502049-e8d5-480b-b3c0-01b69a05c7a4 (CA-N3) — implementada e provada; o mesmo teste humano cobre as duas
 - executor: MCC (ETHOS)
-- owner_informativo: desconhecido
+- owner_informativo: Mr Cheney (owner autorizou continuidade: "pode seguir", 14:56)
 - spec: 04_fase-atual/specs/spec-1-003-pedidos-nuvemshop.md
-- analise: .adapta-cliente/analises/spec-1-003-pedidos.md
 - etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada — continuidade do owner ("continue e nao pergunte mais", 11:48; "bora continuar", 14:26; "blz, continue", 14:41)
-- teste_humano: pendente (CA-N3; roteiro na evidência)
-- verificacao_automatica: passou — GREEN 4/4 fixtures (CA-N1/N2/N3 + voided); visão real 3343 pedidos (pendente 277, cancelado 369, pago_sem_vinculo 2687, voided 10, vinculados 0, duplicados_oficiais 0 — confirma registro do owner); lote oficial Omie parcial (págs 1-42/54, 4200/5393) sem duplicar; falha 429 na pág 43 com lote intacto (CA-O3 correto); retomada pendente por rate-limit
-- aprendizado: candidato:06_notas/aprendizado-continuo/AP-2026-10-08-1435-vinculo-por-referencia.md
-- ultima_acao: CA-N3 implementada e provada (evidencia-ca-n3-vinculo.md)
-- proxima_acao: teste humano da CA-N3; depois f2bda37f (CA-N1–N4 transições/falha); retomar lote oficial completo quando rate-limit permitir
-- atualizado_em: 2026-10-08T14:50:00-03:00
+- teste_humano: pendente (CA-N3 + CA-N1–N4)
+- verificacao_automatica: passou — resync Nuvemshop geração 2 (3344 pedidos): 4 pendentes→cancelados, 1 pendente→pago, upsert idempotente (registro atualizado uma vez), duplicados_oficiais=0; falha do Omie (pág. 29/54) preservou listas e lotes anteriores; nenhum segredo em resposta/log
+- pendencia_tecnica: lote oficial omie:pedidos 29/54 páginas (transporte/rate-limit intermitente do Omie); retomada segura pelo cursor (sync/iniciar devolve a execução vigente)
+- aprendizado: candidato: conta grande (5393 pedidos) exige retomada por cursor em múltiplos ciclos; lote parcial nunca é tratado como falha final
+- ultima_acao: CA-N1–N4 provadas com dados reais (evidencia-ca-n1-n4-transicoes.md)
+- proxima_acao: teste humano (2 evidências SPEC-1-003); concluir lote oficial omie:pedidos (págs. 30–54); depois SPEC-1-004 (aguarda cadastro no ERP)
+- atualizado_em: 2026-10-08T15:20:00-03:00
