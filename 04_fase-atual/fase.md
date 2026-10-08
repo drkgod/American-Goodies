@@ -43,7 +43,7 @@ tarefas que já têm um.
 
 - [x] Confirmar acessos e papéis [interno]  <!-- id:029ec0f7-b419-432d-b5de-5896097ea6a3 -->
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A1. Registrar projeto Skip e matriz nominal de acesso aprovada, sem credenciais no arquivo; usar CL-003 e CL-004 como pré-condições. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
-- [ ] Proteger as telas e os dados por área [interno]  <!-- id:f79b943e-452f-4950-a694-891779eacc66 -->
+- [x] Proteger as telas e os dados por área [interno]  <!-- id:f79b943e-452f-4950-a694-891779eacc66 -->
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A2, CA-A3. Implementar autenticação nativa e proteção de rotas, coleções e consultas por área, respeitando a matriz aprovada. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
 - [ ] Testar login e restrições de acesso [interno]  <!-- id:db079721-3633-4a14-8143-2be82cedd333 -->
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A2–A4. Testar acesso permitido, usuário sem papel, sessão expirada e tentativa de alteração do próprio perfil; registrar prova e obter teste humano. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
