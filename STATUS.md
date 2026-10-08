@@ -3,14 +3,25 @@
 # Status operacional
 
 **Fase atual:** 1 — Painel operacional integrado.  
-**Estado:** leva de fundamento (SPEC-1-000) concluída e aceita; **leva de acesso (SPEC-1-001) concluída e aceita — 3/3 tasks** (CA-A1 parcial por desenho do Plano B: matriz nominal real pendente de aprovação); sistema protegido por área com perfis de teste (v0.0.17, QA completo); organograma CL-003 recebido (06_notas/organograma-2026-10.md); conexões Omie/Nuvemshop ainda não iniciadas.  
+**Estado:** leva de fundamento (SPEC-1-000) concluída e aceita (3/3); leva de acesso (SPEC-1-001) concluída e aceita (3/3, CA-A1 parcial por desenho do Plano B); leva de conexões (SPEC-1-002) com CA-O1/O2 e CA-O3/O4 **implementadas e provadas** (v0.0.18–0.0.23, QA ok) — aguardando teste humano; **todas as tasks restantes bloqueadas por insumos externos** (CL-001, CL-002, matriz nominal).  
 **Repositório:** [drkgod/American-Goodies](https://github.com/drkgod/American-Goodies), privado, branch `main`.  
 **Ambiente:** Skip + MCP do Skip + Skip Cloud. **Fonte principal:** Omie.
 
-18 tasks: 6 concluídas (33,3%), 0 em andamento, 12 abertas. Seis SPECs com TDD acoplado. UUIDs: 15 recebidos; 3 pendentes. IDs e visibilidade recebidos do portal preservados.
+18 tasks: 6 concluídas (33,3%), 2 em andamento (implementadas, aguardando teste humano), 10 abertas — **todas as 10 dependem de insumos externos**.
 
-## Antes da execução
+## Bloqueios ativos (com dono da resolução)
 
-Confirmar o projeto Skip existente, matriz de acesso por área e acessos autorizados Omie/Nuvemshop. Reutilizar conexões do agente executor. Não criar banco externo.
+| Bloqueio | Afeta | Quem resolve |
+|---|---|---|
+| **CL-001** — credenciais Omie (OMIE_APP_KEY/SECRET) | CA-O1–O4 (reconciliação real), SPEC-1-004 (catálogo), SPEC-1-003 (pedidos Omie) | **Cliente** (fornecer keys no Omie → registrar como secrets do projeto) |
+| **CL-002** — acesso Nuvemshop | SPEC-1-003 (pedidos Nuvemshop) | **Cliente** |
+| **Matriz nominal** (CL-003) — aprovar contas Skip → áreas a partir do organograma (06_notas/organograma-2026-10.md) | Concessão de acesso real (hoje só perfis sintéticos) | **Cliente** (aprovar e indicar quem aprovou) |
+| **Teste humano pendente** — CA-O1/O2 e CA-O3/O4 implementados | Conclusão das duas tasks da SPEC-1-002 | **Cliente/champion** (roteiro nas evidências) |
 
-**Próxima ação:** ao novo pedido do cliente, abrir a leva de conexões — primeira task: "Conectar a leitura dos dados do Omie" (SPEC-1-002, CA-O1/O2), com pré-condições CL-001 (acesso Omie) e acessos autorizados. Alternativa em paralelo: aprovar a matriz nominal de acesso real a partir do organograma para concessão às contas definitivas.
+## O que já está pronto e provado
+
+- Fundamento no Skip (coleções, provider, telas com fixtures e banner).
+- Acesso por área: login nativo, guarda de rotas, menu por perfil, autorização no servidor, revogação em sessão, logout limpo (T1–T8, 8/8).
+- Sync Omie (modo mock de homologação identificado; adapter real pronto atrás dos secrets): rotas sync/iniciar·pagina·estado, allowlist de consulta, lease 5min + geração, upsert idempotente por chave de origem, ativação atômica por lote, retry transitório em etapas separadas (2s/5s, máx. 3), falha nunca ativa nem inventa zero, recuperação conclui uma vez.
+
+**Próxima ação:** fornecer os insumos externos (CL-001, CL-002, matriz nominal) e/ou executar os testes humanos pendentes — não há task implementável sem eles.
