@@ -6,11 +6,11 @@
 - owner_informativo: desconhecido
 - spec: 04_fase-atual/specs/spec-1-001-acesso-por-area.md
 - analise: .adapta-cliente/analises/spec-1-001-ca-a2-a4.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada — 2026-10-08 11:37, "Pode implementar"
 - teste_humano: pendente
-- verificacao_automatica: pendente
-- aprendizado: pendente
-- ultima_acao: análise concluída — lacuna real identificada: CA-A4 (revogação durante a sessão, limpeza de logout, login/admin nativos) ainda sem prova formal; T1–T8 cobrem CA-A2/A3
-- proxima_acao: aguardar autorização para executar o plano de prova (reexecução + CA-A4)
-- atualizado_em: 2026-10-08T11:35:44-03:00
+- verificacao_automatica: passou — T1–T8 reexecutados 8/8; CA-A4: logout na UI limpa sessão (browser real), revogação durante a sessão → 403 na próxima consulta (token emitido antes, usado depois), health/admin 200; migrations temporárias com down reversível; estado final restaurado (perfil ativo); QA 0.0.14–0.0.17 ok
+- aprendizado: sem_sinal:provas sobre mecanismos já implementados, sem causa raiz nova
+- ultima_acao: provas CA-A2–A4 executadas e evidência gravada (evidencia-ca-a2-a4.md)
+- proxima_acao: aguardar teste humano (roteiro na evidência: 5 passos + botão voltar pós-logout)
+- atualizado_em: 2026-10-08T11:37:00-03:00
