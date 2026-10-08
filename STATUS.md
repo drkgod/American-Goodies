@@ -3,24 +3,26 @@
 # Status operacional
 
 **Fase atual:** 1 — Painel operacional integrado.  
-**Estado:** fundamento (SPEC-1-000) 3/3 aceito; acesso (SPEC-1-001) 3/3 aceito; conexões (SPEC-1-002): CA-O1/O2 e CA-O3/O4 implementadas e provadas + **reconciliação REAL com o Omie executada** (CL-001 recebido 13:19 — lote real de 1055 chaves ativo, amostra 3/3 batendo com PosicaoEstoque, credencial inválida sem retry provada; v0.0.18–0.0.32, QA ok) — **aguardando teste humano das três evidências**. Tasks restantes: SPEC-1-003 aguarda CL-002; SPEC-1-004/005 seguem após aceite da 002.  
+**Estado:** fundamento (SPEC-1-000) e acesso (SPEC-1-001) concluídos e aceitos; conexões Omie (SPEC-1-002) com **leitura REAL reconciliada** (v0.0.25–0.0.35): 22 páginas → lote ativo com **1055 produtos/locais reais** (= nTotRegistros do Omie), reconciliação de amostra 3/3, credencial inválida sem retry provada, recuperação de falha real confirmada — **aguardando teste humano**; tasks restantes bloqueadas por insumos externos.  
 **Repositório:** [drkgod/American-Goodies](https://github.com/drkgod/American-Goodies), privado, branch `main`.  
-**Ambiente:** Skip + MCP do Skip + Skip Cloud. **Fonte principal:** Omie (conectada em modo leitura).
+**Ambiente:** Skip + MCP do Skip + Skip Cloud. **Fonte principal:** Omie (CL-001 ✓ conectado).
 
-18 tasks: 6 concluídas (33,3%), 3 em andamento (implementadas/provadas, aguardando teste humano), 9 abertas.
+18 tasks: 6 concluídas (33,3%), 2 em andamento (implementadas com leitura real, aguardando teste humano), 10 abertas.
 
 ## Bloqueios ativos (com dono da resolução)
 
 | Bloqueio | Afeta | Quem resolve |
 |---|---|---|
-| **Teste humano pendente** — CA-O1/O2, CA-O3/O4 e reconciliação real (roteiros nas evidências) | Conclusão da SPEC-1-002 (3 tasks) | **Cliente/champion** |
+| **Teste humano** — CA-O1/O2 + CA-O3/O4 (roteiro em 05_entregas/fase-1/spec-1-002/) | Conclusão da SPEC-1-002 e liberação da task de conferência (a5b75aca) | **Cliente/champion** |
 | **CL-002** — acesso Nuvemshop | SPEC-1-003 (pedidos da loja) | **Cliente** |
-| **Matriz nominal** (CL-003) — aprovar contas Skip → áreas | Concessão de acesso real (hoje só perfis sintéticos) | **Cliente** |
+| **Matriz nominal** (CL-003) — aprovar contas Skip → áreas | Concessão de acesso real por pessoa | **Cliente** |
+
+~~CL-001~~ **RESOLVIDO 2026-10-08**: credenciais Omie registradas como secrets do projeto; integração real provada (contratos-omie.md atualizado com a conta real).
 
 ## O que já está pronto e provado
 
 - Fundamento no Skip (coleções, provider, telas com fixtures e banner).
 - Acesso por área: login nativo, guarda de rotas, menu por perfil, autorização no servidor, revogação em sessão, logout limpo (T1–T8, 8/8).
-- **Sync Omie REAL (leitura)**: rotas sync/iniciar·pagina·estado, allowlist de consulta, lease 5min + geração, upsert idempotente, ativação atômica por lote, retry transitório em etapas separadas (2s/5s, máx. 3), 401/403 sem retry, falha nunca ativa nem inventa zero; **lote real de 1055 produtos/locais reconciliado 3/3 com o Omie**; contrato em 07-sistemas/pcp/contratos-omie.md.
+- **Sync Omie REAL**: rotas sync/iniciar·pagina·estado, allowlist de consulta, lease 5min + geração, upsert idempotente por chave de origem, ativação atômica por lote, fim por metadatagem (nTotPaginas), retry transitório em etapas separadas (2s/5s, máx. 3), 401/403 sem retry, lote anterior intacto em falha, recuperação conclui uma vez. Lote real: 1055 itens reconciliados.
 
-**Próxima ação:** teste humano das evidências da SPEC-1-002 (05_entregas/fase-1/spec-1-002/) e fornecimento do CL-002 para a leva de pedidos.
+**Próxima ação:** teste humano da leitura real (Painel → Estoque, comparar item com o Omie) e/ou fornecer CL-002 — o cron de recuperação (4h, silencioso) retoma a fila sozinho quando o insumo chegar.
