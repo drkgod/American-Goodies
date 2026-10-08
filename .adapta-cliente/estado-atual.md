@@ -1,16 +1,17 @@
 # Estado atual — Adapta Cliente
 
 - schema_version: adapta-cliente-state/v2
-- task_id: 0641975b-95f9-4c91-8a2d-c607f1a25c31 (task "Exibir pedidos pendentes da Nuvemshop", SPEC-1-003, CA-N1/N2) — implementada e provada com dados REAIS
+- task_id: b0502049-e8d5-480b-b3c0-01b69a05c7a4 (task "Relacionar pedidos de canais sem duplicação", SPEC-1-003, CA-N3) — próxima da fila
 - executor: MCC (ETHOS)
 - owner_informativo: desconhecido
 - spec: 04_fase-atual/specs/spec-1-003-pedidos-nuvemshop.md
 - analise: .adapta-cliente/analises/spec-1-003-pedidos.md
-- etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada — 2026-10-08 11:48 ("continue e nao pergunte mais"); CL-002 recebido 13:40 e retomado sem novo pedido
-- teste_humano: pendente (SPEC-1-002 3 tasks + SPEC-1-003 task 1)
-- verificacao_automatica: passou — contrato Nuvemshop provado na conta real (auth header, paginação 200, 3343 pedidos/17 páginas); lote real ativado; classificação na precedência da SPEC: 277 pendentes, 369 cancelados, 2687 pagos sem vínculo, 10 voided não mapeados, vínculo 0 sem suposição (codigo_pedido_integracao vazio em amostra de 200 pedidos Omie); autorização 403 sem área; Omie intacto; v0.0.42 QA ok
-- aprendizado: sem_sinal:contratos já documentados na evidência
-- ultima_acao: pedidos pendentes implementados e provados (evidencia-pedidos-pendentes.md)
-- proxima_acao: teste humano; depois b0502049 (CA-N3 vínculo/crosswalk — depende de amostra com referência) e f2bda37f (transições/falha)
-- atualizado_em: 2026-10-08T14:05:00-03:00
+- etapa: aguardando_autorizacao (análise da CA-N3 em andamento)
+- autorizacao_implementacao: owner instruiu continuidade ("continue e nao pergunte mais", 11:48; "bora continuar", 14:26)
+- concluidas_neste_ciclo: f39ced9b, ce435e2a, a5b75aca (SPEC-1-002 3/3) e 0641975b (CA-N1/N2) — validadas pelo owner ("validado", 14:20) e revalidadas do zero (v0.0.43, 10/10 + health 200)
+- teste_humano: pendente para a próxima task (CA-N3)
+- verificacao_automatica: passou — BUG-2 goja corrigido (JSON.parse('') → undefined; fallback {}); conferência no lote novo: conferido 1055=1055 (kmlikeftsu429sj, geração 17); execução presa da geração 16 retomada e concluída na revalidação
+- aprendizado: candidato:06_notas/aprendizado-continuo/AP-2026-10-08-1400-goja-jsonparse-undefined.md
+- ultima_acao: 4 tasks concluídas e fase atualizada (10/18); CA-N3 em análise
+- proxima_acao: análise da CA-N3 (crosswalk/vínculo) — conta real sem codigo_pedido_integracao; lógica com fixtures, vínculo real fica 0 (honesto)
+- atualizado_em: 2026-10-08T14:30:00-03:00
