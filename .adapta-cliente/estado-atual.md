@@ -1,16 +1,16 @@
 # Estado atual — Adapta Cliente
 
 - schema_version: adapta-cliente-state/v2
-- task_id: a5b75aca-a22e-43bd-805b-e38ffc91f304 (task "Conferir a integração Omie com dados autorizados", SPEC-1-002, CA-O1–O4) — implementada e provada
+- task_id: 0641975b-95f9-4c91-8a2d-c607f1a25c31 (task "Exibir pedidos pendentes da Nuvemshop", SPEC-1-003, CA-N1/N2) — implementada e provada com dados REAIS
 - executor: MCC (ETHOS)
 - owner_informativo: desconhecido
-- spec: 04_fase-atual/specs/spec-1-002-leitura-omie.md
-- analise: .adapta-cliente/analises/spec-1-002-ca-o1-o2.md
+- spec: 04_fase-atual/specs/spec-1-003-pedidos-nuvemshop.md
+- analise: .adapta-cliente/analises/spec-1-003-pedidos.md
 - etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada — 2026-10-08 11:48 ("continue e nao pergunte mais"); CL-001 recebido 13:19
-- teste_humano: pendente (3 tasks da SPEC-1-002: CA-O1/O2, CA-O3/O4, a5b75aca)
-- verificacao_automatica: passou — conferência real 1055/1055 (lote bu8rlk4r0tpyznt, geracao 15); credencial inválida 403 sem retry; rate-limit REDUNDANT transitório (retry_1 → reconferido); timeout 15s provado; allowlist unificada; produtos não reconciliado (0 registros na conta); migration 0010; regressão T1–T8+SYNC+ESTADO-CONF todos passaram; health 200; v0.0.37 QA ok
-- aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-10-08-1330-omie-rate-limit-500.md
-- ultima_acao: conferência real concluída; evidência gravada; STATUS e fase atualizados
-- proxima_acao: nenhuma task implementável sem insumo — aguardar testes humanos (3 tasks da SPEC-1-002), CL-002 (Nuvemshop) e/ou povoamento do cadastro de produtos no Omie (SPEC-1-004)
-- atualizado_em: 2026-10-08T13:45:00-03:00
+- autorizacao_implementacao: confirmada — 2026-10-08 11:48 ("continue e nao pergunte mais"); CL-002 recebido 13:40 e retomado sem novo pedido
+- teste_humano: pendente (SPEC-1-002 3 tasks + SPEC-1-003 task 1)
+- verificacao_automatica: passou — contrato Nuvemshop provado na conta real (auth header, paginação 200, 3343 pedidos/17 páginas); lote real ativado; classificação na precedência da SPEC: 277 pendentes, 369 cancelados, 2687 pagos sem vínculo, 10 voided não mapeados, vínculo 0 sem suposição (codigo_pedido_integracao vazio em amostra de 200 pedidos Omie); autorização 403 sem área; Omie intacto; v0.0.42 QA ok
+- aprendizado: sem_sinal:contratos já documentados na evidência
+- ultima_acao: pedidos pendentes implementados e provados (evidencia-pedidos-pendentes.md)
+- proxima_acao: teste humano; depois b0502049 (CA-N3 vínculo/crosswalk — depende de amostra com referência) e f2bda37f (transições/falha)
+- atualizado_em: 2026-10-08T14:05:00-03:00
