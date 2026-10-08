@@ -41,7 +41,7 @@ tarefas que já têm um.
   > SPEC-1-000 (spec-1-000-fundamento-skip.md), CA-F1–F4. Provar navegação, contratos internos, estados vazio/erro e isolamento das fixtures; liberar as próximas levas somente após teste humano explícito. Antes de acesso e conectores; CL-001/002 não bloqueiam o fundamento. Evidência: 05_entregas/fase-1/spec-1-000/. Teste humano antes de avançar.
 
 
-- [/] Confirmar acessos e papéis [interno]  <!-- id:029ec0f7-b419-432d-b5de-5896097ea6a3 -->
+- [x] Confirmar acessos e papéis [interno]  <!-- id:029ec0f7-b419-432d-b5de-5896097ea6a3 -->
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A1. Registrar projeto Skip e matriz nominal de acesso aprovada, sem credenciais no arquivo; usar CL-003 e CL-004 como pré-condições. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
 - [ ] Proteger as telas e os dados por área [interno]  <!-- id:f79b943e-452f-4950-a694-891779eacc66 -->
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A2, CA-A3. Implementar autenticação nativa e proteção de rotas, coleções e consultas por área, respeitando a matriz aprovada. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
