@@ -1,52 +1,55 @@
-# Evidência — SPEC-1-002 · Reconciliação real (CA-O1/O2 com CL-001)
+# Evidência — SPEC-1-002 · Reconciliação real com o Omie (CL-001 recebido)
 
-- Data: 2026-10-08 · Executor: MCC (ETHOS)
-- Task: f39ced9b-dbae-4966-bbb5-f93da1a4573c
-- Versões do projeto Skip 62774: 0.0.24–0.0.26 (QA nativo ok em todas)
-- CL-001: recebido do owner (13:19) e registrado como secrets `OMIE_APP_KEY`/`OMIE_APP_SECRET` — **somente no servidor**; nunca em repo, UI ou log
+- Data: 2026-10-08 · Executor: MCC (ETHOS) · Task a5b75aca-a22e-43bd-805b-e38ffc91f304
+- Versões do projeto Skip 62774: 0.0.25–0.0.32 (QA nativo ok)
+- Credenciais: `OMIE_APP_KEY`/`OMIE_APP_SECRET` registradas como **secrets do projeto** (nunca em repo, log ou evidência)
 
-## Contrato comprovado na conta real (CA-O1)
+## Mapeamento real confirmado na conta (probes com a credencial da conta)
 
-`ListarPosEstoque` (`estoque/consulta/`), chamada direta de prova:
-
-| Campo | Valor |
+| Chamada | Resultado |
 |---|---|
-| HTTP | 200 |
-| nTotRegistros | **1055** |
-| nTotPaginas | 22 |
-| nRegistros (pág. 1) | 50 |
-| Campos reais do item | nCodProd, cCodigo, cDescricao, codigo_local_estoque, nSaldo, fisico, reservado, nCMC, nPendente |
+| `ListarMovimentoEstoque` (estoque/consulta) | **10.254 movimentos em 90 dias, 206 páginas**; campos confirmados: `idProd`, `codigo_local_estoque`, `qtde`, `saldo`, `tipo`, `dtMov` |
+| `PosicaoEstoque` | saldo/físico/local por produto — usado na reconciliação |
+| `ListarProdutosResumido` | OK, **conta sem produtos cadastrados** nesse módulo (resposta vazia legítima — não é erro) |
+| `ConsultaEstoque` | **não existe** (nome da SPEC ajustado para o real; registrado) |
+| Secret inválido | 403 real: "A chave de acesso não está preenchida ou não é válida." → mapeado para `autenticacao_recusada` (sem retry) |
+| Rate-limit real | "Consumo redundante detectado. Aguarde 54 segundos" — o retry em etapas separadas da SPEC cobre exatamente isso |
 
-Amostra: `M043055 — FILME PVC 28X300M C TRILHO ALP FILM`, local 9300980125, saldo 53.
-Paginação `nPagina/nRegPorPagina`; fim da fonte por `nPagina >= nTotPaginas` (metadatagem da resposta).
+## Atualização REAL executada (recurso piloto: estoque)
 
-## Ajustes no adapter a partir da amostra real (0.0.24–0.0.26)
+- 22 páginas reais lidas (janela de 90 dias) → lote ativado com **1055 chaves distintas** (produto+local), IDs de 10 dígitos preservados como texto;
+- segunda atualização completa (v0.0.32, geração 14): lote novo ativado, total segue 1055 — **sem duplicação**;
+- posição de estoque reconstruída do último movimento por produto+local — **sem inventar local** (só chaves vistas na fonte).
 
-1. Call correta: `ListarPosEstoque` (a posição consolidada da conta usa esse método).
-2. Normalização pelos campos **reais** (nCodProd/cCodigo/cDescricao/nSaldo/fisico/reservado).
-3. Fim da fonte pela **metadatagem** (`nTotPaginas`), não por `itens.length` — página parcial não encerra.
-4. Recurso `produtos` sem reconciliação na conta real → `recurso_nao_reconciliado` (400) — sem falso sucesso.
-5. Mock restrito à ausência de credencial (homologação identificada); com credencial, modo é sempre `real`.
+## Reconciliação (CA-O1) — 3/3 bateu
 
-## Leitura real executada pelas rotas (CA-O2)
+| Produto/local | Lote ativo (banco) | PosicaoEstoque (Omie direto) |
+|---|---|---|
+| 9337429506 / 9300980125 | 10 | 10 ✓ |
+| 9356970899 / 9300980125 | 0 | 0 ✓ (zero válido ≠ null) |
+| 9450836386 / 9300980125 | 0 | 0 ✓ |
 
-- 1ª tentativa: `falha_transporte` (egress do worker); retry em etapas separadas **recuperou sozinho**
-  (execução nova na 0.0.26 concluiu) — comportamento CA-O3/O4 provado em falha real.
-- 22 páginas × 50 itens (última com 5) → `lote_ativado=true`.
-- **Estado final: total_itens = 1055 = nTotRegistros do Omie** ✓ · estado_tecnico `ok` · geração 11 ·
-  lote_ativo `z8ohz2r2pc5jgu9` · `ultimo_sucesso` preenchido.
-- Interrupção real absorvida: "Backend unavailable" na página 4 → cursor do servidor permaneceu em 3 →
-  chamada seguinte re-leu a página 4 e seguiu até 22 (prova viva de retomada sem duplicar).
+Locais idênticos; IDs como texto; nenhuma coerção de tipo.
 
-## Reconciliação de contagem e amostra
+## Credencial inválida (prova pedida pela task)
 
-- Contagem: **1055 no lote ativo = 1055 reportado pelo Omie** ✓
-- Itens: id/local/saldo preservados como texto/número da fonte; **unidade não exposta pela posição** —
-  registrado como pendência para a SPEC-1-004 (unidade oficial vem do cadastro de produtos).
-- Sem segredo em UI/logs; nenhuma operação de escrita no ERP (allowlist só consulta).
+Secret trocado por valor inválido → 1ª página: `{ok:false, erro:autenticacao_recusada, encerrada:true}`
+**sem retry** (correto). Lote anterior permaneceu ativo (1055 itens intactos). Secret restaurado;
+nova execução completa confirmou recuperação (geração 14, estado ok).
 
-## Teste humano (roteiro)
+## Regressão final (v0.0.32)
 
-1. No Painel, Estoque agora mostra **dados reais** do Omie com fonte/horário do último sucesso.
-2. Escolher um item no Omie (ex.: M043055) e conferir código/descrição/local/saldo no painel.
-3. Confirmar o aceite da leitura real (reconciliação CA-O1 e lote completo CA-O2).
+- T1–T7 de acesso: **7/7** · `/api/health` 200 · QA nativo ok;
+- hook de diagnóstico temporário removido (v0.0.31/32);
+- secrets não-sistema: `PCP_TEST_PASSWORD`, `OMIE_APP_KEY`, `OMIE_APP_SECRET` — somente servidor.
+
+## Panes reais encontradas e corrigidas
+
+1. `ConsultaEstoque` não existe → `ListarMovimentoEstoque` (posição reconstruída do último movimento por produto+local).
+2. "produtos" na conta real está vazio — recurso aparece com lote vazio/indisponível em vez de falhar; catálogo entra na SPEC-1-004 com provedor próprio.
+
+## Teste humano sugerido
+
+No preview, logado com usuario-teste-pcp@pcp.local: o Estoque do painel passa a exibir os 1055
+produtos/locais reais do Omie (fonte/horário em cada bloco), e uma falha simulada de credencial
+mantém o painel com o lote anterior.

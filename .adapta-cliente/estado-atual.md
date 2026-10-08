@@ -1,16 +1,16 @@
 # Estado atual — Adapta Cliente
 
 - schema_version: adapta-cliente-state/v2
-- task_id: f39ced9b-dbae-4966-bbb5-f93da1a4573c (task "Conectar a leitura dos dados do Omie", SPEC-1-002, CA-O1/O2) — implementada com leitura REAL reconciliada
+- task_id: a5b75aca-a22e-43bd-805b-e38ffc91f304 (task "Conferir a integração Omie com dados autorizados", SPEC-1-002, CA-O1–O4)
 - executor: MCC (ETHOS)
-- owner_informativo: desconhecido
+- owner_informativo: Mr Cheney
 - spec: 04_fase-atual/specs/spec-1-002-leitura-omie.md
 - analise: .adapta-cliente/analises/spec-1-002-ca-o1-o2.md
 - etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada — 2026-10-08 11:48 ("continue e nao pergunte mais"); CL-001 recebido 13:19 e retomado sem novo pedido
-- teste_humano: pendente (roteiro na evidência de reconciliação real)
-- verificacao_automatica: passou — contrato provado na conta real (ListarPosEstoque, 1055 registros/22 páginas); leitura real pelas rotas com 22 páginas → lote ativo com 1055 itens (= nTotRegistros); falha_transporte e Backend unavailable absorvidos por retry/cursor do servidor; fim por metadatagem (nTotPaginas); produtos não reconciliado → 400; v0.0.26 QA ok; secrets só no servidor
-- aprendizado: candidato:06_notas/aprendizado-continuo/AP-2026-10-08-1300-fim-por-metadatagem.md
-- ultima_acao: reconciliação real concluída (1055/1055); evidência gravada (evidencia-reconciliacao-real.md)
-- proxima_acao: teste humano da leitura real; task a5b75aca (CA-O1–O4 completo) segue após aceite
-- atualizado_em: 2026-10-08T13:35:00-03:00
+- autorizacao_implementacao: confirmada — 2026-10-08 11:48 ("continue e nao pergunte mais") + 13:19 ("continue" com CL-001)
+- teste_humano: pendente (CA-O1/O2, CA-O3/O4 e reconciliação real; roteiros nas evidências)
+- verificacao_automatica: passou — CL-001 recebido; mapeamento real confirmado na conta (ListarMovimentoEstoque 10.254 mov/90d; PosicaoEstoque; ListarProdutosResumido; ConsultaEstoque não existe); atualização real estoque 22 páginas → lote 1055 chaves; reconciliação 3/3 (10=10, 0=0, 0=0); credencial inválida sem retry com lote anterior intacto; 2ª atualização completa sem duplicar (geração 14); regressão T1–T7 7/7; health 200; v0.0.32 QA ok; diag temporário removido
+- aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-10-08-1620-omie-egress.md
+- ultima_acao: reconciliação real executada e provada; evidência gravada
+- proxima_acao: teste humano das três evidências da SPEC-1-002; depois SPEC-1-003 (Nuvemshop — aguarda CL-002) e SPEC-1-004 (catálogo — recursos próprios)
+- atualizado_em: 2026-10-08T16:32:00-03:00
