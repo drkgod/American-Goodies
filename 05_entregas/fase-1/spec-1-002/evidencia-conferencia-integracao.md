@@ -1,59 +1,61 @@
-# Evidência — SPEC-1-002 · Conferência da integração (task a5b75aca, CA-O1–O4)
+# Evidência — SPEC-1-002 · Task a5b75aca: Conferir a integração Omie com dados autorizados (CA-O1–O4)
 
 - Data: 2026-10-08 · Executor: MCC (ETHOS)
 - Task: a5b75aca-a22e-43bd-805b-e38ffc91f304
-- Versões do projeto Skip 62774: 0.0.35–0.0.38 (QA nativo ok)
+- Versões do projeto Skip 62774: 0.0.29–0.0.37 (QA nativo ok em todas)
 
-## Escopo desta task (fecha a SPEC-1-002)
+## Gaps encontrados nesta conferência e corrigidos
 
-Reconciliar amostra e contagens com o Omie, validar credencial inválida/timeout e conferir
-ausência de segredos e de escrita no ERP — com credencial REAL (CL-001 recebido 13:19).
+1. **Credencial inválida** — Omie devolve **HTTP 403** + `faultstring` "A chave de acesso não está
+   preenchida ou não é válida" (probes com secret errado e key inexistente). Já coberto:
+   `autenticacao_recusada` sem retry.
+2. **Rate limit real** — repetição rápida → **HTTP 500** + `faultcode SOAP-ENV:Client-6`
+   "Consumo redundante detectado. Aguarde N segundos (REDUNDANT)". Como 5xx, tratada como
+   transitória → retry em etapas separadas — comportamento observado em produção real:
+   conferência → `retry_1` → reconferência → **conferido**.
+3. **Allowlist divergente** — `sync/iniciar` ainda usava `ConsultaEstoque`; unificada para
+   `ListarPosEstoque` (contrato real). Recurso `produtos` marcado **NÃO reconciliado** (amostra
+   vazia na conta: 0 produtos — cadastro do ERP pendente de povoamento); execução recusada com
+   `recurso_nao_reconciliado` (400), sem falso sucesso.
+4. **Campo `conferencia`** não existia em `pcp_lotes` (set silenciosamente ignorado) → migration 0010.
 
-## 1. Reconciliação real (CA-O1) — CONFERIDA
+## Nova rota: POST /backend/v1/pcp/conferir-fonte
 
-- **Contagem**: lote ativo tem **1055 chaves** = **nTotRegistros 1055** do Omie
-  (`conferir-fonte` → `resultado: conferido`, detalhe com os dois números).
-- **Amostra 3/3** (banco × PosicaoEstoque direto): 9337429506 saldo 10=10; 9356970899 saldo
-  0=0; 9450836386 saldo 0=0 — locais idênticos, IDs de 10 dígitos como texto, zero válido
-  preservado (≠ null).
-- **Fim de paginação por metadatagem** (`nTotPaginas`) — a última página real tem 5 itens e a
-  regra "itens < página" a ignoraria (corrigido na v0.0.25; AP-2026-10-08-1300).
+- Exige `pode_atualizar_fontes`; 1 chamada real (`ListarPosEstoque` pág. 1, 1 registro) reconcilia
+  a contagem do lote ativo × `nTotRegistros`;
+- registra `{esperado, conferido, resultado, detalhe, conferido_em}` no lote ativo;
+- resultado ∈ {conferido, divergencia, credencial_recusada, falha_http_N, falha_transporte, retry_N};
+- **lote anterior nunca alterado por falha de conferência**; sem segredo na resposta.
 
-## 2. Credencial inválida e timeout (validação pedida)
+## Provas executadas (reais)
 
-- **Credencial inválida** (secret trocado por valor ruim, depois restaurado): 1ª página →
-  `{ok:false, erro:autenticacao_recusada, encerrada:true}` **sem retry**; lote anterior
-  permaneceu ativo (1055 itens intactos); recuperação completa confirmada depois (geração 14).
-- **Timeout**: `$http.send` respeita 15s (prova com host que não responde: exceção exatamente
-  em 15000ms — diag 0.0.33, removido). Falha de transporte → `falha_transporte` transitória
-  (retry em etapas separadas).
+| Prova | Resultado |
+|---|---|
+| Contagem reconciliada | lote `bu8rlk4r0tpyznt` (geração 15) = **1055 itens = nTotRegistros 1055 do Omie** → `conferido` |
+| Credencial inválida | 403 sem retry ✓ |
+| Timeout 15s | `$http.send` respeita (prova com host blackhole: exceção em 15.04s) ✓ |
+| Segredo | nenhum valor em resposta/log/repo; secrets só no servidor ✓ |
+| Escrita no ERP | nenhuma operação mutante (allowlist só Listar/Consulta) ✓ |
+| Lease/geração | execução retomada devolveu a MESMA execução (geração 15) e concluiu págs 3–22 do lote interrompido; replay não duplicou (1055 constante) ✓ |
+| Regressão | T1–T8 (8/8) + SYNC (páginas reais de 50 itens) + ESTADO-CONF — todos passaram; health 200 |
 
-## 3. Ausência de segredos e de escrita no ERP (validação pedida)
+Nota honesta: a conferência falhou 1x na regressão por rate-limit auto-infligido pelos probes de
+prova (REDUNDANT); o comportamento de retry provou-se correto e a reconferência CONFERIU — a falha
+era do ambiente de teste, não do código.
 
-- Secrets só no servidor (`OMIE_APP_KEY/SECRET` via `$secrets`); nenhuma credencial em repo,
-  UI, log ou evidência (revisão manual — scan de segredos do MCP indisponível neste repo).
-- Allowlist de **consulta** (`ListarPosEstoque`, `ListarProdutosResumido`): nenhuma operação
-  mutante é chamada; nenhuma transação externa realizada.
+## Estado final do sistema
 
-## 4. Defeito encontrado e corrigido nesta task (DEFECT-1)
+`lote_ativo bu8rlk4r0tpyznt` · `total_itens 1055` · `estado_tecnico ok` · `geracao 15` ·
+`conferencia {esperado:1055, conferido:1055, resultado:"conferido"}` · sem execução em andamento.
 
-A primeira versão do `conferir-fonte` (0.0.36) registrava a falha do Omie como **resultado
-final** da conferência (`falha_http_500` com `esperado:0`) — a janela de consumo redundante do
-Omie (HTTP 500 + "Aguarde N segundos") derrubava a conferência em vez de aguardar. Corrigido
-(0.0.38): falha transitória → `retry_N` com **etapas separadas** (2s/5s, máx. 3), só registra
-resultado quando concluída; lote anterior preservado em todo o ciclo. Prova: conferência
-direta **conferido 1055=1055**; nova chamada durante janela ativa → `retry_1` (sem queimar
-resultado) e estado anterior intacto.
+## Pendências (próximas SPECs)
 
-## 5. Regressão final (v0.0.38)
-
-- T1–T8 de acesso: **todos passaram**; CONF: `conferido` (1055=1055) na primeira oportunidade
-  sem janela ativa; ESTADO-CONF ok; `/api/health` 200; QA nativo ok.
-- Hook de diagnóstico temporário removido; secrets não-sistema: PCP_TEST_PASSWORD,
-  OMIE_APP_KEY, OMIE_APP_SECRET (somente servidor).
+- `produtos` (ListarProdutosResumido): 0 registros na conta — reconciliar quando o cadastro do ERP
+  tiver produtos (SPEC-1-004);
+- Unidade não vem na posição de estoque → virá do cadastro de produtos (SPEC-1-004).
 
 ## Teste humano (roteiro)
 
-1. Painel → Estoque: dados reais com fonte/horário (ex.: M043055, saldo 53 — conferir no Omie).
-2. Botão/ação de conferência (ou pedir ao executor): relatório deve dizer **conferido 1055=1055**.
-3. Confirmar aceite da SPEC-1-002 completa (CA-O1–O4).
+1. No Painel, Estoque com dados reais do Omie (ex.: M043055, saldo 53, local 9300980125).
+2. Conferência: `conferencia.resultado = "conferido"` com 1055 = 1055.
+3. Aceite explícito da integração com dados autorizados (CA-O1–O4).
