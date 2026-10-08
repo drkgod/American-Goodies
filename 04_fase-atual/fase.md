@@ -59,11 +59,11 @@ tarefas que já têm um.
   > SPEC-1-003 (spec-1-003-pedidos-nuvemshop.md), CA-N3. Vincular somente por referência de integração comprovada; preservar conflito e pedidos manuais sem tentar combinar apenas por cliente/valor. Pré-condições: acesso e pedidos Omie aceitos, CL-002; respeitar precedência de status e referência comprovada. Evidência em 05_entregas/fase-1/spec-1-003/.
 - [x] Testar pagamento pendente e falha do canal [interno]  <!-- id:f2bda37f-9ce6-4014-a8d7-152e7e313fba -->
   > SPEC-1-003 (spec-1-003-pedidos-nuvemshop.md), CA-N1–N4. Provar transições pago/não pago/cancelado, loja própria via Omie, referência ausente e indisponibilidade sem ocultar pedidos oficiais. Pré-condições: acesso e pedidos Omie aceitos, CL-002; respeitar precedência de status e referência comprovada. Evidência em 05_entregas/fase-1/spec-1-003/.
-- [ ] Exibir catálogo e fichas técnicas do Omie [interno]  <!-- id:8352cecc-0dee-41d0-a445-5751127dbe55 -->
+- [x] Exibir catálogo e fichas técnicas do Omie [interno]  <!-- id:8352cecc-0dee-41d0-a445-5751127dbe55 -->
   > SPEC-1-004 (spec-1-004-catalogo-operacional.md), CA-C1, CA-C2. Exibir produtos, unidade oficial, local e ficha técnica importados, com origem/horário e sem editar o mestre. Pré-condições: acesso e recursos de catálogo Omie aceitos; não criar receita, unidade ou conversão. Evidência em 05_entregas/fase-1/spec-1-004/.
-- [ ] Sinalizar cadastros e unidades incompletos [interno]  <!-- id:ece1553b-6cd1-4cb6-8030-840353c172a5 -->
+- [x] Sinalizar cadastros e unidades incompletos [interno]  <!-- id:ece1553b-6cd1-4cb6-8030-840353c172a5 -->
   > SPEC-1-004 (spec-1-004-catalogo-operacional.md), CA-C3. Diferenciar produto inativo, ficha ausente e unidade incompatível; preservar dados e impedir conversão/cálculo inventados. Pré-condições: acesso e recursos de catálogo Omie aceitos; não criar receita, unidade ou conversão. Evidência em 05_entregas/fase-1/spec-1-004/.
-- [ ] Conferir a atualização do catálogo [interno]  <!-- id:0113090a-8cf4-419e-bcc7-1b7b2986d1ce -->
+- [x] Conferir a atualização do catálogo [interno]  <!-- id:0113090a-8cf4-419e-bcc7-1b7b2986d1ce -->
   > SPEC-1-004 (spec-1-004-catalogo-operacional.md), CA-C1–C4. Comparar amostra com Omie, repetir lote e testar desativação/ficha ausente/ID longo; registrar prova e obter validação humana. Pré-condições: acesso e recursos de catálogo Omie aceitos; não criar receita, unidade ou conversão. Evidência em 05_entregas/fase-1/spec-1-004/.
 - [ ] Publicar o painel diário por área [interno]  <!-- id:ee794334-224f-4066-9d75-8c42e7fc2306 -->
   > SPEC-1-005 (spec-1-005-painel-diario.md), CA-P1, CA-P2. Montar a visão diária no Skip com estoque, produção, compras e pedidos; aplicar filtros e permissões às linhas e totais. Pré-condições: SPECs anteriores com prova/aceite; não desenvolver capacidade de outra fase. Evidência em 05_entregas/fase-1/spec-1-005/.
