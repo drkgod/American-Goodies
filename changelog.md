@@ -1,5 +1,9 @@
 # Changelog operacional
 
+## 2026-10-08
+
+- 2026-10-08 · [MCC/ETHOS] · Task "Confirmar acessos e papéis" (SPEC-1-001, CA-A1) implementada em Plano B autorizado pelo cliente ("Rota B — perfis sintéticos", 10:41): mapa do projeto Skip 62774 e perfis sintéticos de teste registrados em 07-sistemas/pcp/acessos.md, matriz CL-003 marcada PENDENTE — sem concessão real, sem código alterado. Evidência: 05_entregas/fase-1/spec-1-001/evidencia-ca-a1-plano-b.md. Aguardando teste humano.
+
 ## 2026-10-01
 
 - 2026-10-01 · [MCC/ETHOS] · Task "Conferir o fundamento antes das conexões" (SPEC-1-000, CA-F1–F4) concluída: provas re-executadas do zero (migrations applied, coleções com regras/índices corretos, testes GREEN, rastreio de rede de runtime sem chamada a Omie/Nuvemshop, zero fixture ativa). Relatório consolidado: 05_entregas/fase-1/spec-1-000/conferencia-fundamento.md. Teste humano confirmado por Mr Cheney ("certo, pode concluir", 15:23). **Leva de fundamento aceita; leva de acesso liberada.**

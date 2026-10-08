@@ -6,11 +6,11 @@
 - owner_informativo: desconhecido
 - spec: 04_fase-atual/specs/spec-1-001-acesso-por-area.md
 - analise: .adapta-cliente/analises/spec-1-001-ca-a1.md
-- etapa: bloqueada
-- autorizacao_implementacao: ausente
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada — 2026-10-08 10:41 BRT, formulário "Rota B — Plano B com perfis sintéticos"
 - teste_humano: pendente
-- verificacao_automatica: pendente
-- aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-10-01-1515-migration-formato-qa.md
-- ultima_acao: análise da task CA-A1 concluída; pré-condição CL-003 (matriz de acesso aprovada) não recebida — bloqueio declarado pela SPEC
-- proxima_acao: aguardar decisão do cliente — fornecer matriz de acesso (rota A) ou autorizar Plano B com perfis sintéticos
-- atualizado_em: 2026-10-01T15:30:00-03:00
+- verificacao_automatica: passou — conferência Skip MCP (coleções/migrations batem com fundamento.md); scan de segredos indisponível no repo (revisão manual); sem código alterado
+- aprendizado: sem_sinal:registro documental do Plano B, sem causa raiz nova; cron pode reavaliar
+- ultima_acao: registro do mapa do projeto Skip 62774 e dos perfis sintéticos em 07-sistemas/pcp/acessos.md + evidência, estado, changelog e STATUS atualizados
+- proxima_acao: aguardar teste humano — conferir 07-sistemas/pcp/acessos.md
+- atualizado_em: 2026-10-08T10:48:09-03:00
