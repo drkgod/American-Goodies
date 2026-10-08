@@ -47,9 +47,9 @@ tarefas que já têm um.
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A2, CA-A3. Implementar autenticação nativa e proteção de rotas, coleções e consultas por área, respeitando a matriz aprovada. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
 - [x] Testar login e restrições de acesso [interno]  <!-- id:db079721-3633-4a14-8143-2be82cedd333 -->
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A2–A4. Testar acesso permitido, usuário sem papel, sessão expirada e tentativa de alteração do próprio perfil; registrar prova e obter teste humano. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
-- [ ] Conectar a leitura dos dados do Omie [interno]  <!-- id:f39ced9b-dbae-4966-bbb5-f93da1a4573c -->
+- [/] Conectar a leitura dos dados do Omie [interno]  <!-- id:f39ced9b-dbae-4966-bbb5-f93da1a4573c -->
   > SPEC-1-002 (spec-1-002-leitura-omie.md), CA-O1, CA-O2. Usar o backend Skip Cloud e os acessos autorizados para ler recursos Omie; registrar contratos/mapeamentos e uma atualização completa de teste. Pré-condição: acesso aceito e CL-001; respeitar lease/geração, chaves e autorização no servidor. Evidência em 05_entregas/fase-1/spec-1-002/.
-- [ ] Recuperar atualizações interrompidas do Omie [interno]  <!-- id:ce435e2a-d6ae-4124-9e1e-4e67528dd1e8 -->
+- [/] Recuperar atualizações interrompidas do Omie [interno]  <!-- id:ce435e2a-d6ae-4124-9e1e-4e67528dd1e8 -->
   > SPEC-1-002 (spec-1-002-leitura-omie.md), CA-O3, CA-O4. Preservar último lote válido, tratar falha/paginação/repetição e retomar sem duplicar registros ou chamar operações transacionais. Pré-condição: acesso aceito e CL-001; respeitar lease/geração, chaves e autorização no servidor. Evidência em 05_entregas/fase-1/spec-1-002/.
 - [ ] Conferir a integração Omie com dados autorizados [interno]  <!-- id:a5b75aca-a22e-43bd-805b-e38ffc91f304 -->
   > SPEC-1-002 (spec-1-002-leitura-omie.md), CA-O1–O4. Reconciliar amostra e contagens com o Omie, validar timeout/credencial inválida e conferir ausência de segredos e escrita no ERP. Pré-condição: acesso aceito e CL-001; respeitar lease/geração, chaves e autorização no servidor. Evidência em 05_entregas/fase-1/spec-1-002/.
