@@ -1,8 +1,8 @@
 # Relatório — SPEC-1-005 · Task 0b045738: Validar o painel com a equipe (CA-P1–P5)
 
 - Data: 2026-10-08 · Executor: MCC (ETHOS)
-- Task: 0b045738-b6a1-4188-8f22-9bc230fa2cd3 — **em andamento**: regressão integrada CONCLUÍDA (8/8); demonstração com a equipe + aceite humano pendentes (gate final da Fase 1)
-- Versão do projeto Skip 62774: 0.0.58
+- Task: 0b045738-b6a1-4188-8f22-9bc230fa2cd3 — **em andamento**: regressão integrada 8/8 + ensaio de UI em navegador real CONCLUÍDOS; demonstração com a equipe + aceite humano pendentes (gate final da Fase 1)
+- Versão do projeto Skip 62774: 0.0.59
 
 ## Bateria de regressão integrada (R1–R8, 8/8, executada em runtime contra o backend 0.0.58)
 
@@ -20,9 +20,21 @@
 **Conclusão da regressão**: os números aceitos em cada SPEC permanecem idênticos após todas as
 implementações subsequentes — zero-regressão da Fase 1.
 
+## Ensaio de UI em navegador real (preview 0.0.59)
+
+- Login nativo com usuário de teste → menu por área ✓
+- **Painel**: 4 blocos renderizados — estoque 1057 linhas com M043055 = 53 UN visível na
+  tabela; produção/compras com bloqueio explícito; pedidos (oficiais 5393 + canal
+  270/2647/44/373/10) com fonte/lote/último sucesso em cada bloco ✓
+- **Filtro pela UI**: item M043055 → "Estoque — 1 linha(s)" com saldo 53 UN ✓
+- **Catálogo**: estado explícito de cadastro vazio ("Lote ativo sem produtos (cadastro vazio
+  na origem)") ✓
+- **Home**: placeholder do template substituído por página de entrada com atalhos (v0.0.59) ✓
+- **Logout**: sessão limpa, retorno ao login ✓
+
 ## Roteiro de demonstração integrada (para a equipe — ~15 min)
 
-1. **Login** (usuário do teste) → menu por área.
+1. **Login** (usuário do teste) → home com atalhos e menu por área.
 2. **Painel**: 4 blocos — Estoque 1.057 linhas (resumo por UN); Produção/Compras bloqueados
    com aviso "fonte não integrada na Fase 1"; Pedidos (oficiais 5.393 por ID + canal
    270/2.647/44/373/10). Conferir fonte/lote/último sucesso em cada bloco.
