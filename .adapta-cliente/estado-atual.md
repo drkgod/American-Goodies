@@ -1,13 +1,14 @@
 # Estado atual — Adapta Cliente
 
 - schema_version: adapta-cliente-state/v2
-- task_id: 0b045738-b6a1-4188-8f22-9bc230fa2cd3 (task "Validar o painel com a equipe", SPEC-1-005, CA-P1–P5) — EM ANDAMENTO: regressão 8/8 + ensaio de UI concluídos; demonstração/aceite humano pendentes
+- task_id: nenhuma — FASE 1 CONCLUÍDA E VALIDADA pelo owner ("validado", 18:23); 18/18 tasks
 - executor: MCC (ETHOS)
-- owner_informativo: Mr Cheney ("continue", 18:17)
-- spec: 04_fase-atual/specs/spec-1-005-painel-diario.md
-- etapa: aguardando_teste_humano (roteiro + ensaio prontos em 05_entregas/fase-1/spec-1-005/relatorio-validacao-integrada.md)
-- verificacao_automatica: passou — R1–R8 8/8 (health, perfil, fontes, visão, catálogo, conferências, painel, amostra M043055=53UN); ensaio de UI em navegador real (login, painel com 4 blocos, filtro M043055→1 linha/53UN, catálogo explícito, home corrigida v0.0.59, logout)
-- gate: aceite humano da equipe (sem marcar por silêncio — regra da SPEC)
-- ultima_acao: ensaio de UI aprovado + home do template substituída (v0.0.59)
-- proxima_acao: demonstração com a equipe → aceite explícito → Fase 1 concluída (18/18)
-- atualizado_em: 2026-10-08T18:35:00-03:00
+- owner_informativo: Mr Cheney
+- etapa: concluida
+- fase: Fase 1 (Painel operacional integrado) — 5 SPECs com evidência e aceite; regressão R1–R8 8/8; ensaio de UI aprovado; amostra M043055 = 53 UN consistente com o aceite original
+- pendencias_herdadas: povoar cadastro de produtos no Omie (catálogo lista automaticamente); matriz nominal CL-003 (contas reais por pessoa/área); ficha técnica (contrato não exposto pela API); publicar em produção (preview aprovado)
+- verificacao_automatica: passou — health 200, fontes ok (3344/1057/5393/0), amostra M043055 = 53 UN na revalidação final
+- aprendizado: registrado em 06_notas/aprendizado-continuo/ (AP-2026-10-01 migrations/QA; AP-2026-10-08-1130 goja filter params; AP-2026-10-08-1300 fim por metadatagem; AP-2026-10-08-1305 rate-limit como transitório; AP-2026-10-08-1400 JSON.parse(''); AP-2026-10-08-1520 cursor/retomada; AP-2026-10-08-2052 goja sem object spread; correção da tese de referência por amostra pequena)
+- ultima_acao: aceite final registrado; fase.md 18/18; STATUS e changelog atualizados; pendências herdadas viraram tasks abertas da próxima leva
+- proxima_acao: aguardar pedido do cliente para a próxima fase (não iniciar automaticamente — regra do handoff)
+- atualizado_em: 2026-10-08T18:40:00-03:00

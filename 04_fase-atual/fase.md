@@ -65,9 +65,13 @@ tarefas que já têm um.
   > SPEC-1-004 (spec-1-004-catalogo-operacional.md), CA-C3. Diferenciar produto inativo, ficha ausente e unidade incompatível; preservar dados e impedir conversão/cálculo inventados. Pré-condições: acesso e recursos de catálogo Omie aceitos; não criar receita, unidade ou conversão. Evidência em 05_entregas/fase-1/spec-1-004/.
 - [x] Conferir a atualização do catálogo [interno]  <!-- id:0113090a-8cf4-419e-bcc7-1b7b2986d1ce -->
   > SPEC-1-004 (spec-1-004-catalogo-operacional.md), CA-C1–C4. Comparar amostra com Omie, repetir lote e testar desativação/ficha ausente/ID longo; registrar prova e obter validação humana. Pré-condições: acesso e recursos de catálogo Omie aceitos; não criar receita, unidade ou conversão. Evidência em 05_entregas/fase-1/spec-1-004/.
-- [ ] Publicar o painel diário por área [interno]  <!-- id:ee794334-224f-4066-9d75-8c42e7fc2306 -->
+- [x] Publicar o painel diário por área [interno]  <!-- id:ee794334-224f-4066-9d75-8c42e7fc2306 -->
   > SPEC-1-005 (spec-1-005-painel-diario.md), CA-P1, CA-P2. Montar a visão diária no Skip com estoque, produção, compras e pedidos; aplicar filtros e permissões às linhas e totais. Pré-condições: SPECs anteriores com prova/aceite; não desenvolver capacidade de outra fase. Evidência em 05_entregas/fase-1/spec-1-005/.
-- [ ] Mostrar atualização e falhas em cada bloco [interno]  <!-- id:ca5ece04-40ed-4c93-8fa4-1e0875505fbe -->
+- [x] Mostrar atualização e falhas em cada bloco [interno]  <!-- id:ca5ece04-40ed-4c93-8fa4-1e0875505fbe -->
   > SPEC-1-005 (spec-1-005-painel-diario.md), CA-P3, CA-P4. Exibir fonte, último sucesso, falha e ausência de dado; preservar snapshots e distinguir zero válido, indisponível e lote antigo. Pré-condições: SPECs anteriores com prova/aceite; não desenvolver capacidade de outra fase. Evidência em 05_entregas/fase-1/spec-1-005/.
-- [ ] Validar o painel com a equipe [interno]  <!-- id:0b045738-b6a1-4188-8f22-9bc230fa2cd3 -->
-  > SPEC-1-005 (spec-1-005-painel-diario.md), CA-P1–P5. Executar a demonstração integrada e regressão da Fase 1, comparar amostras autorizadas e registrar aceite humano sem marcar tasks por silêncio. Pré-condições: SPECs anteriores com prova/aceite; não desenvolver capacidade de outra fase. Evidência em 05_entregas/fase-1/spec-1-005/.
+- [x] Validar o painel com a equipe [interno]  <!-- id:0b045738-b6a1-4188-8f22-9bc230fa2cd3 -->
+  > SPEC-1-005 (spec-1-005-painel-diario.md), CA-P1–P5. Executar a demonstração integrada e regressão da Fase 1, comparar amostras autorizadas e registrar aceite humano sem marcar tasks por silêncio. Pré-condições: SPECs anteriores com prova/aceite; não desenvolver capacidade de outra fase. Evidência em 05_entregas/fase-1/spec-1-005/. — **VALIDADO pelo owner ("validado", 18:23) após regressão 8/8, ensaio de UI e roteiro de demonstração.**
+- [ ] Povoar o cadastro de produtos no ERP [interno]
+  > Pendência herdada da SPEC-1-004: recurso produtos com 0 registros na conta. Catálogo/saldos por produto passam a listar automaticamente quando o cadastro for povoado no Omie (sem mudança de código). Pré-condição para revalidar os cenários de incompletude (inativo/unidade ausente/incompatível) com dados reais.
+- [ ] Aprovar a matriz nominal de acesso (CL-003) [interno]
+  > Pendência herdada da SPEC-1-001: contas Skip reais por pessoa/área seguem o organograma transcrito em 06_notas/organograma-2026-10.md; perfis sintéticos continuam como fixtures de teste até a aprovação.
