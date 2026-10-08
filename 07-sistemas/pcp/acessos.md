@@ -39,3 +39,9 @@ Decisão do cliente (Mr Cheney, 2026-10-08 10:41 BRT): Rota B — Plano B previs
 |---|---|---|
 | usuário-teste-PCP | estoque, painel | Permitido (CA-A2) |
 | usuário-teste-Compras | compras, painel | Proibido para pedidos (CA-A2) |
+| usuário sem perfil | — | Sem papel: acesso pendente, API nega (CA-A3) |
+| perfil inativo | — | Inativo/revogação: nega e limpa sessão (CA-A3/A4) |
+
+⚠️ Estes perfis são fixtures de teste definidos pela SPEC — **não são cargos aprovados** e não
+concedem acesso real a ninguém. O provisionamento das contas e da coleção `pcp_perfis` é escopo
+da task seguinte (CA-A2/A3), não deste registro.
