@@ -45,7 +45,7 @@ tarefas que já têm um.
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A1. Registrar projeto Skip e matriz nominal de acesso aprovada, sem credenciais no arquivo; usar CL-003 e CL-004 como pré-condições. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
 - [x] Proteger as telas e os dados por área [interno]  <!-- id:f79b943e-452f-4950-a694-891779eacc66 -->
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A2, CA-A3. Implementar autenticação nativa e proteção de rotas, coleções e consultas por área, respeitando a matriz aprovada. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
-- [ ] Testar login e restrições de acesso [interno]  <!-- id:db079721-3633-4a14-8143-2be82cedd333 -->
+- [x] Testar login e restrições de acesso [interno]  <!-- id:db079721-3633-4a14-8143-2be82cedd333 -->
   > SPEC-1-001 (spec-1-001-acesso-por-area.md), CA-A2–A4. Testar acesso permitido, usuário sem papel, sessão expirada e tentativa de alteração do próprio perfil; registrar prova e obter teste humano. Pré-condições e ordem constam na SPEC. Evidência em 05_entregas/fase-1/spec-1-001/; confirmar teste humano antes de avançar.
 - [ ] Conectar a leitura dos dados do Omie [interno]  <!-- id:f39ced9b-dbae-4966-bbb5-f93da1a4573c -->
   > SPEC-1-002 (spec-1-002-leitura-omie.md), CA-O1, CA-O2. Usar o backend Skip Cloud e os acessos autorizados para ler recursos Omie; registrar contratos/mapeamentos e uma atualização completa de teste. Pré-condição: acesso aceito e CL-001; respeitar lease/geração, chaves e autorização no servidor. Evidência em 05_entregas/fase-1/spec-1-002/.
