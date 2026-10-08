@@ -1,14 +1,14 @@
 # Estado atual — Adapta Cliente
 
 - schema_version: adapta-cliente-state/v2
-- task_id: nenhuma — FASE 1 CONCLUÍDA E VALIDADA pelo owner ("validado", 18:23); 18/18 tasks
+- task_id: nenhuma — FASE 1 CONCLUÍDA E VALIDADA (18/18) e PUBLICADA EM PRODUÇÃO (v0.0.61)
 - executor: MCC (ETHOS)
-- owner_informativo: Mr Cheney
+- owner_informativo: Mr Cheney (autorizou próxima fase, 18:41)
 - etapa: concluida
-- fase: Fase 1 (Painel operacional integrado) — 5 SPECs com evidência e aceite; regressão R1–R8 8/8; ensaio de UI aprovado; amostra M043055 = 53 UN consistente com o aceite original
-- pendencias_herdadas: povoar cadastro de produtos no Omie (catálogo lista automaticamente); matriz nominal CL-003 (contas reais por pessoa/área); ficha técnica (contrato não exposto pela API); publicar em produção (preview aprovado)
-- verificacao_automatica: passou — health 200, fontes ok (3344/1057/5393/0), amostra M043055 = 53 UN na revalidação final
-- aprendizado: registrado em 06_notas/aprendizado-continuo/ (AP-2026-10-01 migrations/QA; AP-2026-10-08-1130 goja filter params; AP-2026-10-08-1300 fim por metadatagem; AP-2026-10-08-1305 rate-limit como transitório; AP-2026-10-08-1400 JSON.parse(''); AP-2026-10-08-1520 cursor/retomada; AP-2026-10-08-2052 goja sem object spread; correção da tese de referência por amostra pequena)
-- ultima_acao: aceite final registrado; fase.md 18/18; STATUS e changelog atualizados; pendências herdadas viraram tasks abertas da próxima leva
-- proxima_acao: aguardar pedido do cliente para a próxima fase (não iniciar automaticamente — regra do handoff)
-- atualizado_em: 2026-10-08T18:40:00-03:00
+- fase: Fase 1 fechada; produção no ar (https://mcc-automacao-fabrica-98125.goskip.app, ref 4306849, backend gerenciado)
+- publicacao: preview aprovado e produção publicada; login/UI/API verificados em navegador real na URL de produção (M043055 = 53 UN); VITE_POCKETBASE_URL mantido no backend gerenciado (tentativa de domínio público revertida — 405 nginx em POST /api)
+- pendencias_herdadas: povoar cadastro de produtos no Omie; matriz nominal CL-003 (contas reais substituem perfis @pcp.local); ficha técnica (contrato não exposto)
+- proxima_fase: SEM PACOTE — nenhum escopo/SPECs de Fase 2 no repositório; exige definição do consultor (regra do handoff: não inventar escopo)
+- ultima_acao: produção publicada e verificada; changelog/STATUS atualizados
+- proxima_acao: aguardar pacote de Fase 2 do consultor OU novo pedido do cliente
+- atualizado_em: 2026-10-08T21:50:00-03:00
