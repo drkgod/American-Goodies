@@ -51,3 +51,13 @@ chegar.
 
 Qual rota? A SPEC proíbe inventar papéis reais — sem a matriz, não há o que registrar como
 "aprovado".
+
+---
+
+## Resolução (2026-10-08)
+
+Cliente escolheu a **Rota B — Plano B** (formulário de 2026-10-08 10:41 BRT, autorização posterior
+ao relatório). Executado conforme a SPEC: mapa do projeto Skip 62774 e os quatro perfis sintéticos
+de teste registrados em `07-sistemas/pcp/acessos.md`; matriz CL-003 permanece **PENDENTE** e acesso
+real bloqueado. Evidência: `05_entregas/fase-1/spec-1-001/evidencia-ca-a1-plano-b.md`. Task em
+`aguardando_teste_humano`.
