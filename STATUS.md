@@ -1,30 +1,20 @@
-> **Ordem obrigatória:** primeiro construir e aceitar o fundamento no Skip; depois proteger acesso, conectar fontes e validar o painel real. Dados de demonstração são identificados e não provam integração.
-
 # Status operacional
 
-**Fase atual:** 1 — Painel operacional integrado. **CONCLUÍDA e VALIDADA pelo owner ("validado", 18:23) e PUBLICADA EM PRODUÇÃO.**  
-**Produção:** https://mcc-automacao-fabrica-98125.goskip.app (v0.0.61, ref 4306849; backend gerenciado shrd00.internal.goskip.dev).  
-**Ambiente:** Skip + MCP do Skip + Skip Cloud (projeto 62774). **Fontes:** Omie (CL-001 ✓) + Nuvemshop (CL-002 ✓).  
-**Repositório:** [drkgod/American-Goodies](https://github.com/drkgod/American-Goodies), privado, branch `main`.
+Fase atual: 2 — Programação e apontamento com conferência.
 
-**18/18 tasks concluídas (100%)** — 5 SPECs com evidência e aceite; regressão integrada R1–R8 8/8; ensaio de UI aprovado (preview e produção); amostra autorizada M043055 = 53 UN consistente do início ao fim.
+**Estado:** pacote liberado pelo consultor em 09/10/2026, pronto para execução. Sete SPECs com TDD e29 tasks;29 UUIDs reais reconciliados. Nenhuma taskF2 executada nesta liberação.
+**Ambiente:** projeto Skip 62774, MCP do Skip e Skip Cloud; fonte oficial Omie e complemento Nuvemshop. ProduçãoF1: https://mcc-automacao-fabrica-98125.goskip.app, v0.0.61 conforme prova registrada em 08/10.
 
-## Resumo do que foi entregue
+## Transição e pendências
 
-- **Fundamento** (SPEC-1-000): coleções, contratos internos, telas com fixtures e banner.
-- **Acesso por área** (SPEC-1-001): login nativo, guarda de rotas, autorização no servidor, revogação em sessão, logout limpo (T1–T8 8/8).
-- **Leitura Omie** (SPEC-1-002): sync real com allowlist de consulta, lease/geração, ativação atômica, retry com janela de rate-limit, recuperação por cursor, conferência reconciliada (estoque 1057=1057).
-- **Pedidos de canais** (SPEC-1-003): canal 3344 (transições reais provadas); oficiais 5393 por ID único; 44 vínculos comprovados por referência; duplicados 0/5393.
-- **Catálogo** (SPEC-1-004): sobre snapshots, com estados explícitos, conferência 0=0 válida, divergência real de estoque detectada e reconciliada.
-- **Painel diário** (SPEC-1-005): 4 blocos por área com filtros, origem/horário/lote, lote antigo com aviso, permissão por bloco sem pistas, produção/compras explicitamente não integrados na Fase 1.
+Fase 1 encerrada no recorte homologado:18 entregas, aceite explícito do owner em 08/10 às 18:23, regressão 8/8 registrada pelo executor. Histórico preservado em 05_entregas/fase-1/contratos-homologados; fontes/provas anteriores não foram apagadas.
 
-## Pendências / próxima leva (não bloqueiam a fase concluída)
+Transferidos ainda abertos: cadastro de produtos no ERP, aprovação da matriz nominalCL-003 e três cards duplicados dofundamento para conciliação oficial. Todos osIDs foram preservados; duplicata não exige refazer sistema/tela.
 
-| Pendência | Dono | Efeito quando resolvida |
-|---|---|---|
-| Povoar cadastro de produtos no Omie | Cliente | Catálogo e saldos por produto listam automaticamente (sem mudança de código) |
-| Matriz nominal (CL-003) | Cliente | Contas Skip reais por pessoa/área substituem os perfis sintéticos de teste (@pcp.local) |
-| Ficha técnica do Omie | Consultor/cliente | Quando a API expuser o contrato, ficha entra no catálogo (hoje: estado explícito) |
-| **Escopo da Fase 2** | Consultor | Nenhum pacote de Fase 2 existe no repositório — SPECs/tasks precisam ser definidas antes de implementar |
+## Execução da fase
 
-**Próxima fase:** aguardando pacote de Fase 2 do consultor (regra do handoff — não iniciada por conta própria).
+Ler04_fase-atual/specs/00-INDICE.md e selecionar uma task elegível em 04_fase-atual/fase.md. Construir fundamento com fixtures identificadas antes de conectar dados reais. Depois: programação/OP→apontamentos→expedição/câmara→consolidação→envio autorizado. Sugestões têm método/parâmetros sujeitos à aprovação doPCP.
+
+Gates localizados: matriz/ações para acesso nominal; cadastro/unidade/ficha para cálculo/apontamento dependente; histórico/recebimentos completos para sugestões; autorização transacional específica para cadaOP/efeito no Omie. Provas negativas de revogação/reinício/concorrência/timeout devem passar antes do primeiroPOST real.
+
+**Próxima ação:** executar uma task independente de fundamento ou regularização e pedir teste humano ao terminar. Pendência de entrada não impede fundamento sintético independente. Não executar tarefa seguinte antes do aceite explícito da anterior.

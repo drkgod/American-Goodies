@@ -1,19 +1,24 @@
-# SPECs da Fase 1 — Fundamento e painel integrado
+# Fase 2 — Programação e apontamento com conferência
 
-**Ambiente:** Skip + MCP do Skip + Skip Cloud. **Regra:** fundamento primeiro, conexões depois.  
-**Estado:** seis contratos com TDD especificado; implementação, testes de produto e aceite pendentes.
+Revisão: 09/10/2026. Sete SPECs de sistema; somente F2 ativa. F1 homologada com pendências transferidas pelo consultor.
 
-| Ordem | SPEC | Resultado |
-|---|---|---|
-| 1 | [SPEC-1-000](spec-1-000-fundamento-skip.md) | Fundamento da plataforma antes das conexões |
-| 2 | [SPEC-1-001](spec-1-001-acesso-por-area.md) | Acesso ao sistema por área |
-| 3 | [SPEC-1-002](spec-1-002-leitura-omie.md) | Leitura rastreável do Omie |
-| 4 | [SPEC-1-003](spec-1-003-pedidos-nuvemshop.md) | Pedidos complementares e vínculo entre canais |
-| 5 | [SPEC-1-004](spec-1-004-catalogo-operacional.md) | Catálogo de produtos, unidades e fichas |
-| 6 | [SPEC-1-005](spec-1-005-painel-diario.md) | Painel diário com origem, filtros e pendências |
+## Ordem e gates
 
-Construir e demonstrar primeiro a SPEC-1-000 com dados sintéticos identificados. Depois proteger acesso por área, integrar fontes e reutilizar a base para catálogo/painel reais. Credenciais externas não bloqueiam o fundamento; fixture não comprova integração.
+1. Acesso/conciliação000 e fundamento de dados/planejamento001/002 podem ser preparados com fixtures. Uma task por sessão.
+2. Fontes reais precisam cadastro/unidade/ficha/contrato001; uso nominal precisa matriz/contas000.
+3. Programação/OP002 → eventos003 → dupla conferência004 → envio autorizado005. Cada leva aguarda prova/aceite anterior.
+4. Sugestões006 após dados/parâmetros; prova integrada real depois das demais levas e autorização do caso transacional.
 
-As tasks vivem em fase.md, no diretório pai do pacote operacional. Uma task elegível por vez; próxima task/leva só após prova e confirmação explícita do teste humano. IDs do portal ficam pendentes até retorno.
+## SPECs
 
-Cada SPEC contém critérios, fixtures, RED/GREEN/regressão, preflight e comandos de testes. QA nativo do Skip complementa as provas. Somente esta fase está liberada.
+- [Acesso nominal e conciliação dos cards herdados](spec-2-000-acessos-e-pendencias.md) — RQ-007; P4; CL-003
+- [Catálogo, fichas, unidades e histórico oficial](spec-2-001-dados-oficiais-e-historico.md) — RQ-003/008/012; P4; CL-001
+- [Calendário, capacidade e programação com OP digital](spec-2-002-planejamento-e-op-digital.md) — RQ-002/008; CL-006; CL-PEND-001
+- [Apontamentos de insumos e produção na origem](spec-2-003-apontamentos-na-origem.md) — RQ-002/009; CL-PEND-002
+- [Conferência da expedição e entrada em câmara fria](spec-2-004-dupla-conferencia.md) — RQ-002/009; CL-PEND-002
+- [Envio autorizado ao Omie e recuperação](spec-2-005-consolidacao-omie.md) — RQ-002/012; CL-001
+- [Sugestões explicadas e demonstração integrada](spec-2-006-sugestoes-e-validacao.md) — RQ-003/008/009; CL-006; CL-PEND-001
+
+## Fora desta fase
+
+Cotação/aprovação financeira, recebimento fiscal, emissão/pagamento, preparação final de faturamento, IA e loops. Este pacote não autoriza acesso/transação sem os gates específicos.

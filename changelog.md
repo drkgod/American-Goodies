@@ -21,3 +21,10 @@
 - Preservados os 15 UUIDs e a visibilidade recebidos do portal; três novas tasks de fundamento aguardam UUID.
 - Criado o repositório privado [drkgod/American-Goodies](https://github.com/drkgod/American-Goodies), com a pasta operacional do cliente na raiz e branch main.
 - Nenhuma task concluída; implementação, testes do produto e aceite humano pendentes.
+
+## 2026-10-09
+
+- Consultor autorizou encerrarF1 no recorte homologado e levar pendências àF2. Preservadas18 entregas e aceites anteriores; cadastro/matriz e três duplicatas seguem abertos com IDs existentes.
+- Liberado pacoteF2:7 SPECs de sistema,TDD acoplado,29 tasks/29 UUIDs reais; revisões de fluxo, contrato,TDD, risco, decomposição e rastreabilidade concluídas. Validado fase-format:2, vínculo único e conteúdo operacional autossuficiente.
+- Contratos antigos movidos para05_entregas/fase-1/contratos-homologados; nenhuma entrega/nota/sistema existente apagado. SomenteF2 permanece em 04_fase-atual.
+- Nenhuma taskF2 implementada e nenhum teste novo do produto executado nesta liberação. A autorização documental não concede acesso nominal ou transaçãoERP; gates constam nasSPECs.
