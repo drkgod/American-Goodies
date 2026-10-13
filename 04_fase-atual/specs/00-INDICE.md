@@ -1,6 +1,6 @@
 # Fase 2 — Programação e apontamento com conferência
 
-Revisão: 09/10/2026. Sete SPECs de sistema; somente F2 ativa. F1 homologada com pendências transferidas pelo consultor.
+Revisão: 13/10/2026; liberação original:09/10/2026. Sete SPECs de sistema; somente F2 ativa. F1 homologada com pendências transferidas pelo consultor.
 
 ## Ordem e gates
 
@@ -8,6 +8,12 @@ Revisão: 09/10/2026. Sete SPECs de sistema; somente F2 ativa. F1 homologada com
 2. Fontes reais precisam cadastro/unidade/ficha/contrato001; uso nominal precisa matriz/contas000.
 3. Programação/OP002 → eventos003 → dupla conferência004 → envio autorizado005. Cada leva aguarda prova/aceite anterior.
 4. Sugestões006 após dados/parâmetros; prova integrada real depois das demais levas e autorização do caso transacional.
+
+## Documentação embutida e ponto de partida
+
+Cada SPEC contém modelo/guardas, pré-condições, erros/recuperação, exemplos com resultado, RED/GREEN/regressão, comandos e roteiro humano. Ler a SPEC da task elegível e seu bloco de execução no Skip. Documento em 07-sistemas/pcp ainda ausente é saída das tasks de homologação/configuração, não insumo exigido para começar o fundamento sintético; seu conteúdo aprovado passa a ser pré-condição do uso real dependente.
+
+Pode começar pela visão de qualidade (e57df8ff), calendário/OP (3cd404e5) ou outro fundamento independente com fixture isolada, um por sessão, conforme seus critérios. Cadastro/matriz/contratos reais continuam gates localizados. Antes de importar a quantidade firme, PCP confirma status/data/saldo; antes de rascunho nominal, editar_programacao precisa aprovação. Recuperação mock antecede envio real.
 
 ## SPECs
 

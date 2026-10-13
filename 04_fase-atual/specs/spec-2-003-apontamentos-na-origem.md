@@ -1,6 +1,6 @@
 # SPEC-2-003 — Apontamentos de insumos e produção na origem
 
-**Fase:** 2 · **Revisão:** 09/10/2026 · **Origem:** RQ-002/009; CL-PEND-002.
+**Fase:** 2 · **Revisão:** 13/10/2026 (pacote liberado em09/10) · **Origem:** RQ-002/009; CL-PEND-002.
 **Tipo:** sistema · **Dono funcional:** produção/encaixotamento aponta; PCP revisa.
 **Degrau da solução:** reuso do projeto Skip 62774, autenticação/backend/banco nativos; construção mínima do recorte, sem outro provider.
 
@@ -25,7 +25,7 @@ Equipe registra retirada/adicional/devolução/perda declarada/realizado com aut
 
 ## Dados e integrações
 
-pcp_eventos append-only: idUUID,op_id,op_versão,tipo (retirada_inicial|retirada_adicional|devolucao|perda_declarada|realizado_cozinha|realizado_encaixotamento|retificacao),item,quantidade decimal (positiva para lançamento; >=0 exclusivamente na retificação),unidade,local,ponto,timestamp_servidor,data_operacional,autor servidor,motivo,evento_alvo,payload_hash,demonstracao. Único(op_id,id): mesmo hash retorna registro; diferente 409. Retificação substitui quantidade eficaz da projeção, com motivo/referência, mantendo original; cadeia linear sem ciclos e apenas uma sucessora eficaz por alvo. CRUD direto negado; ficha publicada fica congelada na OP.
+pcp_eventos append-only: idUUID,op_id,op_versão,tipo (retirada_inicial|retirada_adicional|devolucao|perda_declarada|realizado_cozinha|realizado_encaixotamento|retificacao),item,quantidade decimal (insumos/perda declarada>0; realizado>=0, com motivo obrigatório se0; retificação>=0 com motivo),unidade,local,ponto,timestamp_servidor,data_operacional,autor servidor,motivo,evento_alvo,payload_hash,demonstracao. Único(op_id,id): mesmo hash retorna registro; diferente 409. Retificação substitui quantidade eficaz da projeção, com motivo/referência, mantendo original; cadeia linear sem ciclos e apenas uma sucessora eficaz por alvo. CRUD direto negado; ficha publicada fica congelada na OP.
 
 Pontos: cozinha, encaixotamento, expedição e câmara; localização/configuração e concessões são fornecidas pelo cliente. Falha de rede conserva formulário sem declarar gravação; consulta pela chave antes de retry. Não guardar tokens em fila offline.
 
@@ -39,19 +39,21 @@ Quantidades preservam decimais; rejeitar não finito e quantidade inválida. IDs
 
 ### Semântica de quantidade e encerramento
 
-realizado_cozinha e realizado_encaixotamento são INCREMENTOS por execução do ponto: dois registros40 e60 somam100, não substituem total. Retificação substitui o valor eficaz de exatamente um evento; repetir mesmo UUID não duplica. Quantidade 0 é permitida somente na retificação com motivo obrigatório, para anular lançamento sem excluir original. Novo lançamento0 é inválido. Retificação exige ação/ponto da etapa e vínculo à própria OP; lançamento em OP errada é anulado por0 na origem e registrado corretamente como outro comando, conservando as duas trilhas. Cadeia linear e compare-and-swap impedem duas retificações eficazes concorrentes.
+realizado_cozinha e realizado_encaixotamento são INCREMENTOS por execução do ponto: dois registros40 e60 somam100, não substituem total. Retificação substitui o valor eficaz de exatamente um evento; repetir mesmo UUID não duplica. Retificação0 com motivo anula o efeito de um lançamento sem excluir o original. Novo realizado_cozinha ou realizado_encaixotamento0 é permitido apenas como declaração explícita de resultado zero, com motivo obrigatório e autor/ponto aprovados; não nasce de ausência de evento. Insumo/retirada/adicional/devolução/perda com quantidade0 continua inválido. Incremento realizado0 não apaga realizados positivos anteriores; resultado zero do ponto exige total eficaz0. Retificação exige ação/ponto da etapa e vínculo à própria OP; lançamento em OP errada é anulado por0 na origem e registrado corretamente como outro comando, conservando as duas trilhas. Cadeia linear e compare-and-swap impedem duas retificações eficazes concorrentes.
 
 Consumo previsto usa soma eficaz do realizado_cozinha na unidade-base da ficha congelada, nunca encaixotamento (que é registro independente de resultado). Consumo líquido por insumo = soma eficaz retiradas/adicionais - devoluções. Devolução que exceda retiradas provoca inconsistência bloqueante, sem produzir consumo negativo usado em cálculo; retificação mantém trilha e exige revisão antes de fechar etapa. Perda declarada categoriza parte do consumo, não gera retirada extra nem é inferida pela diferença.
 
 Encerrar cada ponto segue comandos da SPEC-2-002, com hash de sua projeção. Evento/retificação depois de encerrado e antes de adquirir envio invalida encerramento/conferência/aprovação e exige nova conferência. Depois da aquisição atômica do envio ou durante resultado_incerto, evento/retificação recebe409 estado_congelado; não mutar dados usados no POST.
 
-Provas complementares E3/E4: cozinha40+60=100; encaixotamento98 permanece98; ficha100 UN→5 KG dá previsto5 KG. Anular um lançamento errôneo6 KG com retificação0 preserva original e remove seu efeito; lançamento novo0 é rejeitado. Perfil administrativo funcional tentando PATCH/DELETE direto do evento recebe403; retificação autorizada por endpoint continua auditável.
+Provas complementares E3/E4: cozinha40+60=100; encaixotamento98 permanece98; ficha100 UN→5 KG dá previsto5 KG. Anular um lançamento errôneo6 KG com retificação0 preserva original e remove seu efeito; lançamento de insumo0 é rejeitado. Realizado0 justificado registra resultado explícito, permite encerrar a própria etapa e preserva hash/autor/motivo; ausência de realizado ou realizado0 sem motivo não permite encerramento. Perfil administrativo funcional tentando PATCH/DELETE direto do evento recebe403; retificação autorizada por endpoint continua auditável.
+
+Resultado zero permanece diferente de dado ausente. Ao encerrar um ponto sem produto aproveitável, registrar realizado0 e motivo; outras quantidades/retiradas permanecem preservadas. Conferência pode registrar0 explicitamente na SPEC-2-004, mas quantidade final0 não autoriza concluir OP no Omie: registrar pendência/ocorrência para decisão PCP, sem fabricar produção positiva ou transmitir ajuste/cancelamento automático.
 
 ## Fluxo e regras
 
 | Regra | Condição | Resultado | Exceção/ponto de parada |
 |---|---|---|---|
-| E1 | Evento na OP da área/ponto | Validar estado, item/unidade/local; lançamento q>0, retificação q>=0 com motivo; servidor fixa autor/hora | Cancelada, sincronizando, incerta ou sincronizada não recebe evento/retificação operacional |
+| E1 | Evento na OP da área/ponto | Validar estado, item/unidade/local; insumo/perda q>0, realizado q>=0 (motivo se0), retificação q>=0 com motivo; servidor fixa autor/hora | Cancelada, sincronizando, incerta ou sincronizada não recebe evento/retificação operacional |
 | E2 | Repetir comando | Mesmo UUID/hash retorna registro; outro hash 409 | Uma retirada/realizado eficaz |
 | E3 | Consumo e ficha compatíveis | Previsto=realizado_cozinha_eficaz×componente/base_ficha; líquido=retiradas+adicionais-devoluções | Perda declarada categoriza consumo e não se soma duas vezes |
 | E4 | Diferença/erro | Diferença líquido-previsto separada de perda; retificar com motivo | Sem unidade/base compatível, cálculo indisponível |
@@ -67,6 +69,16 @@ Provas complementares E3/E4: cozinha40+60=100; encaixotamento98 permanece98; fic
 - Dado faltante mantém rascunho e motivo; falha de leitura mantém último lote com origem/hora/aviso, bloqueando somente operação dependente.
 - Comando local persistido com UUID/hash: replay igual não duplica; mudança de payload conflita. Mutação dependente usa versão esperada/transação e prova concorrente.
 - **Rollback:** desativar somente rotas/flags novas, preservando painel/acesso F1 e histórico. Migrations aditivas compatíveis; não apagar coleção/evento para reverter. Efeito confirmado no ERP exige decisão e reconciliação separadas; rollback do frontend não o desfaz.
+
+### Execução no Skip e documentação técnica mínima
+
+Usar o projeto conectado62774; acesso ausente impede alteração do sistema, sem criar substituto. Antes de migrations/hooks, consultar pelo MCP skip_cloud_migrations_guide e skip_cloud_hooks_guide e ler código/coleções atuais. Guias verificados em13/10/2026 descrevem PocketBase v0.36/goja; confirmar versão do projeto, que não foi acessível pelo conector desta revisão.
+
+Hooks não executam Node.js: o runner Node dos testes é externo. Rotas novas usam /backend/v1/ e um routerAdd por arquivo; UI chama pelo cliente PocketBase existente, pb.send, contra o backend gerenciado. A URL pública do frontend não é o backend. Preservar VITE_POCKETBASE_URL gerenciado; descobrir backend via skip_cloud_get_backend_url, sem sobrescrever o cliente gerado.
+
+Guardas e mutações locais usam $app.runInTransaction, com txApp dentro da transação; chamada HTTP externa ocorre após o commit. Consultar estado HTTP explicitamente e tratar falha de transporte separadamente. Helpers do handler precisam respeitar o isolamento goja descrito no guia; não assumir globais Node ou funções de outra VM.
+
+Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado de cada etapa e qa.test.ran: teste não executado ou script vazio não conta como prova. Se build/lint/test tiverem nomes diferentes em package.json, registrar e usar os scripts existentes equivalentes; não inventar saída aprovada. Deploy em produção exige a autorização aplicável. Registrar versão/rotas/comandos efetivamente inspecionados em 07-sistemas/pcp/ambiente-execucao.md.
 
 ## Instruções de execução para o Ethos, Codex ou Claude Code
 
@@ -102,14 +114,15 @@ Fixtures e scripts serão criados pelo executor junto ao teste; esta geração n
 | T2 | CA-E2 | Duas submissões iguais, terceira quantidade alterada com mesmaUUID | Um evento; replay igual;409 |
 | T3 | CA-E1/E4 | Cozinha tenta câmara; OP cancelada; unidade null; retificar6→5,8 | 403/bloqueios; original preservado; líquido5,8 |
 | T4 | CA-E2 | Timeout após persistência; consultar UUID | Registro encontrado; nenhum novo evento |
+| T5 | CA-E1/E3/E4 | Realizado_cozinha0 com motivo; replay; realizado0 sem motivo; insumo0; etapa sem realizado | Declaração0 única e encerramento auditado; últimos três casos negados; previsto0 quando ficha compatível, retiradas/diferenças preservadas; final0 não autoriza mutante ERP |
 
 | Etapa | Ação concreta | Resultado/evidência |
 |---|---|---|
-| RED | Criar asserções T1–T4 antes do comportamento; registrar falha de aceite, não erro de setup | red.md com critério/comando/versão/falha |
+| RED | Criar asserções T1–T5 antes do comportamento; registrar falha de aceite, não erro de setup | red.md com critério/comando/versão/falha |
 | GREEN | Menor implementação e as mesmas entradas/oráculos | Asserções/capturas/recibos; contagem de efeitos correta |
 | REFACTOR/REGRESSÃO | Repetir cenários, conta sem ação, replay e concorrência; login/logout/painel/filtro/catálogo/canais F1 | Sem ampliar acesso/duplicar/perder fonte; M043055 compara com lote atual, não fixar53 eternamente |
 
-**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-003.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-003.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar também npm run build, npm run lint e QA nativo; build/lint não substituem provas de aceite.
+**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-003.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-003.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar os scripts de build/lint existentes e o QA nativo, registrando os comandos equivalentes inspecionados em package.json; build/lint não substituem provas de aceite.
 
 **Não técnico:** documento/card: registrar condição anterior, item exibido, ação do responsável, estado posterior e referência verificável. RED=ausência/contradição; GREEN=aprovação/vínculo comprovado; regressão preservaIDs/evidências. Para software, exigir RED/GREEN das asserções.
 
@@ -138,3 +151,5 @@ Status/metadados editáveis pertencem somente ao arquivo canônico.
 ## Emendas
 
 09/10/2026: geração F2 com pendências herdadas autorizadas pelo consultor. Regra/contrato diferente durante execução exige emenda rastreada.
+
+13/10/2026: revisão documental do pacote; explicitados contratos/guardas e cenários de erro aplicáveis, com TDD acoplado. IDs e critérios existentes preservados; nenhuma task ou transação executada.

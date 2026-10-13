@@ -1,6 +1,6 @@
 # SPEC-2-006 — Sugestões explicadas e demonstração integrada
 
-**Fase:** 2 · **Revisão:** 09/10/2026 · **Origem:** RQ-003/008/009; CL-006; CL-PEND-001.
+**Fase:** 2 · **Revisão:** 13/10/2026 (pacote liberado em09/10) · **Origem:** RQ-003/008/009; CL-006; CL-PEND-001.
 **Tipo:** sistema · **Dono funcional:** PCP revisa produção; Compras necessidade; equipe valida.
 **Degrau da solução:** reuso do projeto Skip 62774, autenticação/backend/banco nativos; construção mínima do recorte, sem outro provider.
 
@@ -39,6 +39,12 @@ Novas coleções têm demonstracao e isolamento no servidor; nunca unir fixtures
 
 Quantidades preservam decimais; rejeitar não finito e quantidade inválida. IDs em texto; conversão numérica na borda somente se inteiro seguro/exato, caso contrário bloquear. Unidade/local desconhecidos não viram default; não somar unidades incompatíveis. Negócio America/Sao_Paulo, auditoriaUTC.
 
+### Contratos de firmeza e de preparação
+
+O termo pedidos_oficiais_firmes_no_horizonte usa somente o mapa de status/data/saldo por linha aprovado pelo PCP e homologado na SPEC-2-001; o simples ingresso do pedido no Omie ou pagamento no canal não define firmeza. Sem mapa ou cobertura, esse termo énull e a sugestão de produção dependente fica bloqueada. Recebimentos confirmados continuam usando seu contrato separado, sem presumir0.
+
+Criar/editar rascunho e aceitar sugestão exigem editar_programacao, concedida explicitamente na matriz nominal. Consultar sugestão não concede escrita. O comando revalida ação, área, versão/hash da sugestão e contexto das fontes/parâmetros; resultado alterado exige recálculo/revisão antes de aceitar. Não publicar nem executar compra/transação ao aceitar.
+
 ### Oráculos de lote e compra
 
 Com necessidade 0, sugestão0, sem aplicar lote mínimo positivo. Com necessidade>0, resultado = teto(max(necessidade,lote_minimo)/multiplo_lote) × multiplo_lote; ambos aprovados e positivos. Aplicar capacidade depois do arredondamento e declarar excedente. Configuração de lote incompatível/ausente gera pendência.
@@ -59,7 +65,7 @@ Prova de produção não múltipla: mesmas entradas da fixtureT1, saldo19 →nec
 1. Construir cards e memória com fixture/banner.
 2. PCP aprova método/parâmetros CL-006/CL-PEND-001; diferença exige emenda antes de código real.
 3. Calcular por unidade e capacidade; Compras revisa necessidade apenas com dados confirmados.
-4. Demonstrar90 dias→sugestão→programação→apontamentos→dupla conferência→aprovação→uma conclusão ERP com timeout.
+4. Primeiro demonstrar timeout/perda de resposta, revogação, reinício e concorrência em adapter mock isolado conforme SPEC-2-005. Depois demonstrar o caso real expressamente autorizado:90 dias→sugestão→programação→apontamentos→dupla conferência→aprovação→uma conclusão ERP reconciliada. Não provocar falha/timeout na produção para cumprir o roteiro; caso real fica separado das provas negativas.
 
 ## Erros, concorrência e recuperação
 
@@ -67,6 +73,16 @@ Prova de produção não múltipla: mesmas entradas da fixtureT1, saldo19 →nec
 - Dado faltante mantém rascunho e motivo; falha de leitura mantém último lote com origem/hora/aviso, bloqueando somente operação dependente.
 - Comando local persistido com UUID/hash: replay igual não duplica; mudança de payload conflita. Mutação dependente usa versão esperada/transação e prova concorrente.
 - **Rollback:** desativar somente rotas/flags novas, preservando painel/acesso F1 e histórico. Migrations aditivas compatíveis; não apagar coleção/evento para reverter. Efeito confirmado no ERP exige decisão e reconciliação separadas; rollback do frontend não o desfaz.
+
+### Execução no Skip e documentação técnica mínima
+
+Usar o projeto conectado62774; acesso ausente impede alteração do sistema, sem criar substituto. Antes de migrations/hooks, consultar pelo MCP skip_cloud_migrations_guide e skip_cloud_hooks_guide e ler código/coleções atuais. Guias verificados em13/10/2026 descrevem PocketBase v0.36/goja; confirmar versão do projeto, que não foi acessível pelo conector desta revisão.
+
+Hooks não executam Node.js: o runner Node dos testes é externo. Rotas novas usam /backend/v1/ e um routerAdd por arquivo; UI chama pelo cliente PocketBase existente, pb.send, contra o backend gerenciado. A URL pública do frontend não é o backend. Preservar VITE_POCKETBASE_URL gerenciado; descobrir backend via skip_cloud_get_backend_url, sem sobrescrever o cliente gerado.
+
+Guardas e mutações locais usam $app.runInTransaction, com txApp dentro da transação; chamada HTTP externa ocorre após o commit. Consultar estado HTTP explicitamente e tratar falha de transporte separadamente. Helpers do handler precisam respeitar o isolamento goja descrito no guia; não assumir globais Node ou funções de outra VM.
+
+Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado de cada etapa e qa.test.ran: teste não executado ou script vazio não conta como prova. Se build/lint/test tiverem nomes diferentes em package.json, registrar e usar os scripts existentes equivalentes; não inventar saída aprovada. Deploy em produção exige a autorização aplicável. Registrar versão/rotas/comandos efetivamente inspecionados em 07-sistemas/pcp/ambiente-execucao.md.
 
 ## Instruções de execução para o Ethos, Codex ou Claude Code
 
@@ -102,15 +118,17 @@ Fixtures e scripts serão criados pelo executor junto ao teste; esta geração n
 | T2 | CA-S2 | Mesma fixture, firmes80 | Alvo80; necessidade60; não soma70+80 |
 | T3 | CA-S1 | 89 datas ou ficha ausente ou compras a receber desconhecidas | Null/faltantes no recorte; outros itens válidos preservados |
 | T4 | CA-S2/S3 | Capacidade30 para sugestão50; aceitar | Excedente20; só rascunho; publicação acima capacidade negada |
-| T5 | CA-S4 | Percurso100/98/97/96, depois coincidente; perder respostaERP | Decisão necessária; conclusão autorizada uma vez; F1 sem vazamento |
+| T5 | CA-S4 | Em mock: percurso100/98/97/96, depois coincidente e resposta perdida; separado: caso real autorizado sem falha fabricada | Mock recupera por consulta sem novo POST; caso real reconcilia uma conclusão; autorização específica e F1 preservadas |
+| T6 | CA-S1/S2 | Mapa de pedidos firmes ausente ou saldo de linha desconhecido; depois mapa sintético aprovado20/5 e replay | Antes quantidade=null/bloqueada; depois15 UN firmes uma vez, sem usar todos os pedidos importados |
+| T7 | CA-S3 | Conta com consulta, sem editar_programacao, aceita sugestão; depois ação aprovada; repetir/alterar versão | Primeiro403 e zero rascunho; concessão explícita cria rascunho no próprio escopo sem publicar/comprar; replay não duplica, versão alterada409 |
 
 | Etapa | Ação concreta | Resultado/evidência |
 |---|---|---|
-| RED | Criar asserções T1–T5 antes do comportamento; registrar falha de aceite, não erro de setup | red.md com critério/comando/versão/falha |
+| RED | Criar asserções T1–T7 antes do comportamento; registrar falha de aceite, não erro de setup | red.md com critério/comando/versão/falha |
 | GREEN | Menor implementação e as mesmas entradas/oráculos | Asserções/capturas/recibos; contagem de efeitos correta |
 | REFACTOR/REGRESSÃO | Repetir cenários, conta sem ação, replay e concorrência; login/logout/painel/filtro/catálogo/canais F1 | Sem ampliar acesso/duplicar/perder fonte; M043055 compara com lote atual, não fixar53 eternamente |
 
-**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-006.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-006.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar também npm run build, npm run lint e QA nativo; build/lint não substituem provas de aceite.
+**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-006.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-006.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar os scripts de build/lint existentes e o QA nativo, registrando os comandos equivalentes inspecionados em package.json; build/lint não substituem provas de aceite.
 
 **Não técnico:** documento/card: registrar condição anterior, item exibido, ação do responsável, estado posterior e referência verificável. RED=ausência/contradição; GREEN=aprovação/vínculo comprovado; regressão preservaIDs/evidências. Para software, exigir RED/GREEN das asserções.
 
@@ -118,7 +136,7 @@ Fixtures e scripts serão criados pelo executor junto ao teste; esta geração n
 
 ## Teste humano do cliente
 
-PCP compara memória com regra aprovada e três dias de cookies; produção/expedição/câmara percorrem fluxo; PCP confere Omie; Compras vê que sugestão não compra. Mock aceito não conclui task final real.
+PCP compara memória com regra aprovada e três dias de cookies; produção/expedição/câmara percorrem fluxo; PCP confere Omie; Compras vê que sugestão não compra. Timeout/falhas/reinício são ensaiados antes em mock isolado, sem fabricar falha em produção. Mock aceito não conclui task final real.
 
 Guardar referência funcional do tester, data, caso/versão, resultado e mensagem explícita. CL de envio/acesso é pré-condição, não aceite. Separar demonstração sintética e homologação real.
 
@@ -132,7 +150,7 @@ Demonstrar resultado ao dono funcional. Operar por ações autorizadas, acompanh
 |---|---|---|---|---|
 | 0baec76e-80af-412c-9554-9472f7928743 | Construir as sugestões com memória de cálculo | CA-S1/S2, recorte sintético | contratos internos dados/parâmetros disponíveis; fixtures identificadas | 05_entregas/fase-2/spec-2-006/; UUID acima |
 | 2ea1e7ab-5fe4-4e02-a7a1-901539bfdc8a | Aprovar o método e conferir as sugestões reais | CA-S1/S2 | documentos/valores de parâmetros e fontes disponíveis; aprovação do método é primeiro passo desta task e gate interno antes de qualquer cálculo real | 05_entregas/fase-2/spec-2-006/; UUID acima |
-| 8bb4ef77-1232-4f16-a7d6-ea2df09ad829 | Levar a sugestão somente para rascunho | CA-S3 | sugestões aceitas e conta com ação de planejamento; nenhum acesso ampliado | 05_entregas/fase-2/spec-2-006/; UUID acima |
+| 8bb4ef77-1232-4f16-a7d6-ea2df09ad829 | Levar a sugestão somente para rascunho | CA-S3 | sugestões aceitas e conta com editar_programacao nominalmente aprovada; nenhum acesso ampliado | 05_entregas/fase-2/spec-2-006/; UUID acima |
 | 0d876150-60b6-46bb-ada4-722b90d870a3 | Validar o fluxo completo com a equipe | CA-S4 | SPECs anteriores aceitas, caso transacional autorizado e pendências operacionais resolvidas no recorte; demonstração mock não conclui este aceite real | 05_entregas/fase-2/spec-2-006/; UUID acima |
 
 Status/metadados editáveis pertencem somente ao arquivo canônico.
@@ -140,3 +158,5 @@ Status/metadados editáveis pertencem somente ao arquivo canônico.
 ## Emendas
 
 09/10/2026: geração F2 com pendências herdadas autorizadas pelo consultor. Regra/contrato diferente durante execução exige emenda rastreada.
+
+13/10/2026: revisão documental do pacote; explicitados contratos/guardas e cenários de erro aplicáveis, com TDD acoplado. IDs e critérios existentes preservados; nenhuma task ou transação executada.

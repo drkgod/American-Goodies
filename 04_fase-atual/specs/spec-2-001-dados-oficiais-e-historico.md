@@ -1,6 +1,6 @@
 # SPEC-2-001 — Catálogo, fichas, unidades e histórico oficial
 
-**Fase:** 2 · **Revisão:** 09/10/2026 · **Origem:** RQ-003/008/012; P4; CL-001.
+**Fase:** 2 · **Revisão:** 13/10/2026 (pacote liberado em09/10) · **Origem:** RQ-003/008/012; P4; CL-001.
 **Tipo:** sistema · **Dono funcional:** cliente mantém cadastro/receita; executor reconcilia leitura.
 **Degrau da solução:** reuso do projeto Skip 62774, autenticação/backend/banco nativos; construção mínima do recorte, sem outro provider.
 
@@ -37,6 +37,14 @@ Novas coleções têm demonstracao e isolamento no servidor; nunca unir fixtures
 
 Quantidades preservam decimais; rejeitar não finito e quantidade inválida. IDs em texto; conversão numérica na borda somente se inteiro seguro/exato, caso contrário bloquear. Unidade/local desconhecidos não viram default; não somar unidades incompatíveis. Negócio America/Sao_Paulo, auditoriaUTC.
 
+### Contrato de pedidos firmes no horizonte
+
+Reusar os pedidos oficiais Omie, sem somar a intenção da Nuvemshop. Antes de calcular pedidos_oficiais_firmes_no_horizonte, o PCP aprova em 07-sistemas/pcp/contratos-fase-2.md a lista de status elegíveis/excluídos, o campo de data operacional, os limites inclusivos do horizonte, a quantidade ainda a atender por linha, a unidade e o tratamento comprovado de cancelamento/devolução/atendimento parcial. O executor registra endpoint/método, caminhos dos campos, identidade aplicativo+pedido+linha, cobertura e amostra autorizada; não presume que todo pedido importado é firme ou que quantidade pedida equivale a saldo aberto.
+
+Esse contrato integra a task Comprovar as leituras de histórico e compras; a task Importar os 90 dias e recebimentos confirmados também carrega e reconcilia o saldo dos pedidos oficiais elegíveis. Se status, data, saldo, unidade ou cobertura não puderem ser comprovados/aprovados, quantidade firme=null e a sugestão de produção dependente permanece bloqueada, sem default0. Fixtures sintéticas usam mapa explicitamente identificado; não aprovam a regra empresarial.
+
+Prova D3/D4 complementar: com mapa sintético aprovado, linha confirmada de20 UN, atendidas5 UN e data dentro do horizonte contribui15 UN; cancelada7 UN e linha fora do horizonte3 UN contribuem0; replay da primeira continua15. Data de borda é inclusiva conforme mapa. Saldo/status desconhecido produznull e bloqueio do item; homologação real compara saldo e data de uma linha no Omie.
+
 ### Contrato complementar de compras confirmadas
 
 Recurso de leitura compras_a_receber: aplicativo/documento_id/linha_id, produto_id, unidade_oficial, quantidade_pedida, quantidade_recebida, quantidade_restante, data_prevista_local, status_origem, cancelado, fornecedor_id e cobertura_completa. Quantidade restante nunca excede pedido nem é negativa; quando houver devolução/cancelamento, mapa da conta define efeito comprovado, sem cálculo presumido. Chave = aplicativo+pedido+linha. Compra entra somente se aprovada/confirmada e não cancelada conforme mapa de status homologado; campos/status não expostos geram pendência, não zero. Histórico financeiro/fiscal não integra este recurso. O adapter lê pedidos de compra por contrato confirmado no serviço oficial; incluir endpoint/request/caminho de cada campo, amostra real, paginação e status em contratos-fase-2.md antes de ligar leitura. Sem cobertura completa/status/data/unidade compatíveis, bloquear apenas sugestão de compra.
@@ -64,6 +72,16 @@ Prova complementar D3/D4: fixture com pedido aprovado20 KG, recebidos5 KG e cheg
 - Dado faltante mantém rascunho e motivo; falha de leitura mantém último lote com origem/hora/aviso, bloqueando somente operação dependente.
 - Comando local persistido com UUID/hash: replay igual não duplica; mudança de payload conflita. Mutação dependente usa versão esperada/transação e prova concorrente.
 - **Rollback:** desativar somente rotas/flags novas, preservando painel/acesso F1 e histórico. Migrations aditivas compatíveis; não apagar coleção/evento para reverter. Efeito confirmado no ERP exige decisão e reconciliação separadas; rollback do frontend não o desfaz.
+
+### Execução no Skip e documentação técnica mínima
+
+Usar o projeto conectado62774; acesso ausente impede alteração do sistema, sem criar substituto. Antes de migrations/hooks, consultar pelo MCP skip_cloud_migrations_guide e skip_cloud_hooks_guide e ler código/coleções atuais. Guias verificados em13/10/2026 descrevem PocketBase v0.36/goja; confirmar versão do projeto, que não foi acessível pelo conector desta revisão.
+
+Hooks não executam Node.js: o runner Node dos testes é externo. Rotas novas usam /backend/v1/ e um routerAdd por arquivo; UI chama pelo cliente PocketBase existente, pb.send, contra o backend gerenciado. A URL pública do frontend não é o backend. Preservar VITE_POCKETBASE_URL gerenciado; descobrir backend via skip_cloud_get_backend_url, sem sobrescrever o cliente gerado.
+
+Guardas e mutações locais usam $app.runInTransaction, com txApp dentro da transação; chamada HTTP externa ocorre após o commit. Consultar estado HTTP explicitamente e tratar falha de transporte separadamente. Helpers do handler precisam respeitar o isolamento goja descrito no guia; não assumir globais Node ou funções de outra VM.
+
+Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado de cada etapa e qa.test.ran: teste não executado ou script vazio não conta como prova. Se build/lint/test tiverem nomes diferentes em package.json, registrar e usar os scripts existentes equivalentes; não inventar saída aprovada. Deploy em produção exige a autorização aplicável. Registrar versão/rotas/comandos efetivamente inspecionados em 07-sistemas/pcp/ambiente-execucao.md.
 
 ## Instruções de execução para o Ethos, Codex ou Claude Code
 
@@ -99,15 +117,16 @@ Fixtures e scripts serão criados pelo executor junto ao teste; esta geração n
 | T1 | CA-D1/D2 | COOKIE-1 UN, ficha INS-1=0,05 KG; P2 unidade null; P3 ficha null | Valores oficiais preservados; P2/P3 bloqueados; sem KG→UN |
 | T2 | CA-D3/D4 | 100 UN concluídas;20 canceladas; devolução vinculada10; linha repetida;90 datas | Fixture do mapa:90 UN líquidas; uma linha/chave; data externa excluída |
 | T3 | CA-D4 | Falhar página2, repetir1 e trocar geração | Lote anterior ativo; aviso incompleto; geração antiga recusada |
+| T5 | CA-D3/D4 | Pedidos firmes: confirmado20/atendido5; cancelado7; fora do horizonte3; replay; campo/status desconhecido | Mapa sintético resulta15, não25; replay mantém15; desconhecido=null e bloqueia; uso real só após regra PCP e amostra homologadas |
 | T4 | CA-D5 | Comparar contratos antigos com prova final 44/3344 | Adendo com fonte/data; histórico não apagado |
 
 | Etapa | Ação concreta | Resultado/evidência |
 |---|---|---|
-| RED | Criar asserções T1–T4 antes do comportamento; registrar falha de aceite, não erro de setup | red.md com critério/comando/versão/falha |
+| RED | Criar asserções T1–T5 antes do comportamento; registrar falha de aceite, não erro de setup | red.md com critério/comando/versão/falha |
 | GREEN | Menor implementação e as mesmas entradas/oráculos | Asserções/capturas/recibos; contagem de efeitos correta |
 | REFACTOR/REGRESSÃO | Repetir cenários, conta sem ação, replay e concorrência; login/logout/painel/filtro/catálogo/canais F1 | Sem ampliar acesso/duplicar/perder fonte; M043055 compara com lote atual, não fixar53 eternamente |
 
-**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-001.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-001.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar também npm run build, npm run lint e QA nativo; build/lint não substituem provas de aceite.
+**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-001.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-001.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar os scripts de build/lint existentes e o QA nativo, registrando os comandos equivalentes inspecionados em package.json; build/lint não substituem provas de aceite.
 
 **Não técnico:** documento/card: registrar condição anterior, item exibido, ação do responsável, estado posterior e referência verificável. RED=ausência/contradição; GREEN=aprovação/vínculo comprovado; regressão preservaIDs/evidências. Para software, exigir RED/GREEN das asserções.
 
@@ -139,3 +158,5 @@ Status/metadados editáveis pertencem somente ao arquivo canônico.
 ## Emendas
 
 09/10/2026: geração F2 com pendências herdadas autorizadas pelo consultor. Regra/contrato diferente durante execução exige emenda rastreada.
+
+13/10/2026: revisão documental do pacote; explicitados contratos/guardas e cenários de erro aplicáveis, com TDD acoplado. IDs e critérios existentes preservados; nenhuma task ou transação executada.

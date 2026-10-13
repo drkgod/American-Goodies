@@ -28,3 +28,11 @@
 - Liberado pacoteF2:7 SPECs de sistema,TDD acoplado,29 tasks/29 UUIDs reais; revisões de fluxo, contrato,TDD, risco, decomposição e rastreabilidade concluídas. Validado fase-format:2, vínculo único e conteúdo operacional autossuficiente.
 - Contratos antigos movidos para05_entregas/fase-1/contratos-homologados; nenhuma entrega/nota/sistema existente apagado. SomenteF2 permanece em 04_fase-atual.
 - Nenhuma taskF2 implementada e nenhum teste novo do produto executado nesta liberação. A autorização documental não concede acesso nominal ou transaçãoERP; gates constam nasSPECs.
+
+## 2026-10-13 — revisão documental publicada
+
+- Revisadas sete SPECs e29 tasks; cada task continua ligada a exatamente uma SPEC/critério/prova.
+- Especificadas transferência de saldo sem duplicação, resultado0 auditável sem autorização ERP0, firmeza com mapa aprovado pelo PCP e ação editar_programacao negada por padrão.
+- Recuperação/falhas em mock separadas do caso real; guia técnico Skip/Cloud, QA e resultados dos testes incluídos nas SPECs.
+- Fonte privada reconciliada à ordem operacional: recuperação antes do envio. Metadados dos29 cards preservados; duas descrições detalham pedidos firmes.
+- Nenhum código/teste do produto executado. Ajustes aprovados pelo consultor e publicados no GitHub em13/10, branch main, com documentação incorporada às SPECs.

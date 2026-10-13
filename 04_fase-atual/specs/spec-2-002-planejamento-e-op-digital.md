@@ -1,6 +1,6 @@
 # SPEC-2-002 — Calendário, capacidade e programação com OP digital
 
-**Fase:** 2 · **Revisão:** 09/10/2026 · **Origem:** RQ-002/008; CL-006; CL-PEND-001.
+**Fase:** 2 · **Revisão:** 13/10/2026 (pacote liberado em09/10) · **Origem:** RQ-002/008; CL-006; CL-PEND-001.
 **Tipo:** sistema · **Dono funcional:** PCP fornece parâmetros e publica; executor implementa.
 **Degrau da solução:** reuso do projeto Skip 62774, autenticação/backend/banco nativos; construção mínima do recorte, sem outro provider.
 
@@ -45,7 +45,7 @@ Quantidades preservam decimais; rejeitar não finito e quantidade inválida. IDs
 |---|---|---|
 | Publicar / PCP com publicar_programacao | Rascunho válido, versão esperada e autorização | OP programada da versão publicada |
 | Primeiro apontamento / ponto de produção autorizado | programada; dados válidos | em_execucao; evento e transição atômicos |
-| Encerrar cozinha ou encaixotamento / responsável do ponto com apontar_producao | em_execucao; etapa possui realizado explícito; registrar hash dos eventos da etapa | Encerramento local com autor/hora/hash; quando ambas encerradas, aguardando_conferencia |
+| Encerrar cozinha ou encaixotamento / responsável do ponto com apontar_producao | em_execucao; etapa possui realizado explícito, inclusive zero justificado conforme SPEC-2-003; registrar hash dos eventos da etapa | Encerramento local com autor/hora/hash; quando ambas encerradas, aguardando_conferencia |
 | Conferir expedição/câmara / ação específica de cada ponto | aguardando_conferencia e encerramentos eficazes; ordem das etapas | Divergência conserva bloqueio; duas conferências coerentes deixam conferida e fila aguardando_aprovacao |
 | Revisar exceção / PCP com aprovar_consolidacao | Divergência identificada, ambas etapas e motivo/final | Quantidade final revisada; aguardando_aprovacao, sem apagar registros |
 | Aprovar payload / PCP | aguardando_aprovacao, hashes atuais, efeito mostrado | autorizada com hash aprovado; ainda sem POST |
@@ -54,6 +54,12 @@ Quantidades preservam decimais; rejeitar não finito e quantidade inválida. IDs
 | Retificar antes da aquisição / ponto autorizado | OP ainda não congelada/sincronizada | Invalida encerramentos/conferências/autorizações dependentes; volta em_execucao para reconferir |
 
 Encerramento por ponto é comando idempotente e guarda hash; não se encerra uma etapa só por quantidade planejada alcançada. A pessoa só encerra o próprio ponto aprovado. Não há anulação/reprogramação durante sincronizando ou resultado_incerto. Após sincronizada, correção vira ocorrência/decisão separada, sem alterar registros já enviados. Caso uma etapa legítima não exista no processo piloto, cliente precisa aprovar fluxo antes de uso; o executor não dispensa etapa silenciosamente.
+
+### Reprogramação parcial sem duplicar execução ou reserva
+
+Criar/editar rascunho e reprogramar/cancelar exigem editar_programacao; publicar a nova versão exige também publicar_programacao. Reprogramar transfere somente o saldo ainda não iniciado, usando as quantidades eficazes e a versão esperada; nenhuma quantidade/evento já iniciado migra de OP ou perde a referência original. Na mesma transação, guardar vínculo origem→destino e quantidade transferida, retirar essa quantidade do saldo executável e da demanda pendente da OP antiga e reservar apenas o saldo no destino. Manter a quantidade planejada original e os eventos para auditoria, mas não somar essa referência histórica como demanda executável.
+
+Conservar a ocupação já consumida e liberar somente a reserva do saldo transferido; validar capacidade/calendário do destino antes do commit. Se faltar capacidade ou surgir conflito, nenhuma transferência ou reserva parcial é efetivada. Replay do mesmo comando retorna a transferência existente; revisão/payload divergente retorna409. Exemplo OP100 com cozinha40 e saldo não iniciado60: após transferir todo o saldo, origem conserva realizado40, saldo executável0 e referência histórica100; destino tem quantidade60, com vínculo e nova data. As projeções de demanda e de capacidade contam os60 somente no destino; a origem segue suas etapas/conferência dos40 efetivamente realizados. Tentativa de executar novamente os60 na origem é negada.
 
 ## Fluxo e regras
 
@@ -76,6 +82,16 @@ Encerramento por ponto é comando idempotente e guarda hash; não se encerra uma
 - Dado faltante mantém rascunho e motivo; falha de leitura mantém último lote com origem/hora/aviso, bloqueando somente operação dependente.
 - Comando local persistido com UUID/hash: replay igual não duplica; mudança de payload conflita. Mutação dependente usa versão esperada/transação e prova concorrente.
 - **Rollback:** desativar somente rotas/flags novas, preservando painel/acesso F1 e histórico. Migrations aditivas compatíveis; não apagar coleção/evento para reverter. Efeito confirmado no ERP exige decisão e reconciliação separadas; rollback do frontend não o desfaz.
+
+### Execução no Skip e documentação técnica mínima
+
+Usar o projeto conectado62774; acesso ausente impede alteração do sistema, sem criar substituto. Antes de migrations/hooks, consultar pelo MCP skip_cloud_migrations_guide e skip_cloud_hooks_guide e ler código/coleções atuais. Guias verificados em13/10/2026 descrevem PocketBase v0.36/goja; confirmar versão do projeto, que não foi acessível pelo conector desta revisão.
+
+Hooks não executam Node.js: o runner Node dos testes é externo. Rotas novas usam /backend/v1/ e um routerAdd por arquivo; UI chama pelo cliente PocketBase existente, pb.send, contra o backend gerenciado. A URL pública do frontend não é o backend. Preservar VITE_POCKETBASE_URL gerenciado; descobrir backend via skip_cloud_get_backend_url, sem sobrescrever o cliente gerado.
+
+Guardas e mutações locais usam $app.runInTransaction, com txApp dentro da transação; chamada HTTP externa ocorre após o commit. Consultar estado HTTP explicitamente e tratar falha de transporte separadamente. Helpers do handler precisam respeitar o isolamento goja descrito no guia; não assumir globais Node ou funções de outra VM.
+
+Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado de cada etapa e qa.test.ran: teste não executado ou script vazio não conta como prova. Se build/lint/test tiverem nomes diferentes em package.json, registrar e usar os scripts existentes equivalentes; não inventar saída aprovada. Deploy em produção exige a autorização aplicável. Registrar versão/rotas/comandos efetivamente inspecionados em 07-sistemas/pcp/ambiente-execucao.md.
 
 ## Instruções de execução para o Ethos, Codex ou Claude Code
 
@@ -110,7 +126,7 @@ Fixtures e scripts serão criados pelo executor junto ao teste; esta geração n
 | T1 | CA-P1 | COOKIE-1 capacidade100 UN/dia;3 datas disponíveis; pedir300 e400 | 300 em 3×100;400 excede; nada nos dias exclusivos |
 | T2 | CA-P1 | Mesmo recurso: A50/100 e B25/50; depois B26 | Fração1 aceita;1,02 recusada |
 | T3 | CA-P2/P3 | Capacidade null; conta sem publicar; dois comandos versão1 | Campo bloqueante;403; uma versão2 |
-| T4 | CA-P4 | OP100, realizado40, reprogramar restante60 com motivo | 40 preservado; restante60 explícito; passado imutável |
+| T4 | CA-P4 | OP100, realizado40, transferir restante60 com motivo; repetir comando; dois comandos concorrentes | Origem: realizado40/saldo executável0; destino60 uma vez; reservas pendentes transferidas sem duplicar capacidade/demanda; passado preservado; replay idempotente; conflito sem transferência parcial |
 
 | Etapa | Ação concreta | Resultado/evidência |
 |---|---|---|
@@ -118,11 +134,13 @@ Fixtures e scripts serão criados pelo executor junto ao teste; esta geração n
 | GREEN | Menor implementação e as mesmas entradas/oráculos | Asserções/capturas/recibos; contagem de efeitos correta |
 | REFACTOR/REGRESSÃO | Repetir cenários, conta sem ação, replay e concorrência; login/logout/painel/filtro/catálogo/canais F1 | Sem ampliar acesso/duplicar/perder fonte; M043055 compara com lote atual, não fixar53 eternamente |
 
-**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-002.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-002.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar também npm run build, npm run lint e QA nativo; build/lint não substituem provas de aceite.
+**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-002.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-002.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar os scripts de build/lint existentes e o QA nativo, registrando os comandos equivalentes inspecionados em package.json; build/lint não substituem provas de aceite.
 
 **Não técnico:** documento/card: registrar condição anterior, item exibido, ação do responsável, estado posterior e referência verificável. RED=ausência/contradição; GREEN=aprovação/vínculo comprovado; regressão preservaIDs/evidências. Para software, exigir RED/GREEN das asserções.
 
 **Massa:** entradas e resultados da tabela; nunca promovê-los a dados/metas reais. **Erros:** sem perfil, dado/unidade ausente, replay divergente, revisão concorrente, fonte indisponível e casos específicos acima. Teste mutante real exige autorização específica de OP/quantidade/efeito.
+
+**Prova adicional CA-P3/P4:** conta com consulta e sem editar_programacao tenta criar/editar/reprogramar →403 e zero mutação. Após concessões nominais aprovadas, repetir OP100/realizado40/transferência60 e conferir origem/destino/reservas na tela.
 
 ## Teste humano do cliente
 
@@ -148,3 +166,5 @@ Status/metadados editáveis pertencem somente ao arquivo canônico.
 ## Emendas
 
 09/10/2026: geração F2 com pendências herdadas autorizadas pelo consultor. Regra/contrato diferente durante execução exige emenda rastreada.
+
+13/10/2026: revisão documental do pacote; explicitados contratos/guardas e cenários de erro aplicáveis, com TDD acoplado. IDs e critérios existentes preservados; nenhuma task ou transação executada.

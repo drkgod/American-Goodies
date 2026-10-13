@@ -18,3 +18,7 @@ Ler04_fase-atual/specs/00-INDICE.md e selecionar uma task elegível em 04_fase-a
 Gates localizados: matriz/ações para acesso nominal; cadastro/unidade/ficha para cálculo/apontamento dependente; histórico/recebimentos completos para sugestões; autorização transacional específica para cadaOP/efeito no Omie. Provas negativas de revogação/reinício/concorrência/timeout devem passar antes do primeiroPOST real.
 
 **Próxima ação:** executar uma task independente de fundamento ou regularização e pedir teste humano ao terminar. Pendência de entrada não impede fundamento sintético independente. Não executar tarefa seguinte antes do aceite explícito da anterior.
+
+## Revisão documental — 13/10/2026
+
+As sete SPECs e29 tasks foram revisadas, com contratos/TDD/roteiros embutidos. Ajustes de saldo reprogramado, resultado0, pedidos firmes, ação editar_programacao e recuperação mock foram conferidos; IDs/status preservados. Projeto não alterado nem testes do produto executados nesta revisão. **Atualização publicada no GitHub:** revisão de13/10 aprovada pelo consultor e sincronizada em drkgod/American-Goodies, branch main. Seguir o índice e a SPEC da task elegível, respeitando os gates de dados, acesso e aceite humano.

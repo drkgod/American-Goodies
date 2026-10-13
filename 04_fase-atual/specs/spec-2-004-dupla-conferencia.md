@@ -1,6 +1,6 @@
 # SPEC-2-004 — Conferência da expedição e entrada em câmara fria
 
-**Fase:** 2 · **Revisão:** 09/10/2026 · **Origem:** RQ-002/009; CL-PEND-002.
+**Fase:** 2 · **Revisão:** 13/10/2026 (pacote liberado em09/10) · **Origem:** RQ-002/009; CL-PEND-002.
 **Tipo:** sistema · **Dono funcional:** expedição/câmara conferem; PCP decide divergência.
 **Degrau da solução:** reuso do projeto Skip 62774, autenticação/backend/banco nativos; construção mínima do recorte, sem outro provider.
 
@@ -43,6 +43,10 @@ Retificação/conferência e aquisição do envio usam a mesma guarda transacion
 
 Prova C4 complementar: inserir barreira entre adquirir envio e POST, tentar retificação100→99; recebe409 e hash100 permanece. Se retificação99 ganha antes da aquisição, esta recebe conflito e zero POST100. Perfil administrativo funcional tentando PATCH/DELETE direto da conferência recebe403.
 
+### Conferência de resultado zero
+
+Quantidade conferida é finita e>=0; zero exige motivo e registro explícito por cada ponto autorizado. Não preencher conferência ausente com0. Se a quantidade final for0, inclusive quando todas as quantidades eficazes forem0, preservar conferências/ocorrência e manter pendência quantidade_final_zero para decisão PCP; igualdade0=0 não libera autorização/transação no Omie. Realizado0 versus quantidade recebida positiva continua divergência, com os registros originais conservados.
+
 ## Fluxo e regras
 
 | Regra | Condição | Resultado | Exceção/ponto de parada |
@@ -63,6 +67,16 @@ Prova C4 complementar: inserir barreira entre adquirir envio e POST, tentar reti
 - Dado faltante mantém rascunho e motivo; falha de leitura mantém último lote com origem/hora/aviso, bloqueando somente operação dependente.
 - Comando local persistido com UUID/hash: replay igual não duplica; mudança de payload conflita. Mutação dependente usa versão esperada/transação e prova concorrente.
 - **Rollback:** desativar somente rotas/flags novas, preservando painel/acesso F1 e histórico. Migrations aditivas compatíveis; não apagar coleção/evento para reverter. Efeito confirmado no ERP exige decisão e reconciliação separadas; rollback do frontend não o desfaz.
+
+### Execução no Skip e documentação técnica mínima
+
+Usar o projeto conectado62774; acesso ausente impede alteração do sistema, sem criar substituto. Antes de migrations/hooks, consultar pelo MCP skip_cloud_migrations_guide e skip_cloud_hooks_guide e ler código/coleções atuais. Guias verificados em13/10/2026 descrevem PocketBase v0.36/goja; confirmar versão do projeto, que não foi acessível pelo conector desta revisão.
+
+Hooks não executam Node.js: o runner Node dos testes é externo. Rotas novas usam /backend/v1/ e um routerAdd por arquivo; UI chama pelo cliente PocketBase existente, pb.send, contra o backend gerenciado. A URL pública do frontend não é o backend. Preservar VITE_POCKETBASE_URL gerenciado; descobrir backend via skip_cloud_get_backend_url, sem sobrescrever o cliente gerado.
+
+Guardas e mutações locais usam $app.runInTransaction, com txApp dentro da transação; chamada HTTP externa ocorre após o commit. Consultar estado HTTP explicitamente e tratar falha de transporte separadamente. Helpers do handler precisam respeitar o isolamento goja descrito no guia; não assumir globais Node ou funções de outra VM.
+
+Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado de cada etapa e qa.test.ran: teste não executado ou script vazio não conta como prova. Se build/lint/test tiverem nomes diferentes em package.json, registrar e usar os scripts existentes equivalentes; não inventar saída aprovada. Deploy em produção exige a autorização aplicável. Registrar versão/rotas/comandos efetivamente inspecionados em 07-sistemas/pcp/ambiente-execucao.md.
 
 ## Instruções de execução para o Ethos, Codex ou Claude Code
 
@@ -98,14 +112,15 @@ Fixtures e scripts serão criados pelo executor junto ao teste; esta geração n
 | T2 | CA-C2 | Câmara primeiro; cozinha tenta expedição; replayUUID | Bloqueio/403; um registro eficaz |
 | T3 | CA-C3/C4 | Tudo100, PCP aprova; retificar realizado99 | Antes revisável; depois autorização inválida/envio bloqueado |
 | T4 | CA-C4 | PCP aceita96 com motivo após revisar100/98/97/96 | Originais visíveis; final96 sem ajuste Omie |
+| T5 | CA-C1/C3 | Dois pontos declaram realizado0 e conferências próprias0 com motivo; depois conferência ausente ou recebimento1 | Quatro zeros explícitos preservados, final0 mantém pendência sem autorização ERP; ausência não vira0; recebimento1 é divergência |
 
 | Etapa | Ação concreta | Resultado/evidência |
 |---|---|---|
-| RED | Criar asserções T1–T4 antes do comportamento; registrar falha de aceite, não erro de setup | red.md com critério/comando/versão/falha |
+| RED | Criar asserções T1–T5 antes do comportamento; registrar falha de aceite, não erro de setup | red.md com critério/comando/versão/falha |
 | GREEN | Menor implementação e as mesmas entradas/oráculos | Asserções/capturas/recibos; contagem de efeitos correta |
 | REFACTOR/REGRESSÃO | Repetir cenários, conta sem ação, replay e concorrência; login/logout/painel/filtro/catálogo/canais F1 | Sem ampliar acesso/duplicar/perder fonte; M043055 compara com lote atual, não fixar53 eternamente |
 
-**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-004.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-004.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar também npm run build, npm run lint e QA nativo; build/lint não substituem provas de aceite.
+**Comandos:** ler package.json/runner atuais no Skip e registrar comando/versão exatos. Sem runner confiável, criar testes Node nativos assert/strict em tests/pcp/spec-2-004.test.mjs e fixtures em tests/pcp/fixtures/fase-2/; rodar node --test tests/pcp/spec-2-004.test.mjs. Função pura usa mesmo módulo da aplicação ou bundle pelo Vite existente, nunca fórmula reimplementada no teste. Provas servidor usam HTTP/script contra demonstração isolada; token via ambiente seguro, jamais impresso. Rodar os scripts de build/lint existentes e o QA nativo, registrando os comandos equivalentes inspecionados em package.json; build/lint não substituem provas de aceite.
 
 **Não técnico:** documento/card: registrar condição anterior, item exibido, ação do responsável, estado posterior e referência verificável. RED=ausência/contradição; GREEN=aprovação/vínculo comprovado; regressão preservaIDs/evidências. Para software, exigir RED/GREEN das asserções.
 
@@ -134,3 +149,5 @@ Status/metadados editáveis pertencem somente ao arquivo canônico.
 ## Emendas
 
 09/10/2026: geração F2 com pendências herdadas autorizadas pelo consultor. Regra/contrato diferente durante execução exige emenda rastreada.
+
+13/10/2026: revisão documental do pacote; explicitados contratos/guardas e cenários de erro aplicáveis, com TDD acoplado. IDs e critérios existentes preservados; nenhuma task ou transação executada.
