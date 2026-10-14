@@ -22,13 +22,17 @@ Fonte da conferência: MCP do Skip, 2026-10-08. Contrato interno: `07-sistemas/p
 
 ## Matriz nominal de acesso (CL-003)
 
-**Estado: PENDENTE — não recebida nem aprovada.**
+**Estado: v1 APROVADA em 14/10/2026** — aprovador: Mr Cheney; confirmação do conteúdo por
+formulário em 14/10/2026 11:54 BRT. Registro integral: `05_entregas/fase-2/spec-2-000/matriz-nominal-v1.md`.
 
 - Áreas previstas pela SPEC-1-001: catalogo, estoque, producao, compras, pedidos, painel
   (+ campo `pode_atualizar_fontes`, somente se aprovado).
-- A SPEC proíbe atribuir gestor, administrador ou acesso global por suposição.
-- **Até a matriz nominal (conta → áreas) ser fornecida e aprovada, acesso real permanece
-  bloqueado.** Quem aprovou e quando serão registrados aqui, fora das credenciais.
+- A SPEC proíbe atribuir gestor, administrador ou acesso global por suposição — a matriz v1
+  registra conta, áreas, ações e pontos por pessoa; área/cargo não concede ação por implicação.
+- Contas seguem padrão `nome.sobrenome` e serão criadas na task de ativação (49327a88);
+  nesta task nenhuma conta foi criada e nenhum perfil Skip foi alterado.
+- Pendências da v1: escopo zero do motorista (Renato) a definir; domínio das contas padrão;
+  revogação dos perfis sintéticos @pcp.local na task 49327a88.
 
 ## Perfis sintéticos de teste — Plano B (autorizado)
 
