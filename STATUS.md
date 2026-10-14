@@ -2,7 +2,7 @@
 
 Fase atual: 2 — Programação e apontamento com conferência.
 
-**Estado:** pacote liberado pelo consultor em 09/10/2026, pronto para execução. Sete SPECs com TDD e29 tasks;29 UUIDs reais reconciliados. Nenhuma taskF2 executada nesta liberação.
+**Estado (14/10/2026):** primeira taskF2 em execução — 51356fad (matriz nominal CL-003) analisada e implementada no recorte documental: matriz v1.1 gravada em 05_entregas/fase-2/spec-2-000/matriz-nominal-v1.md (aprovador: Mr Cheney, 14/10; exclusão: somente Limpeza; suplente espelhado dos gerentes; contas padrão nome.sobrenome a criar na task 49327a88). **Aguardando teste humano** (revisão da matriz pelo aprovador). Demais 28 tasks abertas.
 **Ambiente:** projeto Skip 62774, MCP do Skip e Skip Cloud; fonte oficial Omie e complemento Nuvemshop. ProduçãoF1: https://mcc-automacao-fabrica-98125.goskip.app, v0.0.61 conforme prova registrada em 08/10.
 
 ## Transição e pendências
