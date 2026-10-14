@@ -5,6 +5,7 @@
 - **Aprovação da diretriz**: 14/10/2026 11:34 BRT — "Aprovar matriz nominal CL-003"
 - **Confirmação do conteúdo**: 14/10/2026 11:54 BRT — formulário de confirmação (contas padrão nome.sobrenome; suplente espelhado dos gerentes; rascunho confirmado como está; exclusão: Limpeza sem acesso)
 - **Correção v1.1 (14/10/2026 11:56 BRT)**: typo na conta da linha 4 — `cauau.silva` → `caua.silva` (padrão nome.sobrenome); nenhum outro campo alterado
+- **Correção v1.2 (14/10/2026 12:04 BRT)**: motorista (Renato) sem escopo na v1, por decisão do aprovador ("Renato nao tem escopo"); pendência do escopo dele removida
 - **Fonte do mapeamento**: 06_notas/organograma-2026-10.md (22 pessoas + 1 consultoria externa)
 - **SPEC**: 04_fase-atual/specs/spec-2-000-acessos-e-pendencias.md · CA-A1
 - **Regra de concessão**: área ou cargo NUNCA concede ação por implicação — somente o que está registrado abaixo
@@ -13,7 +14,7 @@
 ## Decisões da v1 (confirmadas pelo aprovador)
 
 1. **Contas Skip**: padrão automático `nome.sobrenome` (ex.: `adelma.cezar`), a serem criadas na task de ativação (49327a88) — nenhuma conta criada nesta task.
-2. **Exclusões da v1 (sem acesso)**: Limpeza (Hellene Francisca Silva Sousa). Motorista (Renato Rodrigues de Carvalho) NÃO foi marcado como exclusão — mantido com conta criada e escopo zero pendente de definição pelo aprovador (nenhuma área/ação/ponto concedido por suposição).
+2. **Sem acesso na v1**: Limpeza (Hellene Francisca Silva Sousa) e Motorista (Renato Rodrigues de Carvalho — sem escopo confirmado pelo aprovador em 14/10 12:04: sem áreas/ações/pontos e sem provisionamento de conta na v1; conta padrão apenas reservada para eventual v2).
 3. **Suplente (Ronaldo Silva Reis)**: escopo espelhado dos gerentes (Arivaldo + Keoma), sem edição de parâmetros.
 4. **Escopo por pessoa**: rascunho da análise confirmado como está.
 
@@ -42,17 +43,18 @@
 | 19 | Angela Maria da Silva | Expedição | angela.silva | pedidos, painel | conferir_expedicao, conferir_camara | expedicao, camara_fria | sim |
 | 20 | Cristiano Honorio de Almeida | Expedição | cristiano.almeida | pedidos, painel | conferir_expedicao, conferir_camara | expedicao, camara_fria | sim |
 | 21 | Kevin Herlan Mamani Gonzales | Expedição | kevin.gonzales | pedidos, painel | conferir_expedicao, conferir_camara | expedicao, camara_fria | sim |
-| 22 | Renato Rodrigues de Carvalho | Motorista | renato.carvalho | — escopo zero, pendente de definição | — | — | sim |
+| 22 | Renato Rodrigues de Carvalho | Motorista | renato.carvalho | — sem escopo na v1 (decisão do aprovador em 14/10) | — | — | não |
 | 23 | Patricia Mellazo | Consultoria externa (fichas técnicas/POPs) | patricia.mellazo | catalogo | — | — | sim |
 
 ## Pendências registradas (não bloqueiam a v1; resolvem-se na ativação 49327a88 ou depois)
 
-1. Conta de Renato (motorista) com escopo zero — definidor: aprovador/cliente.
-2. Domínio do e-mail das contas padrão (ex.: @americangoodies… ou @pcp.local) — definir no provisionamento.
-3. Keoma sem pontos registrados — PCP define pontos de expedição/faturamento quando as telas de conferência entrarem.
-4. Revogação dos 4 perfis sintéticos @pcp.local da F1 — task 49327a88 (CA-A2/A3).
+1. Domínio do e-mail das contas padrão (ex.: @americangoodies… ou @pcp.local) — definir no provisionamento.
+2. Keoma sem pontos registrados — PCP define pontos de expedição/faturamento quando as telas de conferência entrarem.
+3. Revogação dos 4 perfis sintéticos @pcp.local da F1 — task 49327a88 (CA-A2/A3).
+4. Motorista (Renato) ficou sem escopo na v1 — se o aprovador definir escopo futuro, registrar versão v2 datada.
 
 ## Registro de versões
 
 - v1 (2026-10-14): matriz inicial aprovada por Mr Cheney. Próximas alterações de escopo exigem nova versão datada (v2) com aprovador.
 - v1.1 (2026-10-14): correção de typo na conta da linha 4 (cauau.silva → caua.silva); nenhum outro campo alterado.
+- v1.2 (2026-10-14 12:04): escopo do motorista (Renato) definido pelo aprovador — sem escopo na v1; pendência removida da matriz.
