@@ -36,9 +36,30 @@
 - src/pages/TrocarSenha.tsx + src/components/ProtectedArea.tsx + src/services/pcp-access.ts + src/App.tsx — fluxo de troca obrigatória no frontend
 - tests/pcp/spec-2-000.test.mjs — 8 testes node --test
 
-## Histórico de versões Skip (v0.0.62 → v0.0.73)
+## Histórico de versões Skip (v0.0.62 → v0.0.77)
 
-- 0.0.62: primeiro apply (lint/build corrigidos em 0.0.63) · 0.0.64–65: hook de troca renomeado (slug sem underscore) · 0.0.66–67: migration 0020 · 0.0.68–69: migration 0021 · 0.0.70: guarda de login corrigido (getString('email')) · 0.0.71–72: hook de perfil recriado (pcp_perfil_v2) após conflito de rota com o hook antigo · 0.0.73: teste TDD
+- 0.0.62: primeiro apply (lint/build corrigidos em 0.0.63) · 0.0.64–65: hook de troca renomeado (slug sem underscore) · 0.0.66–67: migration 0020 · 0.0.68–69: migration 0021 · 0.0.70: guarda de login corrigido (getString('email')) · 0.0.71–72: hook de perfil recriado (pcp_perfil_v2) após conflito de rota com o hook antigo · 0.0.73: teste TDD · 0.0.74–0.0.77: rotação da senha inicial (migrations 0022–0025, ver abaixo).
+
+## Teste humano e aceite (14/10, 16:32–16:35 BRT)
+
+- Owner Mr Cheney: login com a senha inicial → troca obrigatória exibida → troca executada
+  (trocar-senha 200 em 16:33:32) → login com a senha nova (200 em 16:33:44) → painel e
+  catálogo visíveis (áreas do perfil da Keoma). Logs do servidor provam a sequência completa.
+- Aceite: "Aprovado — pode concluir a task" (14/10, canal web).
+
+## Rotação da senha inicial (plano B, 16:20–16:30 BRT)
+
+- Owner não encontrou o painel de secrets; novo valor gravado no cofre PCP_INITIAL_PASSWORDS
+  e contas redefinidas (migrations 0022–0025, versões v0.0.74–0.0.77). As migrations 0022/0023
+  rodaram com o valor anterior em cache no pod; a 0024 (reset de todas as 21 contas) provou o
+  valor novo e a 0025 restaurou o estado limpo (todas com a inicial, flag false).
+- Provas: login da Keoma com o novo valor 200; senha antiga 400; senha temporária da prova 400
+  após restauração; sintético @pcp.local continua 400.
+
+## Publicação em produção
+
+- v0.0.77 publicada em 16:44:30 (ref 6e05dac) — produção agora inclui as contas reais,
+  a troca obrigatória e a revogação dos sintéticos.
 
 ## Pendências conhecidas (não bloqueiam o aceite)
 
@@ -46,4 +67,4 @@
 2. Keoma: pontos=[] (sem pontos definidos na matriz v1.2 — pendência registrada).
 3. Ação editar_programacao ainda não tem rota de rascunho (SPEC-2-002/003 — guarda de ação pronto no servidor).
 4. Revogação controlada pelo secret PCP_REVOGAR_SINTETICOS (sem redeploy) — valor atual: 1.
-5. Publicação em produção (lastPublishedRef ainda é a F1 v0.0.61) — após o aceite humano.
+5. Publicação em produção: RESOLVIDA — v0.0.77 no ar (ref 6e05dac, 16:44).
