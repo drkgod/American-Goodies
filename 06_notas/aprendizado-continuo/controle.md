@@ -7,3 +7,4 @@
 - 2026-10-08T11:35:00-03:00 · task SPEC-1-001 CA-A2/A3 · capturado: 06_notas/aprendizado-continuo/AP-2026-10-08-1130-goja-filter-params.md
 - 2026-10-08T15:25:00-03:00 · task SPEC-1-003 CA-N3 e CA-N1–N4 · capturado: 06_notas/aprendizado-continuo/AP-2026-10-08-1520-omie-ratelimit-cursor-retomada.md
 - 2026-10-08T16:40:00-03:00 · task SPEC-1-003 CA-N1–N4 · capturado: referência de integração varia por canal (OH… = loja própria; numérica = Nuvemshop numero) — amostra pequena induziu conclusão errada de "referência ausente"; corrigida após lote oficial completo (2589 referências, 44 pares Nuvemshop provados)
+- 2026-10-14T15:05:00-03:00 · task 51356fad (SPEC-2-000 CA-A1) · capturado: 06_notas/aprendizado-continuo/AP-2026-10-14-1505-push-files-truncamento.md
