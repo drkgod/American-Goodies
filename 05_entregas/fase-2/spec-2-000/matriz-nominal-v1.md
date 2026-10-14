@@ -4,6 +4,7 @@
 - **Aprovador**: Mr Cheney (owner do projeto, via ETHOS)
 - **Aprovação da diretriz**: 14/10/2026 11:34 BRT — "Aprovar matriz nominal CL-003"
 - **Confirmação do conteúdo**: 14/10/2026 11:54 BRT — formulário de confirmação (contas padrão nome.sobrenome; suplente espelhado dos gerentes; rascunho confirmado como está; exclusão: Limpeza sem acesso)
+- **Correção v1.1 (14/10/2026 11:56 BRT)**: typo na conta da linha 4 — `cauau.silva` → `caua.silva` (padrão nome.sobrenome); nenhum outro campo alterado
 - **Fonte do mapeamento**: 06_notas/organograma-2026-10.md (22 pessoas + 1 consultoria externa)
 - **SPEC**: 04_fase-atual/specs/spec-2-000-acessos-e-pendencias.md · CA-A1
 - **Regra de concessão**: área ou cargo NUNCA concede ação por implicação — somente o que está registrado abaixo
@@ -23,7 +24,7 @@
 | 1 | Arivaldo Missias Caboronga | Gerente — cozinhas, triagem, encaixotamento, limpeza | arivaldo.missias | producao, painel | consultar_planejamento, apontar_producao | cozinha, encaixotamento | sim |
 | 2 | Adelma Cezar Alves | Cozinha Sobremesas | adelma.cezar | producao | apontar_producao | cozinha | sim |
 | 3 | Antonio Carlos de Souza Junior | Cozinha Sobremesas | antonio.carlos | producao | apontar_producao | cozinha | sim |
-| 4 | Caua Silva Reis | Cozinha Sobremesas | cauau.silva | producao | apontar_producao | cozinha | sim |
+| 4 | Caua Silva Reis | Cozinha Sobremesas | caua.silva | producao | apontar_producao | cozinha | sim |
 | 5 | Daniel Venancio Pires | Cozinha Sobremesas | daniel.venancio | producao | apontar_producao | cozinha | sim |
 | 6 | Margarida da Silva Mattos | Cozinha Sobremesas | margarida.silva | producao | apontar_producao | cozinha | sim |
 | 7 | Maria Marleide Pereira da Silva | Cozinha Sobremesas | maria.marleide | producao | apontar_producao | cozinha | sim |
@@ -54,3 +55,4 @@
 ## Registro de versões
 
 - v1 (2026-10-14): matriz inicial aprovada por Mr Cheney. Próximas alterações de escopo exigem nova versão datada (v2) com aprovador.
+- v1.1 (2026-10-14): correção de typo na conta da linha 4 (cauau.silva → caua.silva); nenhum outro campo alterado.
