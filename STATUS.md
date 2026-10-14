@@ -2,7 +2,7 @@
 
 Fase atual: 2 — Programação e apontamento com conferência.
 
-**Estado (14/10/2026):** primeira taskF2 em execução — 51356fad (matriz nominal CL-003) analisada e implementada no recorte documental: matriz v1.1 gravada em 05_entregas/fase-2/spec-2-000/matriz-nominal-v1.md (aprovador: Mr Cheney, 14/10; exclusão: somente Limpeza; suplente espelhado dos gerentes; contas padrão nome.sobrenome a criar na task 49327a88). **Aguardando teste humano** (revisão da matriz pelo aprovador). Demais 28 tasks abertas.
+**Estado (14/10/2026):** 1/29 concluída — 51356fad (matriz nominal v1.2, aceite do owner). Task 2 em testes: 49327a88 (ativar e testar as contas aprovadas) implementada no Skip v0.0.73 — 21 contas reais (nome.sobrenome@mccfranchising.com.br) com perfis exatos da matriz, troca obrigatória de senha no 1º login, revogação dos perfis de teste @pcp.local, tela de troca no frontend; provas T1–T12 (HTTP real + node --test 8/8) em 05_entregas/fase-2/spec-2-000/evidencia-49327a88.md. **Aguardando teste humano.** Publicação em produção ainda é a F1 (v0.0.61) — publicar após o aceite. Demais 27 tasks abertas.
 **Ambiente:** projeto Skip 62774, MCP do Skip e Skip Cloud; fonte oficial Omie e complemento Nuvemshop. ProduçãoF1: https://mcc-automacao-fabrica-98125.goskip.app, v0.0.61 conforme prova registrada em 08/10.
 
 ## Transição e pendências
