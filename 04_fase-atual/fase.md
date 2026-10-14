@@ -43,7 +43,7 @@ Uso real: programação→apontamentos→conferência→envio. Aprovação de m�
 
 Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
 
-- [/] Aprovar a matriz nominal de acesso (CL-003) #projeto [interno] <!-- id:51356fad-e41a-47be-8f4b-2847f25115bc -->
+- [x] Aprovar a matriz nominal de acesso (CL-003) #projeto [interno] <!-- id:51356fad-e41a-47be-8f4b-2847f25115bc -->
   > SPEC-2-000 (spec-2-000-acessos-e-pendencias.md), CA-A1. Cliente confirma contas, áreas, ações e pontos com aprovador/data; organograma já recebido não equivale a aprovação. Pré-condições: aprovação administrativa do responsável; nenhuma concessão real por suposição. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-000/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Ativar e testar as contas aprovadas #projeto [interno] <!-- id:49327a88-b7db-42e6-a5bf-641e242848d4 -->
