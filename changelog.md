@@ -36,3 +36,8 @@
 - Recuperação/falhas em mock separadas do caso real; guia técnico Skip/Cloud, QA e resultados dos testes incluídos nas SPECs.
 - Fonte privada reconciliada à ordem operacional: recuperação antes do envio. Metadados dos29 cards preservados; duas descrições detalham pedidos firmes.
 - Nenhum código/teste do produto executado. Ajustes aprovados pelo consultor e publicados no GitHub em13/10, branch main, com documentação incorporada às SPECs.
+
+## 2026-10-14
+
+- 2026-10-14 · [MCC/ETHOS] · **Task 51356fad (CL-003) — matriz nominal v1 registrada**: diretriz aprovada pelo owner (11:34) e conteúdo confirmado por formulário (11:54 — contas padrão nome.sobrenome; suplente Ronaldo espelhado dos gerentes; rascunho confirmado; exclusão: somente Limpeza). Matriz gravada em 05_entregas/fase-2/spec-2-000/matriz-nominal-v1.md (v1.1, commit d6b7cead — typo da conta da linha 4 corrigido cauau.silva→caua.silva) e acessos.md atualizado para "v1 APROVADA" (commit d3eb2ffa). fase.md marcado [/] (commits 4c67e43b/1d7d9571, truncamento do push reparado). Nenhuma conta criada/ativada e nenhum perfil Skip alterado — ativação/revogação é a task 49327a88. Estado: aguardando_teste_humano (revisão da matriz pelo aprovador).
+- 2026-10-14 · [MCC/ETHOS] · Documentação de sistema da F1 entregue: 07-sistemas/pcp/catalogo.md e painel.md (contratos das SPECs 1-004/1-005 aceitas) — commit fddd51c0. Rascunho de proposta P2 (06_notas/proposta-fase-2-draft.md) mantido como histórico, superado pelo pacote oficial liberado em 09/10.
