@@ -10,9 +10,9 @@
 - etapa: aguardando_teste_humano
 - autorizacao_implementacao: confirmada — 14/10/2026 11:54 BRT, formulário "Confirmar e gravar matriz v1 com as respostas do formulário"
 - teste_humano: pendente — revisão da matriz registrada pelo aprovador
-- verificacao_automatica: passou — blobs b0c54d59 (matriz-nominal-v1.md) e cc8722eb (acessos.md) provados contra conteúdo local; commit d3eb2ffa
+- verificacao_automatica: passou — blobs provados: d00a5e72 (matriz v1.1, commit d6b7cead), cc8722eb (acessos.md), 063d64a3 (fase.md)
 - verificacao_documental: passou — 7 SPECs, 29 tasks, 29 UUIDs, vínculo único, TDD e revisão multipersona (13/10)
 - aprendizado: pendente
-- ultima_acao: matriz nominal v1 gravada em 05_entregas/fase-2/spec-2-000/matriz-nominal-v1.md + acessos.md atualizado (commit d3eb2ffa); fase.md permanece [/] até o aceite humano
+- ultima_acao: matriz v1.1 gravada (typo linha 4 corrigido cauau.silva→caua.silva); aguardando revisão humana
 - proxima_acao: aguardar teste humano do aprovador sobre a matriz registrada
-- atualizado_em: 2026-10-14T11:58:00-03:00
+- atualizado_em: 2026-10-14T11:58:30-03:00
