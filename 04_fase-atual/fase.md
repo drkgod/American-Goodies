@@ -43,7 +43,7 @@ Uso real: programação→apontamentos→conferência→envio. Aprovação de m�
 
 Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
 
-- [ ] Aprovar a matriz nominal de acesso (CL-003) #projeto [interno] <!-- id:51356fad-e41a-47be-8f4b-2847f25115bc -->
+- [/] Aprovar a matriz nominal de acesso (CL-003) #projeto [interno] <!-- id:51356fad-e41a-47be-8f4b-2847f25115bc -->
   > SPEC-2-000 (spec-2-000-acessos-e-pendencias.md), CA-A1. Cliente confirma contas, áreas, ações e pontos com aprovador/data; organograma já recebido não equivale a aprovação. Pré-condições: aprovação administrativa do responsável; nenhuma concessão real por suposição. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-000/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Ativar e testar as contas aprovadas #projeto [interno] <!-- id:49327a88-b7db-42e6-a5bf-641e242848d4 -->
@@ -68,7 +68,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
     > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D1/D2/D3. Confirmar produto piloto, unidade/local e componentes/quantidades na fonte; retirar defaultUN como unidade oficial. Pré-condições: fundamento aceito, cadastro piloto, acesso nominal e contrato de leitura autorizados. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Comprovar as leituras de histórico e compras #projeto [interno] <!-- id:9318a299-f764-4dc7-8ec8-3cb7c86b7c79 -->
-    > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D3. Registrar endpoint/request/campos/status/chaves/paginação e amostra autorizada de vendas90, produção90 e compras a receber; sem inventar campo/status. Pré-condições: catálogo/ficha conciliados, consulta autorizada e documentação oficial da conta. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar. Inclui mapa aprovado pelo PCP de pedidos firmes: status, data no horizonte e quantidade remanescente por linha/unidade, sem inferir regra empresarial.
+    > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D3. Registrar endpoint/request/campos/status/chaves/paginação e amostra autorizada de vendas90, produção90 e compras a receber; sem inventar campo/status. Pré-condições: catálogo/ficha conciliados, consulta autorizada e documentação oficial da conta. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Importar os 90 dias e recebimentos confirmados #projeto [interno] <!-- id:e6aa4afa-94fe-45e9-95d8-875df96a1cf1 -->
     > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D4. Construir atualização atômica; provar replay, cancelamentos/devoluções e página falha; conferir período/cobertura e quantidade restante a receber. Pré-condições: contratos de leitura comprovados e aceitos; unidades oficiais. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar. Reconciliar também o saldo dos pedidos oficiais firmes com o contrato homologado; desconhecido gera pendência, nunca zero.
