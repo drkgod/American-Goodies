@@ -49,7 +49,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   - [x] Ativar e testar as contas aprovadas #projeto [interno] <!-- id:49327a88-b7db-42e6-a5bf-641e242848d4 -->
     > SPEC-2-000 (spec-2-000-acessos-e-pendencias.md), CA-A2/A3. Provisionar somente contas da matriz; provar permitir/negar, edição de perfil recusada e revogação com token antigo. Pré-condições: task de matriz aprovada e aceita; autorização administrativa comprovada. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-000/ e obter teste humano explícito antes de concluir ou avançar.
 
-- [/] Conciliar o card duplicado da base no Skip #projeto [interno] <!-- id:3def6d06-709a-43ff-b9b1-c54ec113c7c1 -->
+- [x] Conciliar o card duplicado da base no Skip #projeto [interno] <!-- id:3def6d06-709a-43ff-b9b1-c54ec113c7c1 -->
   > SPEC-2-000 (spec-2-000-acessos-e-pendencias.md), CA-A4. Operador vincula o card à entrega original16a7a99b e sua prova; resolve duplicata pelo mecanismo oficial, sem excluir ou recriar sistema. Pré-condições: original homologado e evidência de fundamento; funcionalidade oficial do portal. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-000/ e obter teste humano explícito antes de concluir ou avançar. Card herdado: título anterior "Criar a base do sistema no Skip"; mesmo UUID, recorte agora é conciliação documental da duplicata, sem reexecutar a entrega homologada.
   > Disposição (14/10/2026): duplicata conciliada com a entrega original 16a7a99b (homologada na F1 em 01/10, conferência 4/4); registro completo em 05_entregas/fase-2/spec-2-000/conciliacao-3def6d06.md; sem reimplementação; UUIDs preservados.
 
