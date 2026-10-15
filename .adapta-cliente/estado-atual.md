@@ -7,12 +7,17 @@
 - owner_informativo: cliente (metadado informativo; não bloqueia)
 - spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
 - analise: .adapta-cliente/analises/e57df8ff-99ae-4856-ac1f-53b713c8e99c.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada 2026-10-15T14:31 BRT — "sim" (owner, nova mensagem após o relatório de análise)
 - teste_humano: pendente
-- verificacao_automatica: pendente
-- verificacao_documental: passou — SPEC-2-001 lida integralmente; projeto Skip atual conferido (25 migrations, provider com ResultadoLeitura, catálogo F1 com estados de incompletude); pendência 4e0fcf1c não bloqueia o recorte sintético
+- verificacao_automatica: passou — QA Skip v0.0.81 (setup/static/build/integrations ok) + TDD local 12/12 (tsx --test)
+- verificacao_documental: passou — oráculos T1/T2/T3 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
 - aprendizado: pendente
-- ultima_acao: task e57df8ff selecionada e analisada; fase.md [/] (commit ccc1970a; releitura prova blob cf340726 = alvo, 29 UUIDs); recorte sintético, sem implementação
-- proxima_acao: aguardar autorização para implementar (RED→GREEN com fixtures isoladas + tela /qualidade)
-- atualizado_em: 2026-10-15T14:15:00-03:00
+- sistema: pcp
+- skip_projeto: 62774
+- skip_versao: 4d45315 (v0.0.81)
+- skip_publicacao: publicada:4d45315 em 2026-10-15T17:41:27Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- pendente_github: nao
+- ultima_acao: implementação aplicada, publicada e provada (v0.0.81); evidência, changelog, espelho de código e estado enviados ao GitHub em 1 commit
+- proxima_acao: aguardar teste humano do owner na URL de produção (roteiro em 05_entregas/fase-2/spec-2-001/evidencia-e57df8ff.md)
+- atualizado_em: 2026-10-15T14:45:00-03:00
