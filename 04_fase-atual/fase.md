@@ -64,7 +64,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
 - [ ] Povoar o cadastro de produtos no ERP #projeto [interno] <!-- id:4e0fcf1c-1670-4cde-9dc9-693b3c7eee49 -->
   > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D1. Cliente cadastra/valida produto piloto e sua unidade no Omie; executor apenas registra e confere evidência real. Publicar a fase não conclui a pendência. Pré-condições: responsável do cliente autorizado a manter cadastro ERP; nenhum produto/receita inventado pelo agente. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar.
 
-- [ ] Construir a visão de qualidade dos dados #projeto [interno] <!-- id:e57df8ff-99ae-4856-ac1f-53b713c8e99c -->
+- [/] Construir a visão de qualidade dos dados #projeto [interno] <!-- id:e57df8ff-99ae-4856-ac1f-53b713c8e99c -->
   > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D1/D2/D4, recorte sintético. Criar contrato/tela com produto, unidade/ficha desconhecida e cobertura incompleta usando demonstração isolada; bloquear cálculos afetados. Pré-condições: projeto Skip atual lido; dispensa cadastro/API real para fundamento. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Reconciliar catálogo, unidades e fichas #projeto [interno] <!-- id:5d8793fb-216f-4322-8fed-c5ec7a1a0b0d -->
