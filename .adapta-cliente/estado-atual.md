@@ -7,12 +7,11 @@
 - owner_informativo: cliente (metadado informativo; não bloqueia)
 - spec: 04_fase-atual/specs/spec-2-000-acessos-e-pendencias.md
 - analise: .adapta-cliente/analises/69ffd20a-d02b-4d23-b8b0-388eb426823b.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente
-- teste_humano: pendente
-- verificacao_automatica: pendente
-- verificacao_documental: passou — original 6209142d homologado (fase-original.md + conferencia-fundamento.md SHA 1ee7b96b, PRONTA 4/4); padrão de conciliação já aprovado duas vezes (3def6d06, 45dc0e7d)
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada — 15/10/2026 14:05 BRT, owner Mr Cheney ("Autorizo implementar a task 69ffd20a conforme o plano apresentado")
+- teste_humano: pendente — owner confirma a disposição da duplicata no portal (par 69ffd20a→6209142d)
+- verificacao_automatica: passou — conciliação gravada (f0b54e82, blob 4dc87fcb); fase.md [/] + disposição (6d4128d6, blob 50646954 = alvo provado, 29 UUIDs)
 - aprendizado: pendente
-- ultima_acao: task 69ffd20a selecionada e analisada; fase.md [/] (commit 3e0ba1a7, blob 8a0912ec provado); recorte documental, sem implementação
-- proxima_acao: aguardar autorização para implementar (registrar conciliação duplicata→original; fecha o critério CA-A4)
-- atualizado_em: 2026-10-15T09:10:00-03:00
+- ultima_acao: conciliação registrada em 05_entregas/fase-2/spec-2-000/conciliacao-69ffd20a.md + disposição no card (fase.md); zero implementação de produto
+- proxima_acao: aguardar teste humano do owner (confirmar disposição no portal e aprovar)
+- atualizado_em: 2026-10-15T14:08:00-03:00
