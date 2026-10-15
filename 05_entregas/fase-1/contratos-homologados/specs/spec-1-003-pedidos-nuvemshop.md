@@ -123,3 +123,38 @@ Fila de vínculo é diagnóstico; responsável resolve associação/cadastro no 
 ## Emendas
 
 Nenhuma emenda aprovada até esta revisão.
+
+## Adendo (15/10/2026) — reconciliação D5 (task a6bf06fb)
+
+**Natureza:** adendo datado à SPEC-1-003 homologada, exigido pela regra D5 da SPEC-2-001 (documento
+intermediário contraditório → adendo cita a prova final; contagem histórica não é valor eterno).
+O texto original acima é preservado byte a byte — nada foi editado ou removido.
+
+**O que o documento intermediário registrou:** no momento da homologação desta SPEC, a análise do
+canal Nuvemshop ainda trabalhava com janela parcial e registrou a tese provisória de "referência
+ausente" (2.589 referências no lote incompleto), além de contagens de canal anteriores à prova
+final. Esses valores eram corretos **para o momento em que foram escritos** — são contagens
+históricas de uma etapa intermediária, não valores eternos.
+
+**O que a prova final de 08/10/2026 estabeleceu** (publicação em produção da Fase 1, versões
+0.0.59→0.0.61, ref 4306849):
+
+- Lote oficial Omie: **5393/5393** registros (ativação atômica após falhas parciais gen5–8);
+- Canal Nuvemshop: **3344** pedidos na janela (total confirmado pela soma exata das classes);
+- Vínculos comprovados: **44** (codigo_pedido_integracao = numero_origem), provados em
+  05_entregas/fase-1/spec-1-003/evidencia-ca-n3-vinculo.md;
+- duplicados_oficiais: **0/5393**;
+- Correção da tese "referência ausente": com o lote completo, as 2.589 referências da janela
+  parcial se reconciliam; **OH… = loja própria via Lunet** (não é referência ausente — é canal de
+  loja própria, válido no Omie sem pagamento prévio, conforme CA-N2 desta SPEC);
+- Regressão integrada R1–R8 8/8 com canal idêntico à visão (270 pendentes · 2647 pagos sem vínculo ·
+  44 vinculados · 373 cancelados · 10 não mapeados; soma exata 3344) — ver
+  05_entregas/fase-1/spec-1-005/relatorio-validacao-integrada.md.
+
+**Efeito deste adendo:** os números intermediários desta SPEC (incluindo a tese de "referência
+ausente") ficam declarados como histórico da análise, lidos sempre junto com a prova final de
+08/10/2026 acima. Nenhum critério de aceite (CA-N1–N4) foi alterado; a implementação homologada
+cumpre esta SPEC conforme os critérios originais.
+
+**Fonte:** changelog operacional de 08/10/2026; evidência de vínculo em
+05_entregas/fase-1/spec-1-003/; aceite final do owner ("validado", 18:23 de 08/10).
