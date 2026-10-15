@@ -61,3 +61,26 @@ implementações subsequentes — zero-regressão da Fase 1.
 **Aceite humano da equipe PENDENTE** (regra da SPEC: sem marcar por silêncio). Executar o
 roteiro acima; registrar mensagem explícita de aceite ou demonstração acompanhada. Com o
 aceite, a Fase 1 é declarada concluída (18/18).
+
+## Adendo (15/10/2026) — reconciliação D5 (task a6bf06fb)
+
+**Natureza:** adendo datado ao relatório de validação integrada, exigido pela regra D5 da
+SPEC-2-001 (documento intermediário contraditório → adendo cita a prova final; contagem histórica
+não é valor eterno). O relatório original acima é preservado byte a byte — nada foi editado ou
+removido, incluindo a linha do Gate que registra o aceite como PENDENTE **naquele momento**.
+
+**Fechamento do gate registrado acima:** o aceite humano foi dado em **08/10/2026 às 18:23** pelo
+owner — mensagem explícita **"validado"** — após a demonstração integrada e a regressão R1–R8 8/8.
+Com esse aceite, a Fase 1 foi declarada **CONCLUÍDA (18/18, 100%)** e publicada em produção
+(versões 0.0.59→0.0.61, ref 4306849; hoje v0.0.77 ref 6e05dac com as contas reais da Fase 2).
+
+**Contagens deste relatório:** os valores registrados acima (NS 3344 · estoque 1057 · oficiais 5393
+· 270/2647/44/373/10 · duplicados 0 · M043055 = 53 UN) são a prova da validação de 08/10 e
+permanecem consistentes com o aceite final; não são valores eternos — leituras posteriores da Fase 2
+usam as regras da SPEC-2-001 (visão de qualidade) para interpretar cobertura e completude.
+
+**Pendências listadas acima:** a matriz nominal (CL-003) foi resolvida na Fase 2 (task 51356fad,
+matriz v1.2, 14/10) e as contas reais estão ativas (task 49327a88, 21 contas com troca obrigatória).
+O cadastro de produtos do Omie segue vazio como pendência do cliente (task 4e0fcf1c da Fase 2).
+
+**Fonte:** changelog operacional de 08/10 (conclusão da Fase 1) e de 14/10 (51356fad, 49327a88).
