@@ -2,22 +2,22 @@
 
 - schema_version: adapta-cliente-state/v2
 - fase: 2
-- task_id: e57df8ff-99ae-4856-ac1f-53b713c8e99c
+- task_id: nenhuma
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
-- analise: .adapta-cliente/analises/e57df8ff-99ae-4856-ac1f-53b713c8e99c.md
-- etapa: aguardando_teste_humano
+- spec: nenhuma
+- analise: nenhuma
+- etapa: concluida
 - autorizacao_implementacao: confirmada 2026-10-15T14:31 BRT — "sim" (owner, nova mensagem após o relatório de análise)
-- teste_humano: pendente
+- teste_humano: aprovado 2026-10-15T15:39 BRT — "testei e aprovado" (owner, na URL de produção v0.0.81)
 - verificacao_automatica: passou — QA Skip v0.0.81 (setup/static/build/integrations ok) + TDD local 12/12 (tsx --test)
 - verificacao_documental: passou — oráculos T1/T2/T3 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
-- aprendizado: pendente
+- aprendizado: capturado:06_notas/aprendizado-continuo/controle.md
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: 4d45315 (v0.0.81)
 - skip_publicacao: publicada:4d45315 em 2026-10-15T17:41:27Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: implementação aplicada, publicada e provada (v0.0.81); evidência, changelog, espelho de código e estado enviados ao GitHub em 1 commit
-- proxima_acao: aguardar teste humano do owner na URL de produção (roteiro em 05_entregas/fase-2/spec-2-001/evidencia-e57df8ff.md)
-- atualizado_em: 2026-10-15T14:45:00-03:00
+- ultima_acao: task e57df8ff CONCLUÍDA — fase.md [x] (dcf7a79e, blob db3f7392 provado byte a byte, 29 UUIDs), STATUS 6/29 (c1f931f6), changelog, controle.md e estado gravados
+- proxima_acao: nenhuma — próxima task exige novo pedido do owner
+- atualizado_em: 2026-10-15T15:45:00-03:00
