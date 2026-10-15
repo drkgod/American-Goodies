@@ -2,22 +2,22 @@
 
 - schema_version: adapta-cliente-state/v2
 - fase: 2
-- task_id: nenhuma
+- task_id: a6bf06fb-20ee-497d-be63-69f03cad854a
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: nenhuma
-- analise: nenhuma
-- etapa: concluida
-- autorizacao_implementacao: confirmada 2026-10-15T14:31 BRT — "sim" (owner, nova mensagem após o relatório de análise)
-- teste_humano: aprovado 2026-10-15T15:39 BRT — "testei e aprovado" (owner, na URL de produção v0.0.81)
-- verificacao_automatica: passou — QA Skip v0.0.81 (setup/static/build/integrations ok) + TDD local 12/12 (tsx --test)
-- verificacao_documental: passou — oráculos T1/T2/T3 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
-- aprendizado: capturado:06_notas/aprendizado-continuo/controle.md
+- spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
+- analise: .adapta-cliente/analises/a6bf06fb-20ee-497d-be63-69f03cad854a.md
+- etapa: aguardando_autorizacao
+- autorizacao_implementacao: ausente
+- teste_humano: pendente
+- verificacao_automatica: pendente
+- verificacao_documental: passou — SPEC-2-001 CA-D5 lida; pré-condições verificadas (contratos homologados em 05_entregas/fase-1/contratos-homologados/specs/ e evidências finais spec-1-003 com 44 vínculos); recorte documental, zero Skip
+- aprendizado: pendente
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: 4d45315 (v0.0.81)
 - skip_publicacao: publicada:4d45315 em 2026-10-15T17:41:27Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task e57df8ff CONCLUÍDA — fase.md [x] (dcf7a79e, blob db3f7392 provado byte a byte, 29 UUIDs), STATUS 6/29 (c1f931f6), changelog, controle.md e estado gravados
-- proxima_acao: nenhuma — próxima task exige novo pedido do owner
-- atualizado_em: 2026-10-15T15:45:00-03:00
+- ultima_acao: task a6bf06fb selecionada e analisada; fase.md [/] (commit 86da2e25; releitura prova blob a6f80f63 = alvo, 29 UUIDs); análise gravada (9d910827); sem implementação
+- proxima_acao: aguardar autorização para implementar (adendos datados em 2 documentos + registro de reconciliação)
+- atualizado_em: 2026-10-15T15:55:00-03:00
