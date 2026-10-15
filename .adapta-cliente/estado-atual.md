@@ -7,17 +7,17 @@
 - owner_informativo: cliente (metadado informativo; não bloqueia)
 - spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
 - analise: .adapta-cliente/analises/a6bf06fb-20ee-497d-be63-69f03cad854a.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada 2026-10-15T16:11 BRT — "Pode" (owner, nova mensagem após o relatório de análise)
 - teste_humano: pendente
-- verificacao_automatica: pendente
-- verificacao_documental: passou — SPEC-2-001 CA-D5 lida; pré-condições verificadas (contratos homologados em 05_entregas/fase-1/contratos-homologados/specs/ e evidências finais spec-1-003 com 44 vínculos); recorte documental, zero Skip
+- verificacao_automatica: passou — releitura pós-commit dos 2 documentos com adendo (conteúdo original preservado byte a byte, adendo presente no fim); registro de reconciliação gravado
+- verificacao_documental: passou — CA-D5 cumprido: adendos datados coerentes com a prova final de 08/10 (5393/3344/44/0, aceite "validado" 18:23), originais preservados, contagem histórica declarada não-eterna
 - aprendizado: pendente
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: 4d45315 (v0.0.81)
 - skip_publicacao: publicada:4d45315 em 2026-10-15T17:41:27Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task a6bf06fb selecionada e analisada; fase.md [/] (commit 86da2e25; releitura prova blob a6f80f63 = alvo, 29 UUIDs); análise gravada (9d910827); sem implementação
-- proxima_acao: aguardar autorização para implementar (adendos datados em 2 documentos + registro de reconciliação)
-- atualizado_em: 2026-10-15T15:55:00-03:00
+- ultima_acao: implementação documental gravada — adendo na SPEC-1-003 (8fb54a2c), adendo no relatório integrado (e62ed50e), registro de reconciliação (c377da71); zero alteração no Skip
+- proxima_acao: aguardar teste humano do owner (ler os 2 adendos e confirmar que o texto anterior não foi alterado)
+- atualizado_em: 2026-10-15T16:15:00-03:00
