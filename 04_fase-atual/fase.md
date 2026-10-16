@@ -62,7 +62,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   > Disposição (15/10/2026): duplicata conciliada com a entrega original 6209142d (homologada na F1 em 01/10, conferência 4/4, aceite do owner 15:23); registro completo em 05_entregas/fase-2/spec-2-000/conciliacao-69ffd20a.md; sem reimplementação; UUIDs preservados.
 
 - [ ] Povoar o cadastro de produtos no ERP #projeto [interno] <!-- id:4e0fcf1c-1670-4cde-9dc9-693b3c7eee49 -->
-  > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D1. Cliente cadastra/valida produto piloto e sua unidade no Omie; executor apenas registra e confere evidência real. Publicar a fase não conclui a pendência. Pré-condições: responsável do cliente autorizado a manter cadastro ERP; nenhum produto/receita inventado pelo agente. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar.
+  > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D1. Cliente cadastra/valida produto piloto e sua unidade oficial no Omie; executor apenas registra e confere evidência real. Publicar a fase não conclui a pendência. Pré-condições: responsável do cliente autorizado a manter cadastro ERP; nenhum produto/receita inventado pelo agente. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar.
 
 - [x] Construir a visão de qualidade dos dados #projeto [interno] <!-- id:e57df8ff-99ae-4856-ac1f-53b713c8e99c -->
   > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D1/D2/D4, recorte sintético. Criar contrato/tela com produto, unidade/ficha desconhecida e cobertura incompleta usando demonstração isolada; bloquear cálculos afetados. Pré-condições: projeto Skip atual lido; dispensa cadastro/API real para fundamento. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar.
@@ -71,7 +71,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   - [ ] Reconciliar catálogo, unidades e fichas #projeto [interno] <!-- id:5d8793fb-216f-4322-8fed-c5ec7a1a0b0d -->
     > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D1/D2/D3. Confirmar produto piloto, unidade/local e componentes/quantidades na fonte; retirar defaultUN como unidade oficial. Pré-condições: fundamento aceito, cadastro piloto, acesso nominal e contrato de leitura autorizados. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar.
 
-  - [ ] Comprovar as leituras de histórico e compras #projeto [interno] <!-- id:9318a299-f764-4dc7-8ec8-3cb7c86b7c79 -->
+  - [ ] Comprovar as leituras de histórico e compras a receber #projeto [interno] <!-- id:9318a299-f764-4dc7-8ec8-3cb7c86b7c79 -->
     > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D3. Registrar endpoint/request/campos/status/chaves/paginação e amostra autorizada de vendas90, produção90 e compras a receber; sem inventar campo/status. Pré-condições: catálogo/ficha conciliados, consulta autorizada e documentação oficial da conta. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/ e obter teste humano explícito antes de concluir ou avançar. Inclui mapa aprovado pelo PCP de pedidos firmes: status, data no horizonte e quantidade remanescente por linha/unidade, sem inferir regra empresarial.
 
   - [ ] Importar os 90 dias e recebimentos confirmados #projeto [interno] <!-- id:e6aa4afa-94fe-45e9-95d8-875df96a1cf1 -->
@@ -126,7 +126,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   - [ ] Enviar uma produção conferida e autorizada #projeto [interno] <!-- id:6e38e5a3-72e4-4be7-ae21-a29b5fb5e7ab -->
     > SPEC-2-005 (spec-2-005-consolidacao-omie.md), CA-O2/O5. PCP revisa OP/payload/efeito; executar caso real expressamente autorizado e reconciliar identidade/quantidade/status/movimentos uma vez. Pré-condições: provas negativas da recuperação aceitas; contrato/concessão transacional, matriz e dupla conferência reais aceitos; autorização específica do caso e nenhuma divergência de consumo sem tratamento. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-005/ e obter teste humano explícito antes de concluir ou avançar.
 
-- [ ] Construir as sugestões com memória de cálculo #projeto [interno] <!-- id:0baec76e-80af-412c-9554-9472f7928743 -->
+- [/] Construir as sugestões com memória de cálculo #projeto [interno] <!-- id:0baec76e-80af-412c-9554-9472f7928743 -->
   > SPEC-2-006 (spec-2-006-sugestoes-e-validacao.md), CA-S1/S2, recorte sintético. Cards por produto/insumo com entradas, fórmulas, lotes/limites e faltantes; método proposto não ativa cálculo empresarial. Pré-condições: contratos internos dados/parâmetros disponíveis; fixtures identificadas. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-006/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Aprovar o método e conferir as sugestões reais #projeto [interno] <!-- id:2ea1e7ab-5fe4-4e02-a7a1-901539bfdc8a -->
