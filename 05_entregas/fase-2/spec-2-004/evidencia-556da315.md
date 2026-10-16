@@ -1,8 +1,8 @@
 # Evidência — Task 556da315: Construir as duas telas de conferência (SPEC-2-004, CA-C1/C2, recorte sintético)
 
 - **Data**: 2026-10-16 · Executor: MCC (ETHOS) · Ciclo contínuo (bloco anterior aprovado 09:02)
-- **Versões Skip**: 0.0.86 (contrato+testes, QA ok) → 0.0.87 (tela /conferencias, QA ok) → **0.0.88** (acesso de demonstração, QA ok)
-- **Produção**: https://mcc-automacao-fabrica-98125.goskip.app — **publicada v0.0.88, ref f3dbb95** (12:13 UTC; status: lastPublishedRef = f3dbb95 = versionHash)
+- **Versões Skip**: 0.0.86 (contrato+testes, QA ok) → 0.0.87 (tela /conferencias, QA ok) → 0.0.88 (acesso de demonstração, QA ok) → **0.0.89** (item Conferências no menu em modo demo, QA ok)
+- **Produção**: https://mcc-automacao-fabrica-98125.goskip.app — **publicada v0.0.89, ref 9396881** (12:17 UTC; status: lastPublishedRef = 9396881 = versionHash)
 
 ## Escopo entregue (recorte sintético — zero chamada a ERP)
 
@@ -12,17 +12,20 @@
 
 ## Acesso de demonstração (impedimento do teste resolvido)
 
-- Impedimento: owner não tem senha da Angela; Keoma (conta do owner) não tem a área conferir_expedicao na matriz v1.2 → não conseguiria abrir /conferencias.
-- Solução (recorte sintético, sem ampliar acesso real): rota /conferencias protegida pela área "painel" durante a DEMONSTRAÇÃO (flag DEMO_CONFERENCIA em src/components/Layout.tsx, marcada para remoção na task d77447ab — uso real), e os botões "Conferir" só ficam ativos quando o perfil tem a ação conferir_expedicao (Keoma vê a tela em modo visualização, com nota explicativa).
+- Impedimento: owner não tem senha da Angela; Keoma (conta do owner) não tem a área conferir_expedicao na matriz v1.2 → não conseguiria abrir /conferencias nem ver o item no menu (menu filtra por área).
+- Solução (recorte sintético, sem ampliar acesso real):
+  - **Rota** /conferencias protegida pela área "painel" durante a DEMONSTRAÇÃO (flag DEMO_CONFERENCIA em src/components/Layout.tsx, marcada para remoção na task d77447ab — uso real).
+  - **Menu**: item Conferências aparece para contas com painel enquanto a flag estiver ativa (v0.0.89).
+  - **Botões** "Conferir" só ficam ativos quando o perfil tem a ação conferir_expedicao (Keoma vê a tela em modo visualização, com nota explicativa).
 - A conferência REAL continua restrita a Angela/Cristiano/Kevin (pontos expedicao/camara_fria) — nada mudou na matriz nem nos perfis Skip.
 
 ## Provas
 
 | Prova | Resultado |
 |---|---|
-| QA Skip (apply v0.0.88, ref f3dbb95) | setup ok · staticAnalysis ok · build ok · integrations ok · test ran=false |
+| QA Skip (apply v0.0.89, ref 9396881) | setup ok · staticAnalysis ok · build ok · integrations ok · test ran=false |
 | TDD local (tsx --test) | **8/8 pass** — T1: 100/98/97/96 com deltas −2/−1/−1 e fila bloqueada; T2a: câmara sem expedição bloqueada; T2b: ponto errado nega; T2c: replay idempotente + 409; T3: tudo 100 → revisável/coincidente; T5a: 0 sem motivo negado, com motivo registra, ausência não vira 0; T5b: recebimento 1 vs produzido 0 é divergência |
-| Publicação | skip_project_publish → publishedRef **f3dbb95** (12:13:49Z); status confirma lastPublishedRef=f3dbb95=versionHash |
+| Publicação | skip_project_publish → publishedRef **9396881** (12:17:50Z); status confirma lastPublishedRef=9396881=versionHash |
 | Isolamento | fixtures sintéticas (OP-S-2-001 v2); nenhuma chamada de rede |
 
 ## Observação de escopo
@@ -31,10 +34,11 @@ Conferências REAIS (etapas encerradas, pontos nominais, replay em produção) s
 
 ## Teste humano — roteiro (bloco: conferências sintéticas) — com a SUA conta (Keoma)
 
-1. Entrar normalmente com keoma.targino@mccfranchising.com.br.
-2. Menu **Conferências** (aparece no menu; a tela abre em modo visualização com nota explicativa — seu perfil não tem a ação de conferir, e é isso mesmo): a fila mostra produzido 100 / encaixotado 98 e as duas conferências ausentes (nada preenchido com 0).
-3. Botões "Conferir" desabilitados (modo visualização) — a conferência real é de Angela/Cristiano/Kevin.
-4. Confirmar que Painel/Catálogo/Qualidade/Planejamento/Apontamentos continuam funcionando.
+1. Entrar normalmente com keoma.targino@mccfranchising.com.br (recarregar a página após login, se já estava aberta).
+2. Menu **Conferências** (agora visível): a tela abre em modo visualização com nota explicativa — seu perfil não tem a ação de conferir, e é isso mesmo.
+3. A fila mostra produzido 100 / encaixotado 98 e as duas conferências ausentes (nada preenchido com 0), badge "Bloqueada".
+4. Botões "Conferir" desabilitados (modo visualização) — a conferência real é de Angela/Cristiano/Kevin.
+5. Confirmar que Painel/Catálogo/Qualidade/Planejamento/Apontamentos continuam funcionando.
 
 ### Alternativa: teste completo com os botões ativos
 
