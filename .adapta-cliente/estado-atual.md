@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 3cd404e5-81b8-4ca4-96b5-b4dc73f4a805
+- task_id: be180fc1-4d67-4f2a-a3c5-e15b74e845b8
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-002-planejamento-e-op-digital.md
+- spec: 04_fase-atual/specs/spec-2-003-apontamentos-na-origem.md
 - analise: (inline no ciclo contínuo — SPEC lida, plano executado)
 - etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada 2026-10-16T08:40 BRT — "continue" (owner; ciclo contínuo do plugin 0.8.0: próximo pedido de trabalho vale como autorização)
-- teste_humano: pendente (bloco planejamento — roteiro na evidência)
-- aguardando_teste: [a6bf06fb (adendos D5, documental), 3cd404e5 (planejamento sintético)]
-- verificacao_automatica: passou — QA Skip v0.0.83 (setup/static/build/integrations ok) + TDD local 10/10 (tsx --test)
-- verificacao_documental: passou — oráculos T1/T2/T3 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
-- aprendizado: pendente (triagem na próxima parada)
+- autorizacao_implementacao: confirmada 2026-10-16T08:40 BRT — "continue" (owner; ciclo contínuo do plugin 0.8.0)
+- teste_humano: pendente (bloco planejamento+apontamentos — roteiro na evidência)
+- aguardando_teste: [a6bf06fb (adendos D5, documental), 3cd404e5 (planejamento sintético), be180fc1 (apontamentos sintético)]
+- verificacao_automatica: passou — QA Skip v0.0.85 (setup/static/build/integrations ok) + TDD local 10/10 (tsx --test)
+- verificacao_documental: passou — oráculos T1–T5 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
+- aprendizado: pendente (triagem na parada)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: f2c1bdb (v0.0.83)
-- skip_publicacao: publicada:f2c1bdb em 2026-10-16T11:46:08Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: fe6114f (v0.0.85)
+- skip_publicacao: publicada:fe6114f em 2026-10-16T11:48:58Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 3cd404e5 implementada e publicada (contrato planejamento.ts + tela /planejamento + TDD 10/10; v0.0.82→0.0.83); evidência gravada; fase.md [/] (5e575506 + reparo a736552f, blob 91c969d3 provado)
-- proxima_acao: continuar o ciclo contínuo — próxima task elegível que não dependa do teste pendente
-- atualizado_em: 2026-10-16T08:50:00-03:00
+- ultima_acao: task be180fc1 implementada e publicada (contrato apontamento.ts + tela /apontamentos + TDD 10/10; v0.0.84→0.0.85); evidência gravada; fase.md [/] (4aa5132e)
+- proxima_acao: PARADA REAL do ciclo — 3 tasks com mudança visível no ar sem teste do cliente (regra do plugin 0.8.0: teste do bloco)
+- atualizado_em: 2026-10-16T09:00:00-03:00
