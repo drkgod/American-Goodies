@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: nenhuma
+- task_id: 8bb4ef77-1232-4f16-a7d6-ea2df09ad829
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: nenhuma
-- analise: nenhuma
-- etapa: concluida
-- autorizacao_implementacao: confirmada 2026-10-16T09:50 BRT — "testei e aprovado" (0baec76e) + ciclo contínuo ativo (plugin 0.8.0)
-- teste_humano: aprovado 2026-10-16T09:57 BRT — "testei e aprovado" (owner; c44c11da fila mock)
-- aguardando_teste: []
-- verificacao_automatica: passou — QA Skip v0.0.93 (setup/static/build/integrations ok) + TDD local 7/7 (tsx --test)
-- verificacao_documental: passou — fase.md [x] (0a0e51ad; releitura prova blob dafa20a8 = reconstrução exata, 29 UUIDs); STATUS 12/29; changelog atualizado
+- spec: 04_fase-atual/specs/spec-2-006-sugestoes-e-validacao.md
+- analise: (inline no ciclo contínuo — SPEC lida, oráculo T7 mapeado)
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada 2026-10-16T09:57 BRT — "testei e aprovado" (c44c11da) + ciclo contínuo ativo (plugin 0.8.0)
+- teste_humano: pendente (rascunho de sugestão — roteiro na evidência)
+- aguardando_teste: [8bb4ef77 (aceitar→rascunho)]
+- verificacao_automatica: passou — QA Skip v0.0.95 (setup/static/build/integrations ok) + TDD local 6/6 (tsx --test; 1ª rodada 5/6 expôs replay falso, corrigido)
+- verificacao_documental: passou — oráculo T7 da SPEC implementado e provado; gates publicado=false / pedido_compra_enviado=false; fixtures isoladas; zero chamada ERP
 - aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: ac980b6 (v0.0.93)
-- skip_publicacao: publicada:ac980b6 em 2026-10-16T12:54:33Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: c88b1b1 (v0.0.95)
+- skip_publicacao: publicada:c88b1b1 em 2026-10-16T13:05:10Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task c44c11da concluída — fase.md [x] com disposição; STATUS 12/29; todas as tasks de construção das SPECs 004–006 fechadas
-- proxima_acao: ciclo contínuo avalia próximas elegíveis (a2a4ccf1 — contrato Omie documental; 8bb4ef77 — rascunho de sugestão sintético); demais dependem de dados reais/autorização
-- atualizado_em: 2026-10-16T10:02:00-03:00
+- ultima_acao: task 8bb4ef77 implementada e publicada (contrato rascunho.ts + aceitar na tela /sugestoes + TDD 6/6; v0.0.94→0.0.95); evidência gravada; fase.md [/] (46f43b47, blob 8114e68e provado)
+- proxima_acao: PARADA REAL do ciclo — task com mudança visível no ar esperando teste do cliente (regra do plugin 0.8.0)
+- atualizado_em: 2026-10-16T10:10:00-03:00
