@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 87e4af63-740a-4fcf-8e00-ee8a7607cf09
+- task_id: nenhuma
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-002-planejamento-e-op-digital.md
-- analise: (inline no ciclo contínuo — oráculo T4 e seção "Reprogramação parcial" mapeados)
-- etapa: aguardando_teste_humano
+- spec: nenhuma
+- analise: nenhuma
+- etapa: concluida
 - autorizacao_implementacao: confirmada 2026-10-16T10:47 BRT — "continue" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: pendente (reprogramação parcial — roteiro na evidência)
-- aguardando_teste: [87e4af63 (reprogramação parcial)]
-- verificacao_automatica: passou — QA Skip v0.0.98 (setup/static/build/integrations ok) + TDD local 8/8 (tsx --test; 1ª rodada 7/8 expôs replay bloqueado, corrigido)
-- verificacao_documental: passou — oráculo T4 da SPEC implementado e provado; conservação do passado; fixtures isoladas; zero chamada ERP
+- teste_humano: aprovado 2026-10-16T11:18 BRT — "testei e aprovado" (owner; 87e4af63 reprogramação parcial)
+- aguardando_teste: []
+- verificacao_automatica: passou — QA Skip v0.0.98 (setup/static/build/integrations ok) + TDD local 8/8 (tsx --test)
+- verificacao_documental: passou — fase.md [x] (cdfd9579; releitura prova blob fafb1bc7 = reconstrução exata, 29 UUIDs); STATUS 15/29; changelog atualizado
 - aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: b216eee (v0.0.98)
 - skip_publicacao: publicada:b216eee em 2026-10-16T13:51:23Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 87e4af63 implementada e publicada (contrato reprogramacao.ts + card na /planejamento + TDD 8/8; v0.0.97→0.0.98); evidência gravada; fase.md [/] (06349050, blob 4bc06de1 provado)
-- proxima_acao: PARADA REAL do ciclo — task com mudança visível no ar esperando teste do cliente (regra do plugin 0.8.0)
-- atualizado_em: 2026-10-16T11:00:00-03:00
+- ultima_acao: task 87e4af63 concluída — fase.md [x] com disposição; STATUS 15/29; todas as tasks de construção fechadas
+- proxima_acao: ciclo contínuo sem task elegível — aguardar cliente (cadastro Omie 4e0fcf1c) e/ou PCP (parâmetros CL-006 d2a44349) para liberar a cadeia de dados reais
+- atualizado_em: 2026-10-16T11:22:00-03:00
