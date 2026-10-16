@@ -26,7 +26,7 @@ Os marcadores só valem **no fim da linha** — `Revisar #3 do contrato` continu
 Um título que TERMINA na forma de um marcador sai escapado com `\` (`Ligar para \@joao`); a barra é
 só para o parser e nunca aparece no card. Você não precisa escrever isso à mão.
 
-Marque `[x]` para concluir e adicione linhas novas à vontade: elas entram no quadro na próxima
+Marque `[x]` para concluir e adicione linhas novas à vontade: elas entraram no quadro na próxima
 sincronização e voltam aqui com o `<!-- id:… -->` preenchido. **Não apague o marcador de id** das
 tarefas que já têm um.
 
@@ -88,7 +88,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   - [ ] Confirmar parâmetros e dias de produção #projeto [interno] <!-- id:d2a44349-f52e-4517-9ef8-7e004103b536 -->
     > SPEC-2-002 (spec-2-002-planejamento-e-op-digital.md), CA-P1/P2. PCP entrega/aprova CL-006 e valores/unidades de capacidade, calendário, margem, mínimos, lotes, horizonte, prazo e saldo utilizável; faltante bloqueia recorte. Pré-condições: tela/contrato de parâmetros demonstrados; validação do dono funcional. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-002/ e obter teste humano explícito antes de concluir ou avançar.
 
-  - [ ] Publicar a programação por área #projeto [interno] <!-- id:16b8a592-6038-440d-ba2a-1a668449739c -->
+  - [/] Publicar a programação por área #projeto [interno] <!-- id:16b8a592-6038-440d-ba2a-1a668449739c -->
     > SPEC-2-002 (spec-2-002-planejamento-e-op-digital.md), CA-P3. Publicar versão/OP local atomicamente; provar ação/área, faltantes e corrida entre duas publicações. Pré-condições: parâmetros/matriz/dados reais aceitos para uso real; fundamento sintético pode ser verificado isoladamente. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-002/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [x] Reprogramar sem perder os apontamentos #projeto [interno] <!-- id:87e4af63-740a-4fcf-8e00-ee8a7607cf09 -->
