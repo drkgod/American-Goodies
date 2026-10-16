@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 556da315-88ca-41da-bd86-5322d86ede49
+- task_id: nenhuma
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-004-dupla-conferencia.md
-- analise: (inline no ciclo contínuo — SPEC lida, plano executado)
-- etapa: aguardando_teste_humano
+- spec: nenhuma
+- analise: nenhuma
+- etapa: concluida
 - autorizacao_implementacao: confirmada 2026-10-16T09:02 BRT — "testei e aprovado" do bloco anterior + ciclo contínuo ativo (plugin 0.8.0)
-- teste_humano: pendente (bloco conferências — roteiro na evidência)
-- aguardando_teste: [556da315 (conferências sintéticas)]
-- verificacao_automatica: passou — QA Skip v0.0.87 (setup/static/build/integrations ok) + TDD local 8/8 (tsx --test)
-- verificacao_documental: passou — oráculos T1/T2/T3/T5 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
+- teste_humano: aprovado 2026-10-16T09:19 BRT — "testei e aprovado" (owner; 556da315 conferências sintéticas)
+- aguardando_teste: []
+- verificacao_automatica: passou — QA Skip v0.0.89 (setup/static/build/integrations ok) + TDD local 8/8 (tsx --test)
+- verificacao_documental: passou — fase.md [x] (bd132598; releitura prova blob f6db21cc = reconstrução exata, 29 UUIDs); STATUS 10/29; changelog atualizado
 - aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: e5eb8bd (v0.0.87)
-- skip_publicacao: publicada:e5eb8bd em 2026-10-16T12:07:37Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: 9396881 (v0.0.89)
+- skip_publicacao: publicada:9396881 em 2026-10-16T12:17:50Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 556da315 implementada e publicada (contrato conferencia.ts + tela /conferencias + TDD 8/8; v0.0.86→0.0.87); evidência gravada; fase.md [/] (1559ce02, blob 2a87004b provado)
-- proxima_acao: PARADA REAL do ciclo — task com mudança visível no ar esperando teste do cliente (regra do plugin 0.8.0)
-- atualizado_em: 2026-10-16T09:15:00-03:00
+- ultima_acao: task 556da315 concluída — fase.md [x] com disposição; STATUS 10/29; ciclo segue para 0baec76e
+- proxima_acao: ciclo contínuo segue para a próxima task elegível (0baec76e — sugestões com memória de cálculo, recorte sintético)
+- atualizado_em: 2026-10-16T09:22:00-03:00
