@@ -112,7 +112,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   - [ ] Conferir expedição e entrada em câmara #projeto [interno] <!-- id:d77447ab-24eb-4982-984d-08645f11ae28 -->
     > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C1/C2/C3. Registrar ambas etapas em sequência, com unidade/local/autor e replay; divergência bloqueia consolidação. Pré-condições: telas aceitas, etapas de produção encerradas, acesso nominal e pontos definidos para teste real. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/ e obter teste humano explícito antes de concluir ou avançar.
 
-  - [ ] Revisar divergências e invalidar aprovações antigas #projeto [interno] <!-- id:30118f65-3dd5-4679-a1a2-8b301c6a8d46 -->
+  - [/] Revisar divergências e invalidar aprovações antigas #projeto [interno] <!-- id:30118f65-3dd5-4679-a1a2-8b301c6a8d46 -->
     > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C3/C4. PCP registra motivo/quantidade final; evento novo invalida hashes; provar corrida com aquisição e congelamento. Pré-condições: conferências aceitas; ação aprovar_consolidacao confirmada. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/ e obter teste humano explícito antes de concluir ou avançar.
 
 - [x] Construir a fila de envio com simulação #projeto [interno] <!-- id:c44c11da-c7e9-42ee-b54a-fb3fff997f68 -->
