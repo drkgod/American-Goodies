@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: nenhuma
+- task_id: 556da315-88ca-41da-bd86-5322d86ede49
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: nenhuma
-- analise: nenhuma
-- etapa: concluida
-- autorizacao_implementacao: confirmada 2026-10-16T08:40 BRT — "continue" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: aprovado 2026-10-16T09:02 BRT — "testei e aprovado" (owner; bloco: a6bf06fb + 3cd404e5 + be180fc1)
-- aguardando_teste: []
-- verificacao_automatica: passou — QA Skip v0.0.85 (setup/static/build/integrations ok) + TDD local 10/10 + 10/10 (tsx --test)
-- verificacao_documental: passou — fase.md [x] nas 3 tasks (0bc58313; releitura prova blob 3ebafdff = reconstrução exata, 29 UUIDs); STATUS 9/29; changelog atualizado
-- aprendizado: capturado:06_notas/aprendizado-continuo/controle.md (147d40e9 — fração por recurso|data, oráculo distribuído, limites de message)
+- spec: 04_fase-atual/specs/spec-2-004-dupla-conferencia.md
+- analise: (inline no ciclo contínuo — SPEC lida, plano executado)
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada 2026-10-16T09:02 BRT — "testei e aprovado" do bloco anterior + ciclo contínuo ativo (plugin 0.8.0)
+- teste_humano: pendente (bloco conferências — roteiro na evidência)
+- aguardando_teste: [556da315 (conferências sintéticas)]
+- verificacao_automatica: passou — QA Skip v0.0.87 (setup/static/build/integrations ok) + TDD local 8/8 (tsx --test)
+- verificacao_documental: passou — oráculos T1/T2/T3/T5 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
+- aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: fe6114f (v0.0.85)
-- skip_publicacao: publicada:fe6114f em 2026-10-16T11:48:58Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: e5eb8bd (v0.0.87)
+- skip_publicacao: publicada:e5eb8bd em 2026-10-16T12:07:37Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: bloco concluído — 3 tasks [x] com disposição; SPEC-2-001 100% no recorte do executor; STATUS 9/29
-- proxima_acao: ciclo contínuo segue para a próxima task elegível (556da315 — telas de conferência, recorte sintético)
-- atualizado_em: 2026-10-16T09:10:00-03:00
+- ultima_acao: task 556da315 implementada e publicada (contrato conferencia.ts + tela /conferencias + TDD 8/8; v0.0.86→0.0.87); evidência gravada; fase.md [/] (1559ce02, blob 2a87004b provado)
+- proxima_acao: PARADA REAL do ciclo — task com mudança visível no ar esperando teste do cliente (regra do plugin 0.8.0)
+- atualizado_em: 2026-10-16T09:15:00-03:00
