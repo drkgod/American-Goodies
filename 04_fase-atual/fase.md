@@ -114,7 +114,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   - [ ] Revisar divergências e invalidar aprovações antigas #projeto [interno] <!-- id:30118f65-3dd5-4679-a1a2-8b301c6a8d46 -->
     > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C3/C4. PCP registra motivo/quantidade final; evento novo invalida hashes; provar corrida com aquisição e congelamento. Pré-condições: conferências aceitas; ação aprovar_consolidacao confirmada. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/ e obter teste humano explícito antes de concluir ou avançar.
 
-- [ ] Construir a fila de envio com simulação #projeto [interno] <!-- id:c44c11da-c7e9-42ee-b54a-fb3fff997f68 -->
+- [/] Construir a fila de envio com simulação #projeto [interno] <!-- id:c44c11da-c7e9-42ee-b54a-fb3fff997f68 -->
   > SPEC-2-005 (spec-2-005-consolidacao-omie.md), CA-O1/O3/O4, recorte mock. Criar fila/adapter isolado, identidade persistida e estados; provar trabalhador único e resposta perdida sem novoPOST. Pré-condições: contrato documental da consolidação e fixture local independente; mutantes reais desligados. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-005/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Comprovar o contrato de produção no Omie #projeto [interno] <!-- id:a2a4ccf1-3244-438c-9e92-39a75f7e2b85 -->
