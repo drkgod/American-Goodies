@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: be180fc1-4d67-4f2a-a3c5-e15b74e845b8
+- task_id: nenhuma
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-003-apontamentos-na-origem.md
-- analise: (inline no ciclo contínuo — SPEC lida, plano executado)
-- etapa: aguardando_teste_humano
+- spec: nenhuma
+- analise: nenhuma
+- etapa: concluida
 - autorizacao_implementacao: confirmada 2026-10-16T08:40 BRT — "continue" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: pendente (bloco planejamento+apontamentos — roteiro na evidência)
-- aguardando_teste: [a6bf06fb (adendos D5, documental), 3cd404e5 (planejamento sintético), be180fc1 (apontamentos sintético)]
-- verificacao_automatica: passou — QA Skip v0.0.85 (setup/static/build/integrations ok) + TDD local 10/10 (tsx --test)
-- verificacao_documental: passou — oráculos T1–T5 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
-- aprendizado: pendente (triagem na parada)
+- teste_humano: aprovado 2026-10-16T09:02 BRT — "testei e aprovado" (owner; bloco: a6bf06fb + 3cd404e5 + be180fc1)
+- aguardando_teste: []
+- verificacao_automatica: passou — QA Skip v0.0.85 (setup/static/build/integrations ok) + TDD local 10/10 + 10/10 (tsx --test)
+- verificacao_documental: passou — fase.md [x] nas 3 tasks (0bc58313; releitura prova blob 3ebafdff = reconstrução exata, 29 UUIDs); STATUS 9/29; changelog atualizado
+- aprendizado: capturado:06_notas/aprendizado-continuo/controle.md (147d40e9 — fração por recurso|data, oráculo distribuído, limites de message)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: fe6114f (v0.0.85)
 - skip_publicacao: publicada:fe6114f em 2026-10-16T11:48:58Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task be180fc1 implementada e publicada (contrato apontamento.ts + tela /apontamentos + TDD 10/10; v0.0.84→0.0.85); evidência gravada; fase.md [/] (4aa5132e)
-- proxima_acao: PARADA REAL do ciclo — 3 tasks com mudança visível no ar sem teste do cliente (regra do plugin 0.8.0: teste do bloco)
-- atualizado_em: 2026-10-16T09:00:00-03:00
+- ultima_acao: bloco concluído — 3 tasks [x] com disposição; SPEC-2-001 100% no recorte do executor; STATUS 9/29
+- proxima_acao: ciclo contínuo segue para a próxima task elegível (556da315 — telas de conferência, recorte sintético)
+- atualizado_em: 2026-10-16T09:10:00-03:00
