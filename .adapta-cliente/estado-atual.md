@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 4e9a1d0e-fd37-4225-86bd-54d08c1c924d
+- task_id: nenhuma
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-005-consolidacao-omie.md
-- analise: (inline no ciclo contínuo — casos O2/O3/O4 mapeados e provados)
-- etapa: aguardando_teste_humano
+- spec: nenhuma
+- analise: nenhuma
+- etapa: concluida
 - autorizacao_implementacao: confirmada 2026-10-16T10:42 BRT — "testei e aprovado" (8bb4ef77) + ciclo contínuo ativo (plugin 0.8.0)
-- teste_humano: pendente (provas de recuperação — sem tela nova; roteiro na evidência)
-- aguardando_teste: [4e9a1d0e (provas de recuperação)]
-- verificacao_automatica: passou — QA Skip v0.0.96 (setup/static/build/integrations ok) + TDD local 8/8 (tsx --test; 1ª rodada 7/8 expôs falta de revalidação de hash no envio, corrigido)
-- verificacao_documental: passou — casos O2/O3/O4 da SPEC provados no mock; zero POST real; fase.md [/] (946c3ad6, blob 1256fcaf provado)
+- teste_humano: aprovado 2026-10-16T10:46 BRT — "testei e aprovado" (owner; 4e9a1d0e provas de recuperação)
+- aguardando_teste: []
+- verificacao_automatica: passou — QA Skip v0.0.96 (setup/static/build/integrations ok) + TDD local 8/8 (tsx --test)
+- verificacao_documental: passou — fase.md [x] (48e55b4a; releitura prova blob 7b8b8c19 = reconstrução exata, 29 UUIDs); STATUS 14/29; changelog atualizado
 - aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: 4f34817 (v0.0.96)
 - skip_publicacao: publicada:4f34817 em 2026-10-16T13:45:23Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 4e9a1d0e implementada e publicada (recuperacao-omie.ts + revalidação de hash na fila + TDD 8/8; v0.0.96); evidência gravada
-- proxima_acao: PARADA REAL do ciclo — task no ar esperando teste do cliente (regra do plugin 0.8.0)
+- ultima_acao: task 4e9a1d0e concluída — fase.md [x] com disposição; STATUS 14/29; todas as tasks de construção fechadas
+- proxima_acao: ciclo contínuo sem task elegível — aguardar cliente (cadastro Omie 4e0fcf1c) e/ou PCP (parâmetros CL-006 d2a44349) para liberar a cadeia de dados reais
 - atualizado_em: 2026-10-16T10:50:00-03:00
