@@ -92,7 +92,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   - [ ] Reprogramar sem perder os apontamentos #projeto [interno] <!-- id:87e4af63-740a-4fcf-8e00-ee8a7607cf09 -->
     > SPEC-2-002 (spec-2-002-planejamento-e-op-digital.md), CA-P4. Alterar apenas restante não executado com motivo, versão e trilha; provar estados/encerramentos por ponto. Pré-condições: publicação aceita e contrato de eventos da SPEC-2-003; prova de conservação com fixture. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-002/ e obter teste humano explícito antes de concluir ou avançar.
 
-- [ ] Construir a tela de apontamentos #projeto [interno] <!-- id:be180fc1-4d67-4f2a-a3c5-e15b74e845b8 -->
+- [/] Construir a tela de apontamentos #projeto [interno] <!-- id:be180fc1-4d67-4f2a-a3c5-e15b74e845b8 -->
   > SPEC-2-003 (spec-2-003-apontamentos-na-origem.md), CA-E1/E3, recorte sintético. Registrar tipos com unidade/ponto e mostrar consumo/diferença/perda separados; realizados são incrementos. Pré-condições: contratos documentais SPEC-2-002/003 disponíveis; fixture local da OP independente do card de programação; nenhum produto real necessário. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-003/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Registrar e encerrar a produção por ponto #projeto [interno] <!-- id:64ac4f85-84e8-45a9-97a9-df04377c9e47 -->
