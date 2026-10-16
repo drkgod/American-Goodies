@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 0baec76e-80af-412c-9554-9472f7928743
+- task_id: nenhuma
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-006-sugestoes-e-validacao.md
-- analise: (inline no ciclo contínuo — SPEC lida, oráculos T1–T7 mapeados)
-- etapa: aguardando_teste_humano
+- spec: nenhuma
+- analise: nenhuma
+- etapa: concluida
 - autorizacao_implementacao: confirmada 2026-10-16T09:19 BRT — "testei e aprovado" (556da315) + ciclo contínuo ativo (plugin 0.8.0)
-- teste_humano: pendente (sugestões sintéticas — roteiro na evidência)
-- aguardando_teste: [0baec76e (sugestões sintéticas)]
-- verificacao_automatica: passou — QA Skip v0.0.91 (setup/static/build/integrations ok) + TDD local 12/12 (tsx --test; 1ª rodada 11/12 expôs NaN propagando, corrigido)
-- verificacao_documental: passou — oráculos T1/T2/T3/T4/T6 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
+- teste_humano: aprovado 2026-10-16T09:50 BRT — "testei e aprovado" (owner; 0baec76e sugestões sintéticas)
+- aguardando_teste: []
+- verificacao_automatica: passou — QA Skip v0.0.91 (setup/static/build/integrations ok) + TDD local 12/12 (tsx --test)
+- verificacao_documental: passou — fase.md [x] (51a49c2f; releitura prova blob 2de5713f = reconstrução exata, 29 UUIDs); STATUS 11/29; changelog atualizado
 - aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: e7bfa2f (v0.0.91)
 - skip_publicacao: publicada:e7bfa2f em 2026-10-16T12:23:40Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 0baec76e implementada e publicada (contrato sugestao.ts + tela /sugestoes + TDD 12/12; v0.0.90→0.0.91); evidência gravada; fase.md [/] (f3b14af7, blob 493b90c6 provado)
-- proxima_acao: PARADA REAL do ciclo — task com mudança visível no ar esperando teste do cliente (regra do plugin 0.8.0)
-- atualizado_em: 2026-10-16T09:30:00-03:00
+- ultima_acao: task 0baec76e concluída — fase.md [x] com disposição; STATUS 11/29; ciclo segue para c44c11da
+- proxima_acao: ciclo contínuo segue para a próxima task elegível (c44c11da — fila de envio com simulação, recorte mock)
+- atualizado_em: 2026-10-16T09:55:00-03:00
