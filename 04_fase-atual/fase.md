@@ -104,7 +104,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   - [ ] Retificar apontamentos sem duplicar eventos #projeto [interno] <!-- id:0096ab26-6eec-438f-b154-54513188fab5 -->
     > SPEC-2-003 (spec-2-003-apontamentos-na-origem.md), CA-E2/E4. Provar replay, timeout, retificação/substituição/anulação0 e proibição durante envio/incerto; preservar original. Pré-condições: registro/encerramento aceitos e guards de estados especificados. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-003/ e obter teste humano explícito antes de concluir ou avançar.
 
-- [ ] Construir as duas telas de conferência #projeto [interno] <!-- id:556da315-88ca-41da-bd86-5322d86ede49 -->
+- [/] Construir as duas telas de conferência #projeto [interno] <!-- id:556da315-88ca-41da-bd86-5322d86ede49 -->
   > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C1/C2, recorte sintético. Mostrar produzido/encaixotado/recebido/câmara separadamente; impedir segunda etapa sem primeira e ponto errado. Pré-condições: contratos documentais OP/eventos disponíveis; fixtures locais independentes da implantação dos cards anteriores. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Conferir expedição e entrada em câmara #projeto [interno] <!-- id:d77447ab-24eb-4982-984d-08645f11ae28 -->
