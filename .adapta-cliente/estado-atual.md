@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: nenhuma
+- task_id: 16b8a592-6038-440d-ba2a-1a668449739c
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: nenhuma
-- analise: nenhuma
-- etapa: concluida
-- autorizacao_implementacao: confirmada 2026-10-16T11:22 BRT — "Continuar" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: aprovado 2026-10-16T11:37 BRT — "testei e aprovado" (owner; 30118f65 revisão e invalidação)
-- aguardando_teste: []
-- verificacao_automatica: passou — QA Skip v0.0.100 (setup/static/build/integrations ok) + TDD local 6/6 (tsx --test)
-- verificacao_documental: passou — fase.md [x] (2a102f84; releitura prova blob 6dbbc4af = reconstrução exata, 29 UUIDs); STATUS 16/29; changelog atualizado
+- spec: 04_fase-atual/specs/spec-2-002-planejamento-e-op-digital.md
+- analise: (inline no ciclo contínuo — recorte restante identificado: ação/área com conta real)
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada 2026-10-16T12:00 BRT — "Continue" (owner; ciclo contínuo do plugin 0.8.0)
+- teste_humano: pendente (publicação com perfil real — roteiro na evidência)
+- aguardando_teste: [16b8a592 (publicar por área — recorte isolado)]
+- verificacao_automatica: passou — QA Skip v0.0.101 (setup/static/build/integrations ok); TDD de fundamento 10/10 já provado (3cd404e5)
+- verificacao_documental: passou — fase.md [/] (a8084aca, blob a62e4375 provado; typo "entraram" meu, a corrigir na próxima gravação)
 - aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: 14374c9 (v0.0.100)
-- skip_publicacao: publicada:14374c9 em 2026-10-16T14:26:51Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: cd69b46 (v0.0.101)
+- skip_publicacao: publicada:cd69b46 em 2026-10-16T15:02:51Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 30118f65 concluída — fase.md [x] com disposição; STATUS 16/29; todas as tasks de construção fechadas
-- proxima_acao: ciclo contínuo sem task elegível — aguardar cliente (cadastro Omie 4e0fcf1c) e/ou PCP (parâmetros CL-006 d2a44349) para liberar a cadeia de dados reais
-- atualizado_em: 2026-10-16T11:42:00-03:00
+- ultima_acao: task 16b8a592 implementada e publicada (ações reais do perfil logado na publicação/reprogramação; v0.0.101); evidência gravada
+- proxima_acao: PARADA REAL do ciclo — task no ar esperando teste do cliente (regra do plugin 0.8.0)
+- atualizado_em: 2026-10-16T12:10:00-03:00
