@@ -134,7 +134,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   - [ ] Aprovar o método e conferir as sugestões reais #projeto [interno] <!-- id:2ea1e7ab-5fe4-4e02-a7a1-901539bfdc8a -->
     > SPEC-2-006 (spec-2-006-sugestoes-e-validacao.md), CA-S1/S2. PCP aceita baseline90-v1 ou devolve regra para emenda; calcular só com dados completos; provar51→60, compras4,8→6, zero→zero e excedente. Pré-condições: documentos/valores de parâmetros e fontes disponíveis; aprovação do método é primeiro passo desta task e gate interno antes de qualquer cálculo real. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-006/ e obter teste humano explícito antes de concluir ou avançar.
 
-  - [ ] Levar a sugestão somente para rascunho #projeto [interno] <!-- id:8bb4ef77-1232-4f16-a7d6-ea2df09ad829 -->
+  - [/] Levar a sugestão somente para rascunho #projeto [interno] <!-- id:8bb4ef77-1232-4f16-a7d6-ea2df09ad829 -->
     > SPEC-2-006 (spec-2-006-sugestoes-e-validacao.md), CA-S3. Aceitar sugestão abre rascunho e mantém gate de publicação; sugestão de compra não envia pedido. Pré-condições: sugestões aceitas e conta com ação/ponto aprovado; nenhum acesso ampliado. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-006/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [ ] Validar o fluxo completo com a equipe #projeto [interno] <!-- id:0d876150-60b6-46bb-ada4-722b90d870a3 -->
