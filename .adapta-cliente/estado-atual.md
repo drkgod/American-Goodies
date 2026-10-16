@@ -1,23 +1,24 @@
 # Estado atual — Adapta Cliente
 
-- schema_version: adapta-cliente-state/v2
+- schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: a6bf06fb-20ee-497d-be63-69f03cad854a
+- task_id: 3cd404e5-81b8-4ca4-96b5-b4dc73f4a805
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
-- analise: .adapta-cliente/analises/a6bf06fb-20ee-497d-be63-69f03cad854a.md
+- spec: 04_fase-atual/specs/spec-2-002-planejamento-e-op-digital.md
+- analise: (inline no ciclo contínuo — SPEC lida, plano executado)
 - etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada 2026-10-15T16:11 BRT — "Pode" (owner, nova mensagem após o relatório de análise)
-- teste_humano: pendente
-- verificacao_automatica: passou — releitura pós-commit dos 2 documentos com adendo (conteúdo original preservado byte a byte, adendo presente no fim); registro de reconciliação gravado
-- verificacao_documental: passou — CA-D5 cumprido: adendos datados coerentes com a prova final de 08/10 (5393/3344/44/0, aceite "validado" 18:23), originais preservados, contagem histórica declarada não-eterna
-- aprendizado: pendente
+- autorizacao_implementacao: confirmada 2026-10-16T08:40 BRT — "continue" (owner; ciclo contínuo do plugin 0.8.0: próximo pedido de trabalho vale como autorização)
+- teste_humano: pendente (bloco planejamento — roteiro na evidência)
+- aguardando_teste: [a6bf06fb (adendos D5, documental), 3cd404e5 (planejamento sintético)]
+- verificacao_automatica: passou — QA Skip v0.0.83 (setup/static/build/integrations ok) + TDD local 10/10 (tsx --test)
+- verificacao_documental: passou — oráculos T1/T2/T3 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
+- aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: 4d45315 (v0.0.81)
-- skip_publicacao: publicada:4d45315 em 2026-10-15T17:41:27Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: f2c1bdb (v0.0.83)
+- skip_publicacao: publicada:f2c1bdb em 2026-10-16T11:46:08Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: implementação documental gravada — adendo na SPEC-1-003 (8fb54a2c), adendo no relatório integrado (e62ed50e), registro de reconciliação (c377da71); zero alteração no Skip
-- proxima_acao: aguardar teste humano do owner (ler os 2 adendos e confirmar que o texto anterior não foi alterado)
-- atualizado_em: 2026-10-15T16:15:00-03:00
+- ultima_acao: task 3cd404e5 implementada e publicada (contrato planejamento.ts + tela /planejamento + TDD 10/10; v0.0.82→0.0.83); evidência gravada; fase.md [/] (5e575506 + reparo a736552f, blob 91c969d3 provado)
+- proxima_acao: continuar o ciclo contínuo — próxima task elegível que não dependa do teste pendente
+- atualizado_em: 2026-10-16T08:50:00-03:00
