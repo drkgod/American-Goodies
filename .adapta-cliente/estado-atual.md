@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 30118f65-3dd5-4679-a1a2-8b301c6a8d46
+- task_id: nenhuma
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-004-dupla-conferencia.md
-- analise: (inline no ciclo contínuo — oráculo T4 e C3/C4 mapeados)
-- etapa: aguardando_teste_humano
+- spec: nenhuma
+- analise: nenhuma
+- etapa: concluida
 - autorizacao_implementacao: confirmada 2026-10-16T11:22 BRT — "Continuar" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: pendente (revisão do PCP — roteiro na evidência)
-- aguardando_teste: [30118f65 (revisão e invalidação)]
+- teste_humano: aprovado 2026-10-16T11:37 BRT — "testei e aprovado" (owner; 30118f65 revisão e invalidação)
+- aguardando_teste: []
 - verificacao_automatica: passou — QA Skip v0.0.100 (setup/static/build/integrations ok) + TDD local 6/6 (tsx --test)
-- verificacao_documental: passou — oráculo T4 e C3/C4 da SPEC implementados e provados; fixtures isoladas; zero chamada ERP
+- verificacao_documental: passou — fase.md [x] (2a102f84; releitura prova blob 6dbbc4af = reconstrução exata, 29 UUIDs); STATUS 16/29; changelog atualizado
 - aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: 14374c9 (v0.0.100)
 - skip_publicacao: publicada:14374c9 em 2026-10-16T14:26:51Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 30118f65 implementada e publicada (revisao-consolidacao.ts + card Revisão do PCP na /conferencias + TDD 6/6; v0.0.99→0.0.100); evidência gravada; fase.md [/] (c13a9d2c, blob 6cc59a0b provado)
-- proxima_acao: PARADA REAL do ciclo — task com mudança visível no ar esperando teste do cliente (regra do plugin 0.8.0)
-- atualizado_em: 2026-10-16T11:30:00-03:00
+- ultima_acao: task 30118f65 concluída — fase.md [x] com disposição; STATUS 16/29; todas as tasks de construção fechadas
+- proxima_acao: ciclo contínuo sem task elegível — aguardar cliente (cadastro Omie 4e0fcf1c) e/ou PCP (parâmetros CL-006 d2a44349) para liberar a cadeia de dados reais
+- atualizado_em: 2026-10-16T11:42:00-03:00
