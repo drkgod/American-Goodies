@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: d2a44349-f52e-4517-9ef8-7e004103b536
+- task_id: d2a44349-f52e-4517-9ef8-7e004103b536 (última concluída)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
 - spec: 04_fase-atual/specs/spec-2-002-planejamento-e-op-digital.md
 - analise: (inline no ciclo contínuo — recorte do executor identificado: tela/contrato de parâmetros ausentes; aprovação dos VALORES é do PCP/owner)
-- etapa: aguardando_teste_humano
+- etapa: concluida
 - autorizacao_implementacao: confirmada 2026-10-19T10:00 — "continue" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: pendente (aprovar valores reais em /parametros + validar gate 403 — roteiro na evidência)
-- aguardando_teste: [d2a44349 (tela/contrato de parâmetros + aprovação CL-006)]
+- teste_humano: aprovado 2026-10-19T10:28 BRT — "testei e aprovado" (owner)
+- aguardando_teste: []
 - verificacao_automatica: passou — TDD contrato 6/6 (tsx local); QA Skip v0.0.102 (setup/static/build/integrations ok)
-- verificacao_documental: passou — fase.md [/] (commit 8b5581e8, blob 1ac17c55 provado, 29 UUIDs)
+- verificacao_documental: passou — fase.md [x]+disposição (commit dfe5241b, blob fb50ff38 provado, 29 UUIDs)
 - aprendizado: capturado — lições da d2a44349 no controle.md (commit f4dc997c, relido ok)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: bcd1676 (v0.0.102)
 - skip_publicacao: publicada:bcd1676 em 2026-10-19T13:18:32Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task d2a44349 implementada e publicada (contrato+coleção+hooks+tela /parametros; v0.0.102); evidência e aprendizado gravados
-- proxima_acao: PARADA REAL do ciclo — aprovação dos valores reais pelo PCP/owner + teste humano
-- atualizado_em: 2026-10-19T10:40:00-03:00
+- ultima_acao: task d2a44349 CONCLUÍDA (aceite 10:28); fase.md [x]+disposição provado; STATUS 18/29; changelog gravado
+- proxima_acao: ciclo sem task elegível — aguardar dependência externa (cadastro Omie 4e0fcf1c libera a cadeia de dados reais; 2ea1e7ab exige fontes disponíveis) ou novo pedido do cliente
+- atualizado_em: 2026-10-19T10:35:00-03:00
