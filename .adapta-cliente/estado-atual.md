@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 16b8a592-6038-440d-ba2a-1a668449739c (última concluída)
+- task_id: d2a44349-f52e-4517-9ef8-7e004103b536
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
 - spec: 04_fase-atual/specs/spec-2-002-planejamento-e-op-digital.md
-- analise: (inline no ciclo contínuo — recorte restante identificado: ação/área com conta real)
-- etapa: concluida
-- autorizacao_implementacao: confirmada 2026-10-16T12:00 BRT — "Continue" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: aprovado 2026-10-16T12:07 BRT — "testei e aprovado" (owner)
-- aguardando_teste: []
-- verificacao_automatica: passou — QA Skip v0.0.101 (setup/static/build/integrations ok); TDD de fundamento 10/10 já provado (3cd404e5)
-- verificacao_documental: passou — fase.md canônico v5 (commit 798aa17e, blob 54e07f38 provado, 29 UUIDs; incidente de gravação do [x] reparado em 3 rodadas)
-- aprendizado: capturado — lição de gravação de arquivo canônico grande no controle.md
+- analise: (inline no ciclo contínuo — recorte do executor identificado: tela/contrato de parâmetros ausentes; aprovação dos VALORES é do PCP/owner)
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada 2026-10-19T10:00 — "continue" (owner; ciclo contínuo do plugin 0.8.0)
+- teste_humano: pendente (aprovar valores reais em /parametros + validar gate 403 — roteiro na evidência)
+- aguardando_teste: [d2a44349 (tela/contrato de parâmetros + aprovação CL-006)]
+- verificacao_automatica: passou — TDD contrato 6/6 (tsx local); QA Skip v0.0.102 (setup/static/build/integrations ok)
+- verificacao_documental: passou — fase.md [/] (commit 8b5581e8, blob 1ac17c55 provado, 29 UUIDs)
+- aprendizado: pendente (triagem na próxima parada)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: cd69b46 (v0.0.101)
-- skip_publicacao: publicada:cd69b46 em 2026-10-16T15:02:51Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: bcd1676 (v0.0.102)
+- skip_publicacao: publicada:bcd1676 em 2026-10-19T13:18:32Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 16b8a592 CONCLUÍDA (aceite 12:07); fase.md [x]+disposição provado; STATUS 17/29; changelog e aprendizado gravados
-- proxima_acao: ciclo sem task elegível — aguardar dependência externa (cadastro Omie 4e0fcf1c e/ou parâmetros CL-006 d2a44349) ou novo pedido do cliente
-- atualizado_em: 2026-10-16T12:20:00-03:00
+- ultima_acao: task d2a44349 implementada e publicada (contrato+coleção+hooks+tela /parametros; v0.0.102); evidência gravada
+- proxima_acao: PARADA REAL do ciclo — aprovação dos valores reais pelo PCP/owner + teste humano
+- atualizado_em: 2026-10-19T10:25:00-03:00
