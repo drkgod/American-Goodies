@@ -85,7 +85,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   > SPEC-2-002 (spec-2-002-planejamento-e-op-digital.md), CA-P1/P2/P3, recorte sintético. Montar calendário, capacidade e OP local com três dias de cookies e fixtures; sem chamada ERP. Pré-condições: projeto Skip atual e contratos internos lidos; fonte real não é pré-condição do fundamento. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-002/ e obter teste humano explícito antes de concluir ou avançar.
   > Disposição (16/10/2026): entregue e provada — contrato planejamento.ts + tela /planejamento (área planejamento) + TDD 10/10; Skip v0.0.82–0.0.83, produção ref f2c1bdb provada; evidência em 05_entregas/fase-2/spec-2-002/evidencia-3cd404e5.md; teste do bloco aprovado pelo owner 09:02 BRT ("testei e aprovado").
 
-  - [ ] Confirmar parâmetros e dias de produção #projeto [interno] <!-- id:d2a44349-f52e-4517-9ef8-7e004103b536 -->
+  - [/] Confirmar parâmetros e dias de produção #projeto [interno] <!-- id:d2a44349-f52e-4517-9ef8-7e004103b536 -->
     > SPEC-2-002 (spec-2-002-planejamento-e-op-digital.md), CA-P1/P2. PCP entrega/aprova CL-006 e valores/unidades de capacidade, calendário, margem, mínimos, lotes, horizonte, prazo e saldo utilizável; faltante bloqueia recorte. Pré-condições: tela/contrato de parâmetros demonstrados; validação do dono funcional. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-002/ e obter teste humano explícito antes de concluir ou avançar.
 
   - [x] Publicar a programação por área #projeto [interno] <!-- id:16b8a592-6038-440d-ba2a-1a668449739c -->
