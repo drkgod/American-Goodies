@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: a2a4ccf1-3244-438c-9e92-39a75f7e2b85 (em aguardando_teste_humano)
+- task_id: 64ac4f85-84e8-45a9-97a9-df04377c9e47 (em aguardando_teste_humano)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-005-consolidacao-omie.md
-- analise: (inline no ciclo contínuo — elegível após provas do piloto M011001; sonda 100% leitura, CA-O1)
+- spec: 04_fase-atual/specs/spec-2-003-apontamentos-na-origem.md
+- analise: (inline no ciclo contínuo — elegível: independente das tasks aguardando teste; recorte do executor da OP publicada local)
 - etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada 2026-10-20T17:26 — "continue" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: pendente — card "Contrato de produção no Omie" na /consolidacoes (produção); 5d8793fb também segue aguardando teste (card "Piloto real" na /catalogo)
-- aguardando_teste: [5d8793fb, a2a4ccf1]
-- verificacao_automatica: passou — TDD contrato-op 6/6 (RED 5/6 provado; tsx local); QA Skip v0.0.134–0.0.135 (setup/static/build/integrations ok)
-- verificacao_documental: em andamento — fase.md [/] com disposição (commit deste envio); evidência em 05_entregas/fase-2/spec-2-005/evidencia-a2a4ccf1.md
+- autorizacao_implementacao: confirmada 2026-10-20T17:39 — "continue" (owner; ciclo contínuo do plugin 0.8.0)
+- teste_humano: pendente — 3 cards na produção: 5d8793fb (/catalogo), a2a4ccf1 (/consolidacoes), 64ac4f85 (/apontamentos)
+- aguardando_teste: [5d8793fb, a2a4ccf1, 64ac4f85]
+- verificacao_automatica: passou — TDD ponto 8/8 (RED 7/8 provado; tsx local); QA Skip v0.0.136 (setup/static/build/integrations ok)
+- verificacao_documental: em andamento — fase.md [/] com disposição (commit deste envio); evidência em 05_entregas/fase-2/spec-2-003/evidencia-64ac4f85.md
 - aprendizado: capturado no fechamento da task (padrão do plugin)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: 5630477 (v0.0.135)
-- skip_publicacao: publicada:5630477 em 2026-10-20T20:36:06Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: 9c155d8 (v0.0.136)
+- skip_publicacao: publicada:9c155d8 em 2026-10-20T20:45:38Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task a2a4ccf1 implementada e publicada (contrato de OP comprovado por leitura: ListarOrdemProducao 1.114 OPs; ConsultarOrdemProducao OP 9858633368 do M011001; guarda CA-O1; 6 mutantes documentados sem execução)
-- proxima_acao: testes humanos do owner (5d8793fb na /catalogo e a2a4ccf1 na /consolidacoes); aprovados → fechamento e ciclo segue (9318a299 liberada após aceite da 5d8793fb)
-- atualizado_em: 2026-10-20T20:40:00-03:00
+- ultima_acao: task 64ac4f85 implementada e publicada (produção por ponto: incrementos 40+60=100, encaixotamento 98 independente, previsto 5 KG, encerramento com hash, 409 estado_congelado)
+- proxima_acao: testes humanos do owner (3 cards); aprovados → fechamento documental e ciclo segue (0096ab26 retificações; 9318a299 após aceite da 5d8793fb)
+- atualizado_em: 2026-10-20T20:50:00-03:00
