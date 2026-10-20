@@ -2,23 +2,23 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 5d8793fb-216f-4322-8fed-c5ec7a1a0b0d (em aguardando_teste_humano)
+- task_id: a2a4ccf1-3244-438c-9e92-39a75f7e2b85 (em aguardando_teste_humano)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
-- analise: (inline no ciclo contínuo — piloto real M011001 aprovado pelo owner "opcao 1" 20/10; 3 pilares provados na fonte)
+- spec: 04_fase-atual/specs/spec-2-005-consolidacao-omie.md
+- analise: (inline no ciclo contínuo — elegível após provas do piloto M011001; sonda 100% leitura, CA-O1)
 - etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada 2026-10-20T16:42 — "opcao 1" (owner; piloto real M011001)
-- teste_humano: pendente — card "Piloto real" na /catalogo (produção)
-- aguardando_teste: [5d8793fb]
-- verificacao_automatica: passou — TDD contrato 10/10 (RED 9/10 provado; tsx local); QA Skip v0.0.129 (setup/static/build/integrations ok)
-- verificacao_documental: em andamento — fase.md [/] com disposição (commit deste envio); evidência em 05_entregas/fase-2/spec-2-001/evidencia-5d8793fb.md
-- aprendizado: pendente de fechamento — capturado no fechamento da task (padrão do plugin)
+- autorizacao_implementacao: confirmada 2026-10-20T17:26 — "continue" (owner; ciclo contínuo do plugin 0.8.0)
+- teste_humano: pendente — card "Contrato de produção no Omie" na /consolidacoes (produção); 5d8793fb também segue aguardando teste (card "Piloto real" na /catalogo)
+- aguardando_teste: [5d8793fb, a2a4ccf1]
+- verificacao_automatica: passou — TDD contrato-op 6/6 (RED 5/6 provado; tsx local); QA Skip v0.0.134–0.0.135 (setup/static/build/integrations ok)
+- verificacao_documental: em andamento — fase.md [/] com disposição (commit deste envio); evidência em 05_entregas/fase-2/spec-2-005/evidencia-a2a4ccf1.md
+- aprendizado: capturado no fechamento da task (padrão do plugin)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: f1673e6 (v0.0.129)
-- skip_publicacao: publicada:f1673e6 em 2026-10-20T19:58:36Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: 5630477 (v0.0.135)
+- skip_publicacao: publicada:5630477 em 2026-10-20T20:36:06Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 5d8793fb implementada e publicada (conciliação real M011001; defaultUN retirado do sync; join de unidade no catálogo; card piloto na /catalogo); diagnóstico 4e0fcf1c concluído (produto teste consultável por código; listagem vazia)
-- proxima_acao: teste humano do owner na /catalogo; aprovado → concluir 5d8793fb (STATUS/changelog/controle no commit de fechamento) e seguir 9318a299
-- atualizado_em: 2026-10-20T20:05:00-03:00
+- ultima_acao: task a2a4ccf1 implementada e publicada (contrato de OP comprovado por leitura: ListarOrdemProducao 1.114 OPs; ConsultarOrdemProducao OP 9858633368 do M011001; guarda CA-O1; 6 mutantes documentados sem execução)
+- proxima_acao: testes humanos do owner (5d8793fb na /catalogo e a2a4ccf1 na /consolidacoes); aprovados → fechamento e ciclo segue (9318a299 liberada após aceite da 5d8793fb)
+- atualizado_em: 2026-10-20T20:40:00-03:00
