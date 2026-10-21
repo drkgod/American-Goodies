@@ -37,7 +37,7 @@
 | 13 | Uillson Cafe dos Santos | Encaixotamento | uillson.santos | producao | apontar_producao | encaixotamento | sim |
 | 14 | Hellene Francisca Silva Sousa | Limpeza | — (sem conta na v1) | — | — | — | não |
 | 15 | Ronaldo Silva Reis | Gerente suplente — espelho dos gerentes | ronaldo.silva | producao, compras, painel | consultar_planejamento, apontar_producao, editar_programacao, publicar_programacao, aprovar_consolidacao, executar_sync_omie | cozinha, encaixotamento, expedicao | sim |
-| 16 | Keoma Targino | Gerente — compras, PCP, expedição, faturamento | keoma.targino | catalogo, estoque, pedidos, compras, producao, painel | consultar_planejamento, editar_programacao, editar_parametros, publicar_programacao, aprovar_consolidacao, executar_sync_omie | produto_acabado, expedicao | sim |
+| 16 | Keoma Targino | Gerente — compras, PCP, expedição, faturamento | keoma.targino | catalogo, estoque, pedidos, compras, producao, painel | consultar_planejamento, editar_programacao, editar_parametros, publicar_programacao, aprovar_consolidacao, executar_sync_omie, conferir_expedicao, conferir_camara | produto_acabado, expedicao, camara_fria | sim |
 | 17 | Aleksandro Pereira Ramos | Compras | aleksandro.ramos | compras, painel | — | — | sim |
 | 18 | Alline de Paiva Perrupato | Pedidos, PCP e Faturamento | alline.perrupato | pedidos, producao, painel | consultar_planejamento, editar_programacao | — | sim |
 | 19 | Angela Maria da Silva | Expedição | angela.silva | pedidos, painel | conferir_expedicao, conferir_camara | expedicao, camara_fria | sim |
@@ -57,5 +57,6 @@
 
 - v1 (2026-10-14): matriz inicial aprovada por Mr Cheney. Próximas alterações de escopo exigem nova versão datada (v2) com aprovador.
 - v2 (2026-10-21): Keoma Targino ganha pontos produto_acabado e expedicao — fonte: fluxograma oficial de produção (validação gerências 10/2026, enviado pelo owner 21/10); pendência 2c4a9b7e fechada. Aprovado por Mr Cheney ("aprovo", 21/10 14:03).
+- v2.1 (2026-10-21 14:38): Keoma ganha TAMBÉM as ações conferir_expedicao e conferir_camara + o ponto camara_fria — decisão do owner para executar os testes reais da dupla conferência (d77447ab) com a própria conta. Aprovado por Mr Cheney ("para esses teste deixa eu fazer tudo no usuario do keoma", 21/10 14:38).
 - v1.1 (2026-10-14): correção de typo na conta da linha 4 (cauau.silva → caua.silva); nenhum outro campo alterado.
 - v1.2 (2026-10-14 12:04): escopo do motorista (Renato) definido pelo aprovador — sem escopo na v1; pendência removida da matriz.
