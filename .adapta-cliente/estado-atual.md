@@ -2,23 +2,22 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 64ac4f85-84e8-45a9-97a9-df04377c9e47 (em aguardando_teste_humano)
+- task_id: (nenhuma ativa — ciclo retoma na próxima mensagem)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-003-apontamentos-na-origem.md
-- analise: (inline no ciclo contínuo — elegível: independente das tasks aguardando teste; recorte do executor da OP publicada local)
-- etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada 2026-10-20T17:39 — "continue" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: pendente — 3 cards na produção: 5d8793fb (/catalogo), a2a4ccf1 (/consolidacoes), 64ac4f85 (/apontamentos)
-- aguardando_teste: [5d8793fb, a2a4ccf1, 64ac4f85]
-- verificacao_automatica: passou — TDD ponto 8/8 (RED 7/8 provado; tsx local); QA Skip v0.0.136 (setup/static/build/integrations ok)
-- verificacao_documental: em andamento — fase.md [/] com disposição (commit deste envio); evidência em 05_entregas/fase-2/spec-2-003/evidencia-64ac4f85.md
-- aprendizado: capturado no fechamento da task (padrão do plugin)
+- spec: (próxima: spec-2-003-apontamentos-na-origem.md — task 0096ab26)
+- etapa: sem_task_ativa
+- autorizacao_implementacao: aceite do bloco 5d8793fb + a2a4ccf1 + 64ac4f85 em 2026-10-21T10:55 BRT ("testei e aprovado")
+- teste_humano: aprovado — 3 cards testados pelo owner (21/10 10:55)
+- aguardando_teste: []
+- verificacao_automatica: passou — TDD 10/10 (conciliacao), 6/6 (contrato-op), 8/8 (ponto); QA Skip v0.0.129–v0.0.136 ok
+- verificacao_documental: concluída — fase.md [x]×3 com aceite; STATUS 21/29; changelog 2026-10-21; evidências íntegras
+- aprendizado: capturado — AP-2026-10-20-1745 (corrupção do canal de tool-call; controle.md commit 6aa1cfc1)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: 9c155d8 (v0.0.136)
 - skip_publicacao: publicada:9c155d8 em 2026-10-20T20:45:38Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 64ac4f85 implementada e publicada (produção por ponto: incrementos 40+60=100, encaixotamento 98 independente, previsto 5 KG, encerramento com hash, 409 estado_congelado)
-- proxima_acao: testes humanos do owner (3 cards); aprovados → fechamento documental e ciclo segue (0096ab26 retificações; 9318a299 após aceite da 5d8793fb)
-- atualizado_em: 2026-10-20T20:50:00-03:00
+- ultima_acao: fechamento do bloco de 3 tasks com aceite do owner 21/10 10:55 (fase.md [x]×3, STATUS 21/29, changelog)
+- proxima_acao: ciclo retoma em 0096ab26 (retificar apontamentos sem duplicar eventos, CA-E2/E4) na próxima mensagem do owner; 9318a299/d77447ab aguardam dados reais; 4e0fcf1c segue com o cliente
+- atualizado_em: 2026-10-21T10:58:00-03:00
