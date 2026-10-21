@@ -8,7 +8,7 @@ Fase atual: 2 — Programação e apontamento com conferência.
 
 ## Transição e pendências
 
-Fase 1 encerrada no recorte homologado: 18 entregas, aceite explícito do owner em 08/10 às 18:23. Transferidos ainda abertos: cadastro de produtos no ERP (4e0fcf1c — ação do cliente) e pontos da Keoma na matriz (2c4a9b7e).
+Fase 1 encerrada no recorte homologado: 18 entregas, aceite explícito do owner em 08/10 às 18:23. Transferidos ainda abertos: cadastro de produtos no ERP (4e0fcf1c — ação do cliente). Pontos da Keoma (2c4a9b7e): FECHADO 21/10 — matriz v2 (pontos produto_acabado + expedicao).
 
 ## Execução da fase
 
@@ -20,10 +20,10 @@ Restantes (5), por bloqueio:
 
 - **Ação do cliente (Omie)**: 4e0fcf1c povoar a listagem do cadastro de produtos — desbloqueia a cadeia de dados reais da e6aa4afa (importar 90 dias).
 - **Aprovação do PCP**: mapa REAL em 07-sistemas/pcp/contratos-fase-2.md (status elegíveis + campo de data) — destrava o USO REAL da e6aa4afa (recorte sintético ✅). d77447ab (conferências reais — exige etapas encerradas e pontos definidos).
-- **Autorização/decisão**: 6e38e5a3 (envio real ao Omie — caso expressamente autorizado), 2ea1e7ab (aprovar baseline90-v1 e conferir sugestões reais), 2c4a9b7e (pontos da Keoma).
+- **Autorização/decisão**: 6e38e5a3 (envio real ao Omie — caso expressamente autorizado). 2ea1e7ab: método baseline90-v1 APROVADO 21/10 (em_espera por dados reais). 2c4a9b7e: FECHADA 21/10 (matriz v2).
 - **Fim da fase**: 0d876150 (validar o fluxo completo com a equipe — exige SPECs anteriores aceitas + caso transacional autorizado).
 
-**Próxima ação:** ciclo sem task elegível — as 5 restantes exigem teste real com equipe (d77447ab), autorização do owner (6e38e5a3, 2ea1e7ab), pontos da Keoma (2c4a9b7e) e fechamento de fase (0d876150); o USO REAL da e6aa4afa aguarda mapa PCP + cadastro Omie.
+**Próxima ação:** ciclo sem task elegível — as 5 restantes exigem teste real com equipe (d77447ab), autorização do owner (6e38e5a3, 2ea1e7ab), fechamento de fase (0d876150); o USO REAL da e6aa4afa aguarda mapa PCP + cadastro Omie.
 
 ## Revisão documental — 13/10/2026
 
