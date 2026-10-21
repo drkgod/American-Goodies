@@ -23,3 +23,11 @@
 
 ### NF-e (sem uso na conta)
 - `produtos/nfe` · `ListarNFe`: HTTP 200 com 0 registros em 2023–2026. Método existe; SEM amostra → sem campos homologados. Pendência explícita: se a conta começar a emitir NF-e, reabrir mapa antes de usar.
+
+## Adendo (21/10/2026 13:06) — Decisão do owner: método baseline90-v1 APROVADO (2ea1e7ab)
+
+> Decisão registrada pelo executor a partir do aceite explícito do owner na conversa ("Aprovar o baseline90-v1", 21/10/2026 13:06). A aprovação do MÉTODO destrava o cálculo das sugestões quando os dados reais estiverem completos; as provas dos oráculos (51→60, compras 4,8→6, zero→zero, excedente) permanecem as da 0baec76e (tests/pcp/spec-2-006-sugestao.test.mjs).
+
+- **Método aprovado**: baseline90-v1 (fórmula e memória de cálculo do contrato `src/lib/pcp/sugestao.ts`, formula_id 'baseline90-v1') — para sugestão de produção E de compra, com bloqueio por faltante (desconhecido → null, nunca 0).
+- **Efeito**: a 2ea1e7ab (CA-S1/S2) passa de bloqueada para aguardando dados — a conferência das sugestões REAIS exige dados completos (vendas_90d/producao_90d reais da e6aa4afa + cadastro Omie 4e0fcf1c).
+- **Vigência**: vale até o PCP devolver o método para emenda; qualquer mudança de fórmula exige novo adendo aqui.
