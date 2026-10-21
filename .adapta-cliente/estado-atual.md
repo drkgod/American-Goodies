@@ -2,22 +2,22 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 9318a299-f764-4dc7-8ec8-3cb7c86b7c79 (concluida)
+- task_id: e6aa4afa-94fe-45e9-95d8-875df96a1cf1 (em aguardando_teste_humano)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
 - spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
-- etapa: concluida
-- autorizacao_implementacao: confirmada 2026-10-21T11:36 — "continue" (owner; ciclo contínuo)
-- teste_humano: aprovado 2026-10-21T11:53 — "testei e aprovado" (owner; card Pedidos firmes na /apontamentos, produção v0.0.142)
-- aguardando_teste: []
-- verificacao_automatica: passou — TDD pedidos-firmes 6/6 (tsx local); sondas read-only 3/3 HTTP 200 (vendas 5.501 / compra 1514 / nfe 0); QA Skip v0.0.142 ok
-- verificacao_documental: concluida — fase.md [x] com aceite, STATUS 23/29, changelog, evidência, mapas CA-D3 em contratos-fase-2.md (commits deste fechamento, provados por blob-SHA)
-- aprendizado: capturado — 06_notas/aprendizado-continuo/controle.md (linha da 9318a299)
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada 2026-10-21T12:18 — "continue" (owner; ciclo contínuo; pré-condição da e6aa4afa satisfeita pelo aceite da 9318a299)
+- teste_humano: pendente — card "Importação 90 dias e restante a receber" na /apontamentos (produção v0.0.143)
+- aguardando_teste: [e6aa4afa]
+- verificacao_automatica: passou — TDD importacao-90d 7/7 GREEN de primeira (tsx local); QA Skip v0.0.143 ok
+- verificacao_documental: em andamento — fase.md [/] com disposição e evidência (commits deste envio)
+- aprendizado: capturado no fechamento da task
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: 117a14d (v0.0.142)
-- skip_publicacao: publicada:117a14d em 2026-10-21T14:48:24Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: 7084d96 (v0.0.143)
+- skip_publicacao: publicada:7084d96 em 2026-10-21T15:22:58Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: fechamento da 9318a299 após aceite do owner (fase [x], STATUS 23/29, changelog, estado, mapas)
-- proxima_acao: ciclo sem elegível — e6aa4afa exige mapa REAL aprovado pelo PCP em contratos-fase-2.md + cadastro Omie 4e0fcf1c; d77447ab/6e38e5a3/2ea1e7ab/2c4a9b7e/0d876150 aguardam gates do owner/equipe
-- atualizado_em: 2026-10-21T12:00:00-03:00
+- ultima_acao: task e6aa4afa implementada e publicada (contrato de importação atômica + restante a receber + card)
+- proxima_acao: teste humano do card na /apontamentos; aprovado → fechamento; USO REAL segue pendente do mapa REAL aprovado pelo PCP + cadastro Omie 4e0fcf1c
+- atualizado_em: 2026-10-21T12:30:00-03:00
