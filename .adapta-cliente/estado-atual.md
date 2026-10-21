@@ -2,22 +2,22 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 0096ab26-6eec-438f-b154-54513188fab5 (concluida)
+- task_id: 9318a299-f764-4dc7-8ec8-3cb7c86b7c79 (em aguardando_teste_humano)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-003-apontamentos-na-origem.md
-- etapa: concluida
-- autorizacao_implementacao: confirmada 2026-10-21T11:18 — "continue" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: aprovado 2026-10-21T11:32 — "testei e aprovado" (owner; card Retificações na /apontamentos, produção v0.0.137)
-- aguardando_teste: []
-- verificacao_automatica: passou — TDD retificacao 6/6 (RED 5/6 provado; tsx local); QA Skip v0.0.137 (setup/static/build/integrations ok)
-- verificacao_documental: concluida — fase.md [x] com aceite, STATUS 22/29, changelog, evidência e aprendizado gravados (commits deste fechamento, provados por blob-SHA)
-- aprendizado: capturado — 06_notas/aprendizado-continuo/AP-2026-10-21-1145.md (oráculo antes do código: retificação SUBSTITUI o valor do alvo)
+- spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada 2026-10-21T11:36 — "continue" (owner; ciclo contínuo; reavaliação contra as SPECs revelou a 9318a299 elegível)
+- teste_humano: pendente — card "Pedidos firmes no horizonte" na /apontamentos (produção v0.0.142)
+- aguardando_teste: [9318a299]
+- verificacao_automatica: passou — TDD pedidos-firmes 6/6 (tsx local); sondas read-only 3/3 HTTP 200 na conta real (vendas 5.501 / compra 1514 / nfe 0); QA Skip v0.0.142 ok
+- verificacao_documental: em andamento — fase.md [/] com disposição, mapas CA-D3 em 07-sistemas/pcp/contratos-fase-2.md e evidência (commits deste envio)
+- aprendizado: capturado no fechamento da task
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: 1bd6731 (v0.0.137)
-- skip_publicacao: publicada:1bd6731 em 2026-10-21T14:24:01Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: 117a14d (v0.0.142)
+- skip_publicacao: publicada:117a14d em 2026-10-21T14:48:24Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: fechamento da 0096ab26 após aceite do owner (fase [x], STATUS 22/29, changelog, estado, aprendizado)
-- proxima_acao: ciclo contínuo — reavaliar elegibilidade das restantes (9318a299/e6aa4afa/d77447ab dependem de dados reais Omie; 6e38e5a3/2ea1e7ab/2c4a9b7e de autorização/decisão; 0d876150 encerra a fase) — novo pedido do owner para iniciar
-- atualizado_em: 2026-10-21T11:50:00-03:00
+- ultima_acao: task 9318a299 implementada e publicada (sondas de leitura provadas + contrato sintético T5 + card)
+- proxima_acao: teste humano do card na /apontamentos; aprovado → fechamento e ciclo segue (e6aa4afa exige contratos ACEITOS + mapa REAL aprovado pelo PCP; d77447ab/6e38e5a3/2ea1e7ab/0d876150 aguardam gates do owner)
+- atualizado_em: 2026-10-21T11:55:00-03:00
