@@ -2,24 +2,16 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 2ea1e7ab-5fe4-4e02-a7a1-901539bfdc8a (em em_espera — aguardando dados reais)
+- task_id: 2c4a9b7e (pendência da matriz — FECHADA 21/10)
 - executor: MCC (ETHOS)
-- owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-006-sugestoes-e-validacao.md
-- etapa: em_espera
-- autorizacao_implementacao: nao_aplicavel (recorte executado: registro de decisão + conferência de oráculos já provados)
-- decisao_owner: 2026-10-21T13:06 — método baseline90-v1 APROVADO (adendo em 07-sistemas/pcp/contratos-fase-2.md)
-- teste_humano: pendente para a parte real — conferência das sugestões REAIS exige dados completos
-- aguardando_teste: []
-- em_espera: [2ea1e7ab — dados reais: vendas_90d/producao_90d da e6aa4afa + cadastro Omie 4e0fcf1c]
-- verificacao_automatica: passou — oráculos da SPEC já provados (tests/pcp/spec-2-006-sugestao.test.mjs: T4 51→60, compra 4,8→6, zero→zero, excedente 10)
-- verificacao_documental: em andamento — fase.md [/] com disposição e contratos-fase-2.md com adendo da decisão (commits deste envio)
-- aprendizado: capturado no fechamento da etapa
+- etapa: concluida (pendência)
+- decisao_owner: 2026-10-21T14:03 — "aprovo" (matriz v2: Keoma pontos produto_acabado + expedicao)
+- fonte: fluxograma oficial de produção (validação gerências 10/2026, enviado 21/10)
+- verificacao_documental: matriz-v2.md gravada (06_notas/), STATUS e changelog atualizados; perfil da Keoma atualizado no Skip (migration 0027)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: 7084d96 (v0.0.143) — sem publicação nova (nada visível mudou)
-- skip_publicacao: publicada:7084d96 em 2026-10-21T15:22:58Z (https://mcc-automacao-fabrica-98125.goskip.app)
+- skip_versao: v0.0.158+ (migration 0027 no próximo apply)
 - pendente_github: nao
-- ultima_acao: decisão do owner registrada (baseline90-v1 aprovado) e 2ea1e7ab movida para em_espera aguardando dados reais
-- proxima_acao: quando cadastro Omie 4e0fcf1c sair e a importação real rodar, calcular as sugestões reais com baseline90-v1 e pedir teste humano; demais tasks (d77447ab/6e38e5a3/2c4a9b7e/0d876150) seguem com gate do owner/equipe
-- atualizado_em: 2026-10-21T13:10:00-03:00
+- ultima_acao: matriz v2 gravada e perfil da Keoma atualizado (pontos produto_acabado, expedicao)
+- proxima_acao: sincronização do catálogo 1.071 produtos em andamento (bloqueio Omie expira ~14:16); d77447ab/6e38e5a3/0d876150 aguardam gates
+- atualizado_em: 2026-10-21T14:05:00-03:00
