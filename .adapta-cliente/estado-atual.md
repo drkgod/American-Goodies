@@ -2,22 +2,22 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 9318a299-f764-4dc7-8ec8-3cb7c86b7c79 (em aguardando_teste_humano)
+- task_id: 9318a299-f764-4dc7-8ec8-3cb7c86b7c79 (concluida)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
 - spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
-- etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada 2026-10-21T11:36 — "continue" (owner; ciclo contínuo; reavaliação contra as SPECs revelou a 9318a299 elegível)
-- teste_humano: pendente — card "Pedidos firmes no horizonte" na /apontamentos (produção v0.0.142)
-- aguardando_teste: [9318a299]
-- verificacao_automatica: passou — TDD pedidos-firmes 6/6 (tsx local); sondas read-only 3/3 HTTP 200 na conta real (vendas 5.501 / compra 1514 / nfe 0); QA Skip v0.0.142 ok
-- verificacao_documental: em andamento — fase.md [/] com disposição, mapas CA-D3 em 07-sistemas/pcp/contratos-fase-2.md e evidência (commits deste envio)
-- aprendizado: capturado no fechamento da task
+- etapa: concluida
+- autorizacao_implementacao: confirmada 2026-10-21T11:36 — "continue" (owner; ciclo contínuo)
+- teste_humano: aprovado 2026-10-21T11:53 — "testei e aprovado" (owner; card Pedidos firmes na /apontamentos, produção v0.0.142)
+- aguardando_teste: []
+- verificacao_automatica: passou — TDD pedidos-firmes 6/6 (tsx local); sondas read-only 3/3 HTTP 200 (vendas 5.501 / compra 1514 / nfe 0); QA Skip v0.0.142 ok
+- verificacao_documental: concluida — fase.md [x] com aceite, STATUS 23/29, changelog, evidência, mapas CA-D3 em contratos-fase-2.md (commits deste fechamento, provados por blob-SHA)
+- aprendizado: capturado — 06_notas/aprendizado-continuo/controle.md (linha da 9318a299)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: 117a14d (v0.0.142)
 - skip_publicacao: publicada:117a14d em 2026-10-21T14:48:24Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 9318a299 implementada e publicada (sondas de leitura provadas + contrato sintético T5 + card)
-- proxima_acao: teste humano do card na /apontamentos; aprovado → fechamento e ciclo segue (e6aa4afa exige contratos ACEITOS + mapa REAL aprovado pelo PCP; d77447ab/6e38e5a3/2ea1e7ab/0d876150 aguardam gates do owner)
-- atualizado_em: 2026-10-21T11:55:00-03:00
+- ultima_acao: fechamento da 9318a299 após aceite do owner (fase [x], STATUS 23/29, changelog, estado, mapas)
+- proxima_acao: ciclo sem elegível — e6aa4afa exige mapa REAL aprovado pelo PCP em contratos-fase-2.md + cadastro Omie 4e0fcf1c; d77447ab/6e38e5a3/2ea1e7ab/2c4a9b7e/0d876150 aguardam gates do owner/equipe
+- atualizado_em: 2026-10-21T12:00:00-03:00
