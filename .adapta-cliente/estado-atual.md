@@ -2,23 +2,22 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 0096ab26-6eec-438f-b154-54513188fab5 (em aguardando_teste_humano)
+- task_id: 0096ab26-6eec-438f-b154-54513188fab5 (concluida)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
 - spec: 04_fase-atual/specs/spec-2-003-apontamentos-na-origem.md
-- analise: (inline no ciclo contínuo — elegível após aceite do bloco 21/10 10:55; recorte do executor sobre apontamento.ts/ponto.ts aceitos)
-- etapa: aguardando_teste_humano
+- etapa: concluida
 - autorizacao_implementacao: confirmada 2026-10-21T11:18 — "continue" (owner; ciclo contínuo do plugin 0.8.0)
-- teste_humano: pendente — card "Retificações sem duplicar eventos" na /apontamentos (produção v0.0.137)
-- aguardando_teste: [0096ab26]
+- teste_humano: aprovado 2026-10-21T11:32 — "testei e aprovado" (owner; card Retificações na /apontamentos, produção v0.0.137)
+- aguardando_teste: []
 - verificacao_automatica: passou — TDD retificacao 6/6 (RED 5/6 provado; tsx local); QA Skip v0.0.137 (setup/static/build/integrations ok)
-- verificacao_documental: em andamento — fase.md [/] com disposição (commit deste envio); evidência em 05_entregas/fase-2/spec-2-003/evidencia-0096ab26.md
-- aprendizado: capturado no fechamento da task (padrão do plugin)
+- verificacao_documental: concluida — fase.md [x] com aceite, STATUS 22/29, changelog, evidência e aprendizado gravados (commits deste fechamento, provados por blob-SHA)
+- aprendizado: capturado — 06_notas/aprendizado-continuo/AP-2026-10-21-1145.md (oráculo antes do código: retificação SUBSTITUI o valor do alvo)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: 1bd6731 (v0.0.137)
 - skip_publicacao: publicada:1bd6731 em 2026-10-21T14:24:01Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task 0096ab26 implementada e publicada (guardas de retificação: replay/409, timeout→consulta, anulação 0 com motivo, 409 estado_congelado, OP/versão incompatível nega, original preservado)
-- proxima_acao: teste humano do card na /apontamentos; aprovado → fechamento e ciclo segue (9318a299/d77447ab aguardam dados reais; 6e38e5a3/2ea1e7ab aguardam autorização/decisão)
-- atualizado_em: 2026-10-21T11:30:00-03:00
+- ultima_acao: fechamento da 0096ab26 após aceite do owner (fase [x], STATUS 22/29, changelog, estado, aprendizado)
+- proxima_acao: ciclo contínuo — reavaliar elegibilidade das restantes (9318a299/e6aa4afa/d77447ab dependem de dados reais Omie; 6e38e5a3/2ea1e7ab/2c4a9b7e de autorização/decisão; 0d876150 encerra a fase) — novo pedido do owner para iniciar
+- atualizado_em: 2026-10-21T11:50:00-03:00
