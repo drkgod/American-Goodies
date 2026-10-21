@@ -2,22 +2,22 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: e6aa4afa-94fe-45e9-95d8-875df96a1cf1 (em aguardando_teste_humano)
+- task_id: e6aa4afa-94fe-45e9-95d8-875df96a1cf1 (concluida)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
 - spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
-- etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada 2026-10-21T12:18 — "continue" (owner; ciclo contínuo; pré-condição da e6aa4afa satisfeita pelo aceite da 9318a299)
-- teste_humano: pendente — card "Importação 90 dias e restante a receber" na /apontamentos (produção v0.0.143)
-- aguardando_teste: [e6aa4afa]
+- etapa: concluida
+- autorizacao_implementacao: confirmada 2026-10-21T12:18 — "continue" (owner; ciclo contínuo)
+- teste_humano: aprovado 2026-10-21T12:45 — "Testei e aprovado" (owner; card Importação 90 dias na /apontamentos, produção v0.0.143)
+- aguardando_teste: []
 - verificacao_automatica: passou — TDD importacao-90d 7/7 GREEN de primeira (tsx local); QA Skip v0.0.143 ok
-- verificacao_documental: em andamento — fase.md [/] com disposição e evidência (commits deste envio)
-- aprendizado: capturado no fechamento da task
+- verificacao_documental: concluida — fase.md [x] com aceite, STATUS 24/29, changelog e evidência gravados (commits deste fechamento, provados por blob-SHA)
+- aprendizado: capturado — 06_notas/aprendizado-continuo/controle.md (linha da e6aa4afa)
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: 7084d96 (v0.0.143)
 - skip_publicacao: publicada:7084d96 em 2026-10-21T15:22:58Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: task e6aa4afa implementada e publicada (contrato de importação atômica + restante a receber + card)
-- proxima_acao: teste humano do card na /apontamentos; aprovado → fechamento; USO REAL segue pendente do mapa REAL aprovado pelo PCP + cadastro Omie 4e0fcf1c
-- atualizado_em: 2026-10-21T12:30:00-03:00
+- ultima_acao: fechamento da e6aa4afa após aceite do owner (fase [x], STATUS 24/29, changelog, estado, aprendizado)
+- proxima_acao: ciclo sem elegível — d77447ab (teste real com equipe), 6e38e5a3/2ea1e7ab (autorização do owner), 2c4a9b7e (pontos Keoma), 0d876150 (fim de fase); USO REAL da e6aa4afa aguarda mapa PCP + cadastro Omie 4e0fcf1c
+- atualizado_em: 2026-10-21T12:55:00-03:00
