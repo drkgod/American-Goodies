@@ -59,3 +59,10 @@
 - TDD 6/6 (RED 5/6 provado; a falha era do oráculo do teste — retificação SUBSTITUI o valor do alvo, não soma; corrigido antes do código). Card com oráculos na tela /apontamentos.
 - Skip v0.0.137 (ref 1bd6731) publicada e provada; teste humano aprovado pelo owner em 21/10 ~11:32 ("testei e aprovado").
 - Evidência: 05_entregas/fase-2/spec-2-003/evidencia-0096ab26.md · Aprendizado: AP-2026-10-21-1145 (oráculo antes do código). Fase 2: **22/29**.
+
+## 21/10/2026 — Task 9318a299 concluída (SPEC-2-001 CA-D3)
+
+- **Comprovar as leituras de histórico e compras a receber** (recorte do executor): sondas read-only na conta real provaram os 3 métodos — `ListarPedidos` HTTP 200 (5.501 pedidos; status em infoCadastro; paginação pagina/total_de_paginas), `PesquisarPedCompra` HTTP 200 (pedido real 1514, etapa 20; itens com nQtde/nQtdeRec/cUnidade), `ListarNFe` HTTP 200 (0 registros 2023–2026 — módulo sem uso na conta; pendência explícita).
+- Contrato sintético `src/lib/pcp/pedidos-firmes.ts` com os oráculos T5 da SPEC (15 no horizonte; cancelado/fora do horizonte 0; replay por pedido+linha; desconhecido → null bloqueia, nunca 0; borda inclusiva; saldo nunca negativo) — TDD 6/6. Card na tela /apontamentos.
+- Mapas CA-D3 registrados em 07-sistemas/pcp/contratos-fase-2.md (arquivo novo): regra REAL aguarda aprovação do PCP. Skip v0.0.142 (ref 117a14d) publicada e provada; sondas e token efêmero removidos.
+- Teste humano aprovado pelo owner em 21/10 ~11:53 ("testei e aprovado"). Evidência: 05_entregas/fase-2/spec-2-001/evidencia-9318a299.md. Fase 2: **23/29**.
