@@ -66,3 +66,10 @@
 - Contrato sintético `src/lib/pcp/pedidos-firmes.ts` com os oráculos T5 da SPEC (15 no horizonte; cancelado/fora do horizonte 0; replay por pedido+linha; desconhecido → null bloqueia, nunca 0; borda inclusiva; saldo nunca negativo) — TDD 6/6. Card na tela /apontamentos.
 - Mapas CA-D3 registrados em 07-sistemas/pcp/contratos-fase-2.md (arquivo novo): regra REAL aguarda aprovação do PCP. Skip v0.0.142 (ref 117a14d) publicada e provada; sondas e token efêmero removidos.
 - Teste humano aprovado pelo owner em 21/10 ~11:53 ("testei e aprovado"). Evidência: 05_entregas/fase-2/spec-2-001/evidencia-9318a299.md. Fase 2: **23/29**.
+
+## 21/10/2026 — Task e6aa4afa concluída (SPEC-2-001 CA-D4)
+
+- **Importar os 90 dias e recebimentos confirmados** (recorte do executor): contrato `src/lib/pcp/importacao-90d.ts` — janela D-89..D inclusiva; chave aplicativo+recurso+documento+linha com replay sem duplicação; página falha preserva o lote anterior com aviso e lote incompleto não ativa; geração ≤ ativa recusada; normalização da borda (IDs em texto, unidade null nunca vira UN, quantidade finita ≥ 0); restante a receber = pedida−recebida (nunca negativa nem acima do pedido), desconhecido bloqueia (nunca 0), cancelado/fora do horizonte não elegíveis.
+- TDD 7/7 GREEN de primeira. Card na tela /apontamentos. Skip v0.0.143 (ref 7084d96) publicada e provada.
+- Teste humano aprovado pelo owner em 21/10 ~12:45 ("Testei e aprovado"). USO REAL pendente do mapa REAL aprovado pelo PCP (contratos-fase-2.md) e do cadastro Omie 4e0fcf1c.
+- Evidência: 05_entregas/fase-2/spec-2-001/evidencia-e6aa4afa.md. Fase 2: **24/29**.
