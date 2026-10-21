@@ -52,3 +52,10 @@
 - 2026-10-14 · [MCC/ETHOS] · **Task 49327a88 CONCLUÍDA** (aceite ~16:35): 21 contas reais com troca obrigatória; produção v0.0.77 (ref 6e05dac); fase.md [x] (37b4bf88, blob f41330cc).
 - 2026-10-14 · [MCC/ETHOS] · Rotação da senha inicial (plano B): novo valor no cofre; migrations 0022–0025.
 - 2026-10-14 · [MCC/ETHOS] · **Tasks 3def6d06 e 45dc0e7d CONCLUÍDAS** (aceites 17:57 e 18:28): duplicatas da base e das telas conciliadas; STATUS 4/29.
+
+## 21/10/2026 — Task 0096ab26 concluída (SPEC-2-003 CA-E2/E4)
+
+- **Retificar apontamentos sem duplicar eventos** (recorte do executor): contrato `src/lib/pcp/retificacao.ts` — retificarComGuardas (replay idempotente por UUID+hash; hash diferente = 409; durante envio/incerto = 409 estado_congelado; OP não publicada, ponto sem acesso e OP cancelada negam sem pistas; motivo obrigatório inclusive para anulação por quantidade 0; quantidade >= 0; OP/versão incompatível nega; original preservado append-only) e buscarEventoPorUUID (timeout → consulta por UUID antes de qualquer retry, sem evento novo).
+- TDD 6/6 (RED 5/6 provado; a falha era do oráculo do teste — retificação SUBSTITUI o valor do alvo, não soma; corrigido antes do código). Card com oráculos na tela /apontamentos.
+- Skip v0.0.137 (ref 1bd6731) publicada e provada; teste humano aprovado pelo owner em 21/10 ~11:32 ("testei e aprovado").
+- Evidência: 05_entregas/fase-2/spec-2-003/evidencia-0096ab26.md · Aprendizado: AP-2026-10-21-1145 (oráculo antes do código). Fase 2: **22/29**.
