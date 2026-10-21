@@ -1,5 +1,10 @@
 # Changelog operacional
 
+## 2026-10-21
+
+- 2026-10-21 · [MCC/ETHOS] · **BLOCO CONCLUÍDO — 3 tasks com teste humano aprovado pelo owner (10:55 BRT: "testei e aprovado")**: 5d8793fb (reconciliar catálogo, unidades e fichas — piloto real M011001), a2a4ccf1 (comprovar o contrato de produção no Omie — sondas de leitura, guarda CA-O1) e 64ac4f85 (registrar e encerrar a produção por ponto — incrementos, hash de encerramento, 409 estado_congelado). fase.md [x] nas três com aceite nas disposições (commit deste envio); STATUS 21/29; **Fase 2: 21/29 concluídas.** Ciclo contínuo: 0096ab26 elegível (retificações sobre os contratos aceitos); 9318a299/d77447ab aguardam dados reais (cadastro Omie/pontos); 6e38e5a3 e 2ea1e7ab aguardam autorização/decisão do owner.
+- 2026-10-20 · [MCC/ETHOS] · **Bloco de 3 tasks implementado e publicado (v0.0.129→v0.0.136)**: 5d8793fb (contrato conciliacao.ts TDD 10/10; defaultUN retirado do sync; card "Piloto real" na /catalogo; v0.0.129 ref f1673e6), a2a4ccf1 (sondas de LEITURA provaram ListarOrdemProducao 1.114 OPs e ConsultarOrdemProducao OP 9858633368 do M011001; contrato-op.ts com guarda CA-O1 TDD 6/6; card na /consolidacoes; v0.0.135 ref 5630477; sonda temporária removida) e 64ac4f85 (ponto.ts: incrementos 40+60=100, encaixotamento 98 independente, previsto 5 KG, encerramento com hash, 409 estado_congelado; TDD 8/8; card na /apontamentos; v0.0.136 ref 9c155d8). Evidências em 05_entregas/fase-2/spec-2-001|003|005/. Aprendizado: AP-2026-10-20-1745 (corrupção do canal de tool-call no create_or_update_file — padrão de cópia local + prova por blob-SHA; controle.md commit 6aa1cfc1).
+
 ## 2026-10-19
 
 - 2026-10-19 · [MCC/ETHOS] · **Task d2a44349 CONCLUÍDA** (teste humano aprovado pelo owner 10:28 BRT: "testei e aprovado"). fase.md [x] com disposição (commit dfe5241b; releitura do servidor prova blob fb50ff38 = reconstrução exata, 29 UUIDs); STATUS 18/29; **Fase 2: 18/29 concluídas.** Parâmetros oficiais CL-006: infraestrutura pronta e aceita (tela /parametros com aprovação versionada); aprovação dos VALORES reais pelo PCP registra a versão oficial.
