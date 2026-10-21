@@ -73,3 +73,9 @@
 - TDD 7/7 GREEN de primeira. Card na tela /apontamentos. Skip v0.0.143 (ref 7084d96) publicada e provada.
 - Teste humano aprovado pelo owner em 21/10 ~12:45 ("Testei e aprovado"). USO REAL pendente do mapa REAL aprovado pelo PCP (contratos-fase-2.md) e do cadastro Omie 4e0fcf1c.
 - Evidência: 05_entregas/fase-2/spec-2-001/evidencia-e6aa4afa.md. Fase 2: **24/29**.
+
+## 21/10/2026 — Pendência 2c4a9b7e fechada (matriz v2 — pontos da Keoma)
+
+- Owner enviou o fluxograma oficial de produção (validação com as gerências, 10/2026): etapas 4–7 (triagem, cozinha, resfriamento, encaixotamento) sob gerência do Arivaldo; Keoma supervisiona 1–3 e 8–11 (produto acabado, faturamento, expedição, entrega).
+- **Matriz v2** (aprovada por Mr Cheney, "aprovo", 21/10 14:03): Keoma Targino ganha pontos **produto_acabado** e **expedicao** (espelhando a equipe da expedição). Perfil atualizado no Skip (migration 0027).
+- Registro: 06_notas/organograma-2026-10.md (fonte) + matriz v2 datada. Fase 2: **24/29** (pendências restantes: d77447ab, 6e38e5a3, 0d876150 + uso real da e6aa4afa).
