@@ -31,3 +31,13 @@
 - **Método aprovado**: baseline90-v1 (fórmula e memória de cálculo do contrato `src/lib/pcp/sugestao.ts`, formula_id 'baseline90-v1') — para sugestão de produção E de compra, com bloqueio por faltante (desconhecido → null, nunca 0).
 - **Efeito**: a 2ea1e7ab (CA-S1/S2) passa de bloqueada para aguardando dados — a conferência das sugestões REAIS exige dados completos (vendas_90d/producao_90d reais da e6aa4afa + cadastro Omie 4e0fcf1c).
 - **Vigência**: vale até o PCP devolver o método para emenda; qualquer mudança de fórmula exige novo adendo aqui.
+
+## Adendo (21/10/2026 14:25) — Mapa REAL de pedidos firmes APROVADO pelo owner (e6aa4afa)
+
+> Decisão registrada a partir do aceite explícito do owner ("confirmo os dois", 21/10/2026 14:24). Complementa o adendo de 13:06 (baseline90-v1).
+
+- **Status elegíveis** (pedidos de venda): `faturado`, `autorizado`, `parcial` — somam saldo firme no horizonte.
+- **Status excluídos**: `cancelado`, `denegado`, `devolvido` (com referência comprovada) — contribuem 0.
+- **Data operacional**: data de **faturamento** (`infoCadastro.dFat`) do pedido.
+- **Status fora do mapa / data ausente**: quantidade firme = null e bloqueia o item (nunca 0).
+- **Vigência**: vale para a importação real (e6aa4afa) e para o cálculo das sugestões (2ea1e7ab). Mudança exige novo adendo datado.
