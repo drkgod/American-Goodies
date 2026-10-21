@@ -2,22 +2,24 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: e6aa4afa-94fe-45e9-95d8-875df96a1cf1 (concluida)
+- task_id: 2ea1e7ab-5fe4-4e02-a7a1-901539bfdc8a (em em_espera — aguardando dados reais)
 - executor: MCC (ETHOS)
 - owner_informativo: cliente (metadado informativo; não bloqueia)
-- spec: 04_fase-atual/specs/spec-2-001-dados-oficiais-e-historico.md
-- etapa: concluida
-- autorizacao_implementacao: confirmada 2026-10-21T12:18 — "continue" (owner; ciclo contínuo)
-- teste_humano: aprovado 2026-10-21T12:45 — "Testei e aprovado" (owner; card Importação 90 dias na /apontamentos, produção v0.0.143)
+- spec: 04_fase-atual/specs/spec-2-006-sugestoes-e-validacao.md
+- etapa: em_espera
+- autorizacao_implementacao: nao_aplicavel (recorte executado: registro de decisão + conferência de oráculos já provados)
+- decisao_owner: 2026-10-21T13:06 — método baseline90-v1 APROVADO (adendo em 07-sistemas/pcp/contratos-fase-2.md)
+- teste_humano: pendente para a parte real — conferência das sugestões REAIS exige dados completos
 - aguardando_teste: []
-- verificacao_automatica: passou — TDD importacao-90d 7/7 GREEN de primeira (tsx local); QA Skip v0.0.143 ok
-- verificacao_documental: concluida — fase.md [x] com aceite, STATUS 24/29, changelog e evidência gravados (commits deste fechamento, provados por blob-SHA)
-- aprendizado: capturado — 06_notas/aprendizado-continuo/controle.md (linha da e6aa4afa)
+- em_espera: [2ea1e7ab — dados reais: vendas_90d/producao_90d da e6aa4afa + cadastro Omie 4e0fcf1c]
+- verificacao_automatica: passou — oráculos da SPEC já provados (tests/pcp/spec-2-006-sugestao.test.mjs: T4 51→60, compra 4,8→6, zero→zero, excedente 10)
+- verificacao_documental: em andamento — fase.md [/] com disposição e contratos-fase-2.md com adendo da decisão (commits deste envio)
+- aprendizado: capturado no fechamento da etapa
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: 7084d96 (v0.0.143)
+- skip_versao: 7084d96 (v0.0.143) — sem publicação nova (nada visível mudou)
 - skip_publicacao: publicada:7084d96 em 2026-10-21T15:22:58Z (https://mcc-automacao-fabrica-98125.goskip.app)
 - pendente_github: nao
-- ultima_acao: fechamento da e6aa4afa após aceite do owner (fase [x], STATUS 24/29, changelog, estado, aprendizado)
-- proxima_acao: ciclo sem elegível — d77447ab (teste real com equipe), 6e38e5a3/2ea1e7ab (autorização do owner), 2c4a9b7e (pontos Keoma), 0d876150 (fim de fase); USO REAL da e6aa4afa aguarda mapa PCP + cadastro Omie 4e0fcf1c
-- atualizado_em: 2026-10-21T12:55:00-03:00
+- ultima_acao: decisão do owner registrada (baseline90-v1 aprovado) e 2ea1e7ab movida para em_espera aguardando dados reais
+- proxima_acao: quando cadastro Omie 4e0fcf1c sair e a importação real rodar, calcular as sugestões reais com baseline90-v1 e pedir teste humano; demais tasks (d77447ab/6e38e5a3/2c4a9b7e/0d876150) seguem com gate do owner/equipe
+- atualizado_em: 2026-10-21T13:10:00-03:00
