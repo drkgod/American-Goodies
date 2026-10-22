@@ -8,7 +8,7 @@
 
 Produtos Omie vazios; estoque foi rotulado UN sem confirmação pelo cadastro. Contratos intermediários de canais registram vínculo0, superado pela prova final de 44.
 
-Transição autorizada em 09/10: pendências entram nesta fase ainda abertas. Omie é fonte oficial. Construir primeiro fundamento/contratos/telas com demonstração identificada, depois conexões reais. Uma task por sessão; teste humano explícito antes da seguinte.
+Transição autorizada em 09/10: pendências entram nesta fase ainda abertas. Omie é fonte oficial. Construir primeiro fundamento/contratos/telas com demonstração identificada, depois conexões reais. Construir em sequência, sem pedir autorização nem teste entre tasks; teste humano só onde a task indicar (P5 do índice).
 
 ## Resultado observável
 
@@ -90,7 +90,7 @@ Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado d
 3. Implementar contratos/coleções/endpoints/tela do recorte, primeiro com fixtures isoladas. Reusar autenticação/componentes; não editar cliente PocketBase gerado para facilitar teste.
 4. Rodar RED antes do comportamento e GREEN/regressão abaixo; registrar comando/versão/saída. npm test que apenas imprime ausência de testes não é prova.
 5. Pré-condição ausente mantém task aberta; recorte independente pode seguir. Regra/contrato incompatível retorna para emenda; não preencher por suposição.
-6. Mostrar resultado da única task e pedir teste humano explícito; só depois concluir e iniciar próxima. Publicar este pacote não executou nenhuma task da F2.
+6. Ao terminar uma task com a prova automática, seguir para a próxima elegível sem pedir teste. Teste humano só onde a task indicar (P5 do índice); as demais fecham pela prova automática. Publicar este pacote não executou nenhuma task da F2.
 
 ## Checklist de execução
 
@@ -98,7 +98,7 @@ Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado d
 - [ ] Fundamento demonstrável antes da conexão.
 - [ ] Regras/autorizações/contratos implementados no recorte.
 - [ ] RED/GREEN/bordas/concorrência e regressão com prova.
-- [ ] Evidência e teste humano explícito antes de concluir.
+- [ ] Evidência registrada; teste humano só quando a task indicar (P5).
 
 ## Critérios de aceite
 

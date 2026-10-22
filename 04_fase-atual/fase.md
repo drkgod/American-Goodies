@@ -35,7 +35,7 @@ tarefas que já têm um.
 
 Liberação autorizada pelo consultor em 09/10/2026. Todos os29 UUIDs foram recebidos do portal e preservados, incluindo os 5 herdados. Visibilidade recebida do portal foi preservada; não há responsável/prazo presumido.
 
-Topo: regularização ou fundamento com fixtures locais dos contratos documentais, sem exigir implantação prévia de outros cards. Subtasks: cadeia dependente na ordem indicada, uma task por sessão e teste humano explícito antes da seguinte. Aprovação do pai não aprova filhos.
+Topo: regularização ou fundamento com fixtures locais dos contratos documentais, sem exigir implantação prévia de outros cards. Subtasks: cadeia dependente na ordem indicada, construída em sequência; teste humano só onde a task indicar (P5). Aprovação do pai não aprova filhos.
 
 Uso real: programação→apontamentos→conferência→envio. Aprovação de método é primeiro passo e gate interno antes de cálculo. Recuperação em mock, revogação, reinício e concorrência devem passar ANTES do envio real. Transação ERP exige contrato/concessão e autorização do caso. Dependência humana bloqueia somente recorte afetado.
 
@@ -120,7 +120,7 @@ Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
   > Disposição (16/10/2026): entregue e provada — contrato conferencia.ts + tela /conferencias + TDD 8/8; Skip v0.0.86–0.0.89, produção ref 9396881 provada; acesso de demonstração (flag DEMO_CONFERENCIA, a remover na d77447ab — uso real); evidência em 05_entregas/fase-2/spec-2-004/evidencia-556da315.md; teste humano aprovado pelo owner 09:19 BRT ("testei e aprovado").
 
   - [ ] Conferir expedição e entrada em câmara #projeto [interno] <!-- id:d77447ab-24eb-4982-984d-08645f11ae28 -->
-    > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C1/C2/C3. Registrar ambas etapas em sequência, com unidade/local/autor e replay; divergência bloqueia consolidação. Pré-condições: telas aceitas, etapas de produção encerradas, acesso nominal e pontos definidos para teste real. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/ e obter teste humano explícito antes de concluir ou avançar.
+    > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C1/C2/C3. Registrar ambas etapas em sequência, com unidade/local/autor e replay; divergência bloqueia consolidação. Pré-condições: telas aceitas, etapas de produção encerradas, acesso nominal e pontos definidos para teste real. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/. Esta task fecha com o teste do dono (ponto de aprovação da P5); as demais tasks elegíveis seguem enquanto isso.
 
   - [x] Revisar divergências e invalidar aprovações antigas #projeto [interno] <!-- id:30118f65-3dd5-4679-a1a2-8b301c6a8d46 -->
     > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C3/C4. PCP registra motivo/quantidade final; evento novo invalida hashes; provar corrida com aquisição e congelamento. Pré-condições: conferências aceitas; ação aprovar_consolidacao confirmada. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/ e obter teste humano explícito antes de concluir ou avançar.
