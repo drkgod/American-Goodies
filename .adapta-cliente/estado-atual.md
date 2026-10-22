@@ -2,16 +2,15 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 2
-- task_id: 2c4a9b7e (pendência da matriz — FECHADA 21/10)
+- task_id: d77447ab (conferência real — debug concluído, aguardando teste)
 - executor: MCC (ETHOS)
-- etapa: concluida (pendência)
-- decisao_owner: 2026-10-21T14:03 — "aprovo" (matriz v2: Keoma pontos produto_acabado + expedicao)
-- fonte: fluxograma oficial de produção (validação gerências 10/2026, enviado 21/10)
-- verificacao_documental: matriz-v2.md gravada (06_notas/), STATUS e changelog atualizados; perfil da Keoma atualizado no Skip (migration 0027)
+- etapa: aguardando_teste_humano
+- decisao_owner: —
+- verificacao_documental: debug provado (TDD 3/3: cenário do dono, ausência, fila revisável; espelho dos 3 arquivos alterados em 07-sistemas/pcp/codigo/)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: v0.0.158+ (migration 0027 no próximo apply)
+- skip_versao: v0.0.167 (ref b591b62, publicada 22/10 15:42 UTC)
 - pendente_github: nao
-- ultima_acao: matriz v2 gravada e perfil da Keoma atualizado (pontos produto_acabado, expedicao)
-- proxima_acao: sincronização do catálogo 1.071 produtos em andamento (bloqueio Omie expira ~14:16); d77447ab/6e38e5a3/0d876150 aguardam gates
-- atualizado_em: 2026-10-21T14:05:00-03:00
+- ultima_acao: debug do bug da conferência (fila lia a 1ª conferência de cada etapa; gate de aprovação exigia fila sem divergência) + feedback visual dos botões (verdes com a última quantidade)
+- proxima_acao: teste humano da consolidação na demonstração (conferir 98/98 → aprovar com final 98 + motivo); bloqueio Omie 425 em guarda de 12h (0/108 sub-lotes; decisão owner: suporte Omie × auditoria da AppKey)
+- atualizado_em: 2026-10-22T14:40:00-03:00
