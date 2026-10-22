@@ -154,7 +154,7 @@ Demonstrar resultado ao dono funcional. Operar por ações autorizadas, acompanh
 | c44c11da-c7e9-42ee-b54a-fb3fff997f68 | Construir a fila de envio com simulação | CA-O1/O3/O4, recorte mock | contrato documental da consolidação e fixture local independente; mutantes reais desligados | 05_entregas/fase-2/spec-2-005/; UUID acima |
 | a2a4ccf1-3244-438c-9e92-39a75f7e2b85 | Comprovar o contrato de produção no Omie | CA-O1 | fila simulada aceita; documentação/acesso autorizados; produto/ficha/local disponíveis | 05_entregas/fase-2/spec-2-005/; UUID acima |
 | 4e9a1d0e-fd37-4225-86bd-54d08c1c924d | Provar a recuperação antes do envio real | CA-O2/O3/O4 | fila mock e contrato documental aceitos; todos os casos de revogação/reinício/lease/corrida/timeout devem passar antes do primeiro envio real | 05_entregas/fase-2/spec-2-005/; UUID acima |
-| 6e38e5a3-72e4-4be7-ae21-a29b5fb5e7ab | Enviar uma produção conferida e autorizada | CA-O2/O5 | provas negativas da recuperação aceitas; contrato/concessão transacional, matriz e dupla conferência reais aceitos; autorização específica do caso e nenhuma divergência de consumo sem tratamento | 05_entregas/fase-2/spec-2-005/; UUID acima |
+| 6e38e5a3-72e4-4be7-ae21-a29b5fb5e7ab | Ligar o envio ao Omie e fazer o primeiro envio real | CA-O2/O5 | provas negativas da recuperação aceitas; contrato/concessão transacional, matriz e dupla conferência reais aceitos; autorização específica do caso e nenhuma divergência de consumo sem tratamento | 05_entregas/fase-2/spec-2-005/; UUID acima |
 
 Status/metadados editáveis pertencem somente ao arquivo canônico.
 

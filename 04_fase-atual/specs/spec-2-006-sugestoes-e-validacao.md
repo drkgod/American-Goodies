@@ -149,9 +149,9 @@ Demonstrar resultado ao dono funcional. Operar por ações autorizadas, acompanh
 | ID | Task | Critério/recorte | Pré-condições | Prova/evidência |
 |---|---|---|---|---|
 | 0baec76e-80af-412c-9554-9472f7928743 | Construir as sugestões com memória de cálculo | CA-S1/S2, recorte sintético | contratos internos dados/parâmetros disponíveis; fixtures identificadas | 05_entregas/fase-2/spec-2-006/; UUID acima |
-| 2ea1e7ab-5fe4-4e02-a7a1-901539bfdc8a | Aprovar o método e conferir as sugestões reais | CA-S1/S2 | documentos/valores de parâmetros e fontes disponíveis; aprovação do método é primeiro passo desta task e gate interno antes de qualquer cálculo real | 05_entregas/fase-2/spec-2-006/; UUID acima |
+| 2ea1e7ab-5fe4-4e02-a7a1-901539bfdc8a | Calcular as sugestões com os dados reais | CA-S1/S2 | documentos/valores de parâmetros e fontes disponíveis; aprovação do método é primeiro passo desta task e gate interno antes de qualquer cálculo real | 05_entregas/fase-2/spec-2-006/; UUID acima |
 | 8bb4ef77-1232-4f16-a7d6-ea2df09ad829 | Levar a sugestão somente para rascunho | CA-S3 | sugestões aceitas e conta com editar_programacao nominalmente aprovada; nenhum acesso ampliado | 05_entregas/fase-2/spec-2-006/; UUID acima |
-| 0d876150-60b6-46bb-ada4-722b90d870a3 | Validar o fluxo completo com a equipe | CA-S4 | SPECs anteriores aceitas, caso transacional autorizado e pendências operacionais resolvidas no recorte; demonstração mock não conclui este aceite real | 05_entregas/fase-2/spec-2-006/; UUID acima |
+| 0d876150-60b6-46bb-ada4-722b90d870a3 | Validar o fluxo completo com a equipe (teste final da fase) | CA-S4 | SPECs anteriores aceitas, caso transacional autorizado e pendências operacionais resolvidas no recorte; demonstração mock não conclui este aceite real | 05_entregas/fase-2/spec-2-006/; UUID acima |
 
 Status/metadados editáveis pertencem somente ao arquivo canônico.
 

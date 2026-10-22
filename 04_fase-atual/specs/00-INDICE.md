@@ -15,6 +15,13 @@ Cada SPEC contém modelo/guardas, pré-condições, erros/recuperação, exemplo
 
 Pode começar pela visão de qualidade (e57df8ff), calendário/OP (3cd404e5) ou outro fundamento independente com fixture isolada, um por sessão, conforme seus critérios. Cadastro/matriz/contratos reais continuam gates localizados. Antes de importar a quantidade firme, PCP confirma status/data/saldo; antes de rascunho nominal, editar_programacao precisa aprovação. Recuperação mock antecede envio real.
 
+## Execução fluida (P5, 22/10/2026)
+
+- Construir em sequência, sem pedir autorização antes de cada task.
+- Teste humano só onde a task diz: a conferência real que já está em teste com o dono (d77447ab), a autorização do dono para o envio real ao Omie (6e38e5a3) e a validação final com a equipe (0d876150).
+- O catálogo real (4e0fcf1c) e as sugestões reais (2ea1e7ab) fecham pela prova automática.
+- O envio real ao Omie pode ser construído já, com a escrita desligada até a autorização.
+
 ## SPECs
 
 - [Acesso nominal e conciliação dos cards herdados](spec-2-000-acessos-e-pendencias.md) — RQ-007; P4; CL-003

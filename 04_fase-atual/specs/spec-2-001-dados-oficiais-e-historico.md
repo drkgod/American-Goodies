@@ -146,7 +146,7 @@ Demonstrar resultado ao dono funcional. Operar por ações autorizadas, acompanh
 
 | ID | Task | Critério/recorte | Pré-condições | Prova/evidência |
 |---|---|---|---|---|
-| 4e0fcf1c-1670-4cde-9dc9-693b3c7eee49 | Povoar o cadastro de produtos no ERP | CA-D1 | responsável do cliente autorizado a manter cadastro ERP; nenhum produto/receita inventado pelo agente | 05_entregas/fase-2/spec-2-001/; UUID acima |
+| 4e0fcf1c-1670-4cde-9dc9-693b3c7eee49 | Usar o catálogo real de produtos do Omie | CA-D1 | responsável do cliente autorizado a manter cadastro ERP; nenhum produto/receita inventado pelo agente | 05_entregas/fase-2/spec-2-001/; UUID acima |
 | e57df8ff-99ae-4856-ac1f-53b713c8e99c | Construir a visão de qualidade dos dados | CA-D1/D2/D4, recorte sintético | projeto Skip atual lido; dispensa cadastro/API real para fundamento | 05_entregas/fase-2/spec-2-001/; UUID acima |
 | 5d8793fb-216f-4322-8fed-c5ec7a1a0b0d | Reconciliar catálogo, unidades e fichas | CA-D1/D2/D3 | fundamento aceito, cadastro piloto, acesso nominal e contrato de leitura autorizados | 05_entregas/fase-2/spec-2-001/; UUID acima |
 | 9318a299-f764-4dc7-8ec8-3cb7c86b7c79 | Comprovar as leituras de histórico e compras | CA-D3 | catálogo/ficha conciliados, consulta autorizada e documentação oficial da conta | 05_entregas/fase-2/spec-2-001/; UUID acima |
