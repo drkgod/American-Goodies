@@ -1,5 +1,10 @@
 # Changelog operacional
 
+## 2026-10-22
+
+- 2026-10-22 · [MCC/ETHOS] · **Debug d77447ab (dupla conferência) — bug do dono corrigido e publicado**: dono reportou "mesmo preenchendo correto não aprova" e "botões não mudam de cor". Duas causas reais: (1) a fila de consolidação lia a PRIMEIRA conferência de cada etapa (find()) — conferir 98 depois de 100 nunca mudava a fila; corrigido para a ÚLTIMA (última escrita vence — base do oráculo T4 e da invalidação C4); (2) o gate da aprovação exigia fila revisável, mas a demonstração tem divergência estrutural 100/98 fixa — a aprovação nunca liberava; pela SPEC (oráculo T4) a aprovação É o mecanismo de decisão do PCP sobre a divergência — gate corrigido para exigir só conferências presentes + motivo; a divergência bloqueia só o envio Omie (gate da SPEC-2-005). TDD 3/3 (cenário exato do dono, ausência, fila revisável). Skip v0.0.165 (ref 592f896, 21/10 17:58 UTC) publicada e provada.
+- 2026-10-22 · [MCC/ETHOS] · **Feedback visual na /conferencias (pedido do dono)**: botões Conferir expedição/câmara ficam VERDES com a última quantidade vigente ("Conferir expedição: 98 UN") quando há conferência registrada; memó por etapa com a mesma regra da fila. Skip v0.0.167 (ref b591b62, 22/10 15:42 UTC) publicada e provada; /conferencias 200. Aguardando teste humano da consolidação na demonstração (conferir 98/98 → aprovar com final 98 + motivo).
+
 ## 2026-10-21
 
 - 2026-10-21 · [MCC/ETHOS] · **BLOCO CONCLUÍDO — 3 tasks com teste humano aprovado pelo owner (10:55 BRT: "testei e aprovado")**: 5d8793fb (reconciliar catálogo, unidades e fichas — piloto real M011001), a2a4ccf1 (comprovar o contrato de produção no Omie — sondas de leitura, guarda CA-O1) e 64ac4f85 (registrar e encerrar a produção por ponto — incrementos, hash de encerramento, 409 estado_congelado). fase.md [x] nas três com aceite nas disposições (commit deste envio); STATUS 21/29; **Fase 2: 21/29 concluídas.** Ciclo contínuo: 0096ab26 elegível (retificações sobre os contratos aceitos); 9318a299/d77447ab aguardam dados reais (cadastro Omie/pontos); 6e38e5a3 e 2ea1e7ab aguardam autorização/decisão do owner.
