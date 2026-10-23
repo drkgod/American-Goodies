@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -23,7 +23,7 @@ import {
 
 const Conferencias = () => {
   const [registros, setRegistros] = useState<RegistroConferencia[]>([])
-  const [quantidade, setQuantidade] = useState('100')
+  const [quantidade, setQuantidade] = useState('')
   const [motivo, setMotivo] = useState('')
   const [resultado, setResultado] = useState('')
   // Demonstração: produzido/encaixotados sintéticos (o real vem da OP publicada na task d77447ab)
@@ -34,6 +34,7 @@ const Conferencias = () => {
   const [qtdFinal, setQtdFinal] = useState('96')
   const [motivoAprov, setMotivoAprov] = useState('')
   const [msgAprov, setMsgAprov] = useState('')
+  const inputQtd = useRef<HTMLInputElement>(null)
 
   const aprovar = () => {
     const q = Number(qtdFinal)
@@ -98,13 +99,19 @@ const Conferencias = () => {
       expedicao:
         [...registros].reverse().find((r) => r.etapa === 'recebimento_expedicao')?.quantidade ??
         null,
-      camara: [...registros].reverse().find((r) => r.etapa === 'entrada_camara')?.quantidade ?? null,
+      camara:
+        [...registros].reverse().find((r) => r.etapa === 'entrada_camara')?.quantidade ?? null,
     }),
     [registros],
   )
 
   const registrar = (etapa: EtapaConferencia) => {
     const q = Number(quantidade)
+    if (quantidade.trim() === '' || !Number.isFinite(q) || q < 0) {
+      setResultado('Digite a quantidade conferida antes de registrar (nada é preenchido por padrão).')
+      inputQtd.current?.focus()
+      return
+    }
     const ponto: PontoConferencia = etapa === 'recebimento_expedicao' ? 'expedicao' : 'camara_fria'
     const sessao = etapa === 'recebimento_expedicao' ? SESSAO_EXPEDICAO : SESSAO_CAMARA
     const r = registrarConferencia(
@@ -126,9 +133,11 @@ const Conferencias = () => {
     if (r.estado === 'registrado') {
       setRegistros([...registros, r.registro])
       setResultado(
-        `Registrado: ${etapa === 'recebimento_expedicao' ? 'expedição' : 'câmara'} ${q} UN.`,
+        `Registrado: ${etapa === 'recebimento_expedicao' ? 'expedição' : 'câmara'} ${q} UN. Digite a quantidade da próxima etapa.`,
       )
       setMotivo('')
+      setQuantidade('') // campo limpo: a próxima conferência é digitada, nunca puxada
+      inputQtd.current?.focus()
     } else if (r.estado === 'replay') {
       setResultado('Repetição ignorada: a conferência já estava registrada (idempotência).')
     } else {
@@ -196,9 +205,11 @@ const Conferencias = () => {
             <label className="block space-y-1">
               <span className="text-muted-foreground">Quantidade conferida (UN)</span>
               <Input
+                ref={inputQtd}
                 type="number"
                 step="1"
                 min="0"
+                placeholder="Digite a quantidade conferida"
                 value={quantidade}
                 onChange={(e) => setQuantidade(e.target.value)}
               />
