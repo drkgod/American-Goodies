@@ -8,7 +8,7 @@
 
 Histórico/parâmetros dependem das SPECs anteriores; nenhuma margem/prazo foi fornecida neste pacote.
 
-Transição autorizada em 09/10: pendências entram nesta fase ainda abertas. Omie é fonte oficial. Construir primeiro fundamento/contratos/telas com demonstração identificada, depois conexões reais. Construir em sequência, sem pedir autorização nem teste entre tasks; teste humano só onde a task indicar (P5 do índice).
+Transição autorizada em 09/10: pendências entram nesta fase ainda abertas. Omie é fonte oficial. Construir primeiro fundamento/contratos/telas com demonstração identificada, depois conexões reais. Construir em sequência, sem pedir autorização nem teste entre tasks; sem teste humano nesta fase (emenda de 26/10): toda task fecha pela prova automática.
 
 ## Resultado observável
 
@@ -19,7 +19,7 @@ PCP vê sugestão explicada por produto/capacidade; Compras vê necessidade de i
 - **Inclui:** Cálculo determinístico proposto para aprovação/configuração, memória de cálculo e demonstração integrada.
 - **Fora desta fase/recorte:** Cotar/comprar/aprovar financeiramente, produzir automaticamente, IA ou somar intenção Nuvemshop duplicada.
 - **Entradas/pré-condições:** SPEC-2-001/002 para cálculo; 003–005 para prova final; parâmetros/método aprovados e fonte de recebimentos confirmada para compra.
-- **Saídas:** resultado observável e evidência sanitizada em 05_entregas/fase-2/spec-2-006/, com aceite por task.
+- **Saídas:** resultado observável e evidência sanitizada em 05_entregas/fase-2/spec-2-006/, com a prova automática por task.
 - **Superfícies afetadas:** /sugestoes e /planejamento, pcp_sugestoes e resumo por área.
 - **Dependências humanas:** cliente fornece cadastro/matriz/parâmetros e decisões; executor implementa/verifica. Não inventar nomes/alçadas/prazos.
 
@@ -91,7 +91,7 @@ Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado d
 3. Implementar contratos/coleções/endpoints/tela do recorte, primeiro com fixtures isoladas. Reusar autenticação/componentes; não editar cliente PocketBase gerado para facilitar teste.
 4. Rodar RED antes do comportamento e GREEN/regressão abaixo; registrar comando/versão/saída. npm test que apenas imprime ausência de testes não é prova.
 5. Pré-condição ausente mantém task aberta; recorte independente pode seguir. Regra/contrato incompatível retorna para emenda; não preencher por suposição.
-6. Ao terminar uma task com a prova automática, seguir para a próxima elegível sem pedir teste. Teste humano só onde a task indicar (P5 do índice); as demais fecham pela prova automática. Publicar este pacote não executou nenhuma task da F2.
+6. Ao terminar uma task com a prova automática, seguir para a próxima elegível sem pedir teste. Sem teste humano: todas as tasks fecham pela prova automática (emenda de 26/10). Publicar este pacote não executou nenhuma task da F2.
 
 ## Checklist de execução
 
@@ -99,14 +99,14 @@ Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado d
 - [ ] Fundamento demonstrável antes da conexão.
 - [ ] Regras/autorizações/contratos implementados no recorte.
 - [ ] RED/GREEN/bordas/concorrência e regressão com prova.
-- [ ] Evidência registrada; teste humano só quando a task indicar (P5).
+- [ ] Evidência da prova automática registrada.
 
 ## Critérios de aceite
 
 - [ ] **CA-S1:** Origem/período/parâmetros/fórmula visíveis; ausência produznull, nunca default.
 - [ ] **CA-S2:** Método aprovado reproduz quantidade/lote/capacidade; não duplica projeção e pedido firme.
 - [ ] **CA-S3:** Aceitar cria apenas rascunho; ação/publicação continuam controladas; sem compra/transação automática.
-- [ ] **CA-S4:** Percurso F2 e regressão F1 provados e aceitos; falha/timeout recuperável sem duplicar efeito.
+- [ ] **CA-S4:** Percurso F2 e regressão F1 provados pela regressão automática; falha/timeout recuperável sem duplicar efeito.
 
 ## TDD da SPEC
 
@@ -134,12 +134,6 @@ Fixtures e scripts serão criados pelo executor junto ao teste; esta geração n
 
 **Massa:** entradas e resultados da tabela; nunca promovê-los a dados/metas reais. **Erros:** sem perfil, dado/unidade ausente, replay divergente, revisão concorrente, fonte indisponível e casos específicos acima. Teste mutante real exige autorização específica de OP/quantidade/efeito.
 
-## Teste humano do cliente
-
-PCP compara memória com regra aprovada e três dias de cookies; produção/expedição/câmara percorrem fluxo; PCP confere Omie; Compras vê que sugestão não compra. Timeout/falhas/reinício são ensaiados antes em mock isolado, sem fabricar falha em produção. Mock aceito não conclui task final real.
-
-Guardar referência funcional do tester, data, caso/versão, resultado e mensagem explícita. CL de envio/acesso é pré-condição, não aceite. Separar demonstração sintética e homologação real.
-
 ## Handoff e operação
 
 Demonstrar resultado ao dono funcional. Operar por ações autorizadas, acompanhar faltantes/fontes. Pendência conserva task aberta; documento não concede permissão nem substitui backend.
@@ -151,7 +145,7 @@ Demonstrar resultado ao dono funcional. Operar por ações autorizadas, acompanh
 | 0baec76e-80af-412c-9554-9472f7928743 | Construir as sugestões com memória de cálculo | CA-S1/S2, recorte sintético | contratos internos dados/parâmetros disponíveis; fixtures identificadas | 05_entregas/fase-2/spec-2-006/; UUID acima |
 | 2ea1e7ab-5fe4-4e02-a7a1-901539bfdc8a | Calcular as sugestões com os dados reais | CA-S1/S2 | documentos/valores de parâmetros e fontes disponíveis; aprovação do método é primeiro passo desta task e gate interno antes de qualquer cálculo real | 05_entregas/fase-2/spec-2-006/; UUID acima |
 | 8bb4ef77-1232-4f16-a7d6-ea2df09ad829 | Levar a sugestão somente para rascunho | CA-S3 | sugestões aceitas e conta com editar_programacao nominalmente aprovada; nenhum acesso ampliado | 05_entregas/fase-2/spec-2-006/; UUID acima |
-| 0d876150-60b6-46bb-ada4-722b90d870a3 | Validar o fluxo completo com a equipe (teste final da fase) | CA-S4 | SPECs anteriores aceitas, caso transacional autorizado e pendências operacionais resolvidas no recorte; demonstração mock não conclui este aceite real | 05_entregas/fase-2/spec-2-006/; UUID acima |
+| 0d876150-60b6-46bb-ada4-722b90d870a3 | Validar o fluxo completo com a equipe (teste final da fase) | — | dispensada em 26/10 (sem teste humano na fase 2) | — |
 
 Status/metadados editáveis pertencem somente ao arquivo canônico.
 
@@ -160,3 +154,5 @@ Status/metadados editáveis pertencem somente ao arquivo canônico.
 09/10/2026: geração F2 com pendências herdadas autorizadas pelo consultor. Regra/contrato diferente durante execução exige emenda rastreada.
 
 13/10/2026: revisão documental do pacote; explicitados contratos/guardas e cenários de erro aplicáveis, com TDD acoplado. IDs e critérios existentes preservados; nenhuma task ou transação executada.
+
+26/10/2026: retirados os testes humanos da fase 2, por decisão do consultor (Rodrigo). Todas as tasks fecham pela prova automática (RED/GREEN/regressão e QA do Skip) registrada em 05_entregas. A única trava humana que permanece é a autorização do dono antes do primeiro envio real ao Omie (6e38e5a3), porque grava no ERP — é trava de segurança, não teste. A validação final com a equipe (0d876150) foi dispensada.

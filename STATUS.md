@@ -6,6 +6,8 @@ Fase atual: 2 — Programação e apontamento com conferência.
 
 **Ambiente:** projeto Skip 62774, MCP do Skip e Skip Cloud; fonte oficial Omie e complemento Nuvemshop. Produção: https://mcc-automacao-fabrica-98125.goskip.app — v0.0.143 (ref 7084d96).
 
+**Emenda de 26/10/2026:** testes humanos retirados da fase 2 — as tasks fecham pela prova automática. d77447ab fechada (TDD 3/3, v0.0.169) e 0d876150 dispensada. Restam 3: 4e0fcf1c (catálogo real do Omie), 2ea1e7ab (sugestões com dados reais) e 6e38e5a3 (envio real ao Omie, que segue exigindo a autorização do dono por gravar no ERP).
+
 ## Transição e pendências
 
 Fase 1 encerrada no recorte homologado: 18 entregas, aceite explícito do owner em 08/10 às 18:23. Transferidos ainda abertos: cadastro de produtos no ERP (4e0fcf1c — ação do cliente). Pontos da Keoma (2c4a9b7e): FECHADO 21/10 — matriz v2 (pontos produto_acabado + expedicao).
@@ -27,4 +29,4 @@ Restantes (5), por bloqueio:
 
 ## Revisão documental — 13/10/2026
 
-As sete SPECs e 29 tasks foram revisadas, com contratos/TDD/roteiros embutidos. IDs e critérios preservados. Seguir o índice e a SPEC da task elegível, respeitando os gates de dados, acesso e aceite humano.
+As sete SPECs e 29 tasks foram revisadas, com contratos/TDD/roteiros embutidos. IDs e critérios preservados. Seguir o índice e a SPEC da task elegível, respeitando os gates de dados e acesso (aceite humano retirado em 26/10).

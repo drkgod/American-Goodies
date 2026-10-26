@@ -8,7 +8,7 @@
 
 Produtos Omie vazios; estoque foi rotulado UN sem confirmação pelo cadastro. Contratos intermediários de canais registram vínculo0, superado pela prova final de 44.
 
-Transição autorizada em 09/10: pendências entram nesta fase ainda abertas. Omie é fonte oficial. Construir primeiro fundamento/contratos/telas com demonstração identificada, depois conexões reais. Construir em sequência, sem pedir autorização nem teste entre tasks; teste humano só onde a task indicar (P5 do índice).
+Transição autorizada em 09/10: pendências entram nesta fase ainda abertas. Omie é fonte oficial. Construir primeiro fundamento/contratos/telas com demonstração identificada, depois conexões reais. Construir em sequência, sem pedir autorização nem teste entre tasks; sem teste humano nesta fase (emenda de 26/10): toda task fecha pela prova automática.
 
 ## Resultado observável
 
@@ -19,7 +19,7 @@ Produto piloto tem unidade/ficha comprovadas e histórico oficial de 90 dias com
 - **Inclui:** Pendência de cadastro pelo cliente; leitura de produto/estrutura/unidade/local e histórico de vendas/produção; adendos de contratos.
 - **Fora desta fase/recorte:** Cadastrar produtos/alterar receita pelo agente, ajustar saldo físico ou inferir unidade/conversão.
 - **Entradas/pré-condições:** Leitura Omie existente; acesso nominal para homologação; mapa e amostra da conta antes de adapter real.
-- **Saídas:** resultado observável e evidência sanitizada em 05_entregas/fase-2/spec-2-001/, com aceite por task.
+- **Saídas:** resultado observável e evidência sanitizada em 05_entregas/fase-2/spec-2-001/, com a prova automática por task.
 - **Superfícies afetadas:** provider/normalizadores PCP, snapshots existentes e tela de qualidade; 07-sistemas/pcp/contratos-fase-2.md.
 - **Dependências humanas:** cliente fornece cadastro/matriz/parâmetros e decisões; executor implementa/verifica. Não inventar nomes/alçadas/prazos.
 
@@ -90,7 +90,7 @@ Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado d
 3. Implementar contratos/coleções/endpoints/tela do recorte, primeiro com fixtures isoladas. Reusar autenticação/componentes; não editar cliente PocketBase gerado para facilitar teste.
 4. Rodar RED antes do comportamento e GREEN/regressão abaixo; registrar comando/versão/saída. npm test que apenas imprime ausência de testes não é prova.
 5. Pré-condição ausente mantém task aberta; recorte independente pode seguir. Regra/contrato incompatível retorna para emenda; não preencher por suposição.
-6. Ao terminar uma task com a prova automática, seguir para a próxima elegível sem pedir teste. Teste humano só onde a task indicar (P5 do índice); as demais fecham pela prova automática. Publicar este pacote não executou nenhuma task da F2.
+6. Ao terminar uma task com a prova automática, seguir para a próxima elegível sem pedir teste. Sem teste humano: todas as tasks fecham pela prova automática (emenda de 26/10). Publicar este pacote não executou nenhuma task da F2.
 
 ## Checklist de execução
 
@@ -98,7 +98,7 @@ Depois do recorte, skip_project_apply_changes executa QA. Conferir o resultado d
 - [ ] Fundamento demonstrável antes da conexão.
 - [ ] Regras/autorizações/contratos implementados no recorte.
 - [ ] RED/GREEN/bordas/concorrência e regressão com prova.
-- [ ] Evidência registrada; teste humano só quando a task indicar (P5).
+- [ ] Evidência da prova automática registrada.
 
 ## Critérios de aceite
 
@@ -132,12 +132,6 @@ Fixtures e scripts serão criados pelo executor junto ao teste; esta geração n
 
 **Massa:** entradas e resultados da tabela; nunca promovê-los a dados/metas reais. **Erros:** sem perfil, dado/unidade ausente, replay divergente, revisão concorrente, fonte indisponível e casos específicos acima. Teste mutante real exige autorização específica de OP/quantidade/efeito.
 
-## Teste humano do cliente
-
-Cliente compara produto/ficha e uma linha do histórico com Omie; demonstra unidade/ficha ausente. CL-001 é acesso e não substitui aceite.
-
-Guardar referência funcional do tester, data, caso/versão, resultado e mensagem explícita. CL de envio/acesso é pré-condição, não aceite. Separar demonstração sintética e homologação real.
-
 ## Handoff e operação
 
 Demonstrar resultado ao dono funcional. Operar por ações autorizadas, acompanhar faltantes/fontes. Pendência conserva task aberta; documento não concede permissão nem substitui backend.
@@ -160,3 +154,5 @@ Status/metadados editáveis pertencem somente ao arquivo canônico.
 09/10/2026: geração F2 com pendências herdadas autorizadas pelo consultor. Regra/contrato diferente durante execução exige emenda rastreada.
 
 13/10/2026: revisão documental do pacote; explicitados contratos/guardas e cenários de erro aplicáveis, com TDD acoplado. IDs e critérios existentes preservados; nenhuma task ou transação executada.
+
+26/10/2026: retirados os testes humanos da fase 2, por decisão do consultor (Rodrigo). Todas as tasks fecham pela prova automática (RED/GREEN/regressão e QA do Skip) registrada em 05_entregas. A única trava humana que permanece é a autorização do dono antes do primeiro envio real ao Omie (6e38e5a3), porque grava no ERP — é trava de segurança, não teste. A validação final com a equipe (0d876150) foi dispensada.

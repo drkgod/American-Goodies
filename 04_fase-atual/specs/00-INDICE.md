@@ -6,22 +6,23 @@ Revisão: 13/10/2026; liberação original:09/10/2026. Sete SPECs de sistema; so
 
 1. Acesso/conciliação000 e fundamento de dados/planejamento001/002 podem ser preparados com fixtures. Uma task em construção por vez, em sequência, sem parar entre elas (P5).
 2. Fontes reais precisam cadastro/unidade/ficha/contrato001; uso nominal precisa matriz/contas000.
-3. Programação/OP002 → eventos003 → dupla conferência004 → envio autorizado005. Cada leva aguarda prova/aceite anterior.
+3. Programação/OP002 → eventos003 → dupla conferência004 → envio autorizado005. Cada leva aguarda a prova automática anterior.
 4. Sugestões006 após dados/parâmetros; prova integrada real depois das demais levas e autorização do caso transacional.
 
 ## Documentação embutida e ponto de partida
 
-Cada SPEC contém modelo/guardas, pré-condições, erros/recuperação, exemplos com resultado, RED/GREEN/regressão, comandos e roteiro humano. Ler a SPEC da task elegível e seu bloco de execução no Skip. Documento em 07-sistemas/pcp ainda ausente é saída das tasks de homologação/configuração, não insumo exigido para começar o fundamento sintético; seu conteúdo aprovado passa a ser pré-condição do uso real dependente.
+Cada SPEC contém modelo/guardas, pré-condições, erros/recuperação, exemplos com resultado, RED/GREEN/regressão, comandos e provas automáticas. Ler a SPEC da task elegível e seu bloco de execução no Skip. Documento em 07-sistemas/pcp ainda ausente é saída das tasks de homologação/configuração, não insumo exigido para começar o fundamento sintético; seu conteúdo aprovado passa a ser pré-condição do uso real dependente.
 
 Pode começar pela visão de qualidade (e57df8ff), calendário/OP (3cd404e5) ou outro fundamento independente com fixture isolada, em sequência, conforme seus critérios. Cadastro/matriz/contratos reais continuam gates localizados. Antes de importar a quantidade firme, PCP confirma status/data/saldo; antes de rascunho nominal, editar_programacao precisa aprovação. Recuperação mock antecede envio real.
 
 ## Execução fluida (P5, 22/10/2026)
 
 - Construir em sequência, sem pedir autorização antes de cada task.
-- Teste humano só onde a task diz: a conferência real que já está em teste com o dono (d77447ab), a autorização do dono para o envio real ao Omie (6e38e5a3) e a validação final com a equipe (0d876150).
+- Sem teste humano na fase 2 (emenda de 26/10): todas as tasks fecham pela prova automática. A conferência real (d77447ab) fecha pela prova automática e a validação final com a equipe (0d876150) foi dispensada.
+- Única trava humana: a autorização do dono antes do primeiro envio real ao Omie (6e38e5a3), porque grava no ERP. É trava de segurança, não teste.
 - O catálogo real (4e0fcf1c) e as sugestões reais (2ea1e7ab) fecham pela prova automática.
 - O envio real ao Omie pode ser construído já, com a escrita desligada até a autorização.
-- As SPECs foram ajustadas em 22/10 para seguir esta regra: nenhuma pede teste a cada task.
+- As SPECs foram ajustadas em 22/10 (nenhuma pede teste a cada task) e em 26/10 (testes humanos retirados).
 
 ## SPECs
 

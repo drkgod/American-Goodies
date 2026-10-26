@@ -1,5 +1,9 @@
 # Changelog operacional
 
+## 2026-10-26
+
+- 2026-10-26 · [Rodrigo/consultor] · **Emenda: testes humanos retirados da fase 2.** As 7 SPECs (seção "Teste humano do cliente", regra P5 e checklist), o índice e o fase.md agora dizem que toda task fecha pela prova automática (RED/GREEN/regressão e QA do Skip). Única trava humana mantida: a autorização do dono antes do primeiro envio real ao Omie (6e38e5a3), por gravar no ERP — trava de segurança, não teste. d77447ab fechada pela prova automática (debug TDD 3/3, v0.0.169); 0d876150 (validação final com a equipe) dispensada. Restam 3: 4e0fcf1c (catálogo Omie), 2ea1e7ab (sugestões com dados reais) e 6e38e5a3 (envio real autorizado).
+
 ## 2026-10-22
 
 - 2026-10-22 · [MCC/ETHOS] · **Correção v0.0.169 — campo de conferência não puxa valor automático** (pedido do dono: "quando clico no conferir camara ele automaticamente puxa"): o campo de quantidade era compartilhado entre as etapas e mantinha o valor anterior — clicar em "Conferir câmara" registrava o valor da expedição sem digitar. Agora o campo inicia vazio (placeholder "Digite a quantidade conferida"), limpa e foca após cada registro, e o registro sem digitar é negado ("Digite a quantidade conferida antes de registrar — nada é preenchido por padrão"). 1ª aplicação falhou por marcador de conflito órfão do patch (corrupção conhecida do canal); reparado em 6 patches mínimos com releitura provando 0 marcadores e paridade de chaves/parênteses. Skip v0.0.169 (ref 2b39eb6, 22/10 17:50 UTC) publicada e provada; /conferencias 200. Aguardando teste humano.
