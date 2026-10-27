@@ -1,0 +1,165 @@
+# Fase 2 — Tarefas
+
+<!-- fase-format:2 -->
+
+Cada linha é uma tarefa da Jornada de Execução. **Tudo que cabe num card cabe nesta linha** — se um
+campo não estiver aqui, ele não tem como ser preenchido, porque é este arquivo que cria a tarefa.
+
+```text
+- [ ] Título da tarefa @responsável !30/09/2026 #projeto [interno] <!-- id:… -->
+  > descrição da tarefa, uma ou mais linhas
+  - [ ] subtarefa (basta indentar 2 espaços) <!-- id:… -->
+    - [ ] sub-subtarefa (indente mais 2) <!-- id:… -->
+```
+
+| marcador | o que define | se você não escrever |
+|---|---|---|
+| `- [ ]` / `- [/]` / `- [x]` | a fazer / em andamento / concluída | a fazer |
+| `@nome` | responsável (`@"Nome Composto"` com aspas) | fica **sem responsável** |
+| `!dd/mm/aaaa` | prazo | fica **sem prazo** |
+| `#projeto` / `#aculturamento` | tipo | Projeto de IA |
+| `[interno]` | o cliente **não** vê esta tarefa | o cliente vê |
+| `> texto` na linha de baixo | descrição (aparece ao abrir o card) | sem descrição |
+| indentar 2 espaços | vira subtarefa da tarefa acima (vale em qualquer profundidade) | tarefa de topo |
+
+Os marcadores só valem **no fim da linha** — `Revisar #3 do contrato` continua sendo um título.
+Um título que TERMINA na forma de um marcador sai escapado com `\` (`Ligar para \@joao`); a barra é
+só para o parser e nunca aparece no card. Você não precisa escrever isso à mão.
+
+Marque `[x]` para concluir e adicione linhas novas à vontade: elas entram no quadro na próxima
+sincronização e voltam aqui com o `<!-- id:… -->` preenchido. **Não apague o marcador de id** das
+tarefas que já têm um.
+
+
+## Ordem, gates e pendências transferidas
+
+Liberação autorizada pelo consultor em 09/10/2026. Todos os29 UUIDs foram recebidos do portal e preservados, incluindo os 5 herdados. Visibilidade recebida do portal foi preservada; não há responsável/prazo presumido.
+
+Topo: regularização ou fundamento com fixtures locais dos contratos documentais, sem exigir implantação prévia de outros cards. Subtasks: cadeia dependente na ordem indicada, construída em sequência; sem teste humano (emenda de 26/10) (P5). Aprovação do pai não aprova filhos.
+
+Uso real: programação→apontamentos→conferência→envio. Aprovação de método é primeiro passo e gate interno antes de cálculo. Recuperação em mock, revogação, reinício e concorrência devem passar ANTES do envio real. Transação ERP exige contrato/concessão e autorização do caso. Dependência humana bloqueia somente recorte afetado.
+
+## Fora desta fase
+
+Cotação/aprovação financeira, recebimento fiscal, faturamento, IA e loops.
+
+- [x] Aprovar a matriz nominal de acesso (CL-003) #projeto [interno] <!-- id:51356fad-e41a-47be-8f4b-2847f25115bc -->
+  > SPEC-2-000 (spec-2-000-acessos-e-pendencias.md), CA-A1. Cliente confirma contas, áreas, ações e pontos com aprovador/data; organograma já recebido não equivale a aprovação. Pré-condições: aprovação administrativa do responsável; nenhuma concessão real por suposição. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-000/.
+
+  - [x] Ativar e testar as contas aprovadas #projeto [interno] <!-- id:49327a88-b7db-42e6-a5bf-641e242848d4 -->
+    > SPEC-2-000 (spec-2-000-acessos-e-pendencias.md), CA-A2/A3. Provisionar somente contas da matriz; provar permitir/negar, edição de perfil recusada e revogação com token antigo. Pré-condições: task de matriz aprovada e aceita; autorização administrativa comprovada. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-000/.
+
+- [x] Conciliar o card duplicado da base no Skip #projeto [interno] <!-- id:3def6d06-709a-43ff-b9b1-c54ec113c7c1 -->
+  > SPEC-2-000 (spec-2-000-acessos-e-pendencias.md), CA-A4. Operador vincula o card à entrega original16a7a99b e sua prova; resolve duplicata pelo mecanismo oficial, sem excluir ou recriar sistema. Pré-condições: original homologado e evidência de fundamento; funcionalidade oficial do portal. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-000/. Card herdado: título anterior "Criar a base do sistema no Skip"; mesmo UUID, recorte agora é conciliação documental da duplicata, sem reexecutar a entrega homologada.
+  > Disposição (14/10/2026): duplicata conciliada com a entrega original 16a7a99b (homologada na F1 em 01/10, conferência 4/4); registro completo em 05_entregas/fase-2/spec-2-000/conciliacao-3def6d06.md; sem reimplementação; UUIDs preservados.
+
+- [x] Conciliar o card duplicado das telas #projeto [interno] <!-- id:45dc0e7d-36ef-4c2d-a333-54a667efa8ca -->
+  > SPEC-2-000 (spec-2-000-acessos-e-pendencias.md), CA-A4. Vincular à entrega originaledb85ce0 e sua prova; registrar disposição oficial, sem marcar nova construção. Pré-condições: original homologado e evidência de telas; mecanismo oficial do portal. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-000/. Card herdado: título anterior "Montar as telas com dados de demonstração"; mesmo UUID, recorte agora é conciliação documental da duplicata, sem reexecutar a entrega homologada.
+  > Disposição (14/10/2026): duplicata conciliada com a entrega original edb85ce0 (homologada na F1 em 01/10, testes GREEN + QA, aceite do owner 15:13); registro completo em 05_entregas/fase-2/spec-2-000/conciliacao-45dc0e7d.md; sem reimplementação; UUIDs preservados.
+
+- [x] Conciliar o card duplicado da conferência #projeto [interno] <!-- id:69ffd20a-d02b-4d23-b8b0-388eb426823b -->
+  > SPEC-2-000 (spec-2-000-acessos-e-pendencias.md), CA-A4. Vincular à entrega original6209142d e prova; preservar UUIDs/histórico e resolver duplicata oficialmente. Pré-condições: original homologado e conferência histórica; mecanismo oficial do portal. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-000/. Card herdado: título anterior "Conferir o fundamento antes das conexões"; mesmo UUID, recorte agora é conciliação documental da duplicata, sem reexecutar a entrega homologada.
+  > Disposição (15/10/2026): duplicata conciliada com a entrega original 6209142d (homologada na F1 em 01/10, conferência 4/4, aceite do owner 15:23); registro completo em 05_entregas/fase-2/spec-2-000/conciliacao-69ffd20a.md; sem reimplementação; UUIDs preservados.
+
+- [x] Usar o catálogo real de produtos do Omie @"American Goodies" !23/10/2026 #projeto <!-- id:4e0fcf1c-1670-4cde-9dc9-693b3c7eee49 -->
+  > Os produtos existem no Omie (1.069 itens no estoque, e o produto aparece quando consultado pelo código); só a listagem completa vinha vazia. Terminar a sincronização do catálogo pela via que funciona e conferir 3 produtos com o PCP. Hoje o Omie está com a chave bloqueada por excesso de consultas: o dono decide entre acionar o suporte do Omie e revisar a chave. Se faltar algum produto no Omie, mandar ao PCP a lista exata do que cadastrar.
+  > Fecha pela conferência automática do catálogo, sem teste humano. SPEC-2-001, CA-D1.
+  > Encerrada por decisão do consultor (AC-26-01, 26/10/2026): passou para a fase 3 como tarefas novas da SPEC-3-001 (catálogo real produto a produto e lista do que falta cadastrar no Omie).
+
+- [x] Construir a visão de qualidade dos dados #projeto [interno] <!-- id:e57df8ff-99ae-4856-ac1f-53b713c8e99c -->
+  > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D1/D2/D4, recorte sintético. Criar contrato/tela com produto, unidade/ficha desconhecida e cobertura incompleta usando demonstração isolada; bloquear cálculos afetados. Pré-condições: projeto Skip atual lido; dispensa cadastro/API real para fundamento. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/.
+  > Disposição (15/10/2026): entregue e provada — contrato+fixtures (src/lib/pcp/qualidade.ts), tela /qualidade (área painel) e TDD 12/12; Skip v0.0.80–0.0.81, produção v0.0.81 ref 4d45315 provada (lastPublishedRef=versionHash); evidência em 05_entregas/fase-2/spec-2-001/evidencia-e57df8ff.md; teste humano aprovado pelo owner 15:39 BRT ("testei e aprovado").
+
+  - [x] Reconciliar catálogo, unidades e fichas #projeto [interno] <!-- id:5d8793fb-216f-4322-8fed-c5ec7a1a0b0d -->
+    > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D1/D2/D3. Confirmar produto piloto, unidade/local e componentes/quantidades na fonte; retirar defaultUN como unidade oficial. Pré-condições: fundamento aceito, cadastro piloto, acesso nominal e contrato de leitura autorizados. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/.
+    > Disposição (20/10/2026): implementada e publicada — piloto real M011001 aprovado pelo owner ("opcao 1"); produto (CX) + ficha real (malha: pré-massa 0,25 PA, margarina 1 KG, baunilha 0,05 L, caixa 1 UN) + local padrão 9300980125 provados na fonte; contrato conciliacao.ts (unidade oficial preservada, null nunca vira UN, ficha verbatim, linha legada UN incompatível sem conversão, mapa CA-D3); defaultUN retirado do sync; join no catálogo; hook pcp_piloto + card "Piloto real" na /catalogo; TDD 10/10 (RED 9/10 provado); Skip v0.0.129, produção ref f1673e6 provada; evidência em 05_entregas/fase-2/spec-2-001/evidencia-5d8793fb.md; aguardando teste humano. Aceite do owner em 21/10/2026 10:55 BRT ("testei e aprovado").
+
+  - [x] Comprovar as leituras de histórico e compras a receber #projeto [interno] <!-- id:9318a299-f764-4dc7-8ec8-3cb7c86b7c79 -->
+    > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D3. Registrar endpoint/request/campos/status/chaves/paginação e amostra autorizada de vendas90, produção90 e compras a receber; sem inventar campo/status. Pré-condições: catálogo/ficha conciliados, consulta autorizada e documentação oficial da conta. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/. Inclui mapa aprovado pelo PCP de pedidos firmes: status, data no horizonte e quantidade remanescente por linha/unidade, sem inferir regra empresarial.
+    > Disposição (21/10/2026): recorte do executor entregue — sondas read-only na conta real provaram os 3 métodos (ListarPedidos HTTP 200: 5.501 pedidos, paginação e infoCadastro.cancelado/faturado/devolvido; PesquisarPedCompra HTTP 200: pedido real 1514 etapa 20 com itens nQtde/nQtdeRec/cUnidade; ListarNFe HTTP 200: 0 registros 2023–2026, módulo sem uso na conta); contrato sintético pedidos-firmes.ts (oráculos T5: 20−5=15 no horizonte; cancelado/fora do horizonte=0; replay por pedido+linha; desconhecido=null bloqueia, nunca 0; borda inclusiva; saldo nunca negativo) TDD 6/6; card na /apontamentos; Skip v0.0.142, produção ref 117a14d provada; mapas CA-D3 registrados em 07-sistemas/pcp/contratos-fase-2.md (aguardando aprovação do PCP para o mapa REAL); evidência em 05_entregas/fase-2/spec-2-001/evidencia-9318a299.md; aguardando teste humano.
+    > Fechamento (21/10/2026): teste humano APROVADO pelo owner ~11:53 ("testei e aprovado", produção v0.0.142 ref 117a14d). Recorte do executor concluído: sondas read-only provadas (ListarPedidos 5.501; PesquisarPedCompra pedido 1514; ListarNFe 0 registros — módulo sem uso), contrato sintético pedidos-firmes.ts TDD 6/6, card na /apontamentos, mapas CA-D3 em 07-sistemas/pcp/contratos-fase-2.md. Pendências explícitas herdam para a cadeia real: mapa REAL aprovado pelo PCP (destrava e6aa4afa) e cadastro Omie 4e0fcf1c.
+
+  - [x] Importar os 90 dias e recebimentos confirmados #projeto [interno] <!-- id:e6aa4afa-94fe-45e9-95d8-875df96a1cf1 -->
+    > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D4. Construir atualização atômica; provar replay, cancelamentos/devoluções e página falha; conferir período/cobertura e quantidade restante a receber. Pré-condições: contratos de leitura comprovados e aceitos; unidades oficiais. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/. Reconciliar também o saldo executável dos pedidos firmes com o contrato homologado; desconhecido gera pendência, nunca zero.
+    > Disposição (21/10/2026): recorte do executor entregue — contrato importacao-90d.ts (janela D-89..D inclusiva; chave aplicativo+recurso+documento+linha; replay sem duplicação; página falha preserva o lote anterior com aviso e lote incompleto não ativa; geração ≤ ativa recusada; normalização da borda: IDs em texto, unidade null nunca vira UN, quantidade finita ≥ 0; restante a receber: pedida−recebida nunca negativa nem acima do pedido, desconhecido bloqueia nunca 0, cancelado/fora do horizonte não elegíveis) TDD 7/7 GREEN de primeira; card na /apontamentos; Skip v0.0.143, produção ref 7084d96 provada; evidência em 05_entregas/fase-2/spec-2-001/evidencia-e6aa4afa.md; USO REAL pendente do mapa REAL aprovado pelo PCP em contratos-fase-2.md e do cadastro Omie 4e0fcf1c (fixtures não aprovam regra); aguardando teste humano do recorte.
+    > Fechamento (21/10/2026): teste humano APROVADO pelo owner ~12:45 ("Testei e aprovado", produção v0.0.143 ref 7084d96). Recorte do executor concluído: contrato importacao-90d.ts TDD 7/7 (janela D-89..D inclusiva, replay por chave, página falha preserva lote anterior com aviso, geração ≤ ativa recusada, restante a receber pedida−recebida/desconhecido bloqueia), card na /apontamentos. USO REAL permanece pendente do mapa REAL aprovado pelo PCP em contratos-fase-2.md e do cadastro Omie 4e0fcf1c — pendências herdadas pela cadeia de dados reais.
+
+- [x] Reconciliar os documentos de operação #projeto [interno] <!-- id:a6bf06fb-20ee-497d-be63-69f03cad854a -->
+  > SPEC-2-001 (spec-2-001-dados-oficiais-e-historico.md), CA-D5. Acrescentar adendos datados sobre44 vínculos/3344 pedidos e aceite final08/10; conservar relatórios anteriores. Pré-condições: evidências finais F1 e contratos intermediários disponíveis. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-001/.
+  > Disposição (16/10/2026): entregue e provada — adendos datados na SPEC-1-003 (8fb54a2c) e no relatório integrado (e62ed50e) + registro de reconciliação (c377da71); originais preservados byte a byte; zero Skip; teste humano aprovado pelo owner 09:02 BRT ("testei e aprovado").
+
+- [x] Construir o calendário e a OP digital #projeto [interno] <!-- id:3cd404e5-81b8-4ca4-96b5-b4dc73f4a805 -->
+  > SPEC-2-002 (spec-2-002-planejamento-e-op-digital.md), CA-P1/P2/P3, recorte sintético. Montar calendário, capacidade e OP local com três dias de cookies e fixtures; sem chamada ERP. Pré-condições: projeto Skip atual e contratos internos lidos; fonte real não é pré-condição do fundamento. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-002/.
+  > Disposição (16/10/2026): entregue e provada — contrato planejamento.ts + tela /planejamento (área planejamento) + TDD 10/10; Skip v0.0.82–0.0.83, produção ref f2c1bdb provada; evidência em 05_entregas/fase-2/spec-2-002/evidencia-3cd404e5.md; teste do bloco aprovado pelo owner 09:02 BRT ("testei e aprovado").
+
+  - [x] Confirmar parâmetros e dias de produção #projeto [interno] <!-- id:d2a44349-f52e-4517-9ef8-7e004103b536 -->
+    > SPEC-2-002 (spec-2-002-planejamento-e-op-digital.md), CA-P1/P2. PCP entrega/aprova CL-006 e valores/unidades de capacidade, calendário, margem, mínimos, lotes, horizonte, prazo e saldo utilizável; faltante bloqueia recorte. Pré-condições: tela/contrato de parâmetros demonstrados; validação do dono funcional. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-002/.
+    > Disposição (19/10/2026): entregue e provada — tela /parametros (área planejamento) + contrato parametros.ts + coleção pcp_parametros (0026) + hooks GET estado/POST aprovar (gate editar_parametros; replay idempotente; divergente → 409; servidor fixa aprovador/hora/versão); faltante nunca vira default; TDD 6/6; Skip v0.0.102, produção ref bcd1676 provada; evidência em 05_entregas/fase-2/spec-2-002/evidencia-d2a44349.md; teste humano aprovado pelo owner 10:28 BRT ("testei e aprovado").
+  - [x] Publicar a programação por área #projeto [interno] <!-- id:16b8a592-6038-440d-ba2a-1a668449739c -->
+    > SPEC-2-002 (spec-2-002-planejamento-e-op-digital.md), CA-P3. Publicar versão/OP local atomicamente; provar ação/área, faltantes e corrida entre duas publicações. Pré-condições: parâmetros/matriz/dados reais aceitos para uso real; fundamento sintético pode ser verificado isoladamente. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-002/.
+    > Disposição (16/10/2026): entregue e provada — publicação e reprogramação usam as ações REAIS do perfil logado (obterPerfil; servidor decide; sem ação → 403) com nota visível das ações do usuário; fundamento atômico já provado (3cd404e5, TDD 10/10); Skip v0.0.101, produção ref cd69b46 provada; evidência em 05_entregas/fase-2/spec-2-002/evidencia-16b8a592.md; teste humano aprovado pelo owner 12:07 BRT ("testei e aprovado").
+
+  - [x] Reprogramar sem perder os apontamentos #projeto [interno] <!-- id:87e4af63-740a-4fcf-8e00-ee8a7607cf09 -->
+    > SPEC-2-002 (spec-2-002-planejamento-e-op-digital.md), CA-P4. Alterar apenas restante não executado com motivo, versão e trilha; provar estados/encerramentos por ponto. Pré-condições: publicação aceita e contrato de eventos da SPEC-2-003; prova de conservação com fixture. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-002/.
+    > Disposição (16/10/2026): entregue e provada — contrato reprogramacao.ts (transfere só o saldo não iniciado com motivo/versão; origem conserva realizado, saldo executável 0 e referência histórica; demanda executável conta só no destino; replay idempotente; versão divergente → 409 sem transferência parcial; capacidade do destino validada antes do commit — tudo ou nada; sincronizando/incerto/sincronizada negam; exige editar_programacao) + card na tela /planejamento (oráculo T4) + TDD 8/8 (1ª rodada 7/8 expôs replay bloqueado pelo guard de saldo, ordem corrigida); Skip v0.0.97–0.0.98, produção ref b216eee provada; evidência em 05_entregas/fase-2/spec-2-002/evidencia-87e4af63.md; teste humano aprovado pelo owner 11:18 BRT ("testei e aprovado").
+
+- [x] Construir a tela de apontamentos #projeto [interno] <!-- id:be180fc1-4d67-4f2a-a3c5-e15b74e845b8 -->
+  > SPEC-2-003 (spec-2-003-apontamentos-na-origem.md), CA-E1/E3, recorte sintético. Registrar tipos com unidade/ponto e mostrar consumo/diferença/perda separados; realizados são incrementos. Pré-condições: contratos documentais SPEC-2-002/003 disponíveis; fixture local da OP independente do card de programação; nenhum produto real necessário. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-003/.
+  > Disposição (16/10/2026): entregue e provada — contrato apontamento.ts + tela /apontamentos (área apontar_producao) + TDD 10/10; Skip v0.0.84–0.0.85, produção ref fe6114f provada; evidência em 05_entregas/fase-2/spec-2-003/evidencia-be180fc1.md; teste do bloco aprovado pelo owner 09:02 BRT ("testei e aprovado").
+
+  - [x] Registrar e encerrar a produção por ponto #projeto [interno] <!-- id:64ac4f85-84e8-45a9-97a9-df04377c9e47 -->
+    > SPEC-2-003 (spec-2-003-apontamentos-na-origem.js), CA-E1/E3. Ligar eventos locais à OP publicada e acessos por ponto; provar cozinha40+60, encaixotamento separado e encerramento com hash. Pré-condições: tela aceita; OP, conta/ponto e unidade oficiais para teste real. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-003/.
+    > Disposição (20/10/2026): recorte do executor entregue — contrato ponto.ts (somaRealizadoPonto: incrementos 40+60=100 e retificação substitui o valor do alvo; projetarOP: encaixotamento 98 independente, previsto 5 KG só pelo realizado_cozinha na unidade-base da ficha, líquido 6 com diferença +1, anulação por retificação 0 → líquido 0; encerrarPonto: exige realizado>0 ou declaração 0 com motivo, hash determinístico da projeção, replay idempotente; podeRegistrarAposEncerramento: evento pós-encerramento invalida encerramento+conferência+aprovação, durante envio/incerto → 409 estado_congelado; ponto sem acesso e OP cancelada negam); TDD 8/8 (RED 7/8 provado); card na tela /apontamentos; Skip v0.0.136, produção ref 9c155d8 provada; evidência em 05_entregas/fase-2/spec-2-003/evidencia-64ac4f85.md; teste real (OP/conta/ponto oficiais) é a próxima etapa da cadeia — aguardando teste humano. Aceite do owner em 21/10/2026 10:55 BRT ("testei e aprovado").
+
+  - [x] Retificar apontamentos sem duplicar eventos #projeto [interno] <!-- id:0096ab26-6eec-438f-b154-54513188fab5 -->
+    > SPEC-2-003 (spec-2-003-apontamentos-na-origem.md), CA-E2/E4. Provar replay, timeout, retificação/substituição/anulação0 e proibição durante envio/incerto; preservar original. Pré-condições: registro/encerramento aceitos e guards de estados especificados. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-003/.
+    > Disposição (21/10/2026): recorte do executor entregue — contrato retificacao.ts (retificarComGuardas: durante envio/incerto → 409 estado_congelado; OP não publicada e ponto sem acesso negam sem pistas; motivo obrigatório inclusive para anulação 0; quantidade >= 0; OP/versão incompatível nega; mesmo UUID+hash = replay idempotente, hash diferente = 409; original NUNCA removido/alterado — append-only; buscarEventoPorUUID: timeout → consulta antes de qualquer retry, sem evento novo); TDD 6/6 (RED 5/6 provado — falha era do oráculo do teste, corrigida antes do código); card na tela /apontamentos; Skip v0.0.137, produção ref 1bd6731 provada; evidência em 05_entregas/fase-2/spec-2-003/evidencia-0096ab26.md; teste real (OP/conta/ponto oficiais) segue na cadeia — aguardando teste humano.
+    > Disposição (21/10/2026): recorte do executor entregue — contrato retificacao.ts (retificarComGuardas: durante envio/incerto → 409 estado_congelado; OP não publicada e ponto sem acesso negam sem pistas; motivo obrigatório inclusive para anulação 0; quantidade >= 0; OP/versão incompatível nega; mesmo UUID+hash = replay idempotente, hash diferente = 409; original NUNCA removido/alterado — append-only; buscarEventoPorUUID: timeout → consulta antes de qualquer retry, sem evento novo); TDD 6/6 (RED 5/6 provado — falha era do oráculo do teste, corrigida antes do código); card na tela /apontamentos; Skip v0.0.137, produção ref 1bd6731 provada; evidência em 05_entregas/fase-2/spec-2-003/evidencia-0096ab26.md; teste real (OP/conta/ponto oficiais) segue na cadeia — TESTE HUMANO APROVADO pelo owner em 21/10 ~11:32 ("testei e aprovado").
+
+- [x] Construir as duas telas de conferência #projeto [interno] <!-- id:556da315-88ca-41da-bd86-5322d86ede49 -->
+  > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C1/C2, recorte sintético. Mostrar produzido/encaixotado/recebido/câmara separadamente; impedir segunda etapa sem primeira e ponto errado. Pré-condições: contratos documentais OP/eventos disponíveis; fixtures locais independentes da implantação dos cards anteriores. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/.
+  > Disposição (16/10/2026): entregue e provada — contrato conferencia.ts + tela /conferencias + TDD 8/8; Skip v0.0.86–0.0.89, produção ref 9396881 provada; acesso de demonstração (flag DEMO_CONFERENCIA, a remover na d77447ab — uso real); evidência em 05_entregas/fase-2/spec-2-004/evidencia-556da315.md; teste humano aprovado pelo owner 09:19 BRT ("testei e aprovado").
+
+  - [x] Conferir expedição e entrada em câmara #projeto [interno] <!-- id:d77447ab-24eb-4982-984d-08645f11ae28 -->
+    > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C1/C2/C3. Registrar ambas etapas em sequência, com unidade/local/autor e replay; divergência bloqueia consolidação. Pré-condições: telas aceitas, etapas de produção encerradas, acesso nominal e pontos definidos para teste real. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/. Fecha pela prova automática.
+    > Disposição (26/10/2026): fechada pela prova automática — debug provado (TDD 3/3) e correção publicada na v0.0.169 (ref 2b39eb6); teste humano retirado da fase 2 por decisão do consultor.
+
+  - [x] Revisar divergências e invalidar aprovações antigas #projeto [interno] <!-- id:30118f65-3dd5-4679-a1a2-8b301c6a8d46 -->
+    > SPEC-2-004 (spec-2-004-dupla-conferencia.md), CA-C3/C4. PCP registra motivo/quantidade final; evento novo invalida hashes; provar corrida com aquisição e congelamento. Pré-condições: conferências aceitas; ação aprovar_consolidacao confirmada. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-004/.
+    > Disposição (16/10/2026): entregue e provada — contrato revisao-consolidacao.ts (aprovar exige aprovar_consolidacao→403; registra motivo/quantidade final/hashes de eventos e conferências; fila bloqueada nega; igualdade 0=0 registra pendência quantidade_final_zero e NÃO libera transação no Omie; nova conferência muda o hash → invalidação atômica da aprovação anterior; corrida: retificação antes da aquisição vale com zero POST antigo, durante enviando→409) + card Revisão do PCP na tela /conferencias (oráculo T4) + TDD 6/6; Skip v0.0.99–0.0.100, produção ref 14374c9 provada; evidência em 05_entregas/fase-2/spec-2-004/evidencia-30118f65.md; teste humano aprovado pelo owner 11:37 BRT ("testei e aprovado").
+
+- [x] Construir a fila de envio com simulação #projeto [interno] <!-- id:c44c11da-c7e9-42ee-b54a-fb3fff997f68 -->
+  > SPEC-2-005 (spec-2-005-consolidacao-omie.md), CA-O1/O3/O4, recorte mock. Criar fila/adapter isolado, identidade persistida e estados; provar trabalhador único e resposta perdida sem novoPOST. Pré-condições: contrato documental da consolidação e fixture local independente; mutantes reais desligados. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-005/.
+  > Disposição (16/10/2026): entregue e provada — contrato fila-omie.ts (estados da transação, aprovação por hash, lease de trabalhador único, resultado_incerto→consulta→confirmada sem novo POST, qtd 0 bloqueada) + adapter MOCK (zero rede) + tela /consolidacoes (6 cenários) + TDD 7/7; Skip v0.0.92–0.0.93, produção ref ac980b6 provada; evidência em 05_entregas/fase-2/spec-2-005/evidencia-c44c11da.md; teste humano aprovado pelo owner 09:57 BRT ("testei e aprovado").
+
+  - [x] Comprovar o contrato de produção no Omie #projeto [interno] <!-- id:a2a4ccf1-3244-438c-9e92-39a75f7e2b85 -->
+    > SPEC-2-005 (spec-2-005-consolidacao-omie.md), CA-O1. Confirmar campos/métodos/efeitos de consulta, inclusão e conclusão na conta; documentar concessão técnica sem executar mutante não autorizado. Pré-condições: fila simulada aceita; documentação/acesso autorizados; produto/ficha/local disponíveis. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-005/.
+    > Disposição (20/10/2026): contrato comprovado na conta por sondas de LEITURA (nenhum mutante — CA-O1): ListarOrdemProducao HTTP 200 (1.114 OPs / 112 páginas; "ListarOPs" não existe — provado 500) e ConsultarOrdemProducao HTTP 200 (OP 9858633368 = 2026/00003 do piloto M011001: 24 CX, local 9300980125, concluída, 14 componentes com nIdProdutoMalha batendo com a ficha — baunilha 0,05×24=1,2); contrato contrato-op.ts (MAPA_OP + guarda mutanteAutorizado: sem caso autorizado por owner/PCP + hash de revisão, NENHUM mutante sai; 6 mutantes documentados com executado:false); TDD 6/6 (RED 5/6 provado); sonda temporária removida (v0.0.135, ref 5630477); evidência em 05_entregas/fase-2/spec-2-005/evidencia-a2a4ccf1.md; aguardando teste humano. Aceite do owner em 21/10/2026 10:55 BRT ("testei e aprovado").
+
+  - [x] Provar a recuperação antes do envio real #projeto [interno] <!-- id:4e9a1d0e-fd37-4225-86bd-54d08c1c924d -->
+    > SPEC-2-005 (spec-2-005-consolidacao-omie.md), CA-O2/O3/O4. Provar revogação, reinício, lease/corrida e timeout no mock; deixar demonstrada a segurança dos guards antes de qualquer POST real; não fabricar falha/transação na produção. Pré-condições: fila mock e contrato documental aceitos; todos os casos de revogação/reinício/lease/corrida/timeout devem passar antes do primeiro envio real. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-005/. Título anterior do mesmo card: "Provar a recuperação sem concluir duas vezes"; UUID preservado. Ordem corrigida pela revisão: prova de recuperação antecede envio real.
+    > Disposição (16/10/2026): entregue e provada — recuperacao-omie.ts (O2 revogação→403/zero POST; O4 reinício→somente consulta→confirmada com POST total 1, inconclusiva mantém incerto; O3 retificação durante enviando/incerto→409 com hash preservado, antes da aquisição→invalidada/zero POST; admin PATCH/DELETE→403) + revalidação de hash do payload no envio (fila-omie.ts, 1ª rodada 7/8 expôs a lacuna, corrigida); TDD 8/8; Skip v0.0.96, produção ref 4f34817 provada; evidência em 05_entregas/fase-2/spec-2-005/evidencia-4e9a1d0e.md; teste humano aprovado pelo owner 10:46 BRT ("testei e aprovado").
+
+  - [x] Ligar o envio ao Omie e fazer o primeiro envio real @"American Goodies" !28/10/2026 #projeto <!-- id:6e38e5a3-72e4-4be7-ae21-a29b5fb5e7ab -->
+    > Hoje a fila de envio é simulada. Construir já a ligação real com o Omie, com o envio desligado. Na sessão da validação final, o dono escolhe uma ordem de produção conferida e autoriza; o sistema conclui a ordem no Omie uma única vez e confere depois a ordem, a quantidade, o status e o estoque.
+    > Autorização do dono para esse envio, porque grava no ERP (trava de segurança, não é teste). SPEC-2-005, CA-O2 e CA-O5.
+    > Encerrada por decisão do consultor (AC-26-01, 26/10/2026): passou para a fase 3 como tarefas novas da SPEC-3-002; a ligação com o Omie é construída com o envio desligado e a primeira gravação só acontece com a autorização do dono.
+
+- [x] Construir as sugestões com memória de cálculo #projeto [interno] <!-- id:0baec76e-80af-412c-9554-9472f7928743 -->
+  > SPEC-2-006 (spec-2-006-sugestoes-e-validacao.md), CA-S1/S2, recorte sintético. Cards por produto/insumo com entradas, fórmulas, lotes/limites e faltantes; método proposto não ativa cálculo empresarial. Pré-condições: contratos internos dados/parâmetros disponíveis; fixtures identificadas. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-006/.
+  > Disposição (16/10/2026): entregue e provada — contrato sugestao.ts (baseline90-v1 proposto: max não soma, memória reproduzível, null em faltante, compra 4,8→6 KG) + tela /sugestoes (área painel) + TDD 12/12 (1ª rodada 11/12 expôs NaN propagando, corrigido); Skip v0.0.90–0.0.91, produção ref e7bfa2f provada; evidência em 05_entregas/fase-2/spec-2-006/evidencia-0baec76e.md; teste humano aprovado pelo owner 09:50 BRT ("testei e aprovado").
+
+  - [x] Calcular as sugestões com os dados reais @"American Goodies" !24/10/2026 #projeto <!-- id:2ea1e7ab-5fe4-4e02-a7a1-901539bfdc8a -->
+    > O método já foi aprovado pelo dono em 21/10 (baseline90-v1). Com o catálogo real, rodar a importação real dos 90 dias e calcular as sugestões de produção e de compra. Item sem dado fica como pendente, nunca como zero.
+    > Fecha pela prova automática; o PCP confere os números na validação final. SPEC-2-006, CA-S1 e CA-S2.
+    > Encerrada por decisão do consultor (AC-26-01, 26/10/2026): passou para a fase 3 como tarefas novas da SPEC-3-001 (90 dias reais e sugestões com os números reais); o PCP confere os números na validação final.
+
+  - [x] Levar a sugestão somente para rascunho #projeto [interno] <!-- id:8bb4ef77-1232-4f16-a7d6-ea2df09ad829 -->
+    > SPEC-2-006 (spec-2-006-sugestoes-e-validacao.md), CA-S3. Aceitar sugestão abre rascunho e mantém gate de publicação; sugestão de compra não envia pedido. Pré-condições: sugestões aceitas e conta com ação/ponto aprovado; nenhum acesso ampliado. Prova: TDD/cenários nomeados desta SPEC; registrar em 05_entregas/fase-2/spec-2-006/.
+    > Disposição (16/10/2026): entregue e provada — contrato rascunho.ts (aceitar exige editar_programacao; rascunho com publicado=false e pedido_compra_enviado=false; replay idempotente; sugestão alterada → 409; publicar acima da capacidade negado) + botão Aceitar→rascunho na tela /sugestoes + TDD 6/6 (1ª rodada 5/6 expôs replay falso, corrigido); Skip v0.0.94–0.0.95, produção ref c88b1b1 provada; evidência em 05_entregas/fase-2/spec-2-006/evidencia-8bb4ef77.md; teste humano aprovado pelo owner 10:42 BRT ("testei e aprovado").
+
+  - [x] Validar o fluxo completo com a equipe (teste final da fase) @"American Goodies" !28/10/2026 #projeto <!-- id:0d876150-60b6-46bb-ada4-722b90d870a3 -->
+    > Uma sessão com a equipe: o PCP publica a programação, a cozinha e o encaixotamento apontam, a expedição e a câmara conferem, o PCP aprova e o dono autoriza o primeiro envio ao Omie. Pode ser com um produto só.
+    > A fase 2 fecha pela prova automática das tasks. SPEC-2-006, CA-S4.
+    > Disposição (26/10/2026): dispensada — testes humanos retirados da fase 2 por decisão do consultor; a fase fecha pela prova automática das tasks.
+    > A validação dispensada entra na sessão de validação final da fase 3 (SPEC-3-018, AC-26-01).

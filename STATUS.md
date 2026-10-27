@@ -1,4 +1,20 @@
-# Status operacional
+# Status operacional — fase 3 única até a validação final
+
+26/10/2026: o consultor fechou a fase 2 e juntou na fase 3 tudo o que faltava do projeto (AC-26-01). A fase 3 é a última e tem 18 SPECs e 48 tarefas, com a sessão de validação final com a equipe prevista para 03/12/2026. As fases 4 e 5 ficam sem tarefas.
+
+- **Fase 2:** 29 de 29 fechadas. As três abertas (catálogo real, sugestões com dados reais e envio ao Omie) passaram para a fase 3 como tarefas novas (SPECs 3-001 e 3-002); a validação final da fase 2 entra na sessão final da fase 3. Tarefas, SPECs e evidências da fase 2 em `05_entregas/fase-2/`.
+- **Construção:** em sequência, sem teste no meio; cada tarefa fecha pelas provas automáticas. O único teste é a sessão final (SPEC-3-018).
+- **Gravações no Omie:** construídas com a chave desligada e provadas no simulador; só ligam com a autorização do dono, uma por vez, com a condição do checklist cumprida.
+- **Bloqueios localizados:** chave do Omie bloqueada por excesso de consultas desde 23/10 (CL-PEND-006); origem das notas de entrada em revisão (CL-PEND-007). Os dois deixam pendente só a parte afetada.
+- **Ambiente:** projeto Skip 62774 (MCP do Skip e Skip Cloud); última versão registrada v0.0.169 (ref 2b39eb6).
+
+Próxima ação: SPEC-3-001, começando por **Trazer o catálogo real do Omie produto a produto, sem estourar o limite de consultas**. Só o consultor encerra o projeto.
+
+Publicação documental; sem alteração do código, do Skip, das integrações ou do portal.
+
+---
+
+## Histórico anterior (não é o estado atual)
 
 Fase atual: 2 — Programação e apontamento com conferência.
 
