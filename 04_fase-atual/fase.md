@@ -64,10 +64,12 @@ tarefas que já têm um.
 - [/] Converter a unidade de compra para a unidade de estoque só com fator confirmado @"American Goodies" !05/11/2026
   > Ex.: saco de 25 kg vira 25 KG pelo fator confirmado por Compras. Sem fator, a quantidade fica na unidade de compra com pendência e o preço não é comparado. Mudar o fator cria versão nova. SPEC-3-003 · CA-3-11.
   > Resultado 28/10: fator versionado, conversão e tela no ar (Skip v0.0.177); testes passando (P3.03-03 e 04: 4 sacos de 25 kg a R$ 250,00 = 100 KG a R$ 10,00). Evidência: 05_entregas/fase-3/spec-3-003/.
-- [ ] Montar o histórico de preços por produto e por fornecedor @"American Goodies" !05/11/2026
+- [/] Montar o histórico de preços por produto e por fornecedor @"American Goodies" !05/11/2026
   > Preço sempre na unidade de estoque, por fornecedor e data. Frete, serviço e N-D ficam fora do histórico de insumos, mas continuam no registro do documento. Item sem classificação fica 'a classificar'. SPEC-3-004 · CA-3-12.
-- [ ] Trazer o histórico real dos pedidos de compra do Omie @"American Goodies" !06/11/2026
+  > Resultado 28/10: classificação, histórico por fornecedor na unidade de estoque, rotas e tela no ar (Skip v0.0.178); 64 testes passando (P3.04-01 a 03: 4 sacos a R$ 250,00 = R$ 10,00/KG). Falta só carregar os pedidos reais, que depende da chave do Omie. Evidência: 05_entregas/fase-3/spec-3-004/.
+- [/] Trazer o histórico real dos pedidos de compra do Omie @"American Goodies" !06/11/2026
   > Reaproveita a leitura de pedidos de compra já provada na fase 2 (pedido 1514). Os campos de preço são conferidos numa amostra antes do uso; campo que não vier fica pendente, nunca zero. SPEC-3-004 · CA-3-13.
+  > Resultado 28/10: conversor e chave de linha prontos e provados em fixture; a leitura de preço está desligada até os campos serem conferidos numa amostra real (chave do Omie bloqueada, CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-004/.
 - [ ] Transformar a necessidade de compra em requisição por fornecedor @"American Goodies" !06/11/2026
   > A sugestão de compra aceita, ou um pedido do comprador, vira requisição separada por fornecedor, com quantidade, data necessária e marca de compra emergencial com motivo. SPEC-3-005 · CA-3-14.
 - [ ] Registrar cotações com preço e prazo e comparar com o histórico @"American Goodies" !09/11/2026
