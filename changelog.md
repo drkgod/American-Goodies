@@ -136,3 +136,7 @@
 ## 28/10/2026 — Fase 3: SPEC-3-008 construída até onde o Omie e a matriz permitem
 
 - Cinco ações na área `faturamento`, unidades versionadas com nome fantasia operacional, nomes de canal "a revisar", tabela de preço versionada, subtotal recalculado e origem do pedido; migration 0036, rotas e telas `/unidades` e `/pedidos/preparacao`. Skip v0.0.183 (ref e06ce12) publicada e provada; 101 de 101 testes (Node). Leitura de clientes do Omie e marcador do Lunet pendentes. Evidência: 05_entregas/fase-3/spec-3-008/evidencia-unidades-tabela-origem.md.
+
+## 28/10/2026 — Fase 3: SPEC-3-009 construída até onde o Omie e a matriz permitem
+
+- Frete por pedido (sem padrão), volumes contados pela expedição (sem cubagem), fila apto/bloqueado/liberado com liberação desfeita por mudança, pedido manual com duplicata por referência e possível duplicata a revisar, e gravação de pedido manual e de volumes e frete atrás da chave `omie_pedido_venda_escrita` (desligada) com simulador; migration 0037, rotas e telas `/pedidos/preparacao` e `/pedidos/manuais`. Skip v0.0.185 (ref 1015307) publicada e provada; 115 de 115 testes (Node). Primeira gravação real só com o dono. Evidência: 05_entregas/fase-3/spec-3-009/evidencia-pedido-pronto-para-faturar.md.

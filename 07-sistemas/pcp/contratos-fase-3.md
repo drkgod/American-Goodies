@@ -40,3 +40,17 @@ Fonte: WSDL público do método, só leitura da documentação; nenhuma chamada 
 - **ConsultarPedCompra:** aceita `nCodPed`, `cCodIntPed` ou `cNumero`; o cabeçalho traz `nCodFor`, `dIncData`, `cEtapa`, `cNumero`, `dDtPrevisao`.
 - **Efeito na SPEC-3-004:** o fornecedor do pedido vem em `nCodFor` (código do Omie, não o nome) e a data de inclusão em `dIncData`; os nomes `nValUnit` e `nValTot` dos itens na CONSULTA ainda não foram vistos numa resposta real e seguem como hipótese (`camposConfirmados = false`).
 - **Efeito na SPEC-3-006:** o código de integração (`cCodIntPed`) permite consultar sem repetir a gravação. O adapter ainda não foi construído; a chave `omie_pedido_compra_escrita` segue desligada.
+
+## PedidoVenda (produtos/pedido/) — lido do WSDL em 28/10/2026 (SPEC-3-009)
+
+Fonte: WSDL público do método, só leitura da documentação; nenhuma chamada à conta. Conferência por amostra real continua pendente (chave bloqueada, CL-PEND-006).
+
+- **Operações do serviço:** `IncluirPedido`, `AlterarPedidoVenda`, `ConsultarPedido`, `ListarPedidos`, `StatusPedido`, `TrocarEtapaPedido`, `AlterarPedFaturado`, `ExcluirPedido`, `DevolverPedido`, `SimularImpostos`. O sistema usa só `IncluirPedido` (pedido manual), `AlterarPedidoVenda` (volumes e frete do pedido liberado) e `ConsultarPedido`. Nunca usa `ExcluirPedido`, `DevolverPedido` nem `TrocarEtapaPedido`: não fatura nem emite nota.
+- **cabecalho:** `codigo_pedido_integracao` (código de integração, persistido antes de gravar), `codigo_cliente`, `data_previsao`, `etapa`, `quantidade_itens`, `codigo_parcela`, `origem_pedido`.
+- **det[]:** `ide.codigo_item_integracao`, `produto.codigo_produto`/`codigo`, `produto.quantidade`, `produto.valor_unitario`, `produto.unidade`.
+- **frete:** `modalidade` (texto do Omie; valores aceitos ainda não conferidos), `quantidade_volumes`, `peso_bruto`, `peso_liquido`, `codigo_transportadora`, `especie_volumes`. Não existe campo de cubagem.
+- **informacoes_adicionais:** `numero_pedido_cliente` (referência do canal, usada na checagem de duplicata).
+- **Resposta da inclusão e da alteração:** `codigo_pedido`, `codigo_pedido_integracao`, `codigo_status`, `descricao_status`, `numero_pedido`.
+- **ConsultarPedido:** aceita `codigo_pedido`, `codigo_pedido_integracao` ou `numero_pedido`.
+- **Pontos em aberto, a confirmar na primeira gravação com o dono:** valores aceitos de `modalidade`; `etapa` inicial do pedido manual; se `AlterarPedidoVenda` aceita só `frete` sem reenviar o cabeçalho.
+- **Decisões do sistema:** uma tentativa por operação; resposta perdida ou 425 = "resultado incerto" (só consulta); recusa de validação = "falhou sem efeito"; a chave `omie_pedido_venda_escrita` volta a desligar antes de cada chamada que grava. Nenhuma nota fiscal é emitida nem transmitida.
