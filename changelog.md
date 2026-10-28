@@ -100,3 +100,7 @@
 
 - Contrato `faltantes.ts`, endpoint `/backend/v1/pcp/faltantes` e card em `/qualidade`. Cobre só o estoque; ficha e pedido avisados como "ainda não entram". Catálogo não lido por inteiro = lista vazia com aviso. Skip v0.0.172 (ref 594132b) publicada e provada; QA verde; testes só de mesa.
 - Ajuste do `pcp_catalogo_sync.js`: linha do catálogo no formato lido pela tela (`produto_id`, `familia`, `ativo` S/N). Evidência: 05_entregas/fase-3/spec-3-001/evidencia-faltantes.md.
+
+## 28/10/2026 — Fase 3: SPEC-3-001 construída até onde o Omie permite
+
+- Conversão dos pedidos de venda e de compra do Omie nas linhas da importação de 90 dias (`omie-90d-mapa.ts`), Skip v0.0.173 (ref 94f5590) publicada e provada; QA verde; testes só de mesa. Cálculo real das sugestões e uso das telas com dados reais ficam em andamento até a chave do Omie ser liberada (CL-PEND-006). Nota: 06_notas/bloqueio-omie-leitura-real-2026-10-28.md.

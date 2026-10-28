@@ -31,14 +31,19 @@ tarefas que já têm um.
 
 - [/] Trazer o catálogo real do Omie produto a produto, sem estourar o limite de consultas @"American Goodies" !28/10/2026
   > O catálogo passa a vir do Omie consultando cada produto do estoque, em lotes pequenos, com pausa e retomada. Se o Omie bloquear, a tela mostra a hora da nova tentativa e mantém o último catálogo. SPEC-3-001 · CA-3-01.
+  > Resultado 28/10: contrato e rotina no ar (Skip v0.0.173), com parada no 425; falta a leitura real e a conferência de 3 produtos, que esperam o Omie liberar a chave (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-001/.
 - [/] Mostrar ao PCP a lista do que falta cadastrar no Omie @"American Goodies" !28/10/2026
   > Produto que aparece no estoque, numa ficha ou num pedido e não está no cadastro entra na lista com o código e onde aparece. O PCP cadastra no Omie e a leitura seguinte tira da lista. SPEC-3-001 · CA-3-02.
-- [ ] Importar os 90 dias reais de vendas, produção e compras a receber @"American Goodies" !29/10/2026
+  > Resultado 28/10: lista e tela no ar (Skip v0.0.173); cobre só o estoque, ficha e pedido ainda sem leitura guardada; sem dado real até o Omie liberar a chave. Evidência: 05_entregas/fase-3/spec-3-001/.
+- [/] Importar os 90 dias reais de vendas, produção e compras a receber @"American Goodies" !29/10/2026
   > A importação já construída roda com os dados reais e os pedidos firmes pela regra aprovada em 21/10. Falha mantém a importação anterior; dado desconhecido fica pendente, nunca zero. SPEC-3-001 · CA-3-03.
-- [ ] Calcular as sugestões de produção e de compra com os números reais @"American Goodies" !29/10/2026
+  > Resultado 28/10: conversão dos pedidos de venda e de compra do Omie pronta e no ar (Skip v0.0.173); a leitura real dos 90 dias e as ordens de produção esperam o Omie liberar a chave (CL-PEND-006). Nota: 06_notas/bloqueio-omie-leitura-real-2026-10-28.md.
+- [/] Calcular as sugestões de produção e de compra com os números reais @"American Goodies" !29/10/2026
   > Pelo método aprovado em 21/10. Cada sugestão mostra de onde veio cada número; item sem dado fica pendente com o motivo. Nada é publicado nem comprado. O PCP confere os números na validação final. SPEC-3-001 · CA-3-04.
-- [ ] Usar programação, apontamentos e conferências com os produtos e as contas reais @"American Goodies" !30/10/2026
+  > Resultado 28/10: o método (baseline90-v1) e a memória de cálculo já estão construídos e provados com dados de exemplo desde a fase 2; o cálculo real espera o catálogo e os 90 dias reais, que esperam o Omie liberar a chave (CL-PEND-006). Nota: 06_notas/bloqueio-omie-leitura-real-2026-10-28.md.
+- [/] Usar programação, apontamentos e conferências com os produtos e as contas reais @"American Goodies" !30/10/2026
   > As telas da fase 2 passam a usar o catálogo real e as contas da matriz aprovada; o acesso de demonstração das conferências sai e a demonstração fica separada. Nada vai para o Omie. SPEC-3-001 · CA-3-05.
+  > Resultado 28/10: não construída ainda. As telas de planejamento, apontamentos e conferências seguem com dados de demonstração marcados; trocar para produtos e ordens reais depende do catálogo real e das ordens de produção lidas do Omie (chave bloqueada, CL-PEND-006). O acesso de demonstração da conferência só sai junto, para a tela não ficar sem uso.
 - [ ] Ligar o envio da produção ao Omie com o envio desligado e provar no simulador @"American Goodies" !30/10/2026
   > A fila de envio ganha a ligação real com o Omie, mas com a chave desligada nada é gravado. No simulador, uma ordem conferida e aprovada é concluída uma vez, mesmo com clique duplo, queda ou resposta perdida. SPEC-3-002 · CA-3-06.
 - [ ] Preparar a autorização do dono e a conferência depois do envio @"American Goodies" !03/11/2026
