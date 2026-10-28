@@ -108,3 +108,7 @@
 ## 28/10/2026 — Fase 3: envio da produção ao Omie com a chave desligada (SPEC-3-002, CA-3-06) em andamento
 
 - Migration 0029 (chaves de escrita desligadas e transações), contrato `envio-op.ts` com simulador, rota `/backend/v1/pcp/omie/op/enviar` (423 com a chave desligada). Skip v0.0.174 (ref 9d19c7e) publicada e provada; QA verde; testes só de mesa. Nenhuma chamada ao Omie. Contrato em `07-sistemas/pcp/contratos-fase-3.md`. Evidência: 05_entregas/fase-3/spec-3-002/evidencia-envio-op.md.
+
+## 28/10/2026 — Fase 3: autorização do dono e conferência (SPEC-3-002, CA-3-07) em andamento
+
+- Autorização de uma ordem por vez (só a ação do dono), desfazer, conferência só leitura e tela "Envio ao Omie" (`/envio-omie`). Skip v0.0.175 (ref e2b0917) publicada e provada; QA verde; 38 de 38 testes (Node). Sem ordem real para autorizar ainda (depende das conferências reais). Chave de escrita desligada; nenhuma chamada ao Omie. Evidência: 05_entregas/fase-3/spec-3-002/evidencia-autorizacao-conferencia.md.

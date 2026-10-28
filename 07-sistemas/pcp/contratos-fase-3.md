@@ -24,3 +24,9 @@ presente na primeira gravação**, como manda a regra 6 do índice. Nenhuma cham
 - Recusa de validação do Omie (`faultcode` começando com `SOAP-ENV:Client`, fora de bloqueio por consumo) = "falhou sem efeito". Bloqueio por consumo (HTTP 425 / "consumo redundante") **não** é tratado como sem efeito: fica "resultado incerto".
 - Quantidade final zero ou negativa nunca monta payload.
 - A chave `omie_op_escrita` volta a desligar antes de cada chamada que grava: uma ordem por vez.
+
+### ConsultarOrdemProducao — o que a conferência lê (SPEC-3-002, CA-3-07)
+- Pedido: `nCodOP` (quando o sistema o tem) ou `cCodIntOP`. Só leitura; uma consulta por conferência; bloqueio por consumo (HTTP 425 / "consumo redundante") devolve "inconclusivo".
+- Campos usados: `identificacao.nQtde` (quantidade da ordem) e `outrasInf.cConcluida` (`S` = concluída), conforme a amostra de 20/10 e o WSDL.
+- **Ponto em aberto, a confirmar na primeira gravação com o dono:** a leitura documentada devolve a quantidade da ordem (`nQtde`), não uma quantidade produzida à parte. Se o Omie atualizar `nQtde` ao concluir, a conferência bate; se não, a conferência aponta divergência sem gravar nada.
+- Estoque: sem leitura de estoque guardada antes do envio, o resultado é "conferido sem estoque", nunca "conferido".

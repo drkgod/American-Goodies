@@ -49,8 +49,9 @@ tarefas que já têm um.
   > A fila de envio ganha a ligação real com o Omie, mas com a chave desligada nada é gravado. No simulador, uma ordem conferida e aprovada é concluída uma vez, mesmo com clique duplo, queda ou resposta perdida. SPEC-3-002 · CA-3-06.
   > Resultado 28/10: rota de envio com chave desligada (423), simulador e contrato no ar (Skip v0.0.174); provado por teste de mesa, a suíte não pôde rodar neste computador (sem Node). Nenhuma chamada ao Omie. Evidência: 05_entregas/fase-3/spec-3-002/.
   > Atualização 28/10: 10 de 10 testes da SPEC-3-002 executados e passando (P3.02-01/03/04); falta rodar a regressão da fase 2 (P3.02-05).
-- [ ] Preparar a autorização do dono e a conferência depois do envio @"American Goodies" !03/11/2026
+- [/] Preparar a autorização do dono e a conferência depois do envio @"American Goodies" !03/11/2026
   > A tela mostra ao dono a ordem, o produto, a quantidade, a data e o efeito no estoque. Só ele autoriza, uma ordem por vez. Depois do envio, o sistema confere a ordem, a quantidade, o status e o estoque. SPEC-3-002 · CA-3-07.
+  > Resultado 28/10: autorização por ordem, desfazer, conferência só leitura e tela "Envio ao Omie" no ar (Skip v0.0.175); 10 de 10 testes passando. Ainda não há ordem real para autorizar: a preparação depende das conferências reais (Omie bloqueado). Evidência: 05_entregas/fase-3/spec-3-002/.
 - [ ] Criar os acessos de compras e recebimento por área @"American Goodies" !03/11/2026
   > Novas ações para comprador, aprovador, almoxarifado e financeiro, conferidas no servidor. Na construção valem perfis de teste; as contas reais recebem as ações pela matriz que o dono aprovar. SPEC-3-003 · CA-3-08.
 - [ ] Montar o cadastro de fornecedores com os contatos em campos separados @"American Goodies" !04/11/2026
