@@ -85,14 +85,18 @@ tarefas que já têm um.
 - [/] Preparar o lançamento da compra aprovada no Omie, com o envio desligado @"American Goodies" !10/11/2026
   > Desligado, a tela mostra os dados para o comprador lançar no Omie e liga o pedido lançado à compra aprovada pelo número. No simulador, ligado, o sistema lança uma vez e confere. SPEC-3-006 · CA-3-18.
   > Resultado 28/10: ligação por número conferido e lançamento atrás da chave desligada, com simulador de gravação única, no ar (Skip v0.0.180); testes passando (P3.06-01, 02, 03 e 05); a primeira gravação real depende do dono (CL-PEND-011). Evidência: 05_entregas/fase-3/spec-3-006/.
-- [ ] Conferir o recebimento contra o pedido aprovado, linha a linha @"American Goodies" !11/11/2026
+- [/] Conferir o recebimento contra o pedido aprovado, linha a linha @"American Goodies" !11/11/2026
   > O almoxarifado registra o que chegou e liga cada linha a um ou mais pedidos. Falta, sobra e item não pedido aparecem; nada ajusta o estoque sozinho. SPEC-3-007 · CA-3-19.
-- [ ] Mostrar as parcelas e a compra já paga sem duplicar conta a pagar @"American Goodies" !11/11/2026
+  > Resultado 28/10: conferência por linha com ligação a um ou mais pedidos, falta e sobra, no ar (Skip v0.0.182); testes passando (P3.07-01 e 04). Evidência: 05_entregas/fase-3/spec-3-007/.
+- [/] Mostrar as parcelas e a compra já paga sem duplicar conta a pagar @"American Goodies" !11/11/2026
   > O financeiro vê as parcelas previstas de cada pedido e marca o que já foi pago antes. No recebimento, compra paga aparece com o aviso 'já paga: não lançar nova conta'. O sistema não lança nada no financeiro. SPEC-3-007 · CA-3-20.
-- [ ] Registrar o recebimento de item sem cadastro como exceção a regularizar @"American Goodies" !12/11/2026
+  > Resultado 28/10: parcelas, pagamento antecipado e aviso de já paga, sem lançar nada no financeiro, no ar (Skip v0.0.182); testes passando (P3.07-02). Evidência: 05_entregas/fase-3/spec-3-007/.
+- [/] Registrar o recebimento de item sem cadastro como exceção a regularizar @"American Goodies" !12/11/2026
   > Chegou item sem cadastro: entra só como exceção autorizada, com motivo, e fica pendente até o item ser cadastrado no Omie e ligado ao pedido. SPEC-3-007 · CA-3-21.
-- [ ] Montar a pré-conferência da nota de entrada com notas de demonstração @"American Goodies" !12/11/2026
+  > Resultado 28/10: item sem cadastro só entra por exceção autorizada e fica pendente, no ar (Skip v0.0.182); testes passando (P3.07-03). Evidência: 05_entregas/fase-3/spec-3-007/.
+- [/] Montar a pré-conferência da nota de entrada com notas de demonstração @"American Goodies" !12/11/2026
   > Compara nota, pedido, recebimento e parcelas usando só notas de demonstração marcadas. A leitura das notas reais fica em revisão até o cliente dizer onde elas estão. SPEC-3-007 · CA-3-22.
+  > Resultado 28/10: pré-conferência só com nota de demonstração, nota real recusada, no ar (Skip v0.0.182); testes passando (P3.07-05); leitura de nota real e escrita do recebimento seguem em revisão (CL-PEND-007). Evidência: 05_entregas/fase-3/spec-3-007/.
 - [ ] Criar os acessos de faturamento e expedição por área @"American Goodies" !13/11/2026
   > Novas ações para preparar pedido, conferir volumes e liberar para faturar, conferidas no servidor. Na construção valem perfis de teste; as contas reais seguem a matriz que o dono aprovar. SPEC-3-008 · CA-3-23.
 - [ ] Montar o cadastro das unidades com o nome fantasia usado na operação @"American Goodies" !13/11/2026
