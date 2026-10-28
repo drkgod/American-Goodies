@@ -2,8 +2,8 @@
 
 - schema_version: adapta-cliente-state/v3
 - fase: 3 (última; fases 4 e 5 sem tarefas, AC-26-01)
-- task_id: SPEC-3-006 (pedido de compra e entregas)
-- spec: 04_fase-atual/specs/spec-3-006-pedido-de-compra-e-entregas.md
+- task_id: SPEC-3-007 (recebimento)
+- spec: 04_fase-atual/specs/spec-3-007-recebimento-conferido.md
 - etapa: implementando
 - executor: MCC (ETHOS)
 - teste_humano: nenhum durante a construção. O único teste é a sessão de validação final com a equipe (SPEC-3-018), prevista para 03/12/2026
@@ -11,10 +11,10 @@
 - bloqueios_localizados: chave do Omie bloqueada por excesso de consultas desde 23/10 (CL-PEND-006); origem das notas de entrada em revisão (CL-PEND-007)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: v0.0.179 (ref 9f76820), publicada 28/10
+- skip_versao: v0.0.180 (ref a415ac1), publicada 28/10
 - pendente_github: sim:commits locais; enviar pelo GitHub Desktop
-- ultima_acao: 28/10 — SPEC-3-005 construída até onde dá: requisição, cotação e aprovação por alçada (v0.0.179); 72/72 testes; aprovação real parada sem alçadas
-- proxima_acao: construir a SPEC-3-005 (requisição, cotação e aprovação); voltar às leituras reais quando o Omie liberar a chave
+- ultima_acao: 28/10 — SPEC-3-006 construída: entregas, ligação e lançamento do pedido de compra atrás da chave desligada (v0.0.180); 80/80 testes
+- proxima_acao: construir a SPEC-3-007 (recebimento); omie_recebimento_escrita está em revisão e não se constrói
 - atualizado_em: 2026-10-28
 
 Estado anterior preservado no histórico do git (commit 056629c).

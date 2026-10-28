@@ -79,10 +79,12 @@ tarefas que já têm um.
 - [/] Aprovar a compra pela alçada, com registro de quem aprovou @"American Goodies" !09/11/2026
   > Só quem tem a alçada aprova, com data e motivo; recusa também tem motivo. Mudança depois da aprovação pede aprovação nova. Sem alçada cadastrada, a aprovação real fica parada com o motivo. SPEC-3-005 · CA-3-16.
   > Resultado 28/10: aprovação e recusa por alçada, hash e invalidação por mudança no ar (Skip v0.0.179); testes passando (P3.05-02, 03 e 04); sem alçada cadastrada (CL-PEND-008) a aprovação real fica parada. Evidência: 05_entregas/fase-3/spec-3-005/.
-- [ ] Acompanhar as entregas dos pedidos de compra pelo Omie @"American Goodies" !10/11/2026
+- [/] Acompanhar as entregas dos pedidos de compra pelo Omie @"American Goodies" !10/11/2026
   > Por fornecedor: pedidos em aberto, data prevista, quanto chegou, quanto falta e quais estão atrasados; compras emergenciais aparecem marcadas. Só leitura do Omie. SPEC-3-006 · CA-3-17.
-- [ ] Preparar o lançamento da compra aprovada no Omie, com o envio desligado @"American Goodies" !10/11/2026
+  > Resultado 28/10: tela de entregas com restante, atraso e emergência no ar (Skip v0.0.180); testes passando (P3.06-04); a lista fica vazia até a leitura real dos pedidos de compra (chave do Omie, CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-006/.
+- [/] Preparar o lançamento da compra aprovada no Omie, com o envio desligado @"American Goodies" !10/11/2026
   > Desligado, a tela mostra os dados para o comprador lançar no Omie e liga o pedido lançado à compra aprovada pelo número. No simulador, ligado, o sistema lança uma vez e confere. SPEC-3-006 · CA-3-18.
+  > Resultado 28/10: ligação por número conferido e lançamento atrás da chave desligada, com simulador de gravação única, no ar (Skip v0.0.180); testes passando (P3.06-01, 02, 03 e 05); a primeira gravação real depende do dono (CL-PEND-011). Evidência: 05_entregas/fase-3/spec-3-006/.
 - [ ] Conferir o recebimento contra o pedido aprovado, linha a linha @"American Goodies" !11/11/2026
   > O almoxarifado registra o que chegou e liga cada linha a um ou mais pedidos. Falta, sobra e item não pedido aparecem; nada ajusta o estoque sozinho. SPEC-3-007 · CA-3-19.
 - [ ] Mostrar as parcelas e a compra já paga sem duplicar conta a pagar @"American Goodies" !11/11/2026

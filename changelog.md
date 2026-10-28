@@ -124,3 +124,7 @@
 ## 28/10/2026 — Fase 3: SPEC-3-005 construída até onde as alçadas permitem
 
 - Requisição por fornecedor, cotações comparadas com o último preço, aprovação/recusa por alçada com hash e invalidação por mudança; migration 0033, rotas e tela `/compras/requisicoes`. Skip v0.0.179 (ref 9f76820) publicada e provada; 72 de 72 testes (Node). Sem alçadas nem tolerância cadastradas, a aprovação real fica parada. Evidência: 05_entregas/fase-3/spec-3-005/evidencia-requisicao-cotacao-aprovacao.md.
+
+## 28/10/2026 — Fase 3: SPEC-3-006 construída com a chave de pedido de compra desligada
+
+- Entregas por fornecedor (restante, atraso, emergência), ligação manual conferida e lançamento do pedido de compra atrás da chave (423 desligada, uma gravação, resultado incerto só consulta); migration 0034, rotas e telas. Skip v0.0.180 (ref a415ac1) publicada e provada; 80 de 80 testes (Node). Nenhuma chamada ao Omie. Evidência: 05_entregas/fase-3/spec-3-006/evidencia-entregas-e-pedido.md.
