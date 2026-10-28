@@ -118,12 +118,15 @@ tarefas que já têm um.
 - [/] Preparar o envio do pedido apto ao Omie, com o envio desligado @"American Goodies" !18/11/2026
   > Ligado, grava no Omie o pedido manual e os volumes e o frete do pedido liberado, uma vez, e confere. Desligado, a tela mostra o que lançar. A nota fiscal continua sendo emitida por uma pessoa no Omie. SPEC-3-009 · CA-3-29.
   > Resultado 28/10: gravação atrás da chave omie_pedido_venda_escrita (desligada), simulador e conferência por consulta no ar (Skip v0.0.185); testes passando (P3.09-03); primeira gravação real só com o dono (CL-PEND-011). Evidência: 05_entregas/fase-3/spec-3-009/.
-- [ ] Cadastrar os parâmetros de alerta por produto e por família @"American Goodies" !18/11/2026
+- [/] Cadastrar os parâmetros de alerta por produto e por família @"American Goodies" !18/11/2026
   > Estoque mínimo, prazo do fornecedor, tolerância de preço e atrasos aceitos, por produto ou família, em versão aprovada. Parâmetro que falta aparece como lacuna e aquele alerta não é calculado. SPEC-3-010 · CA-3-30.
-- [ ] Gerar alertas de estoque, produção, compra, preço, pedido e divergência @"American Goodies" !19/11/2026
+  > Resultado 28/10: parâmetros de alerta versionados por produto e família, lacunas e tela no ar (Skip v0.0.186); testes passando (P3.10-01); sem parâmetros reais (CL-PEND-001). Evidência: 05_entregas/fase-3/spec-3-010/.
+- [/] Gerar alertas de estoque, produção, compra, preço, pedido e divergência @"American Goodies" !19/11/2026
   > Regras fixas e explicadas, primeiro com dados de demonstração: ruptura prevista com a antecedência do prazo do fornecedor, produção atrasada, entrega atrasada, preço fora da tolerância e pedido parado. SPEC-3-010 · CA-3-31.
-- [ ] Gerar os alertas com os dados reais, sem repetir alerta @"American Goodies" !19/11/2026
+  > Resultado 28/10: seis regras com os números usados e tela de alertas no ar (Skip v0.0.186); testes passando (P3.10-03 e 04). Evidência: 05_entregas/fase-3/spec-3-010/.
+- [/] Gerar os alertas com os dados reais, sem repetir alerta @"American Goodies" !19/11/2026
   > As regras rodam com o estoque, as compras e os pedidos reais. A mesma situação atualiza o alerta aberto em vez de criar outro. Alerta não compra, não publica ordem e não muda parâmetro. SPEC-3-010 · CA-3-32.
+  > Resultado 28/10: rodada sem repetição no ar com quatro fontes locais (Skip v0.0.186); testes passando (P3.10-02); estoque, produção, divergência e intenção da Nuvemshop sem fonte ligada (leitura do Omie, CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-010/.
 - [ ] Abrir o ciclo de tratamento dos alertas com responsável e histórico @"American Goodies" !23/11/2026
   > Cada alerta passa por aberto, em análise e tratado; tratar exige registrar a ação tomada e quem tratou. O histórico não é apagado, e alerta que volta é ligado ao anterior. SPEC-3-011 · CA-3-33.
 - [ ] Mostrar cada alerta só para quem cuida da área, agrupado @"American Goodies" !23/11/2026

@@ -140,3 +140,7 @@
 ## 28/10/2026 — Fase 3: SPEC-3-009 construída até onde o Omie e a matriz permitem
 
 - Frete por pedido (sem padrão), volumes contados pela expedição (sem cubagem), fila apto/bloqueado/liberado com liberação desfeita por mudança, pedido manual com duplicata por referência e possível duplicata a revisar, e gravação de pedido manual e de volumes e frete atrás da chave `omie_pedido_venda_escrita` (desligada) com simulador; migration 0037, rotas e telas `/pedidos/preparacao` e `/pedidos/manuais`. Skip v0.0.185 (ref 1015307) publicada e provada; 115 de 115 testes (Node). Primeira gravação real só com o dono. Evidência: 05_entregas/fase-3/spec-3-009/evidencia-pedido-pronto-para-faturar.md.
+
+## 28/10/2026 — Fase 3: SPEC-3-010 construída até onde os dados reais permitem
+
+- Parâmetros de alerta versionados (produto prevalece sobre família), famílias, lacunas, seis regras de alerta explicadas e rodada que atualiza o alerta aberto em vez de repetir; migration 0038, rotas e telas `/alertas` e `/parametros/alertas`. Skip v0.0.186 (ref 36d4ed6) publicada; 125 de 125 testes (Node). Estoque, produção, divergência e intenção da Nuvemshop reais sem fonte ligada. Evidência: 05_entregas/fase-3/spec-3-010/evidencia-alertas.md.
