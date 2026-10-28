@@ -120,3 +120,7 @@
 ## 28/10/2026 — Fase 3: SPEC-3-004 construída até onde o Omie permite
 
 - Histórico de preços por insumo e fornecedor na unidade de estoque, classificação de linhas (insumo, frete, serviço, N-D, a classificar), migration 0032, rotas e tela `/compras/historico`. Skip v0.0.178 (ref b9fad7e) publicada e provada; 64 de 64 testes (Node). Leitura real dos preços desligada até a amostra (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-004/evidencia-historico-precos.md.
+
+## 28/10/2026 — Fase 3: SPEC-3-005 construída até onde as alçadas permitem
+
+- Requisição por fornecedor, cotações comparadas com o último preço, aprovação/recusa por alçada com hash e invalidação por mudança; migration 0033, rotas e tela `/compras/requisicoes`. Skip v0.0.179 (ref 9f76820) publicada e provada; 72 de 72 testes (Node). Sem alçadas nem tolerância cadastradas, a aprovação real fica parada. Evidência: 05_entregas/fase-3/spec-3-005/evidencia-requisicao-cotacao-aprovacao.md.

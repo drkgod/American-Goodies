@@ -70,12 +70,15 @@ tarefas que já têm um.
 - [/] Trazer o histórico real dos pedidos de compra do Omie @"American Goodies" !06/11/2026
   > Reaproveita a leitura de pedidos de compra já provada na fase 2 (pedido 1514). Os campos de preço são conferidos numa amostra antes do uso; campo que não vier fica pendente, nunca zero. SPEC-3-004 · CA-3-13.
   > Resultado 28/10: conversor e chave de linha prontos e provados em fixture; a leitura de preço está desligada até os campos serem conferidos numa amostra real (chave do Omie bloqueada, CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-004/.
-- [ ] Transformar a necessidade de compra em requisição por fornecedor @"American Goodies" !06/11/2026
+- [/] Transformar a necessidade de compra em requisição por fornecedor @"American Goodies" !06/11/2026
   > A sugestão de compra aceita, ou um pedido do comprador, vira requisição separada por fornecedor, com quantidade, data necessária e marca de compra emergencial com motivo. SPEC-3-005 · CA-3-14.
-- [ ] Registrar cotações com preço e prazo e comparar com o histórico @"American Goodies" !09/11/2026
+  > Resultado 28/10: requisição por fornecedor (manual), nas duas unidades, com emergência e sem duplicar, rota e tela no ar (Skip v0.0.179); testes passando (P3.05-01). O botão no cartão da sugestão espera as sugestões reais (chave do Omie). Evidência: 05_entregas/fase-3/spec-3-005/.
+- [/] Registrar cotações com preço e prazo e comparar com o histórico @"American Goodies" !09/11/2026
   > Uma ou mais cotações por item, com preço convertido para a unidade de estoque e prazo de entrega. A tela mostra a diferença para o último preço e destaca o que passar da tolerância cadastrada. SPEC-3-005 · CA-3-15.
-- [ ] Aprovar a compra pela alçada, com registro de quem aprovou @"American Goodies" !09/11/2026
+  > Resultado 28/10: cotações, escolha e diferença para o último preço no ar (Skip v0.0.179); testes passando (P3.05-05); a comparação usa o histórico, ainda vazio até a carga real, e a tolerância ainda não foi cadastrada (CL-PEND-001). Evidência: 05_entregas/fase-3/spec-3-005/.
+- [/] Aprovar a compra pela alçada, com registro de quem aprovou @"American Goodies" !09/11/2026
   > Só quem tem a alçada aprova, com data e motivo; recusa também tem motivo. Mudança depois da aprovação pede aprovação nova. Sem alçada cadastrada, a aprovação real fica parada com o motivo. SPEC-3-005 · CA-3-16.
+  > Resultado 28/10: aprovação e recusa por alçada, hash e invalidação por mudança no ar (Skip v0.0.179); testes passando (P3.05-02, 03 e 04); sem alçada cadastrada (CL-PEND-008) a aprovação real fica parada. Evidência: 05_entregas/fase-3/spec-3-005/.
 - [ ] Acompanhar as entregas dos pedidos de compra pelo Omie @"American Goodies" !10/11/2026
   > Por fornecedor: pedidos em aberto, data prevista, quanto chegou, quanto falta e quais estão atrasados; compras emergenciais aparecem marcadas. Só leitura do Omie. SPEC-3-006 · CA-3-17.
 - [ ] Preparar o lançamento da compra aprovada no Omie, com o envio desligado @"American Goodies" !10/11/2026
