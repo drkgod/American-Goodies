@@ -52,14 +52,18 @@ tarefas que já têm um.
 - [/] Preparar a autorização do dono e a conferência depois do envio @"American Goodies" !03/11/2026
   > A tela mostra ao dono a ordem, o produto, a quantidade, a data e o efeito no estoque. Só ele autoriza, uma ordem por vez. Depois do envio, o sistema confere a ordem, a quantidade, o status e o estoque. SPEC-3-002 · CA-3-07.
   > Resultado 28/10: autorização por ordem, desfazer, conferência só leitura e tela "Envio ao Omie" no ar (Skip v0.0.175); 10 de 10 testes passando. Ainda não há ordem real para autorizar: a preparação depende das conferências reais (Omie bloqueado). Evidência: 05_entregas/fase-3/spec-3-002/.
-- [ ] Criar os acessos de compras e recebimento por área @"American Goodies" !03/11/2026
+- [/] Criar os acessos de compras e recebimento por área @"American Goodies" !03/11/2026
   > Novas ações para comprador, aprovador, almoxarifado e financeiro, conferidas no servidor. Na construção valem perfis de teste; as contas reais recebem as ações pela matriz que o dono aprovar. SPEC-3-003 · CA-3-08.
-- [ ] Montar o cadastro de fornecedores com os contatos em campos separados @"American Goodies" !04/11/2026
+  > Resultado 28/10: oito ações e guarda no servidor, área recebimento e rota de acesso no ar (Skip v0.0.177); testes passando (P3.03-01); falta a regressão dos acessos da fase 2 e nenhuma conta real recebeu ação (matriz CL-003). Evidência: 05_entregas/fase-3/spec-3-003/.
+- [/] Montar o cadastro de fornecedores com os contatos em campos separados @"American Goodies" !04/11/2026
   > O fornecedor vem do Omie; a tela acrescenta contatos (nome, função, telefone, e-mail) e o prazo de entrega, cada um no seu campo. O cadastro do Omie não é alterado. SPEC-3-003 · CA-3-09.
-- [ ] Barrar a compra de item que não está cadastrado no Omie @"American Goodies" !04/11/2026
+  > Resultado 28/10: complemento com contatos em campos próprios, prazo e versões, rotas e tela no ar (Skip v0.0.177); a lista de fornecedores do Omie espera a chave do Omie (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-003/.
+- [/] Barrar a compra de item que não está cadastrado no Omie @"American Goodies" !04/11/2026
   > Requisição, cotação ou recebimento de item sem cadastro param com o aviso 'cadastrar no Omie antes'. Exceção só com autorização e motivo, e fica pendente até o item aparecer no cadastro. SPEC-3-003 · CA-3-10.
-- [ ] Converter a unidade de compra para a unidade de estoque só com fator confirmado @"American Goodies" !05/11/2026
+  > Resultado 28/10: regra, exceção autorizada e rota de avaliação no ar (Skip v0.0.177); testes passando (P3.03-02); as telas de requisição, cotação e recebimento (SPECs 3-005 a 3-007) vão usar a mesma regra. Evidência: 05_entregas/fase-3/spec-3-003/.
+- [/] Converter a unidade de compra para a unidade de estoque só com fator confirmado @"American Goodies" !05/11/2026
   > Ex.: saco de 25 kg vira 25 KG pelo fator confirmado por Compras. Sem fator, a quantidade fica na unidade de compra com pendência e o preço não é comparado. Mudar o fator cria versão nova. SPEC-3-003 · CA-3-11.
+  > Resultado 28/10: fator versionado, conversão e tela no ar (Skip v0.0.177); testes passando (P3.03-03 e 04: 4 sacos de 25 kg a R$ 250,00 = 100 KG a R$ 10,00). Evidência: 05_entregas/fase-3/spec-3-003/.
 - [ ] Montar o histórico de preços por produto e por fornecedor @"American Goodies" !05/11/2026
   > Preço sempre na unidade de estoque, por fornecedor e data. Frete, serviço e N-D ficam fora do histórico de insumos, mas continuam no registro do documento. Item sem classificação fica 'a classificar'. SPEC-3-004 · CA-3-12.
 - [ ] Trazer o histórico real dos pedidos de compra do Omie @"American Goodies" !06/11/2026

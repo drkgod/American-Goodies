@@ -112,3 +112,7 @@
 ## 28/10/2026 — Fase 3: autorização do dono e conferência (SPEC-3-002, CA-3-07) em andamento
 
 - Autorização de uma ordem por vez (só a ação do dono), desfazer, conferência só leitura e tela "Envio ao Omie" (`/envio-omie`). Skip v0.0.175 (ref e2b0917) publicada e provada; QA verde; 38 de 38 testes (Node). Sem ordem real para autorizar ainda (depende das conferências reais). Chave de escrita desligada; nenhuma chamada ao Omie. Evidência: 05_entregas/fase-3/spec-3-002/evidencia-autorizacao-conferencia.md.
+
+## 28/10/2026 — Fase 3: SPEC-3-003 construída até onde o Omie e a matriz permitem
+
+- Acessos de compras e recebimento (8 ações, área `recebimento`, guarda no servidor), complemento de fornecedores com versões, bloqueio de item fora do cadastro com exceção autorizada e conversão de unidade por fator confirmado. Skip v0.0.176 e v0.0.177 (ref 86e3a1c) publicadas e provadas; migrations 0030 e 0031; 56 de 56 testes (Node). Nenhuma conta real recebeu ação nova (CL-003). Evidência: 05_entregas/fase-3/spec-3-003/evidencia-compras-base.md.
