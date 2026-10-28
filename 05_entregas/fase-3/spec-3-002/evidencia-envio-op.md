@@ -24,3 +24,8 @@ Data: 28/10/2026 · Skip v0.0.174 (ref 9d19c7e), publicada e provada (referênci
 - O envio real nunca foi chamado e nada cria ainda uma transação autorizada: a autorização do dono é a próxima task (CA-3-07). Até lá a rota só responde 423.
 - O efeito exato de `ConcluirOrdemProducao` no Omie (estoque, ordem já concluída) não consta do WSDL e será conferido com o dono na primeira gravação.
 - Mirror em `07-sistemas/pcp/codigo/`: não feito nesta task; os fontes estão no Skip v0.0.174.
+
+## Atualização 28/10/2026 — testes executados de verdade
+`node --test` (Node v24.22.1, baixado de nodejs.org com checksum conferido, pasta temporária) rodou os 10 testes de `tests/pcp/spec-3-002.test.mjs`: **10 de 10 passaram**
+(P3.02-01, P3.02-03 e P3.02-04 incluídos; mais conteúdo alterado, recusa, timeout, clique duplo e dois trabalhadores). Total da rodada com a SPEC-3-001: 28 de 28.
+Pendente: P3.02-05 (regressão das provas O2/O3/O4 da fase 2), porque os testes `spec-2-*` não foram copiados para rodar.

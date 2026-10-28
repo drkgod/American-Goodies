@@ -25,3 +25,11 @@ Data: 28/10/2026 · Skip v0.0.170 (ref b2387dd), publicada e provada (status sem
 ## Risco encontrado
 - `pocketbase/hooks/pcp_catalogo_dirigido_run.js` (temporário da fase 2) tem um token de acesso fixo no código.
   Recomendo remover o arquivo; não alterei por estar fora do recorte desta task.
+
+## Atualização 28/10/2026 — testes executados de verdade
+Foi baixado o Node.js v24.22.1 (nodejs.org, checksum SHA-256 conferido) numa pasta temporária, sem instalar no computador.
+Comando: `node --test tests/pcp/*.test.mjs` sobre os módulos do Skip v0.0.174 e os testes das SPECs 3-001 e 3-002.
+Resultado: **28 testes, 28 passaram, 0 falharam** (8 de sincronização do catálogo, 4 de faltantes, 6 de conversão dos 90 dias, 10 de envio da produção).
+Os módulos testados são os mesmos do Skip, copiados sem os comentários longos; a execução não toca o Omie nem o banco.
+Isso substitui o "só teste de mesa" dos itens acima para essas funções. O que continua sem prova: leitura real do Omie, tela no navegador e a
+regressão da fase 2 (testes `spec-2-*`, que não foram copiados para rodar).

@@ -38,6 +38,7 @@ tarefas que já têm um.
 - [/] Importar os 90 dias reais de vendas, produção e compras a receber @"American Goodies" !29/10/2026
   > A importação já construída roda com os dados reais e os pedidos firmes pela regra aprovada em 21/10. Falha mantém a importação anterior; dado desconhecido fica pendente, nunca zero. SPEC-3-001 · CA-3-03.
   > Resultado 28/10: conversão dos pedidos de venda e de compra do Omie pronta e no ar (Skip v0.0.173); a leitura real dos 90 dias e as ordens de produção esperam o Omie liberar a chave (CL-PEND-006). Nota: 06_notas/bloqueio-omie-leitura-real-2026-10-28.md.
+  > Atualização 28/10: 6 testes da conversão executados e passando; leitura real segue pendente do Omie.
 - [/] Calcular as sugestões de produção e de compra com os números reais @"American Goodies" !29/10/2026
   > Pelo método aprovado em 21/10. Cada sugestão mostra de onde veio cada número; item sem dado fica pendente com o motivo. Nada é publicado nem comprado. O PCP confere os números na validação final. SPEC-3-001 · CA-3-04.
   > Resultado 28/10: o método (baseline90-v1) e a memória de cálculo já estão construídos e provados com dados de exemplo desde a fase 2; o cálculo real espera o catálogo e os 90 dias reais, que esperam o Omie liberar a chave (CL-PEND-006). Nota: 06_notas/bloqueio-omie-leitura-real-2026-10-28.md.
@@ -47,6 +48,7 @@ tarefas que já têm um.
 - [/] Ligar o envio da produção ao Omie com o envio desligado e provar no simulador @"American Goodies" !30/10/2026
   > A fila de envio ganha a ligação real com o Omie, mas com a chave desligada nada é gravado. No simulador, uma ordem conferida e aprovada é concluída uma vez, mesmo com clique duplo, queda ou resposta perdida. SPEC-3-002 · CA-3-06.
   > Resultado 28/10: rota de envio com chave desligada (423), simulador e contrato no ar (Skip v0.0.174); provado por teste de mesa, a suíte não pôde rodar neste computador (sem Node). Nenhuma chamada ao Omie. Evidência: 05_entregas/fase-3/spec-3-002/.
+  > Atualização 28/10: 10 de 10 testes da SPEC-3-002 executados e passando (P3.02-01/03/04); falta rodar a regressão da fase 2 (P3.02-05).
 - [ ] Preparar a autorização do dono e a conferência depois do envio @"American Goodies" !03/11/2026
   > A tela mostra ao dono a ordem, o produto, a quantidade, a data e o efeito no estoque. Só ele autoriza, uma ordem por vez. Depois do envio, o sistema confere a ordem, a quantidade, o status e o estoque. SPEC-3-002 · CA-3-07.
 - [ ] Criar os acessos de compras e recebimento por área @"American Goodies" !03/11/2026
