@@ -31,7 +31,7 @@ tarefas que já têm um.
 
 - [/] Trazer o catálogo real do Omie produto a produto, sem estourar o limite de consultas @"American Goodies" !28/10/2026
   > O catálogo passa a vir do Omie consultando cada produto do estoque, em lotes pequenos, com pausa e retomada. Se o Omie bloquear, a tela mostra a hora da nova tentativa e mantém o último catálogo. SPEC-3-001 · CA-3-01.
-- [ ] Mostrar ao PCP a lista do que falta cadastrar no Omie @"American Goodies" !28/10/2026
+- [/] Mostrar ao PCP a lista do que falta cadastrar no Omie @"American Goodies" !28/10/2026
   > Produto que aparece no estoque, numa ficha ou num pedido e não está no cadastro entra na lista com o código e onde aparece. O PCP cadastra no Omie e a leitura seguinte tira da lista. SPEC-3-001 · CA-3-02.
 - [ ] Importar os 90 dias reais de vendas, produção e compras a receber @"American Goodies" !29/10/2026
   > A importação já construída roda com os dados reais e os pedidos firmes pela regra aprovada em 21/10. Falha mantém a importação anterior; dado desconhecido fica pendente, nunca zero. SPEC-3-001 · CA-3-03.

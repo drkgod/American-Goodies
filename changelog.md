@@ -95,3 +95,8 @@
 
 - Contrato `catalogo-sync.ts` + endpoint `/backend/v1/pcp/catalogo/sync` (só leitura): sub-lotes com pausa, cursor, parada no 425/consumo redundante com nova tentativa em 12 h, catálogo anterior mantido até o lote novo completar. Skip v0.0.170 (ref b2387dd) publicada e provada; QA verde.
 - A suíte de testes não foi executada (sem executor); prova por teste de mesa. Leitura real e conferência de 3 produtos pendentes do Omie liberar a chave (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-001/evidencia-catalogo-sync.md.
+
+## 28/10/2026 — Fase 3: lista do que falta cadastrar no Omie (SPEC-3-001, CA-3-02) em andamento
+
+- Contrato `faltantes.ts`, endpoint `/backend/v1/pcp/faltantes` e card em `/qualidade`. Cobre só o estoque; ficha e pedido avisados como "ainda não entram". Catálogo não lido por inteiro = lista vazia com aviso. Skip v0.0.172 (ref 594132b) publicada e provada; QA verde; testes só de mesa.
+- Ajuste do `pcp_catalogo_sync.js`: linha do catálogo no formato lido pela tela (`produto_id`, `familia`, `ativo` S/N). Evidência: 05_entregas/fase-3/spec-3-001/evidencia-faltantes.md.

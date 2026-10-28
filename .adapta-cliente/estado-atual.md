@@ -11,10 +11,10 @@
 - bloqueios_localizados: chave do Omie bloqueada por excesso de consultas desde 23/10 (CL-PEND-006); origem das notas de entrada em revisão (CL-PEND-007)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: v0.0.170 (ref b2387dd), publicada 28/10
-- pendente_github: sim:1 commit local; push pelo terminal recusado, enviar pelo GitHub Desktop
-- ultima_acao: 28/10 — catálogo produto a produto (contrato + endpoint) no ar na v0.0.170; QA verde; leitura real pendente do Omie (CL-PEND-006)
-- proxima_acao: construir "Mostrar ao PCP a lista do que falta cadastrar" (SPEC-3-001 CA-3-02); retomar a leitura real do catálogo quando o Omie liberar
+- skip_versao: v0.0.172 (ref 594132b), publicada 28/10
+- pendente_github: sim:commits locais; enviar pelo GitHub Desktop (push pelo terminal sem login)
+- ultima_acao: 28/10 — lista de faltantes (CA-3-02) no ar na v0.0.172; QA verde; só estoque; sem leitura real
+- proxima_acao: construir "Importar os 90 dias reais" (CA-3-03); retomar leituras reais quando o Omie liberar a chave
 - atualizado_em: 2026-10-28
 
 Estado anterior preservado no histórico do git (commit 056629c).
