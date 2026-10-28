@@ -30,3 +30,13 @@ presente na primeira gravação**, como manda a regra 6 do índice. Nenhuma cham
 - Campos usados: `identificacao.nQtde` (quantidade da ordem) e `outrasInf.cConcluida` (`S` = concluída), conforme a amostra de 20/10 e o WSDL.
 - **Ponto em aberto, a confirmar na primeira gravação com o dono:** a leitura documentada devolve a quantidade da ordem (`nQtde`), não uma quantidade produzida à parte. Se o Omie atualizar `nQtde` ao concluir, a conferência bate; se não, a conferência aponta divergência sem gravar nada.
 - Estoque: sem leitura de estoque guardada antes do envio, o resultado é "conferido sem estoque", nunca "conferido".
+
+## PedidoCompra (produtos/pedidocompra/) — lido do WSDL em 28/10/2026 (SPEC-3-004 e SPEC-3-006)
+
+Fonte: WSDL público do método, só leitura da documentação; nenhuma chamada à conta. Conferência por amostra real continua pendente (chave bloqueada, CL-PEND-006).
+
+- **IncluirPedCompra (pedido):** `cabecalho_incluir` (`cCodIntPed`, `dDtPrevisao`, `cCodParc`, `nQtdeParc`, `nCodFor`/`cCnpjCpfFor`/`cCodIntFor`, `cCodCateg`, `nCodCompr`, `cContato`, `cNumPedido`, `cObs`, `cObsInt`, `cEmailAprovador`…), `produtos_incluir[]` (`cCodIntItem`, `cCodIntProd`, `nCodProd`, `cProduto`, `cUnidade`, `nQtde`, `nValUnit`, `nDesconto`, impostos…), `frete_incluir`, `parcelas_incluir[]`, `departamentos_incluir[]`. Todos os blocos são obrigatórios no esquema, mas aceitam nulo.
+- **Resposta da inclusão:** `nCodPed`, `cCodIntPed` (código de integração), `cCodStatus`, `cDescStatus`, `cNumero`.
+- **ConsultarPedCompra:** aceita `nCodPed`, `cCodIntPed` ou `cNumero`; o cabeçalho traz `nCodFor`, `dIncData`, `cEtapa`, `cNumero`, `dDtPrevisao`.
+- **Efeito na SPEC-3-004:** o fornecedor do pedido vem em `nCodFor` (código do Omie, não o nome) e a data de inclusão em `dIncData`; os nomes `nValUnit` e `nValTot` dos itens na CONSULTA ainda não foram vistos numa resposta real e seguem como hipótese (`camposConfirmados = false`).
+- **Efeito na SPEC-3-006:** o código de integração (`cCodIntPed`) permite consultar sem repetir a gravação. O adapter ainda não foi construído; a chave `omie_pedido_compra_escrita` segue desligada.
