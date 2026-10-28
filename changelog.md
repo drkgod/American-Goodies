@@ -90,3 +90,8 @@
 - Owner enviou o fluxograma oficial de produção (validação com as gerências, 10/2026): etapas 4–7 (triagem, cozinha, resfriamento, encaixotamento) sob gerência do Arivaldo; Keoma supervisiona 1–3 e 8–11 (produto acabado, faturamento, expedição, entrega).
 - **Matriz v2** (aprovada por Mr Cheney, "aprovo", 21/10 14:03): Keoma Targino ganha pontos **produto_acabado** e **expedicao** (espelhando a equipe da expedição). Perfil atualizado no Skip (migration 0027).
 - Registro: 06_notas/organograma-2026-10.md (fonte) + matriz v2 datada. Fase 2: **24/29** (pendências restantes: d77447ab, 6e38e5a3, 0d876150 + uso real da e6aa4afa).
+
+## 28/10/2026 — Fase 3: catálogo real produto a produto (SPEC-3-001, CA-3-01) em andamento
+
+- Contrato `catalogo-sync.ts` + endpoint `/backend/v1/pcp/catalogo/sync` (só leitura): sub-lotes com pausa, cursor, parada no 425/consumo redundante com nova tentativa em 12 h, catálogo anterior mantido até o lote novo completar. Skip v0.0.170 (ref b2387dd) publicada e provada; QA verde.
+- A suíte de testes não foi executada (sem executor); prova por teste de mesa. Leitura real e conferência de 3 produtos pendentes do Omie liberar a chave (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-001/evidencia-catalogo-sync.md.
