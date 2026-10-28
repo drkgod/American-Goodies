@@ -44,8 +44,9 @@ tarefas que já têm um.
 - [/] Usar programação, apontamentos e conferências com os produtos e as contas reais @"American Goodies" !30/10/2026
   > As telas da fase 2 passam a usar o catálogo real e as contas da matriz aprovada; o acesso de demonstração das conferências sai e a demonstração fica separada. Nada vai para o Omie. SPEC-3-001 · CA-3-05.
   > Resultado 28/10: não construída ainda. As telas de planejamento, apontamentos e conferências seguem com dados de demonstração marcados; trocar para produtos e ordens reais depende do catálogo real e das ordens de produção lidas do Omie (chave bloqueada, CL-PEND-006). O acesso de demonstração da conferência só sai junto, para a tela não ficar sem uso.
-- [ ] Ligar o envio da produção ao Omie com o envio desligado e provar no simulador @"American Goodies" !30/10/2026
+- [/] Ligar o envio da produção ao Omie com o envio desligado e provar no simulador @"American Goodies" !30/10/2026
   > A fila de envio ganha a ligação real com o Omie, mas com a chave desligada nada é gravado. No simulador, uma ordem conferida e aprovada é concluída uma vez, mesmo com clique duplo, queda ou resposta perdida. SPEC-3-002 · CA-3-06.
+  > Resultado 28/10: rota de envio com chave desligada (423), simulador e contrato no ar (Skip v0.0.174); provado por teste de mesa, a suíte não pôde rodar neste computador (sem Node). Nenhuma chamada ao Omie. Evidência: 05_entregas/fase-3/spec-3-002/.
 - [ ] Preparar a autorização do dono e a conferência depois do envio @"American Goodies" !03/11/2026
   > A tela mostra ao dono a ordem, o produto, a quantidade, a data e o efeito no estoque. Só ele autoriza, uma ordem por vez. Depois do envio, o sistema confere a ordem, a quantidade, o status e o estoque. SPEC-3-002 · CA-3-07.
 - [ ] Criar os acessos de compras e recebimento por área @"American Goodies" !03/11/2026

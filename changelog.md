@@ -104,3 +104,7 @@
 ## 28/10/2026 — Fase 3: SPEC-3-001 construída até onde o Omie permite
 
 - Conversão dos pedidos de venda e de compra do Omie nas linhas da importação de 90 dias (`omie-90d-mapa.ts`), Skip v0.0.173 (ref 94f5590) publicada e provada; QA verde; testes só de mesa. Cálculo real das sugestões e uso das telas com dados reais ficam em andamento até a chave do Omie ser liberada (CL-PEND-006). Nota: 06_notas/bloqueio-omie-leitura-real-2026-10-28.md.
+
+## 28/10/2026 — Fase 3: envio da produção ao Omie com a chave desligada (SPEC-3-002, CA-3-06) em andamento
+
+- Migration 0029 (chaves de escrita desligadas e transações), contrato `envio-op.ts` com simulador, rota `/backend/v1/pcp/omie/op/enviar` (423 com a chave desligada). Skip v0.0.174 (ref 9d19c7e) publicada e provada; QA verde; testes só de mesa. Nenhuma chamada ao Omie. Contrato em `07-sistemas/pcp/contratos-fase-3.md`. Evidência: 05_entregas/fase-3/spec-3-002/evidencia-envio-op.md.
