@@ -97,12 +97,15 @@ tarefas que já têm um.
 - [/] Montar a pré-conferência da nota de entrada com notas de demonstração @"American Goodies" !12/11/2026
   > Compara nota, pedido, recebimento e parcelas usando só notas de demonstração marcadas. A leitura das notas reais fica em revisão até o cliente dizer onde elas estão. SPEC-3-007 · CA-3-22.
   > Resultado 28/10: pré-conferência só com nota de demonstração, nota real recusada, no ar (Skip v0.0.182); testes passando (P3.07-05); leitura de nota real e escrita do recebimento seguem em revisão (CL-PEND-007). Evidência: 05_entregas/fase-3/spec-3-007/.
-- [ ] Criar os acessos de faturamento e expedição por área @"American Goodies" !13/11/2026
+- [/] Criar os acessos de faturamento e expedição por área @"American Goodies" !13/11/2026
   > Novas ações para preparar pedido, conferir volumes e liberar para faturar, conferidas no servidor. Na construção valem perfis de teste; as contas reais seguem a matriz que o dono aprovar. SPEC-3-008 · CA-3-23.
-- [ ] Montar o cadastro das unidades com o nome fantasia usado na operação @"American Goodies" !13/11/2026
+  > Resultado 28/10: cinco ações na área nova faturamento, conferidas no servidor, no ar (Skip v0.0.183); testes passando (P3.08-01); nenhuma conta real recebeu ação nova (matriz CL-003). Evidência: 05_entregas/fase-3/spec-3-008/.
+- [/] Montar o cadastro das unidades com o nome fantasia usado na operação @"American Goodies" !13/11/2026
   > Cada cliente do Omie ganha a unidade e o nome fantasia que a operação usa. Nome diferente vindo do canal fica 'a revisar' e não troca o cadastro sozinho. SPEC-3-008 · CA-3-24.
-- [ ] Ligar cada pedido à tabela de preço e à origem do canal @"American Goodies" !16/11/2026
+  > Resultado 28/10: unidades com versões, nomes de canal a revisar e telas no ar (Skip v0.0.183); testes passando (P3.08-02); a contagem de unidades reais espera a leitura de clientes do Omie (CL-PEND-006) e os dados das unidades (CL-PEND-010). Evidência: 05_entregas/fase-3/spec-3-008/.
+- [/] Ligar cada pedido à tabela de preço e à origem do canal @"American Goodies" !16/11/2026
   > O pedido mostra a tabela da unidade, o subtotal recalculado e a origem (Omie, Lunet pelo Omie, Nuvemshop ou manual). Preço diferente da tabela aparece e não é trocado sozinho. SPEC-3-008 · CA-3-25.
+  > Resultado 28/10: tabela de preço versionada, subtotal recalculado, origem e tela de preparação no ar (Skip v0.0.183); testes passando (P3.08-03 e 04); campos do pedido do Omie ainda sem amostra real e Lunet sem marcador. Evidência: 05_entregas/fase-3/spec-3-008/.
 - [ ] Registrar o frete e os volumes conferidos pela expedição @"American Goodies" !16/11/2026
   > Cada pedido tem a modalidade de frete escolhida, sem FOB para todos, e os volumes contados pela expedição. Não há cálculo de cubagem; sem conferência o pedido fica bloqueado. SPEC-3-009 · CA-3-26.
 - [ ] Montar a fila de pedidos aptos e bloqueados para faturar @"American Goodies" !17/11/2026

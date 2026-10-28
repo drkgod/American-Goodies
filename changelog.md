@@ -132,3 +132,7 @@
 ## 28/10/2026 — Fase 3: SPEC-3-007 construída (partes em revisão fora)
 
 - Recebimento conferido com ligação a vários pedidos, falta e sobra, parcelas e pagamento antecipado com aviso de já paga, exceção de item sem cadastro e pré-conferência só com nota de demonstração; migration 0035, rotas e tela `/recebimentos`. Skip v0.0.182 (ref 48f4e84) publicada e provada; 91 de 91 testes (Node). Leitura de nota real e escrita do recebimento não construídas (CL-PEND-007). Evidência: 05_entregas/fase-3/spec-3-007/evidencia-recebimento.md.
+
+## 28/10/2026 — Fase 3: SPEC-3-008 construída até onde o Omie e a matriz permitem
+
+- Cinco ações na área `faturamento`, unidades versionadas com nome fantasia operacional, nomes de canal "a revisar", tabela de preço versionada, subtotal recalculado e origem do pedido; migration 0036, rotas e telas `/unidades` e `/pedidos/preparacao`. Skip v0.0.183 (ref e06ce12) publicada e provada; 101 de 101 testes (Node). Leitura de clientes do Omie e marcador do Lunet pendentes. Evidência: 05_entregas/fase-3/spec-3-008/evidencia-unidades-tabela-origem.md.
