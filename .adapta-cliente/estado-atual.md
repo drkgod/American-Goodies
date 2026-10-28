@@ -12,7 +12,7 @@
 - sistema: pcp
 - skip_projeto: 62774
 - skip_versao: v0.0.170 (ref b2387dd), publicada 28/10
-- pendente_github: nao
+- pendente_github: sim:push recusado, sem login do GitHub neste computador (28/10)
 - ultima_acao: 28/10 — catálogo produto a produto (contrato + endpoint) no ar na v0.0.170; QA verde; leitura real pendente do Omie (CL-PEND-006)
 - proxima_acao: construir "Mostrar ao PCP a lista do que falta cadastrar" (SPEC-3-001 CA-3-02); retomar a leitura real do catálogo quando o Omie liberar
 - atualizado_em: 2026-10-28
