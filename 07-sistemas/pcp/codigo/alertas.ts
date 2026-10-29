@@ -284,7 +284,9 @@ export function regraDivergencia(p: ParametrosAlerta, e: { conferencia: string; 
 
 export interface AlertaGuardado extends Alerta {
   ocorrencia: number
-  estado: 'aberto' | 'tratado'
+  estado: 'aberto' | 'em_analise' | 'tratado'
+  /** Ocorrência anterior da mesma chave, se esta nasceu depois de um alerta tratado (RN-03 da SPEC-3-011). */
+  anteriorOcorrencia: number | null
   abertoEm: string
   atualizadoEm: string
   atualizacoes: number
@@ -298,13 +300,14 @@ export function aplicarRodada(existentes: AlertaGuardado[], gerados: Alerta[], a
   for (const g of gerados) {
     if (jaNaRodada.has(g.chave)) continue
     jaNaRodada.add(g.chave)
-    const aberto = lista.find((a) => a.chave === g.chave && a.estado === 'aberto')
+    const aberto = lista.find((a) => a.chave === g.chave && a.estado !== 'tratado')
     if (aberto) {
       Object.assign(aberto, g, { atualizadoEm: agora.toISOString(), atualizacoes: aberto.atualizacoes + 1 })
       atualizados++
     } else {
       const ocorrencia = lista.filter((a) => a.chave === g.chave).reduce((m, a) => Math.max(m, a.ocorrencia), 0) + 1
-      lista.push({ ...g, ocorrencia, estado: 'aberto', abertoEm: agora.toISOString(), atualizadoEm: agora.toISOString(), atualizacoes: 0 })
+      const anteriorOcorrencia = ocorrencia > 1 ? ocorrencia - 1 : null
+      lista.push({ ...g, ocorrencia, anteriorOcorrencia, estado: 'aberto', abertoEm: agora.toISOString(), atualizadoEm: agora.toISOString(), atualizacoes: 0 })
       criados++
     }
   }

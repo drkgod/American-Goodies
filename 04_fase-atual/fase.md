@@ -127,10 +127,12 @@ tarefas que já têm um.
 - [/] Gerar os alertas com os dados reais, sem repetir alerta @"American Goodies" !19/11/2026
   > As regras rodam com o estoque, as compras e os pedidos reais. A mesma situação atualiza o alerta aberto em vez de criar outro. Alerta não compra, não publica ordem e não muda parâmetro. SPEC-3-010 · CA-3-32.
   > Resultado 28/10: rodada sem repetição no ar com quatro fontes locais (Skip v0.0.186); testes passando (P3.10-02); estoque, produção, divergência e intenção da Nuvemshop sem fonte ligada (leitura do Omie, CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-010/.
-- [ ] Abrir o ciclo de tratamento dos alertas com responsável e histórico @"American Goodies" !23/11/2026
+- [/] Abrir o ciclo de tratamento dos alertas com responsável e histórico @"American Goodies" !23/11/2026
   > Cada alerta passa por aberto, em análise e tratado; tratar exige registrar a ação tomada e quem tratou. O histórico não é apagado, e alerta que volta é ligado ao anterior. SPEC-3-011 · CA-3-33.
-- [ ] Mostrar cada alerta só para quem cuida da área, agrupado @"American Goodies" !23/11/2026
+  > Resultado 29/10: ciclo aberto, em análise e tratado com responsável, ação obrigatória, histórico só de inclusão e reabertura ligada no ar (Skip v0.0.187); testes passando (P3.11-01, 03 e 04). Evidência: 05_entregas/fase-3/spec-3-011/.
+- [/] Mostrar cada alerta só para quem cuida da área, agrupado @"American Goodies" !23/11/2026
   > Compras vê alertas de compra e preço, o PCP os de estoque e produção, o faturamento os de pedido. Alertas iguais ficam agrupados. Desligar uma regra guarda o histórico dela. SPEC-3-011 · CA-3-34.
+  > Resultado 29/10: alertas por área, agrupados por tipo e item, contador no menu e regra desligável com histórico preservado no ar (Skip v0.0.187); testes passando (P3.11-02 e 05); nenhuma conta real recebeu a ação tratar_alerta (matriz CL-003). Evidência: 05_entregas/fase-3/spec-3-011/.
 - [ ] Comparar as vendas de cada produto com o histórico e a sazonalidade @"American Goodies" !24/11/2026
   > Mostra o período atual ao lado do mesmo período de anos anteriores. Sem histórico suficiente pela regra aprovada pelo PCP, mostra 'histórico insuficiente' em vez de inventar sazonalidade. SPEC-3-012 · CA-3-35.
 - [ ] Sugerir antecipar compra pela sazonalidade, sem refazer a sugestão da fase 2 @"American Goodies" !24/11/2026
