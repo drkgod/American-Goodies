@@ -6,7 +6,7 @@
 - **Construção:** em sequência, sem teste no meio; cada tarefa fecha pelas provas automáticas. O único teste é a sessão final (SPEC-3-018).
 - **Gravações no Omie:** construídas com a chave desligada e provadas no simulador; só ligam com a autorização do dono, uma por vez, com a condição do checklist cumprida.
 - **Bloqueios localizados:** chave do Omie bloqueada por excesso de consultas desde 23/10 (CL-PEND-006); origem das notas de entrada em revisão (CL-PEND-007). Os dois deixam pendente só a parte afetada.
-- **Ambiente:** projeto Skip 62774 (MCP do Skip e Skip Cloud); última versão registrada v0.0.188 (ref cd33dd6).
+- **Ambiente:** projeto Skip 62774 (MCP do Skip e Skip Cloud); última versão registrada v0.0.190 (ref 18bb1cd).
 
 **Andamento da fase 3 (28/10/2026):** SPEC-3-001 construída até onde o Omie permite — catálogo produto a produto, lista do que falta cadastrar e conversão dos 90 dias estão no ar (Skip v0.0.173, ref 94f5590). As 5 tarefas da SPEC seguem em andamento (`[/]`): a leitura real, a conferência de 3 produtos e o cálculo real das sugestões esperam o dono desbloquear a chave do Omie (CL-PEND-006). Detalhe: `06_notas/bloqueio-omie-leitura-real-2026-10-28.md`.
 
@@ -32,7 +32,9 @@
 
 **SPEC-3-012 (29/10):** vendas por mês com cobertura, comparação com anos anteriores, regra de suficiência do PCP e sugestão explicada de antecipar a compra no ar (Skip v0.0.188); sem a leitura do Omie (CL-PEND-006) e sem a regra do PCP (CL-PEND-001), a tela mostra 'histórico insuficiente'.
 
-Próxima ação: SPEC-3-013. Só o consultor encerra o projeto.
+**SPEC-3-013 (29/10):** medida do LOOP-01 por ciclo (críticos tratados com ação ÷ gerados, com 'não aplicável'), tela, veredito do validador e recusa de ligar sem as condições no ar (Skip v0.0.190); loop desligado, ficha em `07-sistemas/pcp/loops.md`; cadastro no Maestro e as condições do cliente (CL-PEND-005) pendentes.
+
+Próxima ação: SPEC-3-014. Só o consultor encerra o projeto.
 
 Publicação documental; sem alteração do código, do Skip, das integrações ou do portal.
 

@@ -139,10 +139,12 @@ tarefas que já têm um.
 - [/] Sugerir antecipar compra pela sazonalidade, sem refazer a sugestão da fase 2 @"American Goodies" !24/11/2026
   > O cartão da sugestão ganha o contexto do mesmo período do ano anterior e o prazo do fornecedor. É só sugestão explicada: o cálculo aprovado em 21/10 não muda e uma pessoa decide. SPEC-3-012 · CA-3-36.
   > Resultado 29/10: sugestão explicada de antecipar pela data necessária menos o prazo do fornecedor, levando à requisição sem comprar, no ar (Skip v0.0.188); testes passando (P3.12-03); baseline90-v1 intacto. Evidência: 05_entregas/fase-3/spec-3-012/.
-- [ ] Medir quantos alertas críticos foram tratados no ciclo @"American Goodies" !25/11/2026
+- [/] Medir quantos alertas críticos foram tratados no ciclo @"American Goodies" !25/11/2026
   > Conta os alertas críticos tratados com ação registrada sobre os gerados no ciclo. Ciclo sem alerta crítico mostra 'não aplicável', nunca 100%. SPEC-3-013 · CA-3-37.
-- [ ] Deixar o loop dos alertas configurado e desligado no Maestro @"American Goodies" !25/11/2026
+  > Resultado 29/10: medida por ciclo (tratados com ação ÷ críticos gerados) com 'não aplicável' e tela no ar (Skip v0.0.190); testes passando (P3.13-01 a 03). Evidência: 05_entregas/fase-3/spec-3-013/.
+- [/] Deixar o loop dos alertas configurado e desligado no Maestro @"American Goodies" !25/11/2026
   > Meta, medida, fonte e limites do LOOP-01 prontos no Maestro, sem ativar. Ele só liga com a linha de base, o alvo, a janela e quem valida, definidos pelo cliente. SPEC-3-013 · CA-3-38.
+  > Resultado 29/10: ficha do LOOP-01 pronta, veredito do validador e recusa de ligar sem as condições no ar (Skip v0.0.190); testes passando (P3.13-04); cadastro no Maestro e as condições do cliente (CL-PEND-005) pendentes. Evidência: 05_entregas/fase-3/spec-3-013/.
 - [ ] Montar os relatórios de produção, consumo e perdas declaradas @"American Goodies" !26/11/2026
   > Planejado, produzido e conferido por período e produto; consumo pela ficha ao lado do registrado, com diferença, perda declarada, resíduo e revisão de receita separados. SPEC-3-014 · CA-3-39.
 - [ ] Montar os relatórios de compras e de pedidos @"American Goodies" !26/11/2026

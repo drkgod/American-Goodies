@@ -152,3 +152,7 @@
 ## 29/10/2026 — Fase 3: SPEC-3-012 construída até onde o Omie e o PCP permitem
 
 - Histórico de vendas por mês com cobertura, comparação com os mesmos meses dos anos anteriores, regra de suficiência versionada e sugestão explicada de antecipação (data necessária menos prazo do fornecedor); migration 0040, rotas `/vendas/*` e tela `/historico-vendas`. Skip v0.0.188 (ref cd33dd6) publicada; 141 de 141 testes (Node). Sem leitura real do histórico. Evidência: 05_entregas/fase-3/spec-3-012/evidencia-historico-sazonalidade.md.
+
+## 29/10/2026 — Fase 3: SPEC-3-013 construída até onde o cliente define o loop
+
+- Medida do LOOP-01 por ciclo (tratados com ação ÷ críticos gerados; 'não aplicável' sem crítico), tela `/alertas/loop`, configuração que recusa ligar sem linha de base, alvo, janela e validador, e veredito do validador que congela a medição; migration 0041 e ficha `07-sistemas/pcp/loops.md`. Skip v0.0.190 (ref 18bb1cd) publicada; 149 de 149 testes (Node). Loop desligado. Evidência: 05_entregas/fase-3/spec-3-013/evidencia-loop-01.md.
