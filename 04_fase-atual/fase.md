@@ -162,7 +162,7 @@ tarefas que já têm um.
   > Resultado 29/10: exportação em pacote ZIP (um CSV por coleção e resumo de contagens), sem segredo e com a ação exportar_dados, no ar (Skip v0.0.194); testes passando (P3.16-01 a 03); a rota ainda não foi exercitada no servidor. Evidência: 05_entregas/fase-3/spec-3-016/.
 - [/] Provar a recuperação das integrações e da cópia de segurança @"American Goodies" !30/11/2026
   > Falha simulada no Omie e na Nuvemshop mantém o último dado e retoma sem duplicar; a cópia de segurança é restaurada num ambiente separado e as contagens batem. SPEC-3-016 · CA-3-44.
-  > Resultado 29/10: conferência de contagens e a recuperação da leitura do catálogo provadas em teste (P3.16-05); a restauração num ambiente separado depende de criar um projeto de teste no Skip (pedido registrado em 06_notas/). Evidência: 05_entregas/fase-3/spec-3-016/.
+  > Resultado 29/10: restauração de um pacote de DEMONSTRAÇÃO num projeto de teste separado com 38 de 38 coleções e 61 de 61 registros iguais (P3.16-04) e recuperação da leitura do catálogo provada (P3.16-05); a conferência com a exportação dos dados reais da produção fica para a sessão final (precisa de conta com exportar_dados). Evidência: 05_entregas/fase-3/spec-3-016/recuperacao.md.
 - [ ] Medir as perguntas prioritárias respondidas com fonte e período @"American Goodies" !01/12/2026
   > Para as perguntas prioritárias do cliente, conta as respondidas com fonte e período e aceitas por quem valida. Sem pergunta prioritária no ciclo, mostra 'não aplicável'. SPEC-3-017 · CA-3-45.
 - [ ] Deixar o loop do assistente configurado e desligado no Maestro @"American Goodies" !01/12/2026

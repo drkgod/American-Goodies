@@ -38,7 +38,7 @@
 
 **SPEC-3-015 (29/10):** assistente de consulta somente leitura com a IA nativa do Skip, fonte e período em cada resposta, 'sem acesso' sem pistas, recusa de pedido de ação e registro das perguntas no ar (Skip v0.0.192); a IA real ainda não foi exercitada e nenhuma conta real recebeu a ação (matriz CL-003).
 
-**SPEC-3-016 (29/10):** exportação dos dados complementares em pacote com resumo de contagens e sem segredo no ar (Skip v0.0.194); a restauração num ambiente separado espera um projeto de teste no Skip (pedido em `06_notas/restauracao-ambiente-separado-2026-10-29.md`).
+**SPEC-3-016 (29/10):** exportação dos dados complementares em pacote com resumo de contagens e sem segredo no ar (Skip v0.0.194); a restauração de um pacote de demonstração num projeto de teste separado (nº 70908, autorizado pelo dono) bateu 38 de 38 coleções e 61 de 61 registros; a conferência com os dados reais fica para a sessão final.
 
 Próxima ação: SPEC-3-017. Só o consultor encerra o projeto.
 
