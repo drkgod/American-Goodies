@@ -164,3 +164,7 @@
 ## 29/10/2026 — Fase 3: SPEC-3-015 construída até onde a conta de teste permite
 
 - Assistente de consulta somente leitura (`/assistente`) com a IA nativa do Skip: ferramentas por área, fonte e período obrigatórios (resposta sem fonte é descartada), 'sem acesso' sem pistas, recusa de pedido de ação com a tela certa e registro das perguntas; migration 0043. Skip v0.0.192 (ref 605a9e5) publicada; 165 de 165 testes (Node, IA simulada). IA real ainda não exercitada. Evidência: 05_entregas/fase-3/spec-3-015/evidencia-assistente.md.
+
+## 29/10/2026 — Fase 3: SPEC-3-016 construída; restauração separada pendente
+
+- Exportação dos dados complementares (`/exportacao`): ZIP com um CSV por coleção e resumo de contagens, sem segredo, só com a ação `exportar_dados`; conferência de restauração e recusa de restaurar por cima da produção provadas em teste; recuperação da leitura do catálogo provada. Skip v0.0.194 (ref e1519bd) publicada; 172 de 172 testes (Node). Restauração num ambiente separado pendente de projeto de teste. Evidência: 05_entregas/fase-3/spec-3-016/evidencia-exportacao.md.

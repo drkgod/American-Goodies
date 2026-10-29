@@ -157,10 +157,12 @@ tarefas que já têm um.
 - [/] Fazer o assistente respeitar o acesso de cada área e não executar nada @"American Goodies" !27/11/2026
   > Pergunta fora da área de quem pergunta recebe 'sem acesso'. Pedido para comprar, publicar, aprovar ou enviar ao Omie recebe a orientação da tela certa; o assistente só sugere. SPEC-3-015 · CA-3-42.
   > Resultado 29/10: 'sem acesso' sem pistas, recusa de pedido de ação com a tela certa e ferramentas só de leitura no ar (Skip v0.0.192); testes passando (P3.15-01 e 02); quem usa depende da matriz (CL-003). Evidência: 05_entregas/fase-3/spec-3-015/.
-- [ ] Exportar os dados do sistema com as contagens conferidas @"American Goodies" !30/11/2026
+- [/] Exportar os dados do sistema com as contagens conferidas @"American Goodies" !30/11/2026
   > A gestão baixa os registros do sistema (apontamentos, conferências, compras, recebimentos, pedidos, alertas, parâmetros) com um resumo de quantos há em cada um. Sem senha nem chave no arquivo. SPEC-3-016 · CA-3-43.
-- [ ] Provar a recuperação das integrações e da cópia de segurança @"American Goodies" !30/11/2026
+  > Resultado 29/10: exportação em pacote ZIP (um CSV por coleção e resumo de contagens), sem segredo e com a ação exportar_dados, no ar (Skip v0.0.194); testes passando (P3.16-01 a 03); a rota ainda não foi exercitada no servidor. Evidência: 05_entregas/fase-3/spec-3-016/.
+- [/] Provar a recuperação das integrações e da cópia de segurança @"American Goodies" !30/11/2026
   > Falha simulada no Omie e na Nuvemshop mantém o último dado e retoma sem duplicar; a cópia de segurança é restaurada num ambiente separado e as contagens batem. SPEC-3-016 · CA-3-44.
+  > Resultado 29/10: conferência de contagens e a recuperação da leitura do catálogo provadas em teste (P3.16-05); a restauração num ambiente separado depende de criar um projeto de teste no Skip (pedido registrado em 06_notas/). Evidência: 05_entregas/fase-3/spec-3-016/.
 - [ ] Medir as perguntas prioritárias respondidas com fonte e período @"American Goodies" !01/12/2026
   > Para as perguntas prioritárias do cliente, conta as respondidas com fonte e período e aceitas por quem valida. Sem pergunta prioritária no ciclo, mostra 'não aplicável'. SPEC-3-017 · CA-3-45.
 - [ ] Deixar o loop do assistente configurado e desligado no Maestro @"American Goodies" !01/12/2026
