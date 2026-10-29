@@ -151,10 +151,12 @@ tarefas que já têm um.
 - [/] Montar os relatórios de compras e de pedidos @"American Goodies" !26/11/2026
   > Comprado e recebido, entregas no prazo e preço médio por fornecedor; pedidos por origem e unidade, aptos e bloqueados e tempo até liberar. Cada relatório mostra período, fonte e hora. SPEC-3-014 · CA-3-40.
   > Resultado 29/10: relatórios de compras e pedidos com período, fonte, hora, lacunas, acesso por bloco e exportação no ar (Skip v0.0.191); testes passando (P3.14-02 e 04); entregas do Omie ainda sem leitura (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-014/.
-- [ ] Abrir o assistente de consulta, só leitura, com a fonte em cada resposta @"American Goodies" !27/11/2026
+- [/] Abrir o assistente de consulta, só leitura, com a fonte em cada resposta @"American Goodies" !27/11/2026
   > Dentro da plataforma, a gestão pergunta e o assistente responde com período, fonte, hora da atualização e limites. Sem dado suficiente, diz que não há. Usa a IA da própria plataforma. SPEC-3-015 · CA-3-41.
-- [ ] Fazer o assistente respeitar o acesso de cada área e não executar nada @"American Goodies" !27/11/2026
+  > Resultado 29/10: assistente de consulta com a IA nativa do Skip, fonte e período em cada resposta, descarte sem fonte e registro das perguntas no ar (Skip v0.0.192); testes passando com IA simulada (P3.15-03); a IA real ainda não respondeu (sem conta de teste). Evidência: 05_entregas/fase-3/spec-3-015/.
+- [/] Fazer o assistente respeitar o acesso de cada área e não executar nada @"American Goodies" !27/11/2026
   > Pergunta fora da área de quem pergunta recebe 'sem acesso'. Pedido para comprar, publicar, aprovar ou enviar ao Omie recebe a orientação da tela certa; o assistente só sugere. SPEC-3-015 · CA-3-42.
+  > Resultado 29/10: 'sem acesso' sem pistas, recusa de pedido de ação com a tela certa e ferramentas só de leitura no ar (Skip v0.0.192); testes passando (P3.15-01 e 02); quem usa depende da matriz (CL-003). Evidência: 05_entregas/fase-3/spec-3-015/.
 - [ ] Exportar os dados do sistema com as contagens conferidas @"American Goodies" !30/11/2026
   > A gestão baixa os registros do sistema (apontamentos, conferências, compras, recebimentos, pedidos, alertas, parâmetros) com um resumo de quantos há em cada um. Sem senha nem chave no arquivo. SPEC-3-016 · CA-3-43.
 - [ ] Provar a recuperação das integrações e da cópia de segurança @"American Goodies" !30/11/2026

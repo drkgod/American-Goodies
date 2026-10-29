@@ -160,3 +160,7 @@
 ## 29/10/2026 — Fase 3: SPEC-3-014 construída até onde as fontes permitem
 
 - Relatórios comparativos por período: compras (comprado × recebido, entregas no prazo, preço médio por fornecedor) e pedidos (por origem e unidade, aptos, bloqueados, tempo até liberar) com dados do sistema; regras de produção, consumo com categorias separadas e taxa de perda provadas, sem fonte de apontamentos ligada; rodapé de fonte e lacunas, acesso por bloco e exportação CSV; migration 0042, rota `/relatorios` e tela. Skip v0.0.191 (ref 7fd4d2b) publicada; 158 de 158 testes (Node). Evidência: 05_entregas/fase-3/spec-3-014/evidencia-relatorios.md.
+
+## 29/10/2026 — Fase 3: SPEC-3-015 construída até onde a conta de teste permite
+
+- Assistente de consulta somente leitura (`/assistente`) com a IA nativa do Skip: ferramentas por área, fonte e período obrigatórios (resposta sem fonte é descartada), 'sem acesso' sem pistas, recusa de pedido de ação com a tela certa e registro das perguntas; migration 0043. Skip v0.0.192 (ref 605a9e5) publicada; 165 de 165 testes (Node, IA simulada). IA real ainda não exercitada. Evidência: 05_entregas/fase-3/spec-3-015/evidencia-assistente.md.

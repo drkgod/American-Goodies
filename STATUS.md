@@ -6,7 +6,7 @@
 - **Construção:** em sequência, sem teste no meio; cada tarefa fecha pelas provas automáticas. O único teste é a sessão final (SPEC-3-018).
 - **Gravações no Omie:** construídas com a chave desligada e provadas no simulador; só ligam com a autorização do dono, uma por vez, com a condição do checklist cumprida.
 - **Bloqueios localizados:** chave do Omie bloqueada por excesso de consultas desde 23/10 (CL-PEND-006); origem das notas de entrada em revisão (CL-PEND-007). Os dois deixam pendente só a parte afetada.
-- **Ambiente:** projeto Skip 62774 (MCP do Skip e Skip Cloud); última versão registrada v0.0.191 (ref 7fd4d2b).
+- **Ambiente:** projeto Skip 62774 (MCP do Skip e Skip Cloud); última versão registrada v0.0.192 (ref 605a9e5).
 
 **Andamento da fase 3 (28/10/2026):** SPEC-3-001 construída até onde o Omie permite — catálogo produto a produto, lista do que falta cadastrar e conversão dos 90 dias estão no ar (Skip v0.0.173, ref 94f5590). As 5 tarefas da SPEC seguem em andamento (`[/]`): a leitura real, a conferência de 3 produtos e o cálculo real das sugestões esperam o dono desbloquear a chave do Omie (CL-PEND-006). Detalhe: `06_notas/bloqueio-omie-leitura-real-2026-10-28.md`.
 
@@ -36,7 +36,9 @@
 
 **SPEC-3-014 (29/10):** relatórios comparativos com período, fonte, hora, lacunas e acesso por bloco no ar (Skip v0.0.191): compras e pedidos com dados do sistema; produção, consumo e perdas só têm as regras provadas, pois os apontamentos não são guardados no servidor; entregas do Omie esperam a leitura (CL-PEND-006).
 
-Próxima ação: SPEC-3-015. Só o consultor encerra o projeto.
+**SPEC-3-015 (29/10):** assistente de consulta somente leitura com a IA nativa do Skip, fonte e período em cada resposta, 'sem acesso' sem pistas, recusa de pedido de ação e registro das perguntas no ar (Skip v0.0.192); a IA real ainda não foi exercitada e nenhuma conta real recebeu a ação (matriz CL-003).
+
+Próxima ação: SPEC-3-016. Só o consultor encerra o projeto.
 
 Publicação documental; sem alteração do código, do Skip, das integrações ou do portal.
 
