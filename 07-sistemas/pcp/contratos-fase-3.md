@@ -54,3 +54,9 @@ Fonte: WSDL público do método, só leitura da documentação; nenhuma chamada 
 - **ConsultarPedido:** aceita `codigo_pedido`, `codigo_pedido_integracao` ou `numero_pedido`.
 - **Pontos em aberto, a confirmar na primeira gravação com o dono:** valores aceitos de `modalidade`; `etapa` inicial do pedido manual; se `AlterarPedidoVenda` aceita só `frete` sem reenviar o cabeçalho.
 - **Decisões do sistema:** uma tentativa por operação; resposta perdida ou 425 = "resultado incerto" (só consulta); recusa de validação = "falhou sem efeito"; a chave `omie_pedido_venda_escrita` volta a desligar antes de cada chamada que grava. Nenhuma nota fiscal é emitida nem transmitida.
+
+## Histórico de vendas por período (SPEC-3-012) — 29/10/2026
+
+- **Leitura:** `ListarPedidos` (produtos/pedido/) com `data_faturamento_de` e `data_faturamento_ate` (campos do WSDL público; nenhuma chamada à conta), uma página por chamada (`registros_por_pagina` 20, `apenas_resumo` N para trazer `det`). Fim = `pagina >= total_de_paginas`.
+- **Regra de pedido (mapa de 21/10):** entra só pedido faturado com `infoCadastro.dFat`; saem cancelado, denegado, devolvido e devolvido parcial; item sem código ou sem quantidade válida é ignorado (nunca zero). Mês só conta como lido quando a última página entrou.
+- **Não confirmado numa amostra real (chave bloqueada, CL-PEND-006):** que o filtro `data_faturamento_*` devolva exatamente os pedidos faturados no intervalo; a rota confere a data de cada pedido e ignora os que caírem fora do mês.

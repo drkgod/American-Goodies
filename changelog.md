@@ -148,3 +148,7 @@
 ## 29/10/2026 — Fase 3: SPEC-3-011 construída até onde a matriz permite
 
 - Ciclo de tratamento dos alertas com responsável, ação obrigatória e histórico só de inclusão, reabertura ligada ao alerta anterior, alertas por área agrupados por tipo e item, contador no menu e regra ligável/desligável preservando o histórico; migration 0039 e rotas `/alertas/*`. Skip v0.0.187 (ref 0baa9a6) publicada; 133 de 133 testes (Node). Evidência: 05_entregas/fase-3/spec-3-011/evidencia-tratamento-alertas.md.
+
+## 29/10/2026 — Fase 3: SPEC-3-012 construída até onde o Omie e o PCP permitem
+
+- Histórico de vendas por mês com cobertura, comparação com os mesmos meses dos anos anteriores, regra de suficiência versionada e sugestão explicada de antecipação (data necessária menos prazo do fornecedor); migration 0040, rotas `/vendas/*` e tela `/historico-vendas`. Skip v0.0.188 (ref cd33dd6) publicada; 141 de 141 testes (Node). Sem leitura real do histórico. Evidência: 05_entregas/fase-3/spec-3-012/evidencia-historico-sazonalidade.md.

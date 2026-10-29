@@ -133,10 +133,12 @@ tarefas que já têm um.
 - [/] Mostrar cada alerta só para quem cuida da área, agrupado @"American Goodies" !23/11/2026
   > Compras vê alertas de compra e preço, o PCP os de estoque e produção, o faturamento os de pedido. Alertas iguais ficam agrupados. Desligar uma regra guarda o histórico dela. SPEC-3-011 · CA-3-34.
   > Resultado 29/10: alertas por área, agrupados por tipo e item, contador no menu e regra desligável com histórico preservado no ar (Skip v0.0.187); testes passando (P3.11-02 e 05); nenhuma conta real recebeu a ação tratar_alerta (matriz CL-003). Evidência: 05_entregas/fase-3/spec-3-011/.
-- [ ] Comparar as vendas de cada produto com o histórico e a sazonalidade @"American Goodies" !24/11/2026
+- [/] Comparar as vendas de cada produto com o histórico e a sazonalidade @"American Goodies" !24/11/2026
   > Mostra o período atual ao lado do mesmo período de anos anteriores. Sem histórico suficiente pela regra aprovada pelo PCP, mostra 'histórico insuficiente' em vez de inventar sazonalidade. SPEC-3-012 · CA-3-35.
-- [ ] Sugerir antecipar compra pela sazonalidade, sem refazer a sugestão da fase 2 @"American Goodies" !24/11/2026
+  > Resultado 29/10: vendas por mês com cobertura, comparação com anos anteriores e regra de suficiência no ar (Skip v0.0.188); testes passando (P3.12-01 e 02); sem leitura real (CL-PEND-006), a tela mostra 'histórico insuficiente'. Evidência: 05_entregas/fase-3/spec-3-012/.
+- [/] Sugerir antecipar compra pela sazonalidade, sem refazer a sugestão da fase 2 @"American Goodies" !24/11/2026
   > O cartão da sugestão ganha o contexto do mesmo período do ano anterior e o prazo do fornecedor. É só sugestão explicada: o cálculo aprovado em 21/10 não muda e uma pessoa decide. SPEC-3-012 · CA-3-36.
+  > Resultado 29/10: sugestão explicada de antecipar pela data necessária menos o prazo do fornecedor, levando à requisição sem comprar, no ar (Skip v0.0.188); testes passando (P3.12-03); baseline90-v1 intacto. Evidência: 05_entregas/fase-3/spec-3-012/.
 - [ ] Medir quantos alertas críticos foram tratados no ciclo @"American Goodies" !25/11/2026
   > Conta os alertas críticos tratados com ação registrada sobre os gerados no ciclo. Ciclo sem alerta crítico mostra 'não aplicável', nunca 100%. SPEC-3-013 · CA-3-37.
 - [ ] Deixar o loop dos alertas configurado e desligado no Maestro @"American Goodies" !25/11/2026
