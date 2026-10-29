@@ -156,3 +156,7 @@
 ## 29/10/2026 — Fase 3: SPEC-3-013 construída até onde o cliente define o loop
 
 - Medida do LOOP-01 por ciclo (tratados com ação ÷ críticos gerados; 'não aplicável' sem crítico), tela `/alertas/loop`, configuração que recusa ligar sem linha de base, alvo, janela e validador, e veredito do validador que congela a medição; migration 0041 e ficha `07-sistemas/pcp/loops.md`. Skip v0.0.190 (ref 18bb1cd) publicada; 149 de 149 testes (Node). Loop desligado. Evidência: 05_entregas/fase-3/spec-3-013/evidencia-loop-01.md.
+
+## 29/10/2026 — Fase 3: SPEC-3-014 construída até onde as fontes permitem
+
+- Relatórios comparativos por período: compras (comprado × recebido, entregas no prazo, preço médio por fornecedor) e pedidos (por origem e unidade, aptos, bloqueados, tempo até liberar) com dados do sistema; regras de produção, consumo com categorias separadas e taxa de perda provadas, sem fonte de apontamentos ligada; rodapé de fonte e lacunas, acesso por bloco e exportação CSV; migration 0042, rota `/relatorios` e tela. Skip v0.0.191 (ref 7fd4d2b) publicada; 158 de 158 testes (Node). Evidência: 05_entregas/fase-3/spec-3-014/evidencia-relatorios.md.

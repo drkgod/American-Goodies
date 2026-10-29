@@ -145,10 +145,12 @@ tarefas que já têm um.
 - [/] Deixar o loop dos alertas configurado e desligado no Maestro @"American Goodies" !25/11/2026
   > Meta, medida, fonte e limites do LOOP-01 prontos no Maestro, sem ativar. Ele só liga com a linha de base, o alvo, a janela e quem valida, definidos pelo cliente. SPEC-3-013 · CA-3-38.
   > Resultado 29/10: ficha do LOOP-01 pronta, veredito do validador e recusa de ligar sem as condições no ar (Skip v0.0.190); testes passando (P3.13-04); cadastro no Maestro e as condições do cliente (CL-PEND-005) pendentes. Evidência: 05_entregas/fase-3/spec-3-013/.
-- [ ] Montar os relatórios de produção, consumo e perdas declaradas @"American Goodies" !26/11/2026
+- [/] Montar os relatórios de produção, consumo e perdas declaradas @"American Goodies" !26/11/2026
   > Planejado, produzido e conferido por período e produto; consumo pela ficha ao lado do registrado, com diferença, perda declarada, resíduo e revisão de receita separados. SPEC-3-014 · CA-3-39.
-- [ ] Montar os relatórios de compras e de pedidos @"American Goodies" !26/11/2026
+  > Resultado 29/10: regras de produção, consumo com quatro categorias separadas e taxa de perda com denominador provadas (158/158 testes) e bloco no ar (Skip v0.0.191); sem fonte de apontamentos no servidor, o bloco mostra 'sem dados no período'. Evidência: 05_entregas/fase-3/spec-3-014/.
+- [/] Montar os relatórios de compras e de pedidos @"American Goodies" !26/11/2026
   > Comprado e recebido, entregas no prazo e preço médio por fornecedor; pedidos por origem e unidade, aptos e bloqueados e tempo até liberar. Cada relatório mostra período, fonte e hora. SPEC-3-014 · CA-3-40.
+  > Resultado 29/10: relatórios de compras e pedidos com período, fonte, hora, lacunas, acesso por bloco e exportação no ar (Skip v0.0.191); testes passando (P3.14-02 e 04); entregas do Omie ainda sem leitura (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-014/.
 - [ ] Abrir o assistente de consulta, só leitura, com a fonte em cada resposta @"American Goodies" !27/11/2026
   > Dentro da plataforma, a gestão pergunta e o assistente responde com período, fonte, hora da atualização e limites. Sem dado suficiente, diz que não há. Usa a IA da própria plataforma. SPEC-3-015 · CA-3-41.
 - [ ] Fazer o assistente respeitar o acesso de cada área e não executar nada @"American Goodies" !27/11/2026
