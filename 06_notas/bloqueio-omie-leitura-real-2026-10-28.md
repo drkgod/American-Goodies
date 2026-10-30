@@ -20,3 +20,6 @@ Nenhuma chamada foi feita ao Omie nesta rodada, para não renovar o bloqueio.
 1. Rodar a sincronização do catálogo até o fim (sub-lotes, uma chamada por vez).
 2. Abrir `/qualidade` e conferir a lista de faltantes; o PCP cadastra no Omie o que faltar.
 3. Ligar a leitura dos 90 dias e, depois, as sugestões.
+
+## Atualização 30/10/2026 — dono pediu o desbloqueio
+O dono disse "Desbloqueie" no chat. O bloqueio (HTTP 425 por excesso de consultas) é do lado do Omie: o sistema não o levanta. Falta ele acionar o suporte do Omie ou revisar a chave e dizer se outro sistema usa a mesma chave (CL-PEND-006). O executor não tem conta de teste para chamar as rotas de sincronização e não repete chamada em laço; ao liberar, a leitura segue pelos passos acima, um sub-lote por vez.
