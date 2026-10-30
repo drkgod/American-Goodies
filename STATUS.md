@@ -1,6 +1,6 @@
 # Status operacional — fase 3 única até a validação final
 
-26/10/2026: o consultor fechou a fase 2 e juntou na fase 3 tudo o que faltava do projeto (AC-26-01). A fase 3 é a última e tem 18 SPECs e 48 tarefas, com a sessão de validação final com a equipe prevista para 03/12/2026. As fases 4 e 5 ficam sem tarefas.
+26/10/2026: o consultor fechou a fase 2 e juntou na fase 3 tudo o que faltava do projeto (AC-26-01). A fase 3 é a última e tem 18 SPECs e 48 tarefas, com a sessão de validação final com a equipe sem data marcada (o dono marca ao fim da construção). As fases 4 e 5 ficam sem tarefas.
 
 - **Fase 2:** 29 de 29 fechadas. As três abertas (catálogo real, sugestões com dados reais e envio ao Omie) passaram para a fase 3 como tarefas novas (SPECs 3-001 e 3-002); a validação final da fase 2 entra na sessão final da fase 3. Tarefas, SPECs e evidências da fase 2 em `05_entregas/fase-2/`.
 - **Construção:** em sequência, sem teste no meio; cada tarefa fecha pelas provas automáticas. O único teste é a sessão final (SPEC-3-018).

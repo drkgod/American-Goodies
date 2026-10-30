@@ -6,7 +6,7 @@
 - spec: 04_fase-atual/specs/spec-3-018-validacao-final-ponta-a-ponta.md
 - etapa: validacao_final_pronta
 - executor: MCC (ETHOS)
-- teste_humano: nenhum durante a construção. O único teste é a sessão de validação final com a equipe (SPEC-3-018), prevista para 03/12/2026
+- teste_humano: nenhum durante a construção. O único teste é a sessão de validação final com a equipe (SPEC-3-018), sem data marcada (o dono marca ao fim da construção)
 - chaves: todas as gravações no Omie desligadas (omie_op_escrita, omie_pedido_compra_escrita, omie_pedido_venda_escrita; omie_recebimento_escrita em revisão). Ligam só com a autorização do dono, uma por vez, com a condição do checklist cumprida. Leitura real liberada
 - bloqueios_localizados: chave do Omie bloqueada por excesso de consultas desde 23/10 (CL-PEND-006); origem das notas de entrada em revisão (CL-PEND-007)
 - sistema: pcp

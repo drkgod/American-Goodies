@@ -2,7 +2,7 @@
 
 Data: 30/10/2026 · Preparado pelo executor (Maestro). Não é o registro da sessão: o aceite e as pendências ficam em `05_entregas/fase-3/validacao-final.md`, depois da sessão, e só o dono aceita. Este arquivo não traz dado pessoal nem segredo.
 
-Versão no ar: Skip v0.0.195 (ref d5364f5). Sessão prevista: 03/12/2026 (a marcar pelo cliente, CL-007).
+Versão no ar: Skip v0.0.195 (ref d5364f5). Sessão sem data marcada: o dono pediu em 30/10 que a data saísse; ele marca a sessão e cria o teste ao fim da construção (CL-007).
 
 ## 1. Provas na véspera (VF-01 e VF-04)
 

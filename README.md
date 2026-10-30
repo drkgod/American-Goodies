@@ -1,6 +1,6 @@
 # American Goodies — pacote operacional
 
-**Atualizado:** 26/10/2026 · **Fase atual:** 3, a última, com tudo o que falta do projeto (AC-26-01) · **Pacote:** 18 SPECs e 48 tarefas (os ids vêm do portal), com a sessão de validação final prevista para 03/12/2026. Fase 2 fechada; as três tarefas abertas dela passaram para a fase 3.
+**Atualizado:** 26/10/2026 · **Fase atual:** 3, a última, com tudo o que falta do projeto (AC-26-01) · **Pacote:** 18 SPECs e 48 tarefas (os ids vêm do portal), com a sessão de validação final sem data marcada (o dono marca ao fim da construção). Fase 2 fechada; as três tarefas abertas dela passaram para a fase 3.
 
 - [Tarefas da fase 3](04_fase-atual/fase.md)
 - [Índice das SPECs e regras comuns](04_fase-atual/specs/00-INDICE.md)
