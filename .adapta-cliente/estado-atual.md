@@ -11,8 +11,8 @@
 - bloqueios_localizados: chave do Omie bloqueada por excesso de consultas desde 23/10 (CL-PEND-006); origem das notas de entrada em revisão (CL-PEND-007)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: v0.0.195 (ref d5364f5), publicada 28/10
-- pendente_github: sim:commits locais; enviar pelo GitHub Desktop
+- skip_versao: v0.0.195 (ref d5364f5), publicada 30/10
+- pendente_github: não (push conferido em 30/10: origin/main = 1568467)
 - ultima_acao: 30/10 — SPEC-3-017 construída: LOOP-02 (v0.0.195); 179/179 testes; construção das SPECs 3-001 a 3-017 encerrada
 - proxima_acao: o dono marca a sessão de validação final (SPEC-3-018); nenhuma construção pendente sem entrada externa
 - atualizado_em: 2026-10-30
