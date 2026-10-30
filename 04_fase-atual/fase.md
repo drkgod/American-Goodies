@@ -163,10 +163,12 @@ tarefas que já têm um.
 - [/] Provar a recuperação das integrações e da cópia de segurança @"American Goodies" !30/11/2026
   > Falha simulada no Omie e na Nuvemshop mantém o último dado e retoma sem duplicar; a cópia de segurança é restaurada num ambiente separado e as contagens batem. SPEC-3-016 · CA-3-44.
   > Resultado 29/10: restauração de um pacote de DEMONSTRAÇÃO num projeto de teste separado com 38 de 38 coleções e 61 de 61 registros iguais (P3.16-04) e recuperação da leitura do catálogo provada (P3.16-05); a conferência com a exportação dos dados reais da produção fica para a sessão final (precisa de conta com exportar_dados). Evidência: 05_entregas/fase-3/spec-3-016/recuperacao.md.
-- [ ] Medir as perguntas prioritárias respondidas com fonte e período @"American Goodies" !01/12/2026
+- [/] Medir as perguntas prioritárias respondidas com fonte e período @"American Goodies" !01/12/2026
   > Para as perguntas prioritárias do cliente, conta as respondidas com fonte e período e aceitas por quem valida. Sem pergunta prioritária no ciclo, mostra 'não aplicável'. SPEC-3-017 · CA-3-45.
-- [ ] Deixar o loop do assistente configurado e desligado no Maestro @"American Goodies" !01/12/2026
+  > Resultado 30/10: perguntas prioritárias, ligação por escolha, revisão do validador e medida por ciclo com 'não aplicável' no ar (Skip v0.0.195); testes passando (P3.17-01 a 03). Evidência: 05_entregas/fase-3/spec-3-017/.
+- [/] Deixar o loop do assistente configurado e desligado no Maestro @"American Goodies" !01/12/2026
   > Meta, medida e limites do LOOP-02 prontos no Maestro, sem ativar. Ele só liga com as perguntas prioritárias, a linha de base, o alvo e quem valida. SPEC-3-017 · CA-3-46.
+  > Resultado 30/10: ficha do LOOP-02 pronta e recusa de ligar sem as condições no ar (Skip v0.0.195); testes passando (P3.17-04); cadastro no Maestro e as condições do cliente (CL-PEND-005) pendentes. Evidência: 05_entregas/fase-3/spec-3-017/.
 - [ ] Preparar a sessão final: provas de ponta a ponta e roteiro de cada área @"American Goodies" !02/12/2026
   > Todas as provas das fases 1, 2 e 3 rodam de novo; cada área recebe o roteiro do que vai conferir; fica pronta a lista das condições cumpridas e pendentes para ligar cada gravação no Omie. SPEC-3-018 · CA-3-47.
 - [ ] Fazer a sessão de validação final com a equipe @"American Goodies" !03/12/2026
