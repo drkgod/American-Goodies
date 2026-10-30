@@ -44,6 +44,8 @@
 
 **Construção encerrada (30/10):** as SPECs 3-001 a 3-017 estão construídas até onde os dados reais, a matriz e o Omie permitem. Falta marcar a sessão de validação final (SPEC-3-018).
 
+**Preparação da sessão final (30/10):** roteiro por área, condições cumpridas e pendentes por escrita e loop, e o estado das provas (VF-01/VF-04) em `05_entregas/fase-3/spec-3-018/preparacao-validacao-final.md`. Faltam: data da sessão (CL-007), conta de teste, reexecução das provas na véspera e as entradas do cliente.
+
 Próxima ação: sessão de validação final (SPEC-3-018). Só o consultor encerra o projeto.
 
 Publicação documental; sem alteração do código, do Skip, das integrações ou do portal.

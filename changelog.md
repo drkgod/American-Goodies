@@ -172,3 +172,7 @@
 ## 30/10/2026 — Fase 3: SPEC-3-017 construída; construção encerrada
 
 - LOOP-02: perguntas prioritárias cadastradas pela gestão, ligação por escolha, revisão do validador, medida por ciclo (aceitas com fonte e período ÷ feitas; 'não aplicável' sem prioritária), veredito que congela a medição e recusa de ligar sem as cinco condições; migration 0044, rotas `/assistente/loop*` e tela. Skip v0.0.195 (ref d5364f5) publicada; 179 de 179 testes (Node). Com isso a construção das SPECs 3-001 a 3-017 está encerrada; falta a sessão de validação final. Evidência: 05_entregas/fase-3/spec-3-017/evidencia-loop-02.md.
+
+## 30/10/2026 — Fase 3: preparação da sessão de validação final
+
+- Roteiro por área, lista das condições cumpridas e pendentes de cada escrita e loop, estado das provas e regras da sessão em `05_entregas/fase-3/spec-3-018/preparacao-validacao-final.md`. Sem alteração de código. O aceite e o encerramento continuam sendo do dono e do consultor.
