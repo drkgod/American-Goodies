@@ -113,7 +113,11 @@ test('P3.16-05: falha na leitura do Omie — lote anterior mantido; retomada pel
   assert.deepEqual(escolherCatalogoAtivo(anterior, r1.estado), { ativo: anterior, trocou: false }) // último lote válido mantido
   falha = false
   const antes = consultadas.length
-  const r2 = executarSubLote(r1.estado, consulta, { tamanho: 10, agora: AGORA })
+  // patch de 02/11/2026: o mesmo código só é consultado de novo 60 s depois do erro
+  const cedo = executarSubLote(r1.estado, consulta, { tamanho: 10, agora: AGORA })
+  assert.equal(cedo.parou, 'aguardando_repeticao')
+  assert.equal(consultadas.length, antes)
+  const r2 = executarSubLote(r1.estado, consulta, { tamanho: 10, agora: new Date(AGORA.getTime() + 60_000) })
   assert.equal(r2.parou, 'fim_da_lista')
   assert.deepEqual(consultadas.slice(antes), ['A3', 'A4', 'A5']) // A1 e A2 não foram relidos
   assert.equal(Object.keys(r2.estado.porCodigo).length, 5) // sem duplicar

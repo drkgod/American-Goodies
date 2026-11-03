@@ -6,7 +6,7 @@
 - **Construção:** em sequência, sem teste no meio; cada tarefa fecha pelas provas automáticas. O único teste é a sessão final (SPEC-3-018).
 - **Gravações no Omie:** construídas com a chave desligada e provadas no simulador; só ligam com a autorização do dono, uma por vez, com a condição do checklist cumprida.
 - **Bloqueios localizados:** chave do Omie bloqueada por excesso de consultas desde 23/10 (CL-PEND-006); origem das notas de entrada em revisão (CL-PEND-007). Os dois deixam pendente só a parte afetada.
-- **Ambiente:** projeto Skip 62774 (MCP do Skip e Skip Cloud); última versão registrada v0.0.195 (ref d5364f5).
+- **Ambiente:** projeto Skip 62774 (MCP do Skip e Skip Cloud); última versão registrada v0.0.197 (ref 32917f0).
 
 **Andamento da fase 3 (28/10/2026):** SPEC-3-001 construída até onde o Omie permite — catálogo produto a produto, lista do que falta cadastrar e conversão dos 90 dias estão no ar (Skip v0.0.173, ref 94f5590). As 5 tarefas da SPEC seguem em andamento (`[/]`): a leitura real, a conferência de 3 produtos e o cálculo real das sugestões esperam o dono desbloquear a chave do Omie (CL-PEND-006). Detalhe: `06_notas/bloqueio-omie-leitura-real-2026-10-28.md`.
 
@@ -84,3 +84,5 @@ Restantes (5), por bloqueio:
 ## Revisão documental — 13/10/2026
 
 As sete SPECs e 29 tasks foram revisadas, com contratos/TDD/roteiros embutidos. IDs e critérios preservados. Seguir o índice e a SPEC da task elegível, respeitando os gates de dados e acesso (aceite humano retirado em 26/10).
+
+**Patch do consultor (02/11, no ar em 03/11, v0.0.197):** hook temporário do catálogo apagado; sincronização do catálogo respeita o bloqueio, trata erro de acesso como erro, espera 60 s e roda uma vez por vez; saldo firme bloqueia só a linha; pedidos autorizados mudados depois da autorização são recusados; quantidade conferida na ligação do pedido de compra; programação, apontamentos, conferências e aprovação guardados no servidor, com a ordem preparada (sem envio). Telas ainda não ligadas às rotas novas e rotas sem prova contra o servidor (sem usuário de teste). Detalhe: `05_entregas/fase-3/patch-2026-11-02/evidencia-patch.md`.

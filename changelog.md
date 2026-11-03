@@ -176,3 +176,5 @@
 ## 30/10/2026 — Fase 3: preparação da sessão de validação final
 
 - Roteiro por área, lista das condições cumpridas e pendentes de cada escrita e loop, estado das provas e regras da sessão em `05_entregas/fase-3/spec-3-018/preparacao-validacao-final.md`. Sem alteração de código. O aceite e o encerramento continuam sendo do dono e do consultor.
+
+- 2026-11-03 · [executor] · **Patch de correção do consultor (v0.0.197).** Hook temporário do catálogo apagado; sincronização com bloqueio, erro de acesso, espera de 60 s e trava; saldo firme por linha; recusa de pedido alterado após a autorização; quantidade na ligação do pedido de compra; produção guardada no servidor com a ordem preparada para o Omie (chave desligada). 206 de 206 testes. Sem chamada ao Omie. Detalhe em `05_entregas/fase-3/patch-2026-11-02/evidencia-patch.md`.
