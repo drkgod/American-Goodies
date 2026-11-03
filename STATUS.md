@@ -1,4 +1,28 @@
-# Status operacional — fase 3 única até a validação final
+# Status operacional — fase 4: produção no servidor, acabamento e validação final
+
+**03/11/2026 — fase 4 liberada pelo consultor (P6).**
+
+- **Pacote:** 7 SPECs e 21 tarefas em `04_fase-atual/`, com o checklist do cliente.
+  - SPEC-4-001: teste e demonstração separados do real, produção gravando no servidor, guarda por área e remoção dos diagnósticos com token.
+  - SPECs 4-002 a 4-006: acabamento (identidade, menu e início, linguagem, componentes e avisos, celular e tablet).
+  - SPEC-4-007: leituras reais do Omie, rotas provadas no servidor e sessão de validação final.
+- **Fase 3:**
+  - Guardada em `05_entregas/fase-3/` (`fase.md` e `specs/`).
+  - As 46 tarefas em andamento continuam e fecham quando a entrada de cada uma chegar; as que ficarem abertas são registradas na sessão final.
+  - As 2 tarefas da sessão final passaram para a SPEC-4-007.
+- **Patch de 02/11:** aplicado em 03/11 (Skip v0.0.197, commit `8485139`). O que ele deixou de fora entrou na SPEC-4-001: as telas ainda em demonstração, a guarda por área, os hooks de diagnóstico e a separação do que é teste.
+- **Único ponto de aprovação antes da sessão final:** o dono escolhe uma das 3 propostas de visual (CL-008). Ela depende do logo e das cores (CL-PEND-015).
+- **Bloqueios localizados:**
+  - chave do Omie bloqueada desde 22/10 (CL-PEND-006); nada chama o Omie até o aviso do dono;
+  - usuário de teste ainda não criado (CL-PEND-016);
+  - notas de entrada em revisão (CL-PEND-007).
+- **Gravações no Omie:** todas desligadas; só ligam com a autorização do dono, uma por vez.
+- **Ambiente:** projeto Skip 62774; última versão registrada v0.0.197 (ref 32917f0).
+
+Próxima ação: Separar no servidor os registros de teste e de demonstração dos reais (SPEC-4-001).
+
+## Histórico da fase 3
+
 
 26/10/2026: o consultor fechou a fase 2 e juntou na fase 3 tudo o que faltava do projeto (AC-26-01). A fase 3 é a última e tem 18 SPECs e 48 tarefas, com a sessão de validação final com a equipe sem data marcada (o dono marca ao fim da construção). As fases 4 e 5 ficam sem tarefas.
 

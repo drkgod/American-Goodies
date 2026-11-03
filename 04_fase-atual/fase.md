@@ -1,4 +1,4 @@
-# Fase 3 — Tarefas
+# Fase 4 — Tarefas
 
 <!-- fase-format:2 -->
 
@@ -29,147 +29,45 @@ Marque `[x]` para concluir e adicione linhas novas à vontade: elas entram no qu
 sincronização e voltam aqui com o `<!-- id:… -->` preenchido. **Não apague o marcador de id** das
 tarefas que já têm um.
 
-- [/] Trazer o catálogo real do Omie produto a produto, sem estourar o limite de consultas @"American Goodies" !28/10/2026
-  > O catálogo passa a vir do Omie consultando cada produto do estoque, em lotes pequenos, com pausa e retomada. Se o Omie bloquear, a tela mostra a hora da nova tentativa e mantém o último catálogo. SPEC-3-001 · CA-3-01.
-  > Resultado 28/10: contrato e rotina no ar (Skip v0.0.173), com parada no 425; falta a leitura real e a conferência de 3 produtos, que esperam o Omie liberar a chave (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-001/.
-- [/] Mostrar ao PCP a lista do que falta cadastrar no Omie @"American Goodies" !28/10/2026
-  > Produto que aparece no estoque, numa ficha ou num pedido e não está no cadastro entra na lista com o código e onde aparece. O PCP cadastra no Omie e a leitura seguinte tira da lista. SPEC-3-001 · CA-3-02.
-  > Resultado 28/10: lista e tela no ar (Skip v0.0.173); cobre só o estoque, ficha e pedido ainda sem leitura guardada; sem dado real até o Omie liberar a chave. Evidência: 05_entregas/fase-3/spec-3-001/.
-- [/] Importar os 90 dias reais de vendas, produção e compras a receber @"American Goodies" !29/10/2026
-  > A importação já construída roda com os dados reais e os pedidos firmes pela regra aprovada em 21/10. Falha mantém a importação anterior; dado desconhecido fica pendente, nunca zero. SPEC-3-001 · CA-3-03.
-  > Resultado 28/10: conversão dos pedidos de venda e de compra do Omie pronta e no ar (Skip v0.0.173); a leitura real dos 90 dias e as ordens de produção esperam o Omie liberar a chave (CL-PEND-006). Nota: 06_notas/bloqueio-omie-leitura-real-2026-10-28.md.
-  > Atualização 28/10: 6 testes da conversão executados e passando; leitura real segue pendente do Omie.
-- [/] Calcular as sugestões de produção e de compra com os números reais @"American Goodies" !29/10/2026
-  > Pelo método aprovado em 21/10. Cada sugestão mostra de onde veio cada número; item sem dado fica pendente com o motivo. Nada é publicado nem comprado. O PCP confere os números na validação final. SPEC-3-001 · CA-3-04.
-  > Resultado 28/10: o método (baseline90-v1) e a memória de cálculo já estão construídos e provados com dados de exemplo desde a fase 2; o cálculo real espera o catálogo e os 90 dias reais, que esperam o Omie liberar a chave (CL-PEND-006). Nota: 06_notas/bloqueio-omie-leitura-real-2026-10-28.md.
-- [/] Usar programação, apontamentos e conferências com os produtos e as contas reais @"American Goodies" !30/10/2026
-  > As telas da fase 2 passam a usar o catálogo real e as contas da matriz aprovada; o acesso de demonstração das conferências sai e a demonstração fica separada. Nada vai para o Omie. SPEC-3-001 · CA-3-05.
-  > Resultado 28/10: não construída ainda. As telas de planejamento, apontamentos e conferências seguem com dados de demonstração marcados; trocar para produtos e ordens reais depende do catálogo real e das ordens de produção lidas do Omie (chave bloqueada, CL-PEND-006). O acesso de demonstração da conferência só sai junto, para a tela não ficar sem uso.
-- [/] Ligar o envio da produção ao Omie com o envio desligado e provar no simulador @"American Goodies" !30/10/2026
-  > A fila de envio ganha a ligação real com o Omie, mas com a chave desligada nada é gravado. No simulador, uma ordem conferida e aprovada é concluída uma vez, mesmo com clique duplo, queda ou resposta perdida. SPEC-3-002 · CA-3-06.
-  > Resultado 28/10: rota de envio com chave desligada (423), simulador e contrato no ar (Skip v0.0.174); provado por teste de mesa, a suíte não pôde rodar neste computador (sem Node). Nenhuma chamada ao Omie. Evidência: 05_entregas/fase-3/spec-3-002/.
-  > Atualização 28/10: 10 de 10 testes da SPEC-3-002 executados e passando (P3.02-01/03/04); falta rodar a regressão da fase 2 (P3.02-05).
-- [/] Preparar a autorização do dono e a conferência depois do envio @"American Goodies" !03/11/2026
-  > A tela mostra ao dono a ordem, o produto, a quantidade, a data e o efeito no estoque. Só ele autoriza, uma ordem por vez. Depois do envio, o sistema confere a ordem, a quantidade, o status e o estoque. SPEC-3-002 · CA-3-07.
-  > Resultado 28/10: autorização por ordem, desfazer, conferência só leitura e tela "Envio ao Omie" no ar (Skip v0.0.175); 10 de 10 testes passando. Ainda não há ordem real para autorizar: a preparação depende das conferências reais (Omie bloqueado). Evidência: 05_entregas/fase-3/spec-3-002/.
-- [/] Criar os acessos de compras e recebimento por área @"American Goodies" !03/11/2026
-  > Novas ações para comprador, aprovador, almoxarifado e financeiro, conferidas no servidor. Na construção valem perfis de teste; as contas reais recebem as ações pela matriz que o dono aprovar. SPEC-3-003 · CA-3-08.
-  > Resultado 28/10: oito ações e guarda no servidor, área recebimento e rota de acesso no ar (Skip v0.0.177); testes passando (P3.03-01); falta a regressão dos acessos da fase 2 e nenhuma conta real recebeu ação (matriz CL-003). Evidência: 05_entregas/fase-3/spec-3-003/.
-- [/] Montar o cadastro de fornecedores com os contatos em campos separados @"American Goodies" !04/11/2026
-  > O fornecedor vem do Omie; a tela acrescenta contatos (nome, função, telefone, e-mail) e o prazo de entrega, cada um no seu campo. O cadastro do Omie não é alterado. SPEC-3-003 · CA-3-09.
-  > Resultado 28/10: complemento com contatos em campos próprios, prazo e versões, rotas e tela no ar (Skip v0.0.177); a lista de fornecedores do Omie espera a chave do Omie (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-003/.
-- [/] Barrar a compra de item que não está cadastrado no Omie @"American Goodies" !04/11/2026
-  > Requisição, cotação ou recebimento de item sem cadastro param com o aviso 'cadastrar no Omie antes'. Exceção só com autorização e motivo, e fica pendente até o item aparecer no cadastro. SPEC-3-003 · CA-3-10.
-  > Resultado 28/10: regra, exceção autorizada e rota de avaliação no ar (Skip v0.0.177); testes passando (P3.03-02); as telas de requisição, cotação e recebimento (SPECs 3-005 a 3-007) vão usar a mesma regra. Evidência: 05_entregas/fase-3/spec-3-003/.
-- [/] Converter a unidade de compra para a unidade de estoque só com fator confirmado @"American Goodies" !05/11/2026
-  > Ex.: saco de 25 kg vira 25 KG pelo fator confirmado por Compras. Sem fator, a quantidade fica na unidade de compra com pendência e o preço não é comparado. Mudar o fator cria versão nova. SPEC-3-003 · CA-3-11.
-  > Resultado 28/10: fator versionado, conversão e tela no ar (Skip v0.0.177); testes passando (P3.03-03 e 04: 4 sacos de 25 kg a R$ 250,00 = 100 KG a R$ 10,00). Evidência: 05_entregas/fase-3/spec-3-003/.
-- [/] Montar o histórico de preços por produto e por fornecedor @"American Goodies" !05/11/2026
-  > Preço sempre na unidade de estoque, por fornecedor e data. Frete, serviço e N-D ficam fora do histórico de insumos, mas continuam no registro do documento. Item sem classificação fica 'a classificar'. SPEC-3-004 · CA-3-12.
-  > Resultado 28/10: classificação, histórico por fornecedor na unidade de estoque, rotas e tela no ar (Skip v0.0.178); 64 testes passando (P3.04-01 a 03: 4 sacos a R$ 250,00 = R$ 10,00/KG). Falta só carregar os pedidos reais, que depende da chave do Omie. Evidência: 05_entregas/fase-3/spec-3-004/.
-- [/] Trazer o histórico real dos pedidos de compra do Omie @"American Goodies" !06/11/2026
-  > Reaproveita a leitura de pedidos de compra já provada na fase 2 (pedido 1514). Os campos de preço são conferidos numa amostra antes do uso; campo que não vier fica pendente, nunca zero. SPEC-3-004 · CA-3-13.
-  > Resultado 28/10: conversor e chave de linha prontos e provados em fixture; a leitura de preço está desligada até os campos serem conferidos numa amostra real (chave do Omie bloqueada, CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-004/.
-- [/] Transformar a necessidade de compra em requisição por fornecedor @"American Goodies" !06/11/2026
-  > A sugestão de compra aceita, ou um pedido do comprador, vira requisição separada por fornecedor, com quantidade, data necessária e marca de compra emergencial com motivo. SPEC-3-005 · CA-3-14.
-  > Resultado 28/10: requisição por fornecedor (manual), nas duas unidades, com emergência e sem duplicar, rota e tela no ar (Skip v0.0.179); testes passando (P3.05-01). O botão no cartão da sugestão espera as sugestões reais (chave do Omie). Evidência: 05_entregas/fase-3/spec-3-005/.
-- [/] Registrar cotações com preço e prazo e comparar com o histórico @"American Goodies" !09/11/2026
-  > Uma ou mais cotações por item, com preço convertido para a unidade de estoque e prazo de entrega. A tela mostra a diferença para o último preço e destaca o que passar da tolerância cadastrada. SPEC-3-005 · CA-3-15.
-  > Resultado 28/10: cotações, escolha e diferença para o último preço no ar (Skip v0.0.179); testes passando (P3.05-05); a comparação usa o histórico, ainda vazio até a carga real, e a tolerância ainda não foi cadastrada (CL-PEND-001). Evidência: 05_entregas/fase-3/spec-3-005/.
-- [/] Aprovar a compra pela alçada, com registro de quem aprovou @"American Goodies" !09/11/2026
-  > Só quem tem a alçada aprova, com data e motivo; recusa também tem motivo. Mudança depois da aprovação pede aprovação nova. Sem alçada cadastrada, a aprovação real fica parada com o motivo. SPEC-3-005 · CA-3-16.
-  > Resultado 28/10: aprovação e recusa por alçada, hash e invalidação por mudança no ar (Skip v0.0.179); testes passando (P3.05-02, 03 e 04); sem alçada cadastrada (CL-PEND-008) a aprovação real fica parada. Evidência: 05_entregas/fase-3/spec-3-005/.
-- [/] Acompanhar as entregas dos pedidos de compra pelo Omie @"American Goodies" !10/11/2026
-  > Por fornecedor: pedidos em aberto, data prevista, quanto chegou, quanto falta e quais estão atrasados; compras emergenciais aparecem marcadas. Só leitura do Omie. SPEC-3-006 · CA-3-17.
-  > Resultado 28/10: tela de entregas com restante, atraso e emergência no ar (Skip v0.0.180); testes passando (P3.06-04); a lista fica vazia até a leitura real dos pedidos de compra (chave do Omie, CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-006/.
-- [/] Preparar o lançamento da compra aprovada no Omie, com o envio desligado @"American Goodies" !10/11/2026
-  > Desligado, a tela mostra os dados para o comprador lançar no Omie e liga o pedido lançado à compra aprovada pelo número. No simulador, ligado, o sistema lança uma vez e confere. SPEC-3-006 · CA-3-18.
-  > Resultado 28/10: ligação por número conferido e lançamento atrás da chave desligada, com simulador de gravação única, no ar (Skip v0.0.180); testes passando (P3.06-01, 02, 03 e 05); a primeira gravação real depende do dono (CL-PEND-011). Evidência: 05_entregas/fase-3/spec-3-006/.
-- [/] Conferir o recebimento contra o pedido aprovado, linha a linha @"American Goodies" !11/11/2026
-  > O almoxarifado registra o que chegou e liga cada linha a um ou mais pedidos. Falta, sobra e item não pedido aparecem; nada ajusta o estoque sozinho. SPEC-3-007 · CA-3-19.
-  > Resultado 28/10: conferência por linha com ligação a um ou mais pedidos, falta e sobra, no ar (Skip v0.0.182); testes passando (P3.07-01 e 04). Evidência: 05_entregas/fase-3/spec-3-007/.
-- [/] Mostrar as parcelas e a compra já paga sem duplicar conta a pagar @"American Goodies" !11/11/2026
-  > O financeiro vê as parcelas previstas de cada pedido e marca o que já foi pago antes. No recebimento, compra paga aparece com o aviso 'já paga: não lançar nova conta'. O sistema não lança nada no financeiro. SPEC-3-007 · CA-3-20.
-  > Resultado 28/10: parcelas, pagamento antecipado e aviso de já paga, sem lançar nada no financeiro, no ar (Skip v0.0.182); testes passando (P3.07-02). Evidência: 05_entregas/fase-3/spec-3-007/.
-- [/] Registrar o recebimento de item sem cadastro como exceção a regularizar @"American Goodies" !12/11/2026
-  > Chegou item sem cadastro: entra só como exceção autorizada, com motivo, e fica pendente até o item ser cadastrado no Omie e ligado ao pedido. SPEC-3-007 · CA-3-21.
-  > Resultado 28/10: item sem cadastro só entra por exceção autorizada e fica pendente, no ar (Skip v0.0.182); testes passando (P3.07-03). Evidência: 05_entregas/fase-3/spec-3-007/.
-- [/] Montar a pré-conferência da nota de entrada com notas de demonstração @"American Goodies" !12/11/2026
-  > Compara nota, pedido, recebimento e parcelas usando só notas de demonstração marcadas. A leitura das notas reais fica em revisão até o cliente dizer onde elas estão. SPEC-3-007 · CA-3-22.
-  > Resultado 28/10: pré-conferência só com nota de demonstração, nota real recusada, no ar (Skip v0.0.182); testes passando (P3.07-05); leitura de nota real e escrita do recebimento seguem em revisão (CL-PEND-007). Evidência: 05_entregas/fase-3/spec-3-007/.
-- [/] Criar os acessos de faturamento e expedição por área @"American Goodies" !13/11/2026
-  > Novas ações para preparar pedido, conferir volumes e liberar para faturar, conferidas no servidor. Na construção valem perfis de teste; as contas reais seguem a matriz que o dono aprovar. SPEC-3-008 · CA-3-23.
-  > Resultado 28/10: cinco ações na área nova faturamento, conferidas no servidor, no ar (Skip v0.0.183); testes passando (P3.08-01); nenhuma conta real recebeu ação nova (matriz CL-003). Evidência: 05_entregas/fase-3/spec-3-008/.
-- [/] Montar o cadastro das unidades com o nome fantasia usado na operação @"American Goodies" !13/11/2026
-  > Cada cliente do Omie ganha a unidade e o nome fantasia que a operação usa. Nome diferente vindo do canal fica 'a revisar' e não troca o cadastro sozinho. SPEC-3-008 · CA-3-24.
-  > Resultado 28/10: unidades com versões, nomes de canal a revisar e telas no ar (Skip v0.0.183); testes passando (P3.08-02); a contagem de unidades reais espera a leitura de clientes do Omie (CL-PEND-006) e os dados das unidades (CL-PEND-010). Evidência: 05_entregas/fase-3/spec-3-008/.
-- [/] Ligar cada pedido à tabela de preço e à origem do canal @"American Goodies" !16/11/2026
-  > O pedido mostra a tabela da unidade, o subtotal recalculado e a origem (Omie, Lunet pelo Omie, Nuvemshop ou manual). Preço diferente da tabela aparece e não é trocado sozinho. SPEC-3-008 · CA-3-25.
-  > Resultado 28/10: tabela de preço versionada, subtotal recalculado, origem e tela de preparação no ar (Skip v0.0.183); testes passando (P3.08-03 e 04); campos do pedido do Omie ainda sem amostra real e Lunet sem marcador. Evidência: 05_entregas/fase-3/spec-3-008/.
-- [/] Registrar o frete e os volumes conferidos pela expedição @"American Goodies" !16/11/2026
-  > Cada pedido tem a modalidade de frete escolhida, sem FOB para todos, e os volumes contados pela expedição. Não há cálculo de cubagem; sem conferência o pedido fica bloqueado. SPEC-3-009 · CA-3-26.
-  > Resultado 28/10: frete por pedido (sem padrão) e volumes contados pela expedição no ar (Skip v0.0.185); testes passando (P3.09-01); sem teste contra o servidor. Evidência: 05_entregas/fase-3/spec-3-009/.
-- [/] Montar a fila de pedidos aptos e bloqueados para faturar @"American Goodies" !17/11/2026
-  > Apto só com unidade, tabela, frete, volumes e origem conferidos; bloqueado mostra o motivo. Quem tem a ação libera para faturar, e qualquer mudança depois desfaz a liberação. SPEC-3-009 · CA-3-27.
-  > Resultado 28/10: fila apto/bloqueado/liberado com motivos e liberação com autor e hora no ar (Skip v0.0.185); testes passando (P3.09-04 e 06); campos do pedido do Omie sem amostra real. Evidência: 05_entregas/fase-3/spec-3-009/.
-- [/] Separar os pedidos manuais e impedir duplicata com pedido integrado @"American Goodies" !17/11/2026
-  > Pedido manual entra marcado, com motivo. Antes de criar ou liberar, o sistema procura o mesmo pedido pela referência; parecido vai para revisão. Nunca junta só por cliente e valor. SPEC-3-009 · CA-3-28.
-  > Resultado 28/10: pedido manual com motivo, duplicata por referência e possível duplicata a revisar no ar (Skip v0.0.185); testes passando (P3.09-02 e 05). Evidência: 05_entregas/fase-3/spec-3-009/.
-- [/] Preparar o envio do pedido apto ao Omie, com o envio desligado @"American Goodies" !18/11/2026
-  > Ligado, grava no Omie o pedido manual e os volumes e o frete do pedido liberado, uma vez, e confere. Desligado, a tela mostra o que lançar. A nota fiscal continua sendo emitida por uma pessoa no Omie. SPEC-3-009 · CA-3-29.
-  > Resultado 28/10: gravação atrás da chave omie_pedido_venda_escrita (desligada), simulador e conferência por consulta no ar (Skip v0.0.185); testes passando (P3.09-03); primeira gravação real só com o dono (CL-PEND-011). Evidência: 05_entregas/fase-3/spec-3-009/.
-- [/] Cadastrar os parâmetros de alerta por produto e por família @"American Goodies" !18/11/2026
-  > Estoque mínimo, prazo do fornecedor, tolerância de preço e atrasos aceitos, por produto ou família, em versão aprovada. Parâmetro que falta aparece como lacuna e aquele alerta não é calculado. SPEC-3-010 · CA-3-30.
-  > Resultado 28/10: parâmetros de alerta versionados por produto e família, lacunas e tela no ar (Skip v0.0.186); testes passando (P3.10-01); sem parâmetros reais (CL-PEND-001). Evidência: 05_entregas/fase-3/spec-3-010/.
-- [/] Gerar alertas de estoque, produção, compra, preço, pedido e divergência @"American Goodies" !19/11/2026
-  > Regras fixas e explicadas, primeiro com dados de demonstração: ruptura prevista com a antecedência do prazo do fornecedor, produção atrasada, entrega atrasada, preço fora da tolerância e pedido parado. SPEC-3-010 · CA-3-31.
-  > Resultado 28/10: seis regras com os números usados e tela de alertas no ar (Skip v0.0.186); testes passando (P3.10-03 e 04). Evidência: 05_entregas/fase-3/spec-3-010/.
-- [/] Gerar os alertas com os dados reais, sem repetir alerta @"American Goodies" !19/11/2026
-  > As regras rodam com o estoque, as compras e os pedidos reais. A mesma situação atualiza o alerta aberto em vez de criar outro. Alerta não compra, não publica ordem e não muda parâmetro. SPEC-3-010 · CA-3-32.
-  > Resultado 28/10: rodada sem repetição no ar com quatro fontes locais (Skip v0.0.186); testes passando (P3.10-02); estoque, produção, divergência e intenção da Nuvemshop sem fonte ligada (leitura do Omie, CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-010/.
-- [/] Abrir o ciclo de tratamento dos alertas com responsável e histórico @"American Goodies" !23/11/2026
-  > Cada alerta passa por aberto, em análise e tratado; tratar exige registrar a ação tomada e quem tratou. O histórico não é apagado, e alerta que volta é ligado ao anterior. SPEC-3-011 · CA-3-33.
-  > Resultado 29/10: ciclo aberto, em análise e tratado com responsável, ação obrigatória, histórico só de inclusão e reabertura ligada no ar (Skip v0.0.187); testes passando (P3.11-01, 03 e 04). Evidência: 05_entregas/fase-3/spec-3-011/.
-- [/] Mostrar cada alerta só para quem cuida da área, agrupado @"American Goodies" !23/11/2026
-  > Compras vê alertas de compra e preço, o PCP os de estoque e produção, o faturamento os de pedido. Alertas iguais ficam agrupados. Desligar uma regra guarda o histórico dela. SPEC-3-011 · CA-3-34.
-  > Resultado 29/10: alertas por área, agrupados por tipo e item, contador no menu e regra desligável com histórico preservado no ar (Skip v0.0.187); testes passando (P3.11-02 e 05); nenhuma conta real recebeu a ação tratar_alerta (matriz CL-003). Evidência: 05_entregas/fase-3/spec-3-011/.
-- [/] Comparar as vendas de cada produto com o histórico e a sazonalidade @"American Goodies" !24/11/2026
-  > Mostra o período atual ao lado do mesmo período de anos anteriores. Sem histórico suficiente pela regra aprovada pelo PCP, mostra 'histórico insuficiente' em vez de inventar sazonalidade. SPEC-3-012 · CA-3-35.
-  > Resultado 29/10: vendas por mês com cobertura, comparação com anos anteriores e regra de suficiência no ar (Skip v0.0.188); testes passando (P3.12-01 e 02); sem leitura real (CL-PEND-006), a tela mostra 'histórico insuficiente'. Evidência: 05_entregas/fase-3/spec-3-012/.
-- [/] Sugerir antecipar compra pela sazonalidade, sem refazer a sugestão da fase 2 @"American Goodies" !24/11/2026
-  > O cartão da sugestão ganha o contexto do mesmo período do ano anterior e o prazo do fornecedor. É só sugestão explicada: o cálculo aprovado em 21/10 não muda e uma pessoa decide. SPEC-3-012 · CA-3-36.
-  > Resultado 29/10: sugestão explicada de antecipar pela data necessária menos o prazo do fornecedor, levando à requisição sem comprar, no ar (Skip v0.0.188); testes passando (P3.12-03); baseline90-v1 intacto. Evidência: 05_entregas/fase-3/spec-3-012/.
-- [/] Medir quantos alertas críticos foram tratados no ciclo @"American Goodies" !25/11/2026
-  > Conta os alertas críticos tratados com ação registrada sobre os gerados no ciclo. Ciclo sem alerta crítico mostra 'não aplicável', nunca 100%. SPEC-3-013 · CA-3-37.
-  > Resultado 29/10: medida por ciclo (tratados com ação ÷ críticos gerados) com 'não aplicável' e tela no ar (Skip v0.0.190); testes passando (P3.13-01 a 03). Evidência: 05_entregas/fase-3/spec-3-013/.
-- [/] Deixar o loop dos alertas configurado e desligado no Maestro @"American Goodies" !25/11/2026
-  > Meta, medida, fonte e limites do LOOP-01 prontos no Maestro, sem ativar. Ele só liga com a linha de base, o alvo, a janela e quem valida, definidos pelo cliente. SPEC-3-013 · CA-3-38.
-  > Resultado 29/10: ficha do LOOP-01 pronta, veredito do validador e recusa de ligar sem as condições no ar (Skip v0.0.190); testes passando (P3.13-04); cadastro no Maestro e as condições do cliente (CL-PEND-005) pendentes. Evidência: 05_entregas/fase-3/spec-3-013/.
-- [/] Montar os relatórios de produção, consumo e perdas declaradas @"American Goodies" !26/11/2026
-  > Planejado, produzido e conferido por período e produto; consumo pela ficha ao lado do registrado, com diferença, perda declarada, resíduo e revisão de receita separados. SPEC-3-014 · CA-3-39.
-  > Resultado 29/10: regras de produção, consumo com quatro categorias separadas e taxa de perda com denominador provadas (158/158 testes) e bloco no ar (Skip v0.0.191); sem fonte de apontamentos no servidor, o bloco mostra 'sem dados no período'. Evidência: 05_entregas/fase-3/spec-3-014/.
-- [/] Montar os relatórios de compras e de pedidos @"American Goodies" !26/11/2026
-  > Comprado e recebido, entregas no prazo e preço médio por fornecedor; pedidos por origem e unidade, aptos e bloqueados e tempo até liberar. Cada relatório mostra período, fonte e hora. SPEC-3-014 · CA-3-40.
-  > Resultado 29/10: relatórios de compras e pedidos com período, fonte, hora, lacunas, acesso por bloco e exportação no ar (Skip v0.0.191); testes passando (P3.14-02 e 04); entregas do Omie ainda sem leitura (CL-PEND-006). Evidência: 05_entregas/fase-3/spec-3-014/.
-- [/] Abrir o assistente de consulta, só leitura, com a fonte em cada resposta @"American Goodies" !27/11/2026
-  > Dentro da plataforma, a gestão pergunta e o assistente responde com período, fonte, hora da atualização e limites. Sem dado suficiente, diz que não há. Usa a IA da própria plataforma. SPEC-3-015 · CA-3-41.
-  > Resultado 29/10: assistente de consulta com a IA nativa do Skip, fonte e período em cada resposta, descarte sem fonte e registro das perguntas no ar (Skip v0.0.192); testes passando com IA simulada (P3.15-03); a IA real ainda não respondeu (sem conta de teste). Evidência: 05_entregas/fase-3/spec-3-015/.
-- [/] Fazer o assistente respeitar o acesso de cada área e não executar nada @"American Goodies" !27/11/2026
-  > Pergunta fora da área de quem pergunta recebe 'sem acesso'. Pedido para comprar, publicar, aprovar ou enviar ao Omie recebe a orientação da tela certa; o assistente só sugere. SPEC-3-015 · CA-3-42.
-  > Resultado 29/10: 'sem acesso' sem pistas, recusa de pedido de ação com a tela certa e ferramentas só de leitura no ar (Skip v0.0.192); testes passando (P3.15-01 e 02); quem usa depende da matriz (CL-003). Evidência: 05_entregas/fase-3/spec-3-015/.
-- [/] Exportar os dados do sistema com as contagens conferidas @"American Goodies" !30/11/2026
-  > A gestão baixa os registros do sistema (apontamentos, conferências, compras, recebimentos, pedidos, alertas, parâmetros) com um resumo de quantos há em cada um. Sem senha nem chave no arquivo. SPEC-3-016 · CA-3-43.
-  > Resultado 29/10: exportação em pacote ZIP (um CSV por coleção e resumo de contagens), sem segredo e com a ação exportar_dados, no ar (Skip v0.0.194); testes passando (P3.16-01 a 03); a rota ainda não foi exercitada no servidor. Evidência: 05_entregas/fase-3/spec-3-016/.
-- [/] Provar a recuperação das integrações e da cópia de segurança @"American Goodies" !30/11/2026
-  > Falha simulada no Omie e na Nuvemshop mantém o último dado e retoma sem duplicar; a cópia de segurança é restaurada num ambiente separado e as contagens batem. SPEC-3-016 · CA-3-44.
-  > Resultado 29/10: restauração de um pacote de DEMONSTRAÇÃO num projeto de teste separado com 38 de 38 coleções e 61 de 61 registros iguais (P3.16-04) e recuperação da leitura do catálogo provada (P3.16-05); a conferência com a exportação dos dados reais da produção fica para a sessão final (precisa de conta com exportar_dados). Evidência: 05_entregas/fase-3/spec-3-016/recuperacao.md.
-- [/] Medir as perguntas prioritárias respondidas com fonte e período @"American Goodies" !01/12/2026
-  > Para as perguntas prioritárias do cliente, conta as respondidas com fonte e período e aceitas por quem valida. Sem pergunta prioritária no ciclo, mostra 'não aplicável'. SPEC-3-017 · CA-3-45.
-  > Resultado 30/10: perguntas prioritárias, ligação por escolha, revisão do validador e medida por ciclo com 'não aplicável' no ar (Skip v0.0.195); testes passando (P3.17-01 a 03). Evidência: 05_entregas/fase-3/spec-3-017/.
-- [/] Deixar o loop do assistente configurado e desligado no Maestro @"American Goodies" !01/12/2026
-  > Meta, medida e limites do LOOP-02 prontos no Maestro, sem ativar. Ele só liga com as perguntas prioritárias, a linha de base, o alvo e quem valida. SPEC-3-017 · CA-3-46.
-  > Resultado 30/10: ficha do LOOP-02 pronta e recusa de ligar sem as condições no ar (Skip v0.0.195); testes passando (P3.17-04); cadastro no Maestro e as condições do cliente (CL-PEND-005) pendentes. Evidência: 05_entregas/fase-3/spec-3-017/.
-- [ ] Preparar a sessão final: provas de ponta a ponta e roteiro de cada área @"American Goodies" !02/12/2026
-  > Todas as provas das fases 1, 2 e 3 rodam de novo; cada área recebe o roteiro do que vai conferir; fica pronta a lista das condições cumpridas e pendentes para ligar cada gravação no Omie. SPEC-3-018 · CA-3-47.
-- [ ] Fazer a sessão de validação final com a equipe @"American Goodies" !03/12/2026
-  > Único teste do projeto: o fluxo inteiro com dados reais, cada área confere a sua parte e o dono autoriza, uma por vez, as gravações no Omie com a condição cumprida. Aceite e pendências ficam registrados. SPEC-3-018 · CA-3-48 a CA-3-51.
+- [ ] Separar no servidor os registros de teste e de demonstração dos reais @"American Goodies"
+  > Tudo o que for gravado por conta de teste ou com produto de demonstração fica marcado, fora dos relatórios e da exportação, e nunca pode ser autorizado nem enviado ao Omie. SPEC-4-001 · CA-4-34.
+- [ ] Gravar no servidor a programação publicada na tela de Planejamento @"American Goodies"
+  > A programação passa a ficar no servidor, com versão e com os parâmetros aprovados; outra pessoa vê a mesma, e publicar sobre versão antiga avisa. As rotas de produção passam a exigir a área. SPEC-4-001 · CA-4-01 e CA-4-04.
+- [ ] Gravar no servidor os apontamentos da cozinha e do encaixotamento @"American Goodies"
+  > O apontamento fica guardado no servidor, não na tela, e o reenvio do mesmo apontamento não duplica. SPEC-4-001 · CA-4-02.
+- [ ] Gravar no servidor as conferências e a aprovação da consolidação @"American Goodies"
+  > Conferência e aprovação passam a ser gravadas no servidor, sem dado fixo de demonstração; a aprovação prepara a ordem de produção para o Omie, sem enviar nada, e Consolidações mostra o estado. SPEC-4-001 · CA-4-03 e CA-4-05.
+- [ ] Levar a produção gravada no servidor para os relatórios, os alertas e a exportação @"American Goodies"
+  > O relatório de produção, o alerta de produção atrasada e a exportação passam a usar o que foi programado e apontado; registro de demonstração fica de fora. SPEC-4-001 · CA-4-33.
+- [ ] Tirar do sistema os arquivos de diagnóstico que guardam chave de acesso ao Omie @"American Goodies"
+  > Os arquivos de diagnóstico com chave são apagados e nenhum outro arquivo do sistema guarda chave ou senha. SPEC-4-001 · CA-4-35.
+- [ ] Organizar o menu lateral por área, com ícones e versão para celular @"American Goodies"
+  > O menu passa a ter 6 grupos com ícones, recolhe no computador e abre por um botão no celular; o cabeçalho mostra a tela, os alertas e o menu da pessoa. Cada pessoa vê só as telas das suas áreas. SPEC-4-003 · CA-4-11 a CA-4-13.
+- [ ] Montar a tela inicial com os atalhos e os alertas de cada pessoa @"American Goodies"
+  > A tela inicial mostra a saudação, a data, os alertas abertos e os atalhos de quem entrou. SPEC-4-003 · CA-4-14.
+- [ ] Reescrever títulos, mensagens de erro e explicações na língua da operação @"American Goodies"
+  > Mensagens de erro e estados ficam em português simples, num lugar só; a explicação de cada regra vai para "Como funciona". SPEC-4-004 · CA-4-16 a CA-4-18.
+- [ ] Tirar das telas os resultados de teste, os códigos internos e os termos técnicos @"American Goodies"
+  > Saem das telas os cartões de teste, os códigos do método e do portal e termos como null, payload e replay. SPEC-4-004 · CA-4-15.
+- [ ] Trocar as tabelas e os seletores pelos do kit, com números no formato brasileiro @"American Goodies"
+  > Tabelas e campos do kit, com números alinhados, unidade junto, "—" onde falta informação e paginação. SPEC-4-005 · CA-4-19 e CA-4-20.
+- [ ] Dar retorno visual ao salvar, ao corrigir um apontamento e ao carregar as telas @"American Goodies"
+  > Ao salvar aparece "Salvo" ou o erro; a correção de apontamento abre uma janela de verdade; o carregamento mostra o esqueleto da tela. SPEC-4-005 · CA-4-20 e CA-4-23.
+- [ ] Padronizar os avisos em três níveis e os selos de estado com cor e ícone @"American Goodies"
+  > Um aviso no máximo no topo de cada tela, em três níveis; cada estado com selo colorido e ícone; "Dados de demonstração" só onde houver. SPEC-4-005 · CA-4-21 e CA-4-22.
+- [ ] Adaptar apontamentos, conferências, recebimentos e preparação de pedidos para o celular @"American Goodies"
+  > Nas quatro telas, no celular, cada item vira um cartão, o botão principal fica fixo embaixo e o teclado abre em números; no tablet, só as colunas essenciais. SPEC-4-006 · CA-4-24 e CA-4-25.
+- [ ] Tirar a rolagem para o lado de todas as telas no celular e no tablet @"American Goodies"
+  > Nenhuma tela passa da largura do celular, do tablet ou do computador. SPEC-4-006 · CA-4-26.
+- [ ] Montar 3 propostas de visual com o logo e as cores da American Goodies @"American Goodies"
+  > Com o logo e as cores recebidos, o Maestro mostra 3 propostas (login, início e uma tabela, no computador e no celular) e o dono escolhe uma. É o único ponto de aprovação antes da sessão final. SPEC-4-002 · CA-4-06.
+- [ ] Aplicar o visual escolhido no tema, no login, na aba do navegador e na página de erro @"American Goodies"
+  > O sistema ganha as cores, a fonte e o logo da marca, o título "PCP American Goodies", o ícone, o idioma português e a página de erro em português. SPEC-4-002 · CA-4-07 a CA-4-10.
+- [ ] Rodar as leituras reais do Omie, uma por vez, quando a chave for liberada @"American Goodies"
+  > Depois do aviso do dono de que o Omie liberou a chave, catálogo, 90 dias, fornecedores, pedidos de compra, entregas, clientes e históricos são lidos um por vez e conferidos. SPEC-4-007 · CA-4-27.
+- [ ] Conferir no servidor todas as telas e rotas com o usuário de teste @"American Goodies"
+  > Com os usuários de teste criados pelo dono, as rotas das fases 3 e 4 são chamadas no servidor, com tudo marcado como demonstração, e as provas de todas as fases rodam. SPEC-4-007 · CA-4-28.
+- [ ] Preparar a sessão final: provas de ponta a ponta e roteiro de cada área @"American Goodies"
+  > Provas verdes na véspera, contas reais com os acessos aprovados, roteiro de cada área e lista do que está pronto para ligar no Omie; o dono é avisado para marcar a data. SPEC-4-007 · CA-4-29.
+- [ ] Fazer a sessão de validação final com a equipe @"American Goodies"
+  > Com a equipe, o fluxo inteiro com dados reais, as gravações no Omie ligadas pelo dono uma por vez, a conferência do visual no aparelho de cada um e o aceite. SPEC-4-007 · CA-4-30 a CA-4-32.

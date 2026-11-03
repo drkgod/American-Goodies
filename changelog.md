@@ -1,5 +1,15 @@
 # Changelog operacional
 
+## 2026-11-03
+
+- 2026-11-03 · [consultor] · **Fase 4 liberada (P6).**
+  - 7 SPECs e 21 tarefas: teste separado do real e produção gravando no servidor (4-001), acabamento visual e de uso (4-002 a 4-006), e leituras reais, rotas provadas e sessão final (4-007).
+  - Fase 3 guardada em `05_entregas/fase-3/`: as 46 tarefas em andamento continuam e fecham quando a entrada de cada uma chegar (as que ficarem abertas são registradas na sessão final); as 2 da sessão final passaram para a fase 4.
+  - Checklist novo: CL-PEND-015 (logo e cores), CL-008 (escolha do visual) e CL-PEND-016 (dois usuários de teste). Ajustados: CL-PEND-006 (trocar a chave do Omie depois do desbloqueio) e CL-PEND-001 (capacidade e dias de produção).
+  - `AGENTS.md`, `README.md` e o estado atual foram atualizados.
+  - Nenhum código do sistema mudou nesta publicação.
+- 2026-11-03 · [MCC/Claude] · **Patch do consultor (02/11) aplicado (v0.0.197), commit `8485139`.**
+
 ## 2026-10-26
 
 - 2026-10-26 · [consultor] · **Fase 2 fechada e fase 3 única até a validação final (AC-26-01).** Fase 2 com 29 de 29 fechadas: catálogo real (4e0fcf1c), sugestões com dados reais (2ea1e7ab) e envio ao Omie (6e38e5a3) passaram para a fase 3 como tarefas novas; a validação final da fase 2 (0d876150) entra na sessão final da fase 3. Tarefas, SPECs e índice da fase 2 arquivados em 05_entregas/fase-2/. Fase 3 com 18 SPECs (3-001 a 3-018) e 48 tarefas, juntando o que estava nas fases 3, 4 e 5 do escopo; fases 4 e 5 sem tarefas. Um teste só: a sessão de validação final com a equipe (SPEC-3-018), prevista para 03/12/2026. Gravações no Omie (ordem de produção, pedido de compra, pedido de venda) construídas com a chave desligada e simulador; só ligam com a autorização do dono, com as condições no checklist do cliente. Notas de entrada e gravação do recebimento em revisão (CL-PEND-007). Novo AGENTS.md; README, STATUS e estado do executor atualizados. Publicação documental; sem alteração de código, do Skip nem do portal.
