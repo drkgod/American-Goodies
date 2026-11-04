@@ -13,8 +13,9 @@
 - skip_projeto: 62774
 - skip_versao: v0.0.197 (ref 32917f0), publicada 03/11
 - pendente_github: não (patch de 03/11 no commit 8485139)
+- aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-11-04-0810-autorizacao-vinculada-ao-payload.md
 - ultima_acao: 03/11 — consultor liberou a fase 4 (7 SPECs, 21 tarefas)
 - proxima_acao: SPEC-4-001, marca de demonstração no servidor e recusa no envio
-- atualizado_em: 2026-11-03
+- atualizado_em: 2026-11-04
 
 Estado anterior preservado no histórico do git.
