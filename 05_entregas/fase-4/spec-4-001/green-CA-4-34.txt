@@ -1,0 +1,13 @@
+✔ CA-4-34: produto de demonstração é reconhecido; produto real não (1.823167ms)
+✔ CA-4-34: registro de conta de teste ou com produto de demonstração sai marcado; o real não (0.112333ms)
+✔ CA-4-34: a marca nunca sai sozinha depois de posta (0.0675ms)
+✔ CA-4-34: autorização e envio recusam registro de demonstração com 422, com a chave ligada ou desligada (1.570375ms)
+✔ CA-4-34: consolidação marcada como demonstração não prepara ordem (1.494792ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 133.741541

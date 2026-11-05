@@ -29,8 +29,9 @@ Marque `[x]` para concluir e adicione linhas novas à vontade: elas entram no qu
 sincronização e voltam aqui com o `<!-- id:… -->` preenchido. **Não apague o marcador de id** das
 tarefas que já têm um.
 
-- [ ] Separar no servidor os registros de teste e de demonstração dos reais @"American Goodies"
+- [x] Separar no servidor os registros de teste e de demonstração dos reais @"American Goodies"
   > Tudo o que for gravado por conta de teste ou com produto de demonstração fica marcado, fora dos relatórios e da exportação, e nunca pode ser autorizado nem enviado ao Omie. SPEC-4-001 · CA-4-34.
+  > Resultado (05/11/2026, Skip v0.0.199, ref 6e93652): marca `demonstracao` nas coleções de produção, compras e faturamento (migration 0047, campo `teste` no perfil) e hook de marcação; as rotas de autorização e de envio da ordem, do pedido de compra e do pedido de venda recusam registro marcado (422); consolidação marcada não prepara ordem. Provas do módulo: 5 testes CA-4-34 e regressão 211 de 211. Rotas só provadas no servidor na SPEC-4-007 (falta o usuário de teste).
 - [ ] Gravar no servidor a programação publicada na tela de Planejamento @"American Goodies"
   > A programação passa a ficar no servidor, com versão e com os parâmetros aprovados; outra pessoa vê a mesma, e publicar sobre versão antiga avisa. As rotas de produção passam a exigir a área. SPEC-4-001 · CA-4-01 e CA-4-04.
 - [ ] Gravar no servidor os apontamentos da cozinha e do encaixotamento @"American Goodies"
