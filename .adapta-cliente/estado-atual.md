@@ -16,7 +16,7 @@
 - aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-11-06-1124-verificacao-ao-vivo.md
 - ultima_acao: 06/11 — recuperação: produção conferida em v0.0.203 (ref dc69d76); a 1ª tarefa da SPEC-4-001 está documentada como concluída no fase.md (v0.0.199)
 - proxima_acao: SPEC-4-001, gravar a programação no servidor (CA-4-01 e CA-4-04)
-- em_espera: CA-4-35 — confirmar que a remoção dos hooks de diagnóstico foi publicada (arquivos ausentes na lista do working tree; falta a busca de segredo)
+- em_espera: nenhuma — remoção dos 2 hooks de diagnóstico confirmada na produção v0.0.203; resta a busca de segredo e a marcação da CA-4-35, que são da construção (fora desta recuperação)
 - atualizado_em: 2026-11-06
 
 Estado anterior preservado no histórico do git.
