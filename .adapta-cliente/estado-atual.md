@@ -3,7 +3,7 @@
 - schema_version: adapta-cliente-state/v3
 - fase: 4 (P6, liberada em 03/11/2026; fase 3 guardada em 05_entregas/fase-3; fase 5 sem tarefas)
 - task_id: nenhuma
-- spec: 04_fase-atual/specs/spec-4-001-producao-gravando-no-servidor.md
+- spec: nenhuma
 - etapa: sem_task
 - executor: MCC (Claude Code)
 - teste_humano: um ponto de aprovação, o dono escolhe uma das 3 propostas de visual (SPEC-4-002, CL-008); depois, a sessão de validação final com a equipe (SPEC-4-007), sem data marcada
