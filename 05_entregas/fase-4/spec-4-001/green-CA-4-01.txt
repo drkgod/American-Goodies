@@ -1,0 +1,12 @@
+✔ CA-4-01: sem parâmetros aprovados, Publicar fica desabilitado com o motivo (2.359208ms)
+✔ CA-4-01: sem calendário (dias de produção) em algum recurso, Publicar fica desabilitado (0.090708ms)
+✔ CA-4-01: com parâmetros e calendário aprovados, o calendário vem dos dias de cada recurso (7.102417ms)
+✔ CA-4-01: publicar sobre versão antiga devolve 409 e manda recarregar; a mesma versão aparece igual para todos (0.151792ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 137.427042
