@@ -1,0 +1,14 @@
+✔ CA-4-03: a fila usa os apontamentos do servidor e as conferências; sem as duas, fica bloqueada e nada vira 0 (1.071666ms)
+✔ CA-4-03: a última conferência de cada etapa é a vigente (0.105625ms)
+✔ CA-4-03: a aprovação sem as conferências é recusada com o motivo; a rota prepara a ordem sem enviar (0.750417ms)
+✔ CA-4-03: reenvio da mesma conferência ou aprovação mostra "já registrada" e mantém o identificador só em falha de rede (6.014583ms)
+✔ CA-4-03: falta de acesso não dá pistas e conflitos de envio são explicados (0.484834ms)
+✔ CA-4-03: /consolidacoes lista a ordem, as conferências, a aprovação e o estado da ordem, sem envio (0.242291ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.072916

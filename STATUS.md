@@ -17,9 +17,10 @@
   - usuário de teste ainda não criado (CL-PEND-016);
   - notas de entrada em revisão (CL-PEND-007).
 - **Gravações no Omie:** todas desligadas; só ligam com a autorização do dono, uma por vez.
-- **Ambiente:** projeto Skip 62774; última versão registrada v0.0.197 (ref 32917f0).
+- **Andamento da SPEC-4-001 (09/11):** marca de demonstração (fechada), diagnósticos apagados, Planejamento, Apontamentos, Conferências/aprovação e Consolidações ligados ao servidor; as tarefas ficam em andamento até a prova no servidor com o usuário de teste (SPEC-4-007).
+- **Ambiente:** projeto Skip 62774; última versão v0.0.205 (ref 8cb5fd8).
 
-Próxima ação: Separar no servidor os registros de teste e de demonstração dos reais (SPEC-4-001).
+Próxima ação: levar a produção gravada para os relatórios, os alertas e a exportação (SPEC-4-001, CA-4-33).
 
 ## Histórico da fase 3
 

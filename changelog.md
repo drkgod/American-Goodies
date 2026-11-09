@@ -1,5 +1,12 @@
 # Changelog operacional
 
+## 2026-11-09
+
+- 2026-11-09 · [MCC/Claude] · **SPEC-4-001: Apontamentos, Conferências/aprovação e Consolidações pelo servidor (Skip v0.0.204 e v0.0.205).**
+  - /apontamentos, /conferencias e /consolidacoes leem e gravam só pelas rotas de produção, com releitura a cada 30 s; sem constantes de demonstração; /consolidacoes é só leitura.
+  - Guarda e menu de Conferências aceitam `conferir_expedicao` ou `painel`; a troca fixa `DEMO_CONFERENCIA` saiu.
+  - Regressão 236 de 236; tarefas em andamento até a prova no servidor (SPEC-4-007). Evidência em `05_entregas/fase-4/spec-4-001/`.
+
 ## 2026-11-03
 
 - 2026-11-03 · [consultor] · **Fase 4 liberada (P6).**

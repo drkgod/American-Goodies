@@ -1,9 +1,11 @@
-✔ CA-4-04: falta de acesso na publicação não dá pistas (1.800959ms)
-ℹ tests 1
+✔ CA-4-04: falta de acesso na publicação não dá pistas (1.089834ms)
+✔ CA-4-04: quem tem só conferir_expedicao confere a expedição e não a câmara nem aprova (0.115625ms)
+✔ CA-4-04: sem a área, a ação ou o ponto, a tela nega a conferência e a aprovação (0.080542ms)
+ℹ tests 3
 ℹ suites 0
-ℹ pass 1
+ℹ pass 3
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 81.072166
+ℹ duration_ms 82.229833

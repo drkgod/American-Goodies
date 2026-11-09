@@ -1,0 +1,265 @@
+/* Main App Component - Handles routing (using react-router-dom), query client and other providers - use this file to add all routes */
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Toaster } from '@/components/ui/toaster'
+import { Toaster as Sonner } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
+import Index from './pages/Index'
+import Catalogo from './pages/Catalogo'
+import Painel from './pages/Painel'
+import Login from './pages/Login'
+import TrocarSenha from './pages/TrocarSenha'
+import Qualidade from './pages/Qualidade'
+import Planejamento from './pages/Planejamento'
+import Apontamentos from './pages/Apontamentos'
+import Conferencias from './pages/Conferencias'
+import Sugestoes from './pages/Sugestoes'
+import Consolidacoes from './pages/Consolidacoes'
+import EnvioOmie from './pages/EnvioOmie'
+import Fornecedores from './pages/Fornecedores'
+import Conversoes from './pages/Conversoes'
+import HistoricoPrecos from './pages/HistoricoPrecos'
+import Requisicoes from './pages/Requisicoes'
+import Entregas from './pages/Entregas'
+import Recebimentos from './pages/Recebimentos'
+import Unidades from './pages/Unidades'
+import PedidosPreparacao from './pages/PedidosPreparacao'
+import PedidosManuais from './pages/PedidosManuais'
+import Alertas from './pages/Alertas'
+import HistoricoVendas from './pages/HistoricoVendas'
+import LoopAlertas from './pages/LoopAlertas'
+import Relatorios from './pages/Relatorios'
+import Assistente from './pages/Assistente'
+import Exportacao from './pages/Exportacao'
+import LoopPerguntas from './pages/LoopPerguntas'
+import ParametrosAlerta from './pages/ParametrosAlerta'
+import Parametros from './pages/Parametros'
+import NotFound from './pages/NotFound'
+import Layout from './components/Layout'
+import ProtectedArea from './components/ProtectedArea'
+import { AuthProvider } from './hooks/use-auth'
+
+// ONLY IMPORT AND RENDER WORKING PAGES, NEVER ADD PLACEHOLDER COMPONENTS OR PAGES IN THIS FILE
+// AVOID REMOVING ANY CONTEXT PROVIDERS FROM THIS FILE (e.g. TooltipProvider, Toaster, Sonner)
+
+const App = () => (
+  <BrowserRouter>
+    <AuthProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/trocar-senha" element={<TrocarSenha />} />
+          <Route element={<Layout />}>
+            <Route
+              path="/"
+              element={
+                <ProtectedArea area="painel">
+                  <Index />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/catalogo"
+              element={
+                <ProtectedArea area="catalogo">
+                  <Catalogo />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/painel"
+              element={
+                <ProtectedArea area="painel">
+                  <Painel />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/qualidade"
+              element={
+                <ProtectedArea area="painel">
+                  <Qualidade />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/planejamento"
+              element={
+                <ProtectedArea area="planejamento">
+                  <Planejamento />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/parametros"
+              element={
+                <ProtectedArea area="planejamento">
+                  <Parametros />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/historico-vendas"
+              element={
+                <ProtectedArea area="painel">
+                  <HistoricoVendas />
+                </ProtectedArea>
+              }
+            />
+            <Route path="/assistente" element={<Assistente />} />
+            <Route path="/exportacao" element={<Exportacao />} />
+            <Route path="/assistente/loop" element={<LoopPerguntas />} />
+            <Route
+              path="/relatorios"
+              element={
+                <ProtectedArea area="painel">
+                  <Relatorios />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/alertas/loop"
+              element={
+                <ProtectedArea area="painel">
+                  <LoopAlertas />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/alertas"
+              element={
+                <ProtectedArea area="painel">
+                  <Alertas />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/parametros/alertas"
+              element={
+                <ProtectedArea area="planejamento">
+                  <ParametrosAlerta />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/apontamentos"
+              element={
+                <ProtectedArea area="apontar_producao">
+                  <Apontamentos />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/conferencias"
+              element={
+                <ProtectedArea area="conferir_expedicao|painel">
+                  <Conferencias />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/sugestoes"
+              element={
+                <ProtectedArea area="painel">
+                  <Sugestoes />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/fornecedores"
+              element={
+                <ProtectedArea area="compras">
+                  <Fornecedores />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/conversoes"
+              element={
+                <ProtectedArea area="compras">
+                  <Conversoes />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/compras/requisicoes"
+              element={
+                <ProtectedArea area="compras">
+                  <Requisicoes />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/unidades"
+              element={
+                <ProtectedArea area="faturamento">
+                  <Unidades />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/pedidos/preparacao"
+              element={
+                <ProtectedArea area="faturamento">
+                  <PedidosPreparacao />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/pedidos/manuais"
+              element={
+                <ProtectedArea area="faturamento">
+                  <PedidosManuais />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/recebimentos"
+              element={
+                <ProtectedArea area="recebimento">
+                  <Recebimentos />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/compras/entregas"
+              element={
+                <ProtectedArea area="compras">
+                  <Entregas />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/compras/historico"
+              element={
+                <ProtectedArea area="compras">
+                  <HistoricoPrecos />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/envio-omie"
+              element={
+                <ProtectedArea area="painel">
+                  <EnvioOmie />
+                </ProtectedArea>
+              }
+            />
+            <Route
+              path="/consolidacoes"
+              element={
+                <ProtectedArea area="painel">
+                  <Consolidacoes />
+                </ProtectedArea>
+              }
+            />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </TooltipProvider>
+    </AuthProvider>
+  </BrowserRouter>
+)
+
+export default App

@@ -1,0 +1,12 @@
+✔ CA-4-05: a tela de Apontamentos não importa *_DEMO, não chama as funções locais e usa só o cliente do servidor (2.001833ms)
+✔ CA-4-05: Conferências e Consolidações não importam *_DEMO, não chamam as funções locais e leem/gravam só pelo servidor (1.203209ms)
+✔ CA-4-05: /consolidacoes não tem botão de envio nem a fila de simulação (0.169666ms)
+✔ CA-4-05: a troca fixa da área da conferência não existe mais; a rota e o menu aceitam conferir_expedicao ou painel (0.818333ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 80.607375
