@@ -2,6 +2,7 @@
 
 ## 2026-11-09
 
+- 2026-11-09 · [MCC/Claude] · **SPEC-4-005, 2ª etapa (Skip v0.0.211, ref adc2cdd):** 18 tabelas e 13 seletores trocados pelos do kit, cores fixas trocadas por tokens, esqueleto no lugar de "Carregando…". Varredura CA-4-20 limpa; regressão 277 de 277. Falta usar `Aviso`/`Selo` nas telas, `formato.ts` nos números, aviso ao salvar nas demais telas e `alert-dialog`.
 - 2026-11-09 · [MCC/Claude] · **SPEC-4-005, 1ª etapa (Skip v0.0.209, ref 0b54722):** `formato.ts`, `Selo`, `Aviso`, mapa de grupos de selo, tokens de estado no tema, janela de correção de apontamento e aviso ao salvar em Apontamentos. Troca das tabelas, seletores, cores e "Carregando…" nas demais telas em andamento.
 - 2026-11-09 · [MCC/Claude] · **SPEC-4-004: telas na língua da operação (Skip v0.0.208, ref 02ed133).**
   - Novo `textos.ts` (estados, mensagens de erro, `textoSeguro`) e componente "Como funciona" (fechado por padrão); 31 telas com subtítulo curto, mensagens pelo módulo e sem termos técnicos; títulos dos loops trocados.

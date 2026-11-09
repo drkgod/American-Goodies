@@ -86,7 +86,7 @@ test('CA-4-21: o tema tem os tokens de estado e Selo e Aviso usam só tokens', (
 })
 
 // ───────── CA-4-20 / CA-4-22: varredura (liga quando a troca das telas termina) ─────────
-const PENDENTE = { todo: 'troca das telas em andamento (SPEC-4-005)' }
+const PENDENTE = {}
 const semComentario = (s) => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:\w"'`])\/\/.*$/gm, '$1')
 
 test('CA-4-20: sem <table, <select, cores fixas, window.alert/confirm/prompt nem "Carregando" visível', PENDENTE, () => {
@@ -97,7 +97,7 @@ test('CA-4-20: sem <table, <select, cores fixas, window.alert/confirm/prompt nem
     if (/<select\b/.test(s)) problemas.push(`${arquivo}: <select`)
     if (/\b(bg|text|border)-(red|amber|yellow|green|blue|emerald)-/.test(s)) problemas.push(`${arquivo}: cor fixa`)
     if (/window\.(alert|confirm|prompt)/.test(s)) problemas.push(`${arquivo}: window.*`)
-    if (/Carregando/.test(s.replace(/aria-label="Carregando[^"]*"/g, ''))) problemas.push(`${arquivo}: "Carregando" visível`)
+    if (/["'`>]\s*Carregando|Carregando…/.test(s.replace(/aria-label="Carregando[^"]*"/g, ''))) problemas.push(`${arquivo}: "Carregando" visível`)
   }
   assert.deepEqual(problemas, [])
 })

@@ -1,0 +1,5 @@
+# GREEN CA-4-20 — SPEC-4-005
+✔ CA-4-20: sem <table, <select, cores fixas, window.alert/confirm/prompt nem "Carregando" visível (10.023375ms)
+ℹ tests 1
+ℹ pass 1
+ℹ fail 0

@@ -1,5 +1,5 @@
-# Regressão — node --test tests/pcp/*.test.mjs (2 testes da varredura CA-4-20/22 ficam como pendentes até a troca das telas)
+# Regressão — node --test tests/pcp/*.test.mjs
 ℹ tests 277
-ℹ pass 275
+ℹ pass 277
 ℹ fail 0
-ℹ todo 2
+ℹ todo 0
