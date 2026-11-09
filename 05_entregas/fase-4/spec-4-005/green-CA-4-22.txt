@@ -1,5 +1,5 @@
 # GREEN CA-4-22 — SPEC-4-005
-✔ CA-4-22: no máximo um Aviso com topo por tela (2.211666ms)
+✔ CA-4-22: no máximo um Aviso com topo por tela (2.26775ms)
 ℹ tests 1
 ℹ pass 1
 ℹ fail 0

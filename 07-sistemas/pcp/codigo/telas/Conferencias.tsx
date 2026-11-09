@@ -26,6 +26,8 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import Escolha from '@/components/Escolha'
 import Aviso from '@/components/Aviso'
+import Confirmar from '@/components/Confirmar'
+import { toast } from 'sonner'
 
 // Conferências: a expedição e a câmara conferem e o PCP aprova no servidor (SPEC-4-001). Os identificadores
 // nascem aqui e são reaproveitados no reenvio da mesma tentativa. A tela relê o estado a cada 30 segundos
@@ -108,6 +110,8 @@ const Conferencias = () => {
     })
     const m = mensagemDaConferencia(r.http, r.corpo)
     setResultado(textoSeguro(m.texto, 'Não foi possível registrar. Tente de novo.'))
+    if (m.ok) toast.success(textoSeguro(m.texto, 'Conferência registrada.'), { duration: 4000 })
+    else toast.error(textoSeguro(m.texto, 'Não foi possível registrar.'), { duration: Infinity, closeButton: true })
     if (!m.manterId) tentativaConf.current = null
     if (m.ok) {
       setQuantidade('') // campo limpo: a próxima conferência é digitada, nunca puxada
@@ -139,6 +143,8 @@ const Conferencias = () => {
     })
     const m = mensagemDaAprovacao(r.http, r.corpo)
     setMsgAprov(textoSeguro(m.texto, 'Não foi possível registrar a decisão. Tente de novo.'))
+    if (m.ok) toast.success(textoSeguro(m.texto, 'Decisão registrada.'), { duration: 4000 })
+    else toast.error(textoSeguro(m.texto, 'Não foi possível registrar a decisão.'), { duration: Infinity, closeButton: true })
     if (!m.manterId) tentativaAprov.current = null
     if (m.recarregar) await carregar()
     setEnviando(false)
@@ -362,18 +368,24 @@ const Conferencias = () => {
                     />
                   </label>
                 </div>
-                <Button
-                  size="sm"
-                  onClick={aprovar}
-                  disabled={faltaConferencia || enviando}
-                  title={
-                    faltaConferencia
-                      ? 'Registre as conferências de expedição e câmara antes de aprovar'
-                      : 'Registra a decisão do PCP com motivo'
-                  }
+                <Confirmar
+                  titulo="Aprovar esta consolidação?"
+                  resumo={`Quantidade final de ${qtdFinal || '—'} UN, com o motivo informado. A aprovação prepara a ordem de conclusão; nada é enviado ao Omie.`}
+                  rotuloBotao="Aprovar"
+                  onConfirmar={aprovar}
                 >
-                  Aprovar consolidação
-                </Button>
+                  <Button
+                    size="sm"
+                    disabled={faltaConferencia || enviando}
+                    title={
+                      faltaConferencia
+                        ? 'Registre as conferências de expedição e câmara antes de aprovar'
+                        : 'Registra a decisão do PCP com motivo'
+                    }
+                  >
+                    Aprovar consolidação
+                  </Button>
+                </Confirmar>
                 {ordemPreparada && (
                   <p className="text-xs text-muted-foreground">
                     Ordem de conclusão: {rotuloEstado(ordemPreparada.estado)} ({ordemPreparada.quantidade} UN). O

@@ -110,3 +110,24 @@ test('CA-4-22: no máximo um Aviso com topo por tela', PENDENTE, () => {
   }
   assert.deepEqual(problemas, [])
 })
+
+// ───────── CA-4-23 (parte estática): telas que gravam mostram o aviso flutuante certo ─────────
+test('CA-4-23: telas com gravação mostram aviso flutuante de sucesso (some em 4 s) e de erro (fica até fechar)', () => {
+  const COM_GRAVACAO = ['Apontamentos', 'Conferencias', 'EnvioOmie', 'PedidosPreparacao', 'Requisicoes']
+  const problemas = []
+  for (const t of COM_GRAVACAO) {
+    const s = readFileSync(join(RAIZ, `pages/${t}.tsx`), 'utf8')
+    if (!/toast\.success\([\s\S]*?duration:\s*4000/.test(s)) problemas.push(`${t}: sem aviso de sucesso de 4 s`)
+    if (!/toast\.error\([\s\S]*?duration:\s*Infinity[\s\S]*?closeButton:\s*true/.test(s)) problemas.push(`${t}: sem aviso de erro que fica`)
+  }
+  assert.deepEqual(problemas, [])
+})
+
+test('CA-4-23: as 4 ações da SPEC pedem confirmação e a correção de apontamento usa janela', () => {
+  const le = (n) => readFileSync(join(RAIZ, `pages/${n}.tsx`), 'utf8')
+  assert.match(le('EnvioOmie'), /<Confirmar[\s\S]*?Autorizar esta ordem/)
+  assert.match(le('PedidosPreparacao'), /<Confirmar[\s\S]*?Liberar para faturar/)
+  assert.match(le('Requisicoes'), /<Confirmar[\s\S]*?>\s*<Button size="sm">Aprovar<\/Button>/)
+  assert.match(le('Conferencias'), /<Confirmar[\s\S]*?Aprovar consolidação/)
+  assert.match(le('Apontamentos'), /<Dialog[\s\S]*?Salvar correção/)
+})
