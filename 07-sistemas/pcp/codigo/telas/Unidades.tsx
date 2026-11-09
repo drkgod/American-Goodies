@@ -329,6 +329,7 @@ const Unidades = () => {
               />
               <Input
                 type="number"
+                inputMode="decimal"
                 min={0}
                 step="any"
                 placeholder="Preço"

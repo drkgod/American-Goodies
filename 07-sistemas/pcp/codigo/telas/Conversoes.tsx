@@ -123,6 +123,7 @@ const Conversoes = () => {
               />
               <Input
                 type="number"
+                inputMode="decimal"
                 min={0}
                 step="any"
                 placeholder="Fator"

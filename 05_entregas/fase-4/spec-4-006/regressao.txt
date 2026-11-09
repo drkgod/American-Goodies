@@ -1,0 +1,5 @@
+# Regressão — node --test tests/pcp/*.test.mjs
+ℹ tests 284
+ℹ pass 284
+ℹ fail 0
+ℹ todo 0

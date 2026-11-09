@@ -68,9 +68,11 @@ tarefas que já têm um.
 - [/] Padronizar os avisos em três níveis e os selos de estado com cor e ícone @"American Goodies"
   > Resultado parcial (09/11/2026, Skip v0.0.214, ref b2c0754): `Aviso` em todas as caixas (um no topo por tela, CA-4-22 verde), `Selo` com cor e ícone nos estados de Alertas, Envio ao Omie, Requisições e Histórico de preços, tokens de estado no tema, selo "Dados de demonstração" nas telas de exemplo. Faltam as capturas (usuário de teste). Evidência em `05_entregas/fase-4/spec-4-005/`.
   > Um aviso no máximo no topo de cada tela, em três níveis; cada estado com selo colorido e ícone; "Dados de demonstração" só onde houver. SPEC-4-005 · CA-4-21 e CA-4-22.
-- [ ] Adaptar apontamentos, conferências, recebimentos e preparação de pedidos para o celular @"American Goodies"
+- [/] Adaptar apontamentos, conferências, recebimentos e preparação de pedidos para o celular @"American Goodies"
+  > Resultado parcial (09/11/2026, Skip v0.0.215, ref ccda2bb): nas quatro telas, abaixo de 768 px: ação principal fixa no rodapé (48 px), listas em cartões, filtros no painel "Filtros", toque de 44 px, `inputmode="decimal"` em todos os campos numéricos e fonte de 16 px; no tablet, tabela só com as colunas essenciais. Provas estáticas CA-4-24 e CA-4-25 verdes; regressão 284 de 284. Faltam a medição e as capturas nas três larguras (usuário de teste, CL-PEND-016). Evidência em `05_entregas/fase-4/spec-4-006/`.
   > Nas quatro telas, no celular, cada item vira um cartão, o botão principal fica fixo embaixo e o teclado abre em números; no tablet, só as colunas essenciais. SPEC-4-006 · CA-4-24 e CA-4-25.
-- [ ] Tirar a rolagem para o lado de todas as telas no celular e no tablet @"American Goodies"
+- [/] Tirar a rolagem para o lado de todas as telas no celular e no tablet @"American Goodies"
+  > Resultado parcial (09/11/2026, Skip v0.0.215, ref ccda2bb): miolo de todas as telas com `overflow-x-clip` e `min-w-0`, tabela do kit rolando no próprio quadro. Prova estática do CA-4-26 verde. Falta medir `scrollWidth` de cada rota em 360, 768 e 1280 px (usuário de teste, CL-PEND-016). Evidência em `05_entregas/fase-4/spec-4-006/`.
   > Nenhuma tela passa da largura do celular, do tablet ou do computador. SPEC-4-006 · CA-4-26.
 - [ ] Montar 3 propostas de visual com o logo e as cores da American Goodies @"American Goodies"
   > Com o logo e as cores recebidos, o Maestro mostra 3 propostas (login, início e uma tabela, no computador e no celular) e o dono escolhe uma. É o único ponto de aprovação antes da sessão final. SPEC-4-002 · CA-4-06.

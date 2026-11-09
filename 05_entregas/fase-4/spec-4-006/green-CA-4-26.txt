@@ -1,0 +1,5 @@
+# GREEN CA-4-26 (provas estáticas) — SPEC-4-006
+✔ CA-4-26 (parte estática): o miolo de todas as telas corta o que passa da largura e a tabela rola dentro do quadro (3.310667ms)
+ℹ tests 1
+ℹ pass 1
+ℹ fail 0

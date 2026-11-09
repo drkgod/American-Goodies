@@ -1,0 +1,5 @@
+# GREEN CA-4-25 (provas estáticas) — SPEC-4-006
+✔ CA-4-25: campos numéricos com teclado decimal e fonte de pelo menos 16 px no celular (2.119792ms)
+ℹ tests 1
+ℹ pass 1
+ℹ fail 0

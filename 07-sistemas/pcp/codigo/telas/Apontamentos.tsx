@@ -33,6 +33,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import Escolha from '@/components/Escolha'
 import Aviso from '@/components/Aviso'
 import Paginacao, { fatiar } from '@/components/Paginacao'
+import RodapeFixo from '@/components/RodapeFixo'
+import PainelFiltros from '@/components/PainelFiltros'
 
 // Apontamentos: a cozinha e o encaixotamento gravam no servidor (SPEC-4-001). O identificador do evento
 // nasce aqui e é reaproveitado no reenvio da mesma tentativa, para o servidor reconhecer a repetição.
@@ -216,6 +218,7 @@ const Apontamentos = () => {
               <CardTitle className="text-base">Registrar evento</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
+              <PainelFiltros>
               <div className="grid grid-cols-2 gap-2">
                 <label className="space-y-1">
                   <span className="text-muted-foreground">Ordem</span>
@@ -237,6 +240,7 @@ const Apontamentos = () => {
                   />
                 </label>
               </div>
+              </PainelFiltros>
               <div className="flex flex-wrap gap-1">
                 {TIPOS.map((t) => (
                   <Button
@@ -267,6 +271,7 @@ const Apontamentos = () => {
                 </span>
                 <Input
                   type="number"
+                  inputMode="decimal"
                   step="0.1"
                   value={quantidade}
                   onChange={(e) => setQuantidade(e.target.value)}
@@ -282,9 +287,11 @@ const Apontamentos = () => {
                   />
                 </label>
               )}
-              <Button size="sm" onClick={registrar} disabled={enviando || pontos.length === 0}>
-                Registrar
-              </Button>
+              <RodapeFixo>
+                <Button size="sm" onClick={registrar} disabled={enviando || pontos.length === 0}>
+                  Registrar
+                </Button>
+              </RodapeFixo>
               {pontos.length === 0 && (
                 <p className="text-xs text-muted-foreground">
                   Sua conta não tem ponto de apontamento.
@@ -352,14 +359,46 @@ const Apontamentos = () => {
             )}
             {eventos.length > 0 && (
               <>
-              <Table className="w-full">
+              <div className="space-y-2 md:hidden">
+                {fatiar(eventos, paginaEv).map((e) => (
+                  <div
+                    key={e.evento_id}
+                    className={`rounded-md border p-3 ${retificados.has(e.evento_id) ? 'opacity-60' : ''}`}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <p className="break-words font-medium">{e.item}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {e.tipo} · {e.ponto}
+                          {e.retifica ? ' · retificação' : ''}
+                          {retificados.has(e.evento_id) ? ' · retificado' : ''}
+                        </p>
+                      </div>
+                      <p className="shrink-0 font-semibold">
+                        {e.quantidade} {e.unidade}
+                      </p>
+                    </div>
+                    {!retificados.has(e.evento_id) && pontos.includes(e.ponto) && (
+                      <Button
+                        variant="outline"
+                        className="mt-2 w-full"
+                        disabled={enviando}
+                        onClick={() => retificar(e)}
+                      >
+                        Retificar
+                      </Button>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <Table className="hidden w-full md:table">
                 <TableHeader>
                   <TableRow className="text-left text-muted-foreground">
                     <TableHead className="pb-2">Tipo</TableHead>
                     <TableHead className="pb-2">Item</TableHead>
                     <TableHead className="pb-2">Qtd</TableHead>
                     <TableHead className="pb-2">Ponto</TableHead>
-                    <TableHead className="pb-2">Autor</TableHead>
+                    <TableHead className="hidden pb-2 lg:table-cell">Autor</TableHead>
                     <TableHead className="pb-2"></TableHead>
                   </TableRow>
                 </TableHeader>
@@ -383,7 +422,7 @@ const Apontamentos = () => {
                         {e.quantidade} {e.unidade}
                       </TableCell>
                       <TableCell>{e.ponto}</TableCell>
-                      <TableCell className="text-xs">{e.autor}</TableCell>
+                      <TableCell className="hidden text-xs lg:table-cell">{e.autor}</TableCell>
                       <TableCell>
                         {!retificados.has(e.evento_id) && pontos.includes(e.ponto) && (
                           <Button

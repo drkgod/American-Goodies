@@ -2,6 +2,7 @@
 
 ## 2026-11-09
 
+- 2026-11-09 · [MCC/Claude] · **SPEC-4-006: chão de fábrica no celular e no tablet (Skip v0.0.215, ref ccda2bb).** Ação fixa no rodapé, cartões, painel de filtros, toque de 44 px, teclado decimal e miolo sem rolagem lateral. Regressão 284 de 284; medição e capturas pendentes (usuário de teste).
 - 2026-11-09 · [MCC/Claude] · **SPEC-4-005, 4ª etapa (Skip v0.0.214, ref b2c0754):** `Selo` nos estados, datas e valores pelo `formato.ts`, paginação de 50 em 50, aviso ao salvar nas telas de cadastro. Regressão 279 de 279. Tarefas em andamento até as capturas.
 - 2026-11-09 · [MCC/Claude] · **SPEC-4-005, 3ª etapa (Skip v0.0.212 e v0.0.213, ref 37e4dc6):** componente `Aviso` em todas as caixas de aviso (um no topo por tela), `Confirmar` (alert-dialog) nas 4 ações e aviso flutuante ao salvar nas telas de produção, envio, preparação e compras. Regressão 279 de 279. Falta `Selo` nos estados, `formato.ts` nos números, paginação e avisos nas telas de cadastro.
 - 2026-11-09 · [MCC/Claude] · **SPEC-4-005, 2ª etapa (Skip v0.0.211, ref adc2cdd):** 18 tabelas e 13 seletores trocados pelos do kit, cores fixas trocadas por tokens, esqueleto no lugar de "Carregando…". Varredura CA-4-20 limpa; regressão 277 de 277. Falta usar `Aviso`/`Selo` nas telas, `formato.ts` nos números, aviso ao salvar nas demais telas e `alert-dialog`.

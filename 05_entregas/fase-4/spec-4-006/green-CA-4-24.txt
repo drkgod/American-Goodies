@@ -1,0 +1,7 @@
+# GREEN CA-4-24 (provas estáticas) — SPEC-4-006
+✔ CA-4-24: no celular, a ação principal de cada tela fica fixa no rodapé com toque de pelo menos 44 px (2.869292ms)
+✔ CA-4-24: no celular as listas viram cartões (md:hidden) e no tablet a tabela só traz as colunas essenciais (0.319791ms)
+✔ CA-4-24: filtros no painel "Filtros" no celular (0.303792ms)
+ℹ tests 3
+ℹ pass 3
+ℹ fail 0

@@ -190,6 +190,7 @@ const Requisicoes = () => {
               />
               <Input
                 type="number"
+                inputMode="decimal"
                 min={0}
                 step="any"
                 placeholder="Quantidade (unidade de estoque)"
@@ -329,6 +330,7 @@ const Requisicoes = () => {
                               <Input
                                 className="w-32"
                                 type="number"
+                                inputMode="decimal"
                                 min={0}
                                 step="any"
                                 placeholder="Preço / un. de compra"
@@ -343,6 +345,7 @@ const Requisicoes = () => {
                               <Input
                                 className="w-24"
                                 type="number"
+                                inputMode="decimal"
                                 min={0}
                                 placeholder="Prazo (dias)"
                                 value={f.prazo}
