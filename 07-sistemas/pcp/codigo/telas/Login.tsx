@@ -28,7 +28,9 @@ const Login = () => {
   }
 
   return (
-    <div className="container mx-auto py-12 px-4 max-w-md">
+    <div className="flex min-h-screen items-center justify-center px-4 py-8">
+      <div className="w-full max-w-md">
+      <p className="mb-4 text-center text-2xl font-semibold">PCP American Goodies</p>
       <Card>
         <CardHeader>
           <CardTitle>Entrar no sistema</CardTitle>
@@ -71,6 +73,7 @@ const Login = () => {
           </form>
         </CardContent>
       </Card>
+      </div>
     </div>
   )
 }

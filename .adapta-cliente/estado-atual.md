@@ -11,7 +11,7 @@
 - bloqueios_localizados: chave do Omie bloqueada desde 22/10 (CL-PEND-006; não chamar o Omie até o aviso do dono); logo e cores (CL-PEND-015); usuário de teste (CL-PEND-016); origem das notas de entrada em revisão (CL-PEND-007)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: v0.0.215 (ref ccda2bb), publicada (09/11)
+- skip_versao: v0.0.216 (ref 2fa7a40), publicada (09/11)
 - pendente_github: sim (commits locais de 09/11)
 - aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-11-06-1124-verificacao-ao-vivo.md
 - ultima_acao: 09/11 — SPEC-4-004: textos da operação no ar (v0.0.208); varredura de termos técnicos limpa, regressão 267 de 267; tarefas em andamento até as capturas

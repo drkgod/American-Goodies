@@ -76,7 +76,8 @@ tarefas que já têm um.
   > Nenhuma tela passa da largura do celular, do tablet ou do computador. SPEC-4-006 · CA-4-26.
 - [ ] Montar 3 propostas de visual com o logo e as cores da American Goodies @"American Goodies"
   > Com o logo e as cores recebidos, o Maestro mostra 3 propostas (login, início e uma tabela, no computador e no celular) e o dono escolhe uma. É o único ponto de aprovação antes da sessão final. SPEC-4-002 · CA-4-06.
-- [ ] Aplicar o visual escolhido no tema, no login, na aba do navegador e na página de erro @"American Goodies"
+- [/] Aplicar o visual escolhido no tema, no login, na aba do navegador e na página de erro @"American Goodies"
+  > Resultado parcial (09/11/2026, Skip v0.0.216, ref 2fa7a40): feito o que não depende do logo nem das cores: título da aba "PCP American Goodies", idioma `pt-BR`, login centralizado com o nome, página de erro em português com "Voltar ao início", fonte Inter e algarismos de largura fixa nas tabelas. Faltam as cores, o logo e o ícone da marca e a proposta escolhida: dependem da entrega do logo e das cores (CL-PEND-015) e da escolha do dono (CL-008). Nada foi inventado.
   > O sistema ganha as cores, a fonte e o logo da marca, o título "PCP American Goodies", o ícone, o idioma português e a página de erro em português. SPEC-4-002 · CA-4-07 a CA-4-10.
 - [ ] Rodar as leituras reais do Omie, uma por vez, quando a chave for liberada @"American Goodies"
   > Depois do aviso do dono de que o Omie liberou a chave, catálogo, 90 dias, fornecedores, pedidos de compra, entregas, clientes e históricos são lidos um por vez e conferidos. SPEC-4-007 · CA-4-27.
