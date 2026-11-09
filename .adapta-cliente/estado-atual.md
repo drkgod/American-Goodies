@@ -11,11 +11,11 @@
 - bloqueios_localizados: chave do Omie bloqueada desde 22/10 (CL-PEND-006; não chamar o Omie até o aviso do dono); logo e cores (CL-PEND-015); usuário de teste (CL-PEND-016); origem das notas de entrada em revisão (CL-PEND-007)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: v0.0.208 (ref 02ed133), publicada (09/11 14:19 UTC)
+- skip_versao: v0.0.209 (ref 0b54722), publicada (09/11)
 - pendente_github: sim (commits locais de 09/11)
 - aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-11-06-1124-verificacao-ao-vivo.md
 - ultima_acao: 09/11 — SPEC-4-004: textos da operação no ar (v0.0.208); varredura de termos técnicos limpa, regressão 267 de 267; tarefas em andamento até as capturas
-- proxima_acao: SPEC-4-005 (tabelas, avisos e números no formato brasileiro)
+- proxima_acao: SPEC-4-005, trocar tabelas, seletores, cores e "Carregando…" nas telas
 - em_espera: nenhuma — remoção dos 2 hooks de diagnóstico confirmada na produção v0.0.203; resta a busca de segredo e a marcação da CA-4-35, que são da construção (fora desta recuperação)
 - atualizado_em: 2026-11-09
 

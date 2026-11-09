@@ -1,0 +1,7 @@
+# GREEN CA-4-21 — SPEC-4-005
+✔ CA-4-21: todo estado do dicionário tem grupo; estado sem grupo cai no neutro (2.043625ms)
+✔ CA-4-21: grupos principais da SPEC (0.080792ms)
+✔ CA-4-21: o tema tem os tokens de estado e Selo e Aviso usam só tokens (1.579542ms)
+ℹ tests 3
+ℹ pass 3
+ℹ fail 0

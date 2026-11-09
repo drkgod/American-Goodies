@@ -2,6 +2,7 @@
 
 ## 2026-11-09
 
+- 2026-11-09 · [MCC/Claude] · **SPEC-4-005, 1ª etapa (Skip v0.0.209, ref 0b54722):** `formato.ts`, `Selo`, `Aviso`, mapa de grupos de selo, tokens de estado no tema, janela de correção de apontamento e aviso ao salvar em Apontamentos. Troca das tabelas, seletores, cores e "Carregando…" nas demais telas em andamento.
 - 2026-11-09 · [MCC/Claude] · **SPEC-4-004: telas na língua da operação (Skip v0.0.208, ref 02ed133).**
   - Novo `textos.ts` (estados, mensagens de erro, `textoSeguro`) e componente "Como funciona" (fechado por padrão); 31 telas com subtítulo curto, mensagens pelo módulo e sem termos técnicos; títulos dos loops trocados.
   - Varredura limpa com 3 exceções documentadas; regressão 267 de 267. Evidência em `05_entregas/fase-4/spec-4-004/`. Tarefas em andamento até as capturas (usuário de teste).

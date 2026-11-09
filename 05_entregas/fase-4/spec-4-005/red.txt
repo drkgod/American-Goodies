@@ -1,0 +1,2 @@
+# RED — antes de criar formato.ts, Selo e Aviso (SPEC-4-005): o módulo não existe e a varredura acharia os padrões
+# módulo ausente: src/lib/pcp/formato.ts
