@@ -1,0 +1,17 @@
+✔ CA-4-33: o relatório de produção usa a programação e os apontamentos do servidor (planejado × produzido × conferido) (2.055542ms)
+✔ CA-4-33: sem apontamento ou sem conferência a coluna fica sem dado, nunca zero (0.182125ms)
+✔ CA-4-33: realizado retificado não conta duas vezes e 0 declarado é um dado, não ausência (0.102125ms)
+✔ CA-4-33: período e produto filtram as ordens; a última conferência de câmara vale (0.105417ms)
+✔ CA-4-33: registro de demonstração não entra no relatório (0.11025ms)
+✔ CA-4-33: a regra de produção atrasada usa as programações e os apontamentos do servidor (5.25125ms)
+✔ CA-4-33: apontamento de demonstração não "inicia" a ordem real e ordem de demonstração não gera alerta (0.088291ms)
+✔ CA-4-33: a exportação e a recuperação incluem as coleções da 0046 e as contagens batem (1.813833ms)
+✔ CA-4-33: registro marcado como demonstração fica fora do pacote e a contagem é só a dos reais (0.216584ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.168708

@@ -319,3 +319,122 @@ test('CA-4-05: a troca fixa da área da conferência não existe mais; a rota e 
   assert.match(lay, /area: 'conferir_expedicao\|painel'/)
   assert.match(prot, /area\.split\('\|'\)/)
 })
+
+// ---- CA-4-33: produção gravada no servidor nos relatórios, nos alertas e na exportação ----
+import {
+  programacaoReal, ordensDoRelatorio, entradasProducaoAtrasada, lacunasDaProducao,
+} from '../../src/lib/pcp/producao-fontes.ts'
+import { relatorioProducao } from '../../src/lib/pcp/relatorios.ts'
+import { regraProducao } from '../../src/lib/pcp/alertas.ts'
+import { COLECOES_COMPLEMENTARES, montarPacote, conferirRestauracao, resumoParaCsv } from '../../src/lib/pcp/exportacao.ts'
+
+const PROG = { ops: [
+  { op_id: 'OP-1', produto: 'M011001', quantidade: 100, data: '2026-11-10' },
+  { op_id: 'OP-2', produto: 'M011001', quantidade: 50, data: '2026-11-11' },
+  { op_id: 'OP-3', produto: 'COOKIE-1', quantidade: 70, data: '2026-11-10' },
+] }
+const E = (id, op, ponto, q, extra = {}) => ({ evento_id: id, op_id: op, ponto, tipo: 'realizado', quantidade: q, unidade: 'UN', retifica: null, ...extra })
+const C = (op, etapa, q, extra = {}) => ({ op_id: op, etapa, quantidade: q, unidade: 'UN', ...extra })
+const PERIODO = { de: '2026-11-01', ate: '2026-11-30' }
+
+test('CA-4-33: o relatório de produção usa a programação e os apontamentos do servidor (planejado × produzido × conferido)', () => {
+  const ent = ordensDoRelatorio(PROG, [E('a', 'OP-1', 'cozinha', 40), E('b', 'OP-1', 'cozinha', 58), E('c', 'OP-1', 'encaixotamento', 96)], [C('OP-1', 'recebimento_expedicao', 97), C('OP-1', 'entrada_camara', 96)], PERIODO)
+  const linhas = relatorioProducao(ent.ordens.filter((o) => o.op === 'OP-1'))
+  assert.equal(linhas.length, 1)
+  assert.deepEqual([linhas[0].planejado, linhas[0].produzido, linhas[0].conferido], [100, 98, 96])
+})
+
+test('CA-4-33: sem apontamento ou sem conferência a coluna fica sem dado, nunca zero', () => {
+  const ent = ordensDoRelatorio(PROG, [], [], PERIODO)
+  assert.equal(ent.ordens.length, 2) // OP-3 é produto de demonstração
+  const linhas = relatorioProducao(ent.ordens)
+  assert.equal(linhas[0].planejado, 150)
+  assert.equal(linhas[0].produzido, null)
+  assert.equal(linhas[0].conferido, null)
+  assert.equal(ent.semApontamento, 2)
+  assert.match(lacunasDaProducao(ent).join(' '), /2 ordem\(ns\) sem apontamento/)
+})
+
+test('CA-4-33: realizado retificado não conta duas vezes e 0 declarado é um dado, não ausência', () => {
+  const ent = ordensDoRelatorio(PROG, [E('a', 'OP-1', 'cozinha', 40), E('b', 'OP-1', 'cozinha', 55, { retifica: 'a' }), E('z', 'OP-2', 'cozinha', 0)], [], PERIODO)
+  const [o1, o2] = ent.ordens
+  assert.equal(o1.produzido, 55)
+  assert.equal(o2.produzido, 0)
+})
+
+test('CA-4-33: período e produto filtram as ordens; a última conferência de câmara vale', () => {
+  const so = ordensDoRelatorio(PROG, [], [C('OP-1', 'entrada_camara', 90), C('OP-1', 'entrada_camara', 96)], { de: '2026-11-10', ate: '2026-11-10' })
+  assert.deepEqual(so.ordens.map((o) => o.op), ['OP-1'])
+  assert.equal(so.ordens[0].conferido, 96)
+  assert.equal(ordensDoRelatorio(PROG, [], [], PERIODO, 'm011001').ordens.length, 2)
+  assert.equal(ordensDoRelatorio(PROG, [], [], PERIODO, 'OUTRO').ordens.length, 0)
+})
+
+test('CA-4-33: registro de demonstração não entra no relatório', () => {
+  const ent = ordensDoRelatorio(PROG, [E('a', 'OP-1', 'cozinha', 100, { demonstracao: true }), E('b', 'OP-1', 'cozinha', 30)], [C('OP-1', 'entrada_camara', 5, { demonstracao: true })], PERIODO)
+  assert.equal(ent.ordens[0].produzido, 30)
+  assert.equal(ent.ordens[0].conferido, null)
+  // programação de demonstração: a real anterior continua valendo
+  assert.equal(programacaoReal([{ ops: PROG.ops.slice(0, 1) }, { ops: PROG.ops, demonstracao: true }]).ops.length, 1)
+  assert.equal(programacaoReal([{ ops: [], demonstracao: true }]), null)
+  assert.equal(ordensDoRelatorio(null, [], [], PERIODO).ordens.length, 0)
+})
+
+const PARAMS = { versao: 3, aprovador: 'pcp', aprovadoEm: '2026-11-01T10:00:00Z', itens: [], gravidade: { producao: 'atencao' } }
+const HOJE = new Date('2026-11-11T00:00:00Z')
+const AGORA = new Date('2026-11-11T12:00:00Z')
+
+test('CA-4-33: a regra de produção atrasada usa as programações e os apontamentos do servidor', () => {
+  const ent = entradasProducaoAtrasada(PROG, [E('a', 'OP-2', 'cozinha', 10)])
+  assert.deepEqual(ent.map((x) => x.ordem), ['OP-1', 'OP-2'])
+  const r1 = regraProducao(PARAMS, { ...ent[0], dadoEm: AGORA }, HOJE, AGORA)
+  assert.equal(r1.alerta.tipo, 'producao')
+  assert.equal(r1.alerta.valores.diasDeAtraso, 1)
+  assert.ok('nenhum' in regraProducao(PARAMS, { ...ent[1], dadoEm: AGORA }, HOJE, AGORA)) // iniciada
+  const futura = entradasProducaoAtrasada({ ops: [{ op_id: 'OP-9', produto: 'M1', quantidade: 1, data: '2026-11-11' }] }, [])
+  assert.ok('nenhum' in regraProducao(PARAMS, { ...futura[0], dadoEm: AGORA }, HOJE, AGORA)) // dia programado = hoje
+})
+
+test('CA-4-33: apontamento de demonstração não "inicia" a ordem real e ordem de demonstração não gera alerta', () => {
+  const ent = entradasProducaoAtrasada(PROG, [E('a', 'OP-1', 'cozinha', 10, { demonstracao: true })])
+  assert.equal(ent.find((x) => x.ordem === 'OP-1').iniciada, false)
+  assert.equal(ent.some((x) => x.ordem === 'OP-3'), false)
+  assert.equal(entradasProducaoAtrasada(null, []).length, 0)
+})
+
+test('CA-4-33: a exportação e a recuperação incluem as coleções da 0046 e as contagens batem', () => {
+  for (const n of ['pcp_programacoes', 'pcp_apontamentos', 'pcp_conferencias_op', 'pcp_aprovacoes_consolidacao'])
+    assert.ok(COLECOES_COMPLEMENTARES.includes(n), n)
+  const colecoes = {}
+  for (const n of COLECOES_COMPLEMENTARES) colecoes[n] = { campos: ['id', 'nome'], registros: [] }
+  colecoes.pcp_apontamentos = { campos: ['evento_id', 'quantidade'], registros: [['e1', 10], ['e2', 20], ['e3', 30]] }
+  const p = montarPacote({ colecoes, contagemLeituras: {}, segredos: [], versaoSistema: 'v0.0.206', agora: new Date('2026-11-09T12:00:00Z') })
+  const l = p.resumo.linhas.find((x) => x.colecao === 'pcp_apontamentos')
+  assert.deepEqual([l.registros, l.exportada], [3, true])
+  assert.equal(p.csv.pcp_apontamentos.split('\r\n').length - 1, 3)
+  assert.ok(p.csv.pcp_programacoes !== undefined)
+  assert.equal(p.resumo.completo, true)
+  const csvResumo = resumoParaCsv(p.resumo)
+  assert.match(csvResumo, /pcp_conferencias_op/)
+  const contagens = Object.fromEntries(p.resumo.linhas.map((x) => [x.colecao, x.registros]))
+  assert.equal(conferirRestauracao(p.resumo, contagens).ok, true)
+  assert.equal(conferirRestauracao(p.resumo, { ...contagens, pcp_apontamentos: 2 }).ok, false)
+  const semAs4 = { ...contagens }
+  delete semAs4.pcp_programacoes
+  assert.equal(conferirRestauracao(p.resumo, semAs4).ok, false)
+})
+
+test('CA-4-33: registro marcado como demonstração fica fora do pacote e a contagem é só a dos reais', () => {
+  const colecoes = {}
+  for (const n of COLECOES_COMPLEMENTARES) colecoes[n] = { campos: ['id'], registros: [] }
+  colecoes.pcp_apontamentos = { campos: ['evento_id', 'quantidade', 'demonstracao'], registros: [['e1', 10, false], ['e2', 20, true], ['e3', 30, false]] }
+  colecoes.pcp_conferencias_op = { campos: ['registro_id', 'demonstracao'], registros: [['c1', true]] }
+  const p = montarPacote({ colecoes, contagemLeituras: {}, segredos: [], versaoSistema: 'v', agora: new Date('2026-11-09T12:00:00Z') })
+  const a = p.resumo.linhas.find((x) => x.colecao === 'pcp_apontamentos')
+  assert.equal(a.registros, 2)
+  assert.equal(a.demonstracao_fora, 1)
+  assert.doesNotMatch(p.csv.pcp_apontamentos, /e2/)
+  const c = p.resumo.linhas.find((x) => x.colecao === 'pcp_conferencias_op')
+  assert.equal(c.registros, 0)
+  assert.equal(c.demonstracao_fora, 1)
+})

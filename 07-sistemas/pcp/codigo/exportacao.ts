@@ -23,6 +23,8 @@ export const COLECOES_COMPLEMENTARES = [
   'pcp_parametros_alerta', 'pcp_familias', 'pcp_alertas', 'pcp_alertas_lacunas', 'pcp_alertas_historico', 'pcp_alertas_regras',
   'pcp_historico_vendas_periodo', 'pcp_historico_vendas_cobertura', 'pcp_regra_sazonalidade',
   'pcp_loop_config', 'pcp_loop_medicoes', 'pcp_assistente_perguntas',
+  // produção gravada no servidor (migration 0046, SPEC-4-001)
+  'pcp_programacoes', 'pcp_apontamentos', 'pcp_conferencias_op', 'pcp_aprovacoes_consolidacao',
 ] as const
 
 /** Cópias das leituras do Omie e da Nuvemshop: recuperáveis relendo a fonte; entram só como contagem no resumo. */
@@ -52,6 +54,8 @@ export interface LinhaResumo {
   registros: number
   exportada: boolean
   motivo: string | null
+  /** Registros de demonstração (conta de teste ou produto de demonstração) que ficaram fora do pacote real. */
+  demonstracao_fora?: number
 }
 export interface Resumo {
   identificacao: string
@@ -96,17 +100,21 @@ export function montarPacote(e: {
       linhas.push({ colecao: nome, registros: 0, exportada: false, motivo: 'coleção não encontrada' })
       continue
     }
+    // Registro marcado como demonstração nunca entra no pacote de dados reais (SPEC-4-001, CA-4-33).
+    const iDemo = c.campos.indexOf('demonstracao')
+    const reais = iDemo === -1 ? c.registros : c.registros.filter((r) => r[iDemo] !== true && r[iDemo] !== 'true')
+    const fora = c.registros.length - reais.length
     const idx = c.campos.map((f, i) => (campoSensivel(f) ? -1 : i)).filter((i) => i >= 0)
     const cab = idx.map((i) => c.campos[i])
-    const corpo = c.registros.map((r) => idx.map((i) => (typeof r[i] === 'boolean' ? (r[i] ? 'true' : 'false') : (r[i] as string | number | null))))
+    const corpo = reais.map((r) => idx.map((i) => (typeof r[i] === 'boolean' ? (r[i] ? 'true' : 'false') : (r[i] as string | number | null))))
     const texto = paraCsv(cab, corpo)
     const achados = varrerSegredos(texto, e.segredos)
     if (achados.length > 0) {
-      linhas.push({ colecao: nome, registros: c.registros.length, exportada: false, motivo: 'retirada do pacote: ' + achados[0] })
+      linhas.push({ colecao: nome, registros: reais.length, exportada: false, motivo: 'retirada do pacote: ' + achados[0], ...(fora > 0 ? { demonstracao_fora: fora } : {}) })
       continue
     }
     csv[nome] = texto
-    linhas.push({ colecao: nome, registros: c.registros.length, exportada: true, motivo: null })
+    linhas.push({ colecao: nome, registros: reais.length, exportada: true, motivo: null, ...(fora > 0 ? { demonstracao_fora: fora } : {}) })
   }
   for (const nome of COLECOES_DE_LEITURA) {
     linhas.push({ colecao: nome, registros: e.contagemLeituras[nome] ?? 0, exportada: false, motivo: 'cópia das leituras do Omie/Nuvemshop: recuperável relendo a fonte; só a contagem entra' })
