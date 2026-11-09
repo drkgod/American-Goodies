@@ -94,3 +94,92 @@ test('CA-4-04: falta de acesso na publicação não dá pistas', () => {
   assert.equal(t403, t401)
   assert.doesNotMatch(t403, /área|perfil|permiss/i)
 })
+
+// ---- CA-4-02 · CA-4-05 (tela Apontamentos): apontamentos pelo servidor ----
+import { readFileSync } from 'node:fs'
+import {
+  novoEventoId, assinaturaDoFormulario, validarFormulario, mensagemDoApontamento, eventosEficazes, resumoDaOrdem,
+} from '../../src/lib/pcp/apontamento-servidor.ts'
+
+const FORM = { tipo: 'retirada', item: 'INS-1', quantidade: 6, unidade: 'KG', motivo: '' }
+const EV = (id, o = {}) => ({ evento_id: id, op_id: 'OP-1', ponto: 'cozinha', tipo: 'retirada', item: 'INS-1', quantidade: 6, unidade: 'KG', motivo: null, retifica: null, autor: 'u', ...o })
+
+test('CA-4-02: o identificador do evento nasce na tela, é único e a mesma tentativa mantém a assinatura', () => {
+  const a = novoEventoId(), b = novoEventoId()
+  assert.match(a, /^EV-/)
+  assert.notEqual(a, b)
+  assert.equal(assinaturaDoFormulario('OP-1', 'cozinha', FORM), assinaturaDoFormulario('OP-1', 'cozinha', { ...FORM }))
+  assert.notEqual(assinaturaDoFormulario('OP-1', 'cozinha', FORM), assinaturaDoFormulario('OP-1', 'cozinha', { ...FORM, quantidade: 7 }))
+})
+
+test('CA-4-02: reenvio do mesmo evento mostra "já registrado" e não duplica', () => {
+  const r = mensagemDoApontamento(200, { ok: true, estado: 'replay' })
+  assert.equal(r.ok, true)
+  assert.match(r.texto, /já estava registrado/)
+  assert.equal(r.recarregar, true)
+  assert.match(mensagemDoApontamento(200, { ok: true, estado: 'registrado' }).texto, /registrado/)
+})
+
+test('CA-4-02: falha de rede mantém o identificador para o reenvio; erro do servidor definitivo troca', () => {
+  assert.equal(mensagemDoApontamento(0, null).manterId, true)
+  assert.equal(mensagemDoApontamento(500, null).manterId, true)
+  assert.equal(mensagemDoApontamento(422, { erro: 'tipo_invalido' }).manterId, false)
+  assert.equal(mensagemDoApontamento(409, { erro: 'conflito_hash' }).manterId, false)
+})
+
+test('CA-4-02: um apontamento gravado volta na leitura do servidor, com o resumo por item e por ponto', () => {
+  const eventos = [
+    EV('e1'), EV('e2', { tipo: 'adicional', quantidade: 1 }), EV('e3', { tipo: 'devolucao', quantidade: 0.5 }),
+    EV('e4', { tipo: 'perda', quantidade: 0.2 }), EV('e5', { tipo: 'realizado', item: 'COOKIE', quantidade: 40, unidade: 'UN' }),
+    EV('e6', { tipo: 'realizado', item: 'COOKIE', quantidade: 60, unidade: 'UN' }),
+    EV('e7', { tipo: 'realizado', item: 'COOKIE', quantidade: 98, unidade: 'UN', ponto: 'encaixotamento' }),
+    EV('o2', { op_id: 'OP-2' }),
+  ]
+  const r = resumoDaOrdem(eventos, 'OP-1')
+  assert.equal(r.itens.length, 1)
+  assert.equal(r.itens[0].liquido, 6.5)
+  assert.equal(r.itens[0].perda_declarada, 0.2)
+  assert.deepEqual(r.realizado, { cozinha: 100, encaixotamento: 98 })
+})
+
+test('CA-4-02: retificação substitui o original no resumo e o original continua na lista', () => {
+  const eventos = [EV('e1'), EV('r1', { quantidade: 5.8, retifica: 'e1', motivo: 'balança' })]
+  assert.deepEqual(eventosEficazes(eventos).map((e) => e.evento_id), ['r1'])
+  assert.equal(resumoDaOrdem(eventos, 'OP-1').itens[0].liquido, 5.8)
+  assert.equal(eventos.length, 2)
+  const anulado = [EV('e1'), EV('r1', { quantidade: 0, retifica: 'e1', motivo: 'erro' })]
+  assert.equal(resumoDaOrdem(anulado, 'OP-1').itens[0].liquido, 0)
+})
+
+test('CA-4-02: unidades diferentes do mesmo item nunca se somam', () => {
+  const r = resumoDaOrdem([EV('a'), EV('b', { unidade: 'G', quantidade: 500 })], 'OP-1')
+  assert.equal(r.itens.length, 2)
+})
+
+test('CA-4-02: o formulário recusa o que a rota recusa', () => {
+  assert.equal(validarFormulario(FORM).ok, true)
+  assert.equal(validarFormulario({ ...FORM, quantidade: 0 }).ok, false)
+  assert.equal(validarFormulario({ ...FORM, item: ' ' }).ok, false)
+  assert.equal(validarFormulario({ ...FORM, tipo: 'realizado', quantidade: 0 }).ok, false)
+  assert.equal(validarFormulario({ ...FORM, tipo: 'realizado', quantidade: 0, motivo: 'linha parada' }).ok, true)
+  assert.equal(validarFormulario({ ...FORM, tipo: 'realizado', quantidade: -1 }).ok, false)
+})
+
+test('CA-4-02: falta de acesso e erros não dão pistas', () => {
+  assert.equal(mensagemDoApontamento(403, null).texto, mensagemDoApontamento(401, null).texto)
+  assert.doesNotMatch(mensagemDoApontamento(403, { erro: 'sem_permissao' }).texto, /área|perfil|ponto|permiss/i)
+  assert.match(mensagemDoApontamento(409, { erro: 'ordem_em_envio' }).texto, /em envio/)
+})
+
+test('CA-4-05: a tela de Apontamentos não importa *_DEMO, não chama as funções locais e usa só o cliente do servidor', () => {
+  const src = readFileSync(new URL('../../src/pages/Apontamentos.tsx', import.meta.url), 'utf8')
+  assert.doesNotMatch(src, /_DEMO\b/)
+  assert.doesNotMatch(src, /\bregistrarEvento\b|\bretificarEvento\b|\bregistrarConferencia\b|\baprovarConsolidacao\b|\bpublicarProgramacao\b/)
+  assert.doesNotMatch(src, /lib\/pcp\/apontamento'/)
+  assert.match(src, /services\/pcp-producao/)
+  assert.match(src, /registrarApontamentoServidor/)
+  assert.match(src, /lerEstadoProducao/)
+  assert.match(src, /setInterval\(carregar, 30000\)/)
+  assert.match(src, /Não foi possível carregar/)
+  assert.match(src, /Tentar de novo/)
+})

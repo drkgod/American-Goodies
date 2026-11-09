@@ -1,0 +1,16 @@
+✔ CA-4-02: o identificador do evento nasce na tela, é único e a mesma tentativa mantém a assinatura (2.549875ms)
+✔ CA-4-02: reenvio do mesmo evento mostra "já registrado" e não duplica (0.109167ms)
+✔ CA-4-02: falha de rede mantém o identificador para o reenvio; erro do servidor definitivo troca (0.065625ms)
+✔ CA-4-02: um apontamento gravado volta na leitura do servidor, com o resumo por item e por ponto (0.501542ms)
+✔ CA-4-02: retificação substitui o original no resumo e o original continua na lista (0.110959ms)
+✔ CA-4-02: unidades diferentes do mesmo item nunca se somam (0.062958ms)
+✔ CA-4-02: o formulário recusa o que a rota recusa (0.075833ms)
+✔ CA-4-02: falta de acesso e erros não dão pistas (0.091917ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.6175
