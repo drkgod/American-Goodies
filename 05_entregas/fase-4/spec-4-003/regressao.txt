@@ -1,557 +1,262 @@
-✔ T5-1: confirmada 20, atendida 5, dentro do horizonte → 15 (0.493667ms)
-✔ T5-2: cancelada 7 e fora do horizonte 3 → 0 (excluídas) (0.113292ms)
-✔ T5-3: replay da mesma linha (pedido+linha) mantém 15 (0.066709ms)
-✔ T5-4: status desconhecido → null e bloqueia (nunca 0) (0.076167ms)
-✔ T5-5: data ausente bloqueia; borda do horizonte é inclusiva (0.076875ms)
-✔ T5-6: saldo nunca negativo; atendida > pedida bloqueia (1.991917ms)
-✔ MISUSE_API_PROCESS é bloqueio (guarda), não erro nem "não encontrado" (0.809292ms)
-✔ 401, 403 e 400 são erro de acesso, nunca "não encontrado" (0.09575ms)
-✔ erro de acesso para o sub-lote sem avançar e sem virar faltante (3.753167ms)
-✔ o mesmo código só é consultado de novo 60 s depois do erro (3.582625ms)
-✔ trava: segunda rodada simultânea é recusada; trava velha é tomada (0.221042ms)
-✔ guarda do bloqueio vale mesmo sem a execução anterior (6.53675ms)
-✔ P3.01-01: bloqueio 425 no terceiro código — para, cursor salvo, próxima tentativa +12h (17.695959ms)
-✔ guarda: antes da hora não consulta nada; depois da hora retoma de A3 (0.150584ms)
-✔ sub-lotes pequenos: tamanho 2 percorre 5 códigos em 3 chamadas, sem repetir consulta (0.122375ms)
-✔ catálogo ativo só troca com lote completo; incompleto mantém o anterior intacto (0.131833ms)
-✔ não encontrado vira faltante, nunca produto; unidade ausente fica null (0.795625ms)
-✔ erro transitório não avança o cursor (0.104333ms)
-✔ classificarResposta: 425, consumo redundante, ok, ausente, 500 (0.1285ms)
-✔ entrada não é alterada (estado imutável entre chamadas) (0.0755ms)
-✔ P3.01-02: código do estoque sem cadastro entra na lista; some depois do cadastro simulado (0.885875ms)
-✔ o mesmo código em estoque, ficha e pedido vira um item com os três lugares (0.1275ms)
-✔ catálogo não lido por inteiro: lista vazia com situação própria, nunca "tudo falta" (0.07675ms)
-✔ código vazio é ignorado e a ordem é estável (replay devolve o mesmo) (0.131792ms)
-✔ data do Omie vira ISO; formato estranho vira null, nunca data presumida (0.50375ms)
-✔ status do pedido: cancelado vence faturado; sem sinalizador fica vazio e bloqueia (0.828875ms)
-✔ pedido faturado no horizonte vira firme = pedida; IDs em texto; unidade vazia = null (0.118208ms)
-✔ linha sem produto ou com quantidade ausente é descartada e listada, não vira zero (0.397875ms)
-✔ pedido de compra 1514 (amostra real): 10 pedidas, 4 recebidas → restante 6, previsão 20/11/2026 (0.201667ms)
-✔ compra com recebida ausente é descartada (restante desconhecido, nunca 0) (0.069208ms)
-✔ P3.02-02: só quem tem a ação do dono autoriza; chave segue desligada (2.238417ms)
-✔ o dono vê o resumo e autoriza: transação autorizada, chave ligada só para ela (5.169834ms)
-✔ resumo com dado faltando mostra "não informado", nunca inventa (0.109ms)
-✔ uma ordem por vez: com outra ordem autorizada, a segunda é negada (0.11025ms)
-✔ conteúdo alterado depois que o dono conferiu: 422 e nada autorizado (0.083667ms)
-✔ só preparada pode ser autorizada (não autoriza duas vezes nem depois de enviada) (0.075125ms)
-✔ o dono desfaz a autorização antes do envio: volta a preparada e a chave desliga; depois de enviada não (0.116208ms)
-✔ fluxo completo no simulador: autoriza, envia uma vez, confere "gravado e conferido" (0.26ms)
-✔ conferência: quantidade diferente, status não concluído e estoque diferente são divergência (0.104042ms)
-✔ conferência sem posição anterior de estoque não diz "conferido"; ordem ausente é inconclusivo (0.124375ms)
-✔ P3.02-01: chave desligada responde 423 e não faz nenhuma chamada (4.490084ms)
-✔ chave ligada para outra transação também responde 423; sem a ação, 403; ambos sem chamadas (0.346542ms)
-✔ P3.02-03: ordem de 100 UN autorizada no simulador conclui uma vez e a leitura confere 100 (2.742333ms)
-✔ clique duplo e dois trabalhadores: uma gravação só (0.133375ms)
-✔ P3.02-04: resposta perdida → incerto → só consulta → confirmada, total de gravações = 1 (0.694875ms)
-✔ timeout sem efeito: consulta não acha, segue incerto, sem nova gravação (0.120625ms)
-✔ recusa do Omie: falhou sem efeito e a chave volta a desligar (0.08325ms)
-✔ conteúdo alterado depois da autorização: 422 e zero chamadas (0.076084ms)
-✔ quantidade zero ou negativa nunca monta payload nem prepara envio (0.103041ms)
-✔ data fora do formato e ordem sem identificação são recusadas (0.120625ms)
-✔ as oito ações existem, cada uma com a sua área (2.466ms)
-✔ P3.03-01: perfil sem aprovar_compra tenta aprovar → 403 (1.019959ms)
-✔ recusa sem pistas: perfil ausente, inativo, sem a ação, sem a área e ação inexistente dão a mesma resposta (0.464375ms)
-✔ área não concede ação por implicação: área sem a ação continua negada (0.212875ms)
-✔ cada perfil de teste só exerce as próprias ações (0.286583ms)
-✔ conta real não recebe ação nova fora da matriz aprovada (matriz vigente: não aprovada) (0.244875ms)
-✔ P3.03-02: item fora do catálogo é bloqueado com a mensagem; dentro do catálogo passa (0.827333ms)
-✔ vale para cotação e recebimento; catálogo não lido não prova que existe (mensagem própria) (0.085042ms)
-✔ exceção sem motivo é recusada; sem a ação é 403; com motivo libera e fica pendente de regularização (23.288792ms)
-✔ uma exceção por item e documento (idempotente); regularização fecha quando o item entra no catálogo (0.182875ms)
-✔ P3.03-04: fator 25 e 4 sacos a R$ 250,00 → 100 KG a R$ 10,00 por KG (0.206834ms)
-✔ P3.03-03: sem fator a quantidade fica na unidade de compra, com pendência e sem preço comparável (0.09325ms)
-✔ fator inválido, unidade de estoque desconhecida e sem confirmação são recusados (0.089458ms)
-✔ mudar o fator cria versão nova; o documento antigo guarda a versão e o fator que usou (0.106459ms)
-✔ fator do fornecedor vale mais que o geral; unidade de compra diferente do fator não converte (0.075917ms)
-✔ contatos em campos próprios; prazo em dias; cada alteração é uma versão com autor e hora (0.332167ms)
-✔ sem a ação editar_fornecedor é 403; dados inválidos são recusados com o motivo (0.081166ms)
-✔ tudo num campo só (e-mail ou telefone dentro do nome) é recusado; nome vazio também (0.070917ms)
-✔ P3.04-01/03: insumo, frete e serviço no mesmo pedido — só o insumo entra, a R$ 10,00/KG (11.924041ms)
-✔ linha sem classificação fica "a classificar" e fora do histórico; Compras classifica como frete (0.20425ms)
-✔ P3.04-02: sem preço fica pendente, nunca zero; total ÷ quantidade só da mesma linha (0.107958ms)
-✔ sem fator o preço fica na unidade de compra e fora da comparação; unidade igual à de estoque não precisa de fator (0.163334ms)
-✔ cancelado aparece marcado e fica fora de menor, maior e média; período filtra (50.400584ms)
-✔ fatores ambíguos (apresentações com fatores diferentes) não são escolhidos sozinhos (0.134916ms)
-✔ nova leitura mantém a classificação de Compras e não apaga linha que sumiu (0.11525ms)
-✔ CA-3-13: leitura de preço fica desligada até os campos serem conferidos numa amostra (0.279458ms)
-✔ P3.05-01: itens de dois fornecedores viram duas requisições; sem fornecedor fica "a definir" (18.860375ms)
-✔ repetir a criação não duplica; sem ação é 403; emergência exige motivo; item sem cadastro é barrado (0.217ms)
-✔ P3.05-05: cotação 15% acima do último preço com tolerância 10% é destacada; sem tolerância só mostra a diferença (0.107125ms)
-✔ P3.05-04: sugestão de 100 KG até a aprovação, com valor, alçada e hash (0.405708ms)
-✔ P3.05-02: acima da alçada do primeiro aprovador é negado e indica a alçada maior (0.13875ms)
-✔ sem alçada cadastrada a aprovação real fica parada; sem a ação é 403; recusa exige motivo (0.126584ms)
-✔ P3.05-03: quantidade alterada depois da aprovação invalida a aprovação; não vira pedido (0.166459ms)
-✔ versão esperada errada é 409; cotação em requisição aprovada é recusada; sem cotação escolhida não vai para aprovação (0.097208ms)
-✔ P3.06-04: 20 KG pedidos, 5 recebidos, previsto ontem → restante 15 e 1 dia de atraso (0.8ms)
-✔ entregas: recebido total não atrasa; cancelado comprovado não atrasa; sem previsão não atrasa; resumo por fornecedor (0.148209ms)
-✔ P3.06-01: compra não aprovada não é lançada nem ligada (31.702833ms)
-✔ P3.06-02: chave desligada → 423 e zero chamadas; sem a ação é 403 (0.2945ms)
-✔ P3.06-03: número de outro fornecedor ou com outros itens é recusado com a diferença (0.337875ms)
-✔ payload usa os campos do WSDL e o código de integração = id da compra; fornecedor sem código do Omie é recusado (0.32375ms)
-✔ P3.06-05: no simulador, resposta perdida → uma gravação; a consulta acha o pedido e liga sem gravar de novo (0.219416ms)
-✔ simulador: normal confirma e liga; recusa não deixa efeito; consulta vazia continua incerta (0.1475ms)
-✔ P3.07-04: 100 KG = 60 do pedido A + 40 do pedido B → ligações gravadas, sem diferença (27.038708ms)
-✔ P3.07-01: linha de 100 KG ligada a 60 + 30 é recusada (soma diferente) (0.350625ms)
-✔ falta e sobra aparecem, somando recebimentos anteriores; nada ajusta estoque (0.440208ms)
-✔ quantidade de compra converte pelo fator; sem fator pede a quantidade em estoque (0.54775ms)
-✔ RN-01: pedido que não é aprovado do fornecedor, ou linha sem pedido, é bloqueado; sem permissão é 403 (0.235542ms)
-✔ P3.07-03: item sem cadastro sem exceção é bloqueado; com exceção autorizada entra pendente de regularização (0.464667ms)
-✔ item não pedido só entra por exceção autorizada (0.257042ms)
-✔ P3.07-02: compra já paga antes → aviso no recebimento e nenhuma parcela nova (0.657792ms)
-✔ parcelas: só o financeiro; uma por pedido e número; valores inválidos recusados; pagamento exige referência (0.163417ms)
-✔ P3.07-05: nota de demonstração com 110 KG para pedido de 100 KG fica pendente com 10 KG de diferença (0.381334ms)
-✔ pré-conferência: nota real não entra; item fora do pedido, duplicatas divergentes e aviso de já paga (0.194459ms)
-✔ as cinco ações existem; P3.08-01: sem preparar_pedido → 403 sem pistas (10.445375ms)
-✔ área sem a ação continua negada; cada perfil só exerce as próprias ações; conta real não recebe fora da matriz (0.165167ms)
-✔ unidade: versão nova a cada mudança com autor e hora; versão esperada errada é 409; sem ação é 403; dados inválidos (3.431792ms)
-✔ P3.08-02: nome do canal diferente fica "a revisar" e o operacional é mantido; igual (sem acento/caixa) fica "igual" (0.257ms)
-✔ faturamento aceita (versão nova do operacional com registro) ou recusa (nada muda) (0.20225ms)
-✔ P3.08-04: 10 caixas a R$ 50,00 com tabela vigente R$ 50,00 → subtotal R$ 500,00 igual; origem mostrada (0.465875ms)
-✔ P3.08-03: item sem preço na tabela → subtotal pendente com o item (0.171583ms)
-✔ preço diferente da tabela aparece e não é trocado; diferença de subtotal visível (0.107709ms)
-✔ tabela: vigência e versão; preço da unidade vale mais que o geral; sem ação é 403 (0.144416ms)
-✔ RN-05: cliente sem unidade não fica apto; RN-04 origem a confirmar; RN-03 Nuvemshop não paga é intenção (0.217334ms)
-✔ P3.09-01: sem frete e sem volumes → bloqueado com os dois motivos; sem cubagem; sem frete padrão (3.415958ms)
-✔ acessos: frete só com preparar_pedido, volumes só com conferir_volumes; versão desatualizada recusa (0.092625ms)
-✔ P3.09-04: CIF e 12 volumes → apto; só liberar_faturamento libera, com autor e hora (0.199625ms)
-✔ liberar pedido bloqueado é recusado com os motivos (0.072291ms)
-✔ P3.09-06: volumes alterados depois da liberação desfazem a liberação (0.137333ms)
-✔ unidade, tabela e origem entram: sem unidade, preço diferente e origem a confirmar bloqueiam (0.120708ms)
-✔ P3.09-02: manual com a mesma referência de um integrado → duplicata bloqueada (0.208875ms)
-✔ P3.09-05: manual parecido (cliente, data, itens) sem referência → possível duplicata, a revisar (0.1875ms)
-✔ nunca junta por cliente e valor; referências diferentes comprovadas não são duplicata; motivo e acesso obrigatórios (0.101166ms)
-✔ P3.09-03: chave desligada → 423, zero chamadas, e a tela recebe o que lançar (0.229084ms)
-✔ volumes e frete do liberado: gravados uma vez no simulador e conferidos; segunda tentativa é 409; chave desliga (0.190084ms)
-✔ resposta perdida: resultado incerto, só consulta confere, nunca regrava; recusa é "falhou sem efeito" (0.109167ms)
-✔ a chave de outro pedido ou de outra operação não vale (escopo) (0.085209ms)
-✔ pedido manual registrado grava uma vez no simulador; duplicata e a revisar nunca montam payload (0.23225ms)
-✔ CA-3-30: o do produto prevalece sobre o da família, campo a campo; ausente é null (nunca padrão) (1.427375ms)
-✔ validação de parâmetros: negativo, repetido e escopo inválido são recusados (6.895584ms)
-✔ P3.10-01: item sem mínimo → lacuna e zero alerta (0.222208ms)
-✔ P3.10-03: saldo 8 KG, a receber 0, consumo 2 KG/dia, mínimo 10, prazo 5 → ruptura prevista, crítico, com os números (7.588667ms)
-✔ estoque: compra chegando dentro do prazo evita o alerta; fora do prazo não conta; unidade incompatível é lacuna (0.199833ms)
-✔ fonte desatualizada: o alerta leva a hora do dado e o aviso (0.079167ms)
-✔ P3.10-04: um caso de cada um dos seis tipos, com os números usados (0.388459ms)
-✔ parâmetro ausente: sem tolerância, sem atraso aceito, sem tempo e sem gravidade → lacuna, nenhum alerta (0.100042ms)
-✔ P3.10-02: mesma situação em duas rodadas → um alerta, atualizado (não cria outro) (0.228416ms)
-✔ chave do alerta: regra + item + referência; item em caixa diferente é o mesmo; nenhum alerta carrega ação (0.151125ms)
-✔ RN-02: cada área vê só os seus; destinatário por tipo; gestão vê todos (0.490584ms)
-✔ P3.11-02: perfil do PCP tenta assumir/tratar alerta de preço → negado sem pistas (igual a quem não tem a ação) (0.447ms)
-✔ P3.11-01: tratar sem ação registrada é recusado; indevido e outra exigem texto (0.691958ms)
-✔ P3.11-03: ciclo completo de uma ruptura — Compras assume e registra "compra solicitada" com autor e hora (0.116541ms)
-✔ P3.11-04: duas pessoas assumem juntas → uma consegue; a outra recebe 409 (0.082959ms)
-✔ RN-03: condição que volta depois de tratado gera alerta novo ligado ao anterior (0.345166ms)
-✔ RN-05: alertas do mesmo tipo e item ficam agrupados; o grupo leva a maior gravidade; contador por área (0.110834ms)
-✔ P3.11-05: regra desligada para de gerar e o histórico é mantido; só editar_parametros muda a regra (0.19425ms)
-✔ P3.12-01: um ano de dados e regra de dois ciclos → histórico insuficiente, sem sazonalidade (1.133417ms)
-✔ P3.12-02: sem regra aprovada → histórico insuficiente mesmo com muitos anos (1.247833ms)
-✔ P3.12-03: dois anos completos, dezembro acima da média, prazo 10 dias → contexto e data sugerida (7.12325ms)
-✔ sem prazo do fornecedor: sugere olhar o mês, mas sem data; sazonalidade negativa não sugere antecipar (0.228333ms)
-✔ meses sem leitura: cobertura incompleta mostrada e sem sazonalidade (0.235333ms)
-✔ período atual lido entra na comparação; produto sem vendas no mês lido é zero, não ausente (0.187334ms)
-✔ agregação do Omie: só faturado com data; cancelado, denegado e devolvido ficam de fora; sem quantidade não vira zero (0.609958ms)
-✔ regra de suficiência: valores inválidos são recusados (0.082167ms)
-✔ P3.13-01: ciclo sem alertas críticos → "não aplicável", nunca 100% (3.990417ms)
-✔ P3.13-02: tratado sem ação registrada não conta como tratado (0.283917ms)
-✔ P3.13-03: 10 críticos gerados, 7 tratados com ação → 70% (0.4605ms)
-✔ só entram críticos gerados dentro do ciclo; tratado depois do fim do ciclo não conta nele (0.082792ms)
-✔ fonte incompleta: medição pendente, sem proporção e sem "não aplicável" (0.094ms)
-✔ P3.13-04: ativar sem linha de base, alvo, janela e validador → recusado e o loop continua desligado (0.164291ms)
-✔ veredito: só o validador indicado com a ação; só com loop ligado e medição aplicável; congela a medição (0.16325ms)
-✔ o loop não trata nem compra: a sugestão ao validador é só texto (0.082583ms)
-✔ P3.14-01: perda declarada sem produção realizada no período → taxa não calculável (0.515917ms)
-✔ P3.14-03: 100 UN produzidas e 4 UN de perda declarada → 4% com o denominador escrito (0.437166ms)
-✔ P3.14-02: perfil sem a área de compras não vê o bloco de compras (nem sabe que existe) (0.087916ms)
-✔ produção: planejado × produzido × conferido por produto e unidade; unidades não se somam; ausente não vira zero (0.167458ms)
-✔ consumo: 5,4 KG para ficha de 5 KG sem perda declarada → diferença sem causa de 0,4 KG (não é perda) (0.708125ms)
-✔ consumo: as quatro categorias ficam separadas; o declarado abate só a diferença sem causa (0.111167ms)
-✔ P3.14-04: compras — comprado × recebido por unidade, entregas no prazo e preço médio ponderado por fornecedor (0.197292ms)
-✔ P3.14-04: pedidos por origem e unidade, aptos/bloqueados/liberados, intenção da Nuvemshop fora do confirmado, horas até liberar (0.172458ms)
-✔ exportação CSV: aspas, ponto e vírgula e células que começam como fórmula são neutralizados; números ficam números (0.176667ms)
-✔ P3.15-01: pessoa de Compras pergunta sobre faturamento → sem acesso, sem pistas e sem executar ferramenta (6.649417ms)
-✔ P3.15-02: "compre 10 KG de farinha" → recusa, tela indicada, zero chamada à IA e zero ferramenta (0.168458ms)
-✔ perguntas sobre o passado ou o estado não são pedido de ação (0.071417ms)
-✔ P3.15-03: resposta da IA sem fonte, ou com fonte que não foi consultada, é descartada (0.298ms)
-✔ P3.15-04 (simulado): produção da semana com fonte, período e hora; sugestão marcada como sugestão (0.684708ms)
-✔ sem dados: diz que não há e o que falta; IA indisponível: mensagem, nada inventado (0.10225ms)
-✔ ferramenta que devolve "sem acesso" não vira fonte; e a IA não passa de 4 rodadas (0.09975ms)
-✔ P3.16-01: exportar sem a ação exportar_dados → 403 sem pistas (perfil ausente, inativo ou sem a ação) (0.740875ms)
-✔ P3.16-02: varredura do pacote — nada de segredo, senha ou chave; coluna sensível sai e valor de segredo retira a coleção (3.185917ms)
-✔ P3.16-03: pacote com resumo — contagens iguais às do sistema; coleção vazia aparece com zero; identificação e versão (0.260375ms)
-✔ coleção que falha na leitura ou não existe: pacote incompleto com o motivo (0.191375ms)
-✔ P3.16-04 (lógica): restauração com as mesmas contagens passa; coleção faltando ou diferente reprova apontando-a (0.296834ms)
-✔ RN-04: restauração nunca por cima da produção (destino igual à origem é recusado) (0.127125ms)
-✔ P3.16-05: falha na leitura do Omie — lote anterior mantido; retomada pelo cursor, sem reler nem duplicar (0.295291ms)
-✔ P3.17-01: ciclo sem pergunta prioritária feita → "não aplicável", nunca 100% (2.865958ms)
-✔ P3.17-02: resposta aceita sem fonte ou sem período não conta (0.339292ms)
-✔ P3.17-03: 5 prioritárias feitas, 4 aceitas → 80%; recusada e ainda sem revisão não contam como aceitas (0.313916ms)
-✔ P3.17-04: ligar o loop sem condições é recusado e o loop continua desligado (0.293375ms)
-✔ perguntas prioritárias: só a gestão cadastra; cada alteração é versão nova; ligação é escolha, não adivinhação (0.790042ms)
-✔ revisão do validador: só o indicado; recusa exige motivo; uma revisão por pergunta (0.301417ms)
-✔ veredito e congelamento reaproveitados do LOOP-01: ciclo controlado de demonstração (0.3905ms)
-✔ saldo firme: status desconhecido bloqueia só aquela linha e o total das outras segue (1.169292ms)
-✔ saldo firme: sem bloqueio o total não é parcial; só bloqueadas = null (nunca 0) (0.188834ms)
-✔ saldo firme: data ausente e saldo inconsistente também bloqueiam só a linha (0.165791ms)
-✔ requisição: quantidade zero, negativa ou inválida ao alterar é recusada (422) (2.882667ms)
-✔ ligação do pedido: quantidade diferente da compra é recusada; igual passa (0.341042ms)
-✔ conteúdo que muda depois da autorização muda o payload (base da recusa no servidor) (0.234292ms)
-✔ programação: linha sem quantidade positiva, data ou recurso é recusada (1.121583ms)
-✔ ordens: uma por linha, com número estável pela versão (0.443166ms)
-✔ publicação: versão esperada diferente da atual dá conflito sem sobrescrever (0.0895ms)
-✔ realizado eficaz do ponto soma incrementos e ignora o retificado (0.124875ms)
-✔ aprovação com conferências e quantidade positiva prepara a ordem (sem enviar) (0.216542ms)
-✔ aprovação: conferência ausente nunca vira 0; sem motivo e quantidade negativa são recusadas (0.064417ms)
-✔ aprovação com quantidade final 0 é registrada e não prepara ordem (0.165583ms)
-✔ data de conclusão inválida recusa a ordem (0.100541ms)
-✔ ordem já enviada não é substituída por nova aprovação (0.09475ms)
-✔ CA-4-34: produto de demonstração é reconhecido; produto real não (0.740917ms)
-✔ CA-4-34: registro de conta de teste ou com produto de demonstração sai marcado; o real não (0.08875ms)
-✔ CA-4-34: a marca nunca sai sozinha depois de posta (0.058583ms)
-✔ CA-4-34: autorização e envio recusam registro de demonstração com 422, com a chave ligada ou desligada (0.413583ms)
-✔ CA-4-34: consolidação marcada como demonstração não prepara ordem (0.26ms)
-✔ CA-4-01: sem parâmetros aprovados, Publicar fica desabilitado com o motivo (0.095792ms)
-✔ CA-4-01: sem calendário (dias de produção) em algum recurso, Publicar fica desabilitado (0.066209ms)
-✔ CA-4-01: com parâmetros e calendário aprovados, o calendário vem dos dias de cada recurso (6.087ms)
-✔ CA-4-01: publicar sobre versão antiga devolve 409 e manda recarregar; a mesma versão aparece igual para todos (0.1185ms)
-✔ CA-4-04: falta de acesso na publicação não dá pistas (0.140541ms)
-✔ CA-4-02: o identificador do evento nasce na tela, é único e a mesma tentativa mantém a assinatura (5.335667ms)
-✔ CA-4-02: reenvio do mesmo evento mostra "já registrado" e não duplica (0.105291ms)
-✔ CA-4-02: falha de rede mantém o identificador para o reenvio; erro do servidor definitivo troca (0.047417ms)
-✔ CA-4-02: um apontamento gravado volta na leitura do servidor, com o resumo por item e por ponto (0.181791ms)
-✔ CA-4-02: retificação substitui o original no resumo e o original continua na lista (0.097959ms)
-✔ CA-4-02: unidades diferentes do mesmo item nunca se somam (0.049459ms)
-✔ CA-4-02: o formulário recusa o que a rota recusa (0.062292ms)
-✔ CA-4-02: falta de acesso e erros não dão pistas (0.065417ms)
-✔ CA-4-05: a tela de Apontamentos não importa *_DEMO, não chama as funções locais e usa só o cliente do servidor (0.515125ms)
-✔ CA-4-04: quem tem só conferir_expedicao confere a expedição e não a câmara nem aprova (0.076ms)
-✔ CA-4-04: sem a área, a ação ou o ponto, a tela nega a conferência e a aprovação (0.053625ms)
-✔ CA-4-03: a fila usa os apontamentos do servidor e as conferências; sem as duas, fica bloqueada e nada vira 0 (0.262833ms)
-✔ CA-4-03: a última conferência de cada etapa é a vigente (0.053458ms)
-✔ CA-4-03: a aprovação sem as conferências é recusada com o motivo; a rota prepara a ordem sem enviar (0.156542ms)
-✔ CA-4-03: reenvio da mesma conferência ou aprovação mostra "já registrada" e mantém o identificador só em falha de rede (0.10025ms)
-✔ CA-4-03: falta de acesso não dá pistas e conflitos de envio são explicados (0.069458ms)
-✔ CA-4-03: /consolidacoes lista a ordem, as conferências, a aprovação e o estado da ordem, sem envio (0.185208ms)
-✔ CA-4-05: Conferências e Consolidações não importam *_DEMO, não chamam as funções locais e leem/gravam só pelo servidor (0.918792ms)
-✔ CA-4-05: /consolidacoes não tem botão de envio nem a fila de simulação (0.149584ms)
-✖ CA-4-05: a troca fixa da área da conferência não existe mais; a rota e o menu aceitam conferir_expedicao ou painel (1.30925ms)
-✔ CA-4-33: o relatório de produção usa a programação e os apontamentos do servidor (planejado × produzido × conferido) (0.265458ms)
-✔ CA-4-33: sem apontamento ou sem conferência a coluna fica sem dado, nunca zero (0.08375ms)
-✔ CA-4-33: realizado retificado não conta duas vezes e 0 declarado é um dado, não ausência (0.059542ms)
-✔ CA-4-33: período e produto filtram as ordens; a última conferência de câmara vale (0.072084ms)
-✔ CA-4-33: registro de demonstração não entra no relatório (0.068959ms)
-✔ CA-4-33: a regra de produção atrasada usa as programações e os apontamentos do servidor (0.191333ms)
-✔ CA-4-33: apontamento de demonstração não "inicia" a ordem real e ordem de demonstração não gera alerta (0.054042ms)
-✔ CA-4-33: a exportação e a recuperação incluem as coleções da 0046 e as contagens batem (1.084625ms)
-✔ CA-4-33: registro marcado como demonstração fica fora do pacote e a contagem é só a dos reais (0.582375ms)
-✔ CA-4-11: a lista tem exatamente as 25 entradas, cada uma com grupo, rótulo, rota, área e ícone (0.531375ms)
-✔ CA-4-11: a área de cada item é igual à de hoje (0.249292ms)
-✔ CA-4-11: grupos e ícones seguem a tabela da SPEC (0.639167ms)
-✔ CA-4-11: as rotas fora do menu continuam abrindo pelos links de origem (0.099834ms)
-✔ CA-4-12: cada perfil vê só os itens das suas áreas e os grupos vazios somem (0.252208ms)
-✔ CA-4-12: perfil sem área só tem o Início; a mensagem de acesso não liberado existe (0.095875ms)
-✔ CA-4-12: o grupo e o título seguem a rota aberta (0.1265ms)
-✔ CA-4-14: a saudação segue o horário de São Paulo, com o primeiro nome ou sem nome (13.527959ms)
-✔ CA-4-14: a tela inicial abre para qualquer perfil ativo, sem a palavra "Fase", e o sino e o cartão são só do painel (0.412125ms)
+✔ T5-1: confirmada 20, atendida 5, dentro do horizonte → 15 (11.604916ms)
+✔ T5-2: cancelada 7 e fora do horizonte 3 → 0 (excluídas) (0.183125ms)
+✔ T5-3: replay da mesma linha (pedido+linha) mantém 15 (0.075ms)
+✔ T5-4: status desconhecido → null e bloqueia (nunca 0) (0.084541ms)
+✔ T5-5: data ausente bloqueia; borda do horizonte é inclusiva (0.084167ms)
+✔ T5-6: saldo nunca negativo; atendida > pedida bloqueia (0.064833ms)
+✔ MISUSE_API_PROCESS é bloqueio (guarda), não erro nem "não encontrado" (7.414041ms)
+✔ 401, 403 e 400 são erro de acesso, nunca "não encontrado" (0.111541ms)
+✔ erro de acesso para o sub-lote sem avançar e sem virar faltante (14.035375ms)
+✔ o mesmo código só é consultado de novo 60 s depois do erro (0.149083ms)
+✔ trava: segunda rodada simultânea é recusada; trava velha é tomada (0.787458ms)
+✔ guarda do bloqueio vale mesmo sem a execução anterior (0.1085ms)
+✔ P3.01-01: bloqueio 425 no terceiro código — para, cursor salvo, próxima tentativa +12h (32.688417ms)
+✔ guarda: antes da hora não consulta nada; depois da hora retoma de A3 (0.353292ms)
+✔ sub-lotes pequenos: tamanho 2 percorre 5 códigos em 3 chamadas, sem repetir consulta (0.161708ms)
+✔ catálogo ativo só troca com lote completo; incompleto mantém o anterior intacto (0.576584ms)
+✔ não encontrado vira faltante, nunca produto; unidade ausente fica null (0.602417ms)
+✔ erro transitório não avança o cursor (0.223166ms)
+✔ classificarResposta: 425, consumo redundante, ok, ausente, 500 (0.276042ms)
+✔ entrada não é alterada (estado imutável entre chamadas) (0.208584ms)
+✔ P3.01-02: código do estoque sem cadastro entra na lista; some depois do cadastro simulado (3.717791ms)
+✔ o mesmo código em estoque, ficha e pedido vira um item com os três lugares (0.3775ms)
+✔ catálogo não lido por inteiro: lista vazia com situação própria, nunca "tudo falta" (1.122042ms)
+✔ código vazio é ignorado e a ordem é estável (replay devolve o mesmo) (0.548542ms)
+✔ data do Omie vira ISO; formato estranho vira null, nunca data presumida (1.179959ms)
+✔ status do pedido: cancelado vence faturado; sem sinalizador fica vazio e bloqueia (0.838541ms)
+✔ pedido faturado no horizonte vira firme = pedida; IDs em texto; unidade vazia = null (0.486375ms)
+✔ linha sem produto ou com quantidade ausente é descartada e listada, não vira zero (0.466292ms)
+✔ pedido de compra 1514 (amostra real): 10 pedidas, 4 recebidas → restante 6, previsão 20/11/2026 (0.219375ms)
+✔ compra com recebida ausente é descartada (restante desconhecido, nunca 0) (0.077208ms)
+✔ P3.02-02: só quem tem a ação do dono autoriza; chave segue desligada (5.172959ms)
+✔ o dono vê o resumo e autoriza: transação autorizada, chave ligada só para ela (7.953125ms)
+✔ resumo com dado faltando mostra "não informado", nunca inventa (0.11575ms)
+✔ uma ordem por vez: com outra ordem autorizada, a segunda é negada (0.113708ms)
+✔ conteúdo alterado depois que o dono conferiu: 422 e nada autorizado (0.182125ms)
+✔ só preparada pode ser autorizada (não autoriza duas vezes nem depois de enviada) (0.1115ms)
+✔ o dono desfaz a autorização antes do envio: volta a preparada e a chave desliga; depois de enviada não (0.128292ms)
+✔ fluxo completo no simulador: autoriza, envia uma vez, confere "gravado e conferido" (0.48175ms)
+✔ conferência: quantidade diferente, status não concluído e estoque diferente são divergência (0.128333ms)
+✔ conferência sem posição anterior de estoque não diz "conferido"; ordem ausente é inconclusivo (0.202917ms)
+✔ P3.02-01: chave desligada responde 423 e não faz nenhuma chamada (8.229334ms)
+✔ chave ligada para outra transação também responde 423; sem a ação, 403; ambos sem chamadas (0.314417ms)
+✔ P3.02-03: ordem de 100 UN autorizada no simulador conclui uma vez e a leitura confere 100 (7.32075ms)
+✔ clique duplo e dois trabalhadores: uma gravação só (0.78975ms)
+✔ P3.02-04: resposta perdida → incerto → só consulta → confirmada, total de gravações = 1 (0.325708ms)
+✔ timeout sem efeito: consulta não acha, segue incerto, sem nova gravação (0.108125ms)
+✔ recusa do Omie: falhou sem efeito e a chave volta a desligar (0.082334ms)
+✔ conteúdo alterado depois da autorização: 422 e zero chamadas (0.078375ms)
+✔ quantidade zero ou negativa nunca monta payload nem prepara envio (0.102417ms)
+✔ data fora do formato e ordem sem identificação são recusadas (0.121958ms)
+✔ as oito ações existem, cada uma com a sua área (0.5125ms)
+✔ P3.03-01: perfil sem aprovar_compra tenta aprovar → 403 (57.959333ms)
+✔ recusa sem pistas: perfil ausente, inativo, sem a ação, sem a área e ação inexistente dão a mesma resposta (2.749708ms)
+✔ área não concede ação por implicação: área sem a ação continua negada (0.133375ms)
+✔ cada perfil de teste só exerce as próprias ações (14.172667ms)
+✔ conta real não recebe ação nova fora da matriz aprovada (matriz vigente: não aprovada) (0.153459ms)
+✔ P3.03-02: item fora do catálogo é bloqueado com a mensagem; dentro do catálogo passa (0.9745ms)
+✔ vale para cotação e recebimento; catálogo não lido não prova que existe (mensagem própria) (0.092417ms)
+✔ exceção sem motivo é recusada; sem a ação é 403; com motivo libera e fica pendente de regularização (1.087125ms)
+✔ uma exceção por item e documento (idempotente); regularização fecha quando o item entra no catálogo (0.1545ms)
+✔ P3.03-04: fator 25 e 4 sacos a R$ 250,00 → 100 KG a R$ 10,00 por KG (0.208333ms)
+✔ P3.03-03: sem fator a quantidade fica na unidade de compra, com pendência e sem preço comparável (0.091333ms)
+✔ fator inválido, unidade de estoque desconhecida e sem confirmação são recusados (0.091709ms)
+✔ mudar o fator cria versão nova; o documento antigo guarda a versão e o fator que usou (0.104625ms)
+✔ fator do fornecedor vale mais que o geral; unidade de compra diferente do fator não converte (0.081667ms)
+✔ contatos em campos próprios; prazo em dias; cada alteração é uma versão com autor e hora (0.325584ms)
+✔ sem a ação editar_fornecedor é 403; dados inválidos são recusados com o motivo (0.079708ms)
+✔ tudo num campo só (e-mail ou telefone dentro do nome) é recusado; nome vazio também (0.070083ms)
+✔ P3.04-01/03: insumo, frete e serviço no mesmo pedido — só o insumo entra, a R$ 10,00/KG (1.029ms)
+✔ linha sem classificação fica "a classificar" e fora do histórico; Compras classifica como frete (0.150958ms)
+✔ P3.04-02: sem preço fica pendente, nunca zero; total ÷ quantidade só da mesma linha (0.093541ms)
+✔ sem fator o preço fica na unidade de compra e fora da comparação; unidade igual à de estoque não precisa de fator (0.145917ms)
+✔ cancelado aparece marcado e fica fora de menor, maior e média; período filtra (27.888333ms)
+✔ fatores ambíguos (apresentações com fatores diferentes) não são escolhidos sozinhos (0.139959ms)
+✔ nova leitura mantém a classificação de Compras e não apaga linha que sumiu (0.121375ms)
+✔ CA-3-13: leitura de preço fica desligada até os campos serem conferidos numa amostra (0.2885ms)
+✔ P3.05-01: itens de dois fornecedores viram duas requisições; sem fornecedor fica "a definir" (3.365542ms)
+✔ repetir a criação não duplica; sem ação é 403; emergência exige motivo; item sem cadastro é barrado (0.269333ms)
+✔ P3.05-05: cotação 15% acima do último preço com tolerância 10% é destacada; sem tolerância só mostra a diferença (0.115125ms)
+✔ P3.05-04: sugestão de 100 KG até a aprovação, com valor, alçada e hash (0.408542ms)
+✔ P3.05-02: acima da alçada do primeiro aprovador é negado e indica a alçada maior (0.134167ms)
+✔ sem alçada cadastrada a aprovação real fica parada; sem a ação é 403; recusa exige motivo (0.121541ms)
+✔ P3.05-03: quantidade alterada depois da aprovação invalida a aprovação; não vira pedido (0.164917ms)
+✔ versão esperada errada é 409; cotação em requisição aprovada é recusada; sem cotação escolhida não vai para aprovação (0.094458ms)
+✔ P3.06-04: 20 KG pedidos, 5 recebidos, previsto ontem → restante 15 e 1 dia de atraso (0.827625ms)
+✔ entregas: recebido total não atrasa; cancelado comprovado não atrasa; sem previsão não atrasa; resumo por fornecedor (0.148916ms)
+✔ P3.06-01: compra não aprovada não é lançada nem ligada (1.921ms)
+✔ P3.06-02: chave desligada → 423 e zero chamadas; sem a ação é 403 (0.61825ms)
+✔ P3.06-03: número de outro fornecedor ou com outros itens é recusado com a diferença (1.036416ms)
+✔ payload usa os campos do WSDL e o código de integração = id da compra; fornecedor sem código do Omie é recusado (0.367833ms)
+✔ P3.06-05: no simulador, resposta perdida → uma gravação; a consulta acha o pedido e liga sem gravar de novo (0.22525ms)
+✔ simulador: normal confirma e liga; recusa não deixa efeito; consulta vazia continua incerta (0.150125ms)
+✔ P3.07-04: 100 KG = 60 do pedido A + 40 do pedido B → ligações gravadas, sem diferença (14.992792ms)
+✔ P3.07-01: linha de 100 KG ligada a 60 + 30 é recusada (soma diferente) (0.413917ms)
+✔ falta e sobra aparecem, somando recebimentos anteriores; nada ajusta estoque (1.765458ms)
+✔ quantidade de compra converte pelo fator; sem fator pede a quantidade em estoque (0.282ms)
+✔ RN-01: pedido que não é aprovado do fornecedor, ou linha sem pedido, é bloqueado; sem permissão é 403 (0.115958ms)
+✔ P3.07-03: item sem cadastro sem exceção é bloqueado; com exceção autorizada entra pendente de regularização (0.216042ms)
+✔ item não pedido só entra por exceção autorizada (0.103583ms)
+✔ P3.07-02: compra já paga antes → aviso no recebimento e nenhuma parcela nova (1.13525ms)
+✔ parcelas: só o financeiro; uma por pedido e número; valores inválidos recusados; pagamento exige referência (0.147417ms)
+✔ P3.07-05: nota de demonstração com 110 KG para pedido de 100 KG fica pendente com 10 KG de diferença (1.9575ms)
+✔ pré-conferência: nota real não entra; item fora do pedido, duplicatas divergentes e aviso de já paga (0.485958ms)
+✔ as cinco ações existem; P3.08-01: sem preparar_pedido → 403 sem pistas (1.381916ms)
+✔ área sem a ação continua negada; cada perfil só exerce as próprias ações; conta real não recebe fora da matriz (0.137958ms)
+✔ unidade: versão nova a cada mudança com autor e hora; versão esperada errada é 409; sem ação é 403; dados inválidos (1.88675ms)
+✔ P3.08-02: nome do canal diferente fica "a revisar" e o operacional é mantido; igual (sem acento/caixa) fica "igual" (0.257791ms)
+✔ faturamento aceita (versão nova do operacional com registro) ou recusa (nada muda) (0.197667ms)
+✔ P3.08-04: 10 caixas a R$ 50,00 com tabela vigente R$ 50,00 → subtotal R$ 500,00 igual; origem mostrada (0.286958ms)
+✔ P3.08-03: item sem preço na tabela → subtotal pendente com o item (0.124792ms)
+✔ preço diferente da tabela aparece e não é trocado; diferença de subtotal visível (0.097792ms)
+✔ tabela: vigência e versão; preço da unidade vale mais que o geral; sem ação é 403 (0.138292ms)
+✔ RN-05: cliente sem unidade não fica apto; RN-04 origem a confirmar; RN-03 Nuvemshop não paga é intenção (0.233ms)
+✔ P3.09-01: sem frete e sem volumes → bloqueado com os dois motivos; sem cubagem; sem frete padrão (16.655625ms)
+✔ acessos: frete só com preparar_pedido, volumes só com conferir_volumes; versão desatualizada recusa (0.099458ms)
+✔ P3.09-04: CIF e 12 volumes → apto; só liberar_faturamento libera, com autor e hora (0.207375ms)
+✔ liberar pedido bloqueado é recusado com os motivos (0.072541ms)
+✔ P3.09-06: volumes alterados depois da liberação desfazem a liberação (0.133375ms)
+✔ unidade, tabela e origem entram: sem unidade, preço diferente e origem a confirmar bloqueiam (0.119167ms)
+✔ P3.09-02: manual com a mesma referência de um integrado → duplicata bloqueada (0.206333ms)
+✔ P3.09-05: manual parecido (cliente, data, itens) sem referência → possível duplicata, a revisar (0.198708ms)
+✔ nunca junta por cliente e valor; referências diferentes comprovadas não são duplicata; motivo e acesso obrigatórios (0.103709ms)
+✔ P3.09-03: chave desligada → 423, zero chamadas, e a tela recebe o que lançar (0.235209ms)
+✔ volumes e frete do liberado: gravados uma vez no simulador e conferidos; segunda tentativa é 409; chave desliga (0.192834ms)
+✔ resposta perdida: resultado incerto, só consulta confere, nunca regrava; recusa é "falhou sem efeito" (0.105917ms)
+✔ a chave de outro pedido ou de outra operação não vale (escopo) (0.08125ms)
+✔ pedido manual registrado grava uma vez no simulador; duplicata e a revisar nunca montam payload (0.2305ms)
+✔ CA-3-30: o do produto prevalece sobre o da família, campo a campo; ausente é null (nunca padrão) (0.991834ms)
+✔ validação de parâmetros: negativo, repetido e escopo inválido são recusados (0.411333ms)
+✔ P3.10-01: item sem mínimo → lacuna e zero alerta (0.388167ms)
+✔ P3.10-03: saldo 8 KG, a receber 0, consumo 2 KG/dia, mínimo 10, prazo 5 → ruptura prevista, crítico, com os números (1.502875ms)
+✔ estoque: compra chegando dentro do prazo evita o alerta; fora do prazo não conta; unidade incompatível é lacuna (0.476917ms)
+✔ fonte desatualizada: o alerta leva a hora do dado e o aviso (0.390917ms)
+✔ P3.10-04: um caso de cada um dos seis tipos, com os números usados (0.760042ms)
+✔ parâmetro ausente: sem tolerância, sem atraso aceito, sem tempo e sem gravidade → lacuna, nenhum alerta (0.293834ms)
+✔ P3.10-02: mesma situação em duas rodadas → um alerta, atualizado (não cria outro) (0.290791ms)
+✔ chave do alerta: regra + item + referência; item em caixa diferente é o mesmo; nenhum alerta carrega ação (0.16125ms)
+✔ RN-02: cada área vê só os seus; destinatário por tipo; gestão vê todos (2.176ms)
+✔ P3.11-02: perfil do PCP tenta assumir/tratar alerta de preço → negado sem pistas (igual a quem não tem a ação) (0.531792ms)
+✔ P3.11-01: tratar sem ação registrada é recusado; indevido e outra exigem texto (5.157416ms)
+✔ P3.11-03: ciclo completo de uma ruptura — Compras assume e registra "compra solicitada" com autor e hora (0.330959ms)
+✔ P3.11-04: duas pessoas assumem juntas → uma consegue; a outra recebe 409 (0.260666ms)
+✔ RN-03: condição que volta depois de tratado gera alerta novo ligado ao anterior (0.808ms)
+✔ RN-05: alertas do mesmo tipo e item ficam agrupados; o grupo leva a maior gravidade; contador por área (0.3345ms)
+✔ P3.11-05: regra desligada para de gerar e o histórico é mantido; só editar_parametros muda a regra (0.535167ms)
+✔ P3.12-01: um ano de dados e regra de dois ciclos → histórico insuficiente, sem sazonalidade (0.950375ms)
+✔ P3.12-02: sem regra aprovada → histórico insuficiente mesmo com muitos anos (1.227708ms)
+✔ P3.12-03: dois anos completos, dezembro acima da média, prazo 10 dias → contexto e data sugerida (1.189875ms)
+✔ sem prazo do fornecedor: sugere olhar o mês, mas sem data; sazonalidade negativa não sugere antecipar (0.206125ms)
+✔ meses sem leitura: cobertura incompleta mostrada e sem sazonalidade (0.239ms)
+✔ período atual lido entra na comparação; produto sem vendas no mês lido é zero, não ausente (0.180791ms)
+✔ agregação do Omie: só faturado com data; cancelado, denegado e devolvido ficam de fora; sem quantidade não vira zero (2.346916ms)
+✔ regra de suficiência: valores inválidos são recusados (0.12975ms)
+✔ P3.13-01: ciclo sem alertas críticos → "não aplicável", nunca 100% (2.88525ms)
+✔ P3.13-02: tratado sem ação registrada não conta como tratado (0.139458ms)
+✔ P3.13-03: 10 críticos gerados, 7 tratados com ação → 70% (0.474583ms)
+✔ só entram críticos gerados dentro do ciclo; tratado depois do fim do ciclo não conta nele (0.083541ms)
+✔ fonte incompleta: medição pendente, sem proporção e sem "não aplicável" (0.097208ms)
+✔ P3.13-04: ativar sem linha de base, alvo, janela e validador → recusado e o loop continua desligado (0.170291ms)
+✔ veredito: só o validador indicado com a ação; só com loop ligado e medição aplicável; congela a medição (0.167167ms)
+✔ o loop não trata nem compra: a sugestão ao validador é só texto (0.085625ms)
+✔ P3.14-01: perda declarada sem produção realizada no período → taxa não calculável (1.035709ms)
+✔ P3.14-03: 100 UN produzidas e 4 UN de perda declarada → 4% com o denominador escrito (0.442292ms)
+✔ P3.14-02: perfil sem a área de compras não vê o bloco de compras (nem sabe que existe) (0.085666ms)
+✔ produção: planejado × produzido × conferido por produto e unidade; unidades não se somam; ausente não vira zero (2.652792ms)
+✔ consumo: 5,4 KG para ficha de 5 KG sem perda declarada → diferença sem causa de 0,4 KG (não é perda) (0.1855ms)
+✔ consumo: as quatro categorias ficam separadas; o declarado abate só a diferença sem causa (0.119125ms)
+✔ P3.14-04: compras — comprado × recebido por unidade, entregas no prazo e preço médio ponderado por fornecedor (0.21125ms)
+✔ P3.14-04: pedidos por origem e unidade, aptos/bloqueados/liberados, intenção da Nuvemshop fora do confirmado, horas até liberar (0.175542ms)
+✔ exportação CSV: aspas, ponto e vírgula e células que começam como fórmula são neutralizados; números ficam números (0.181416ms)
+✔ P3.15-01: pessoa de Compras pergunta sobre faturamento → sem acesso, sem pistas e sem executar ferramenta (1.954916ms)
+✔ P3.15-02: "compre 10 KG de farinha" → recusa, tela indicada, zero chamada à IA e zero ferramenta (0.173791ms)
+✔ perguntas sobre o passado ou o estado não são pedido de ação (0.071875ms)
+✔ P3.15-03: resposta da IA sem fonte, ou com fonte que não foi consultada, é descartada (0.304375ms)
+✔ P3.15-04 (simulado): produção da semana com fonte, período e hora; sugestão marcada como sugestão (0.179166ms)
+✔ sem dados: diz que não há e o que falta; IA indisponível: mensagem, nada inventado (1.216166ms)
+✔ ferramenta que devolve "sem acesso" não vira fonte; e a IA não passa de 4 rodadas (0.363167ms)
+✔ P3.16-01: exportar sem a ação exportar_dados → 403 sem pistas (perfil ausente, inativo ou sem a ação) (0.792875ms)
+✔ P3.16-02: varredura do pacote — nada de segredo, senha ou chave; coluna sensível sai e valor de segredo retira a coleção (5.56725ms)
+✔ P3.16-03: pacote com resumo — contagens iguais às do sistema; coleção vazia aparece com zero; identificação e versão (1.860916ms)
+✔ coleção que falha na leitura ou não existe: pacote incompleto com o motivo (0.518125ms)
+✔ P3.16-04 (lógica): restauração com as mesmas contagens passa; coleção faltando ou diferente reprova apontando-a (3.560333ms)
+✔ RN-04: restauração nunca por cima da produção (destino igual à origem é recusado) (0.165708ms)
+✔ P3.16-05: falha na leitura do Omie — lote anterior mantido; retomada pelo cursor, sem reler nem duplicar (0.31925ms)
+✔ P3.17-01: ciclo sem pergunta prioritária feita → "não aplicável", nunca 100% (5.855458ms)
+✔ P3.17-02: resposta aceita sem fonte ou sem período não conta (0.153458ms)
+✔ P3.17-03: 5 prioritárias feitas, 4 aceitas → 80%; recusada e ainda sem revisão não contam como aceitas (0.141042ms)
+✔ P3.17-04: ligar o loop sem condições é recusado e o loop continua desligado (0.133584ms)
+✔ perguntas prioritárias: só a gestão cadastra; cada alteração é versão nova; ligação é escolha, não adivinhação (0.345542ms)
+✔ revisão do validador: só o indicado; recusa exige motivo; uma revisão por pergunta (0.111167ms)
+✔ veredito e congelamento reaproveitados do LOOP-01: ciclo controlado de demonstração (0.577583ms)
+✔ saldo firme: status desconhecido bloqueia só aquela linha e o total das outras segue (0.552708ms)
+✔ saldo firme: sem bloqueio o total não é parcial; só bloqueadas = null (nunca 0) (0.086583ms)
+✔ saldo firme: data ausente e saldo inconsistente também bloqueiam só a linha (0.076792ms)
+✔ requisição: quantidade zero, negativa ou inválida ao alterar é recusada (422) (11.372125ms)
+✔ ligação do pedido: quantidade diferente da compra é recusada; igual passa (0.372792ms)
+✔ conteúdo que muda depois da autorização muda o payload (base da recusa no servidor) (0.246167ms)
+✔ programação: linha sem quantidade positiva, data ou recurso é recusada (0.566875ms)
+✔ ordens: uma por linha, com número estável pela versão (0.4425ms)
+✔ publicação: versão esperada diferente da atual dá conflito sem sobrescrever (0.084834ms)
+✔ realizado eficaz do ponto soma incrementos e ignora o retificado (0.097125ms)
+✔ aprovação com conferências e quantidade positiva prepara a ordem (sem enviar) (0.196792ms)
+✔ aprovação: conferência ausente nunca vira 0; sem motivo e quantidade negativa são recusadas (0.061625ms)
+✔ aprovação com quantidade final 0 é registrada e não prepara ordem (0.091375ms)
+✔ data de conclusão inválida recusa a ordem (0.073583ms)
+✔ ordem já enviada não é substituída por nova aprovação (0.0815ms)
+✔ CA-4-34: produto de demonstração é reconhecido; produto real não (0.984583ms)
+✔ CA-4-34: registro de conta de teste ou com produto de demonstração sai marcado; o real não (0.402292ms)
+✔ CA-4-34: a marca nunca sai sozinha depois de posta (0.087917ms)
+✔ CA-4-34: autorização e envio recusam registro de demonstração com 422, com a chave ligada ou desligada (0.461709ms)
+✔ CA-4-34: consolidação marcada como demonstração não prepara ordem (0.282833ms)
+✔ CA-4-01: sem parâmetros aprovados, Publicar fica desabilitado com o motivo (0.101083ms)
+✔ CA-4-01: sem calendário (dias de produção) em algum recurso, Publicar fica desabilitado (0.070791ms)
+✔ CA-4-01: com parâmetros e calendário aprovados, o calendário vem dos dias de cada recurso (1.009208ms)
+✔ CA-4-01: publicar sobre versão antiga devolve 409 e manda recarregar; a mesma versão aparece igual para todos (0.119833ms)
+✔ CA-4-04: falta de acesso na publicação não dá pistas (0.136084ms)
+✔ CA-4-02: o identificador do evento nasce na tela, é único e a mesma tentativa mantém a assinatura (4.610166ms)
+✔ CA-4-02: reenvio do mesmo evento mostra "já registrado" e não duplica (0.09575ms)
+✔ CA-4-02: falha de rede mantém o identificador para o reenvio; erro do servidor definitivo troca (0.052792ms)
+✔ CA-4-02: um apontamento gravado volta na leitura do servidor, com o resumo por item e por ponto (0.16775ms)
+✔ CA-4-02: retificação substitui o original no resumo e o original continua na lista (0.07825ms)
+✔ CA-4-02: unidades diferentes do mesmo item nunca se somam (0.04525ms)
+✔ CA-4-02: o formulário recusa o que a rota recusa (0.060916ms)
+✔ CA-4-02: falta de acesso e erros não dão pistas (0.0585ms)
+✔ CA-4-05: a tela de Apontamentos não importa *_DEMO, não chama as funções locais e usa só o cliente do servidor (0.833625ms)
+✔ CA-4-04: quem tem só conferir_expedicao confere a expedição e não a câmara nem aprova (0.048583ms)
+✔ CA-4-04: sem a área, a ação ou o ponto, a tela nega a conferência e a aprovação (0.042083ms)
+✔ CA-4-03: a fila usa os apontamentos do servidor e as conferências; sem as duas, fica bloqueada e nada vira 0 (0.219167ms)
+✔ CA-4-03: a última conferência de cada etapa é a vigente (0.047667ms)
+✔ CA-4-03: a aprovação sem as conferências é recusada com o motivo; a rota prepara a ordem sem enviar (0.135792ms)
+✔ CA-4-03: reenvio da mesma conferência ou aprovação mostra "já registrada" e mantém o identificador só em falha de rede (0.093208ms)
+✔ CA-4-03: falta de acesso não dá pistas e conflitos de envio são explicados (0.0635ms)
+✔ CA-4-03: /consolidacoes lista a ordem, as conferências, a aprovação e o estado da ordem, sem envio (0.173166ms)
+✔ CA-4-05: Conferências e Consolidações não importam *_DEMO, não chamam as funções locais e leem/gravam só pelo servidor (0.796916ms)
+✔ CA-4-05: /consolidacoes não tem botão de envio nem a fila de simulação (0.117167ms)
+✔ CA-4-05: a troca fixa da área da conferência não existe mais; a rota e o menu aceitam conferir_expedicao ou painel (0.60875ms)
+✔ CA-4-33: o relatório de produção usa a programação e os apontamentos do servidor (planejado × produzido × conferido) (0.273166ms)
+✔ CA-4-33: sem apontamento ou sem conferência a coluna fica sem dado, nunca zero (0.084625ms)
+✔ CA-4-33: realizado retificado não conta duas vezes e 0 declarado é um dado, não ausência (0.065208ms)
+✔ CA-4-33: período e produto filtram as ordens; a última conferência de câmara vale (0.070834ms)
+✔ CA-4-33: registro de demonstração não entra no relatório (0.068208ms)
+✔ CA-4-33: a regra de produção atrasada usa as programações e os apontamentos do servidor (0.203666ms)
+✔ CA-4-33: apontamento de demonstração não "inicia" a ordem real e ordem de demonstração não gera alerta (0.056917ms)
+✔ CA-4-33: a exportação e a recuperação incluem as coleções da 0046 e as contagens batem (1.074375ms)
+✔ CA-4-33: registro marcado como demonstração fica fora do pacote e a contagem é só a dos reais (0.175958ms)
+✔ CA-4-11: a lista tem exatamente as 25 entradas, cada uma com grupo, rótulo, rota, área e ícone (0.562292ms)
+✔ CA-4-11: a área de cada item é igual à de hoje (0.084666ms)
+✔ CA-4-11: grupos e ícones seguem a tabela da SPEC (0.946625ms)
+✔ CA-4-11: as rotas fora do menu continuam abrindo pelos links de origem (0.093292ms)
+✔ CA-4-12: cada perfil vê só os itens das suas áreas e os grupos vazios somem (0.231833ms)
+✔ CA-4-12: perfil sem área só tem o Início; a mensagem de acesso não liberado existe (0.085708ms)
+✔ CA-4-12: o grupo e o título seguem a rota aberta (0.114375ms)
+✔ CA-4-14: a saudação segue o horário de São Paulo, com o primeiro nome ou sem nome (28.656167ms)
+✔ CA-4-14: a tela inicial abre para qualquer perfil ativo, sem a palavra "Fase", e o sino e o cartão são só do painel (0.628458ms)
 ℹ tests 254
 ℹ suites 0
-ℹ pass 253
-ℹ fail 1
+ℹ pass 254
+ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 576.256292
-
-✖ failing tests:
-
-test at tests/pcp/spec-4-001.test.mjs:312:1
-✖ CA-4-05: a troca fixa da área da conferência não existe mais; a rota e o menu aceitam conferir_expedicao ou painel (1.30925ms)
-  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /area: 'conferir_expedicao\|painel'/. Input:
-  
-  "import { useEffect, useState } from 'react'\n" +
-    "import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'\n" +
-    'import {\n' +
-    '  ArrowLeftRight,\n' +
-    '  BadgeCheck,\n' +
-    '  Bell,\n' +
-    '  Building2,\n' +
-    '  CalendarClock,\n' +
-    '  CalendarRange,\n' +
-    '  ChartColumn,\n' +
-    '  ChartLine,\n' +
-    '  ChevronDown,\n' +
-    '  CircleUser,\n' +
-    '  ClipboardCheck,\n' +
-    '  ClipboardPen,\n' +
-    '  Download,\n' +
-    '  FilePlus,\n' +
-    '  FileText,\n' +
-    '  House,\n' +
-    '  Layers,\n' +
-    '  LayoutDashboard,\n' +
-    '  Lightbulb,\n' +
-    '  MessageSquare,\n' +
-    '  Package,\n' +
-    '  PackageCheck,\n' +
-    '  PackageOpen,\n' +
-    '  Send,\n' +
-    '  SlidersHorizontal,\n' +
-    '  Store,\n' +
-    '  Truck,\n' +
-    '  type LucideIcon,\n' +
-    "} from 'lucide-react'\n" +
-    "import { useAuth } from '@/hooks/use-auth'\n" +
-    "import { obterPerfil, type RespostaPerfil } from '@/services/pcp-access'\n" +
-    "import { obterContadorAlertas } from '@/services/pcp-alertas'\n" +
-    "import { Button } from '@/components/ui/button'\n" +
-    'import {\n' +
-    '  DropdownMenu,\n' +
-    '  DropdownMenuContent,\n' +
-    '  DropdownMenuItem,\n' +
-    '  DropdownMenuLabel,\n' +
-    '  DropdownMenuSeparator,\n' +
-    '  DropdownMenuTrigger,\n' +
-    "} from '@/components/ui/dropdown-menu'\n" +
-    "import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'\n" +
-    'import {\n' +
-    '  Sidebar,\n' +
-    '  SidebarContent,\n' +
-    '  SidebarGroup,\n' +
-    '  SidebarGroupContent,\n' +
-    '  SidebarGroupLabel,\n' +
-    '  SidebarHeader,\n' +
-    '  SidebarInset,\n' +
-    '  SidebarMenu,\n' +
-    '  SidebarMenuButton,\n' +
-    '  SidebarMenuItem,\n' +
-    '  SidebarProvider,\n' +
-    '  SidebarRail,\n' +
-    '  SidebarTrigger,\n' +
-    '  useSidebar,\n' +
-    "} from '@/components/ui/sidebar'\n" +
-    'import {\n' +
-    '  MENSAGEM_SEM_ACESSO,\n' +
-    '  grupoDaRota,\n' +
-    '  menuDaPessoa,\n' +
-    '  temPainel,\n' +
-    '  tituloDaRota,\n' +
-    '  type ItemMenu,\n' +
-    "} from '@/lib/pcp/menu'\n" +
-    '\n' +
-    'const ICONES: Record<string, LucideIcon> = {\n' +
-    '  ArrowLeftRight,\n' +
-    '  BadgeCheck,\n' +
-    '  Bell,\n' +
-    '  Building2,\n' +
-    '  CalendarClock,\n' +
-    '  CalendarRange,\n' +
-    '  ChartColumn,\n' +
-    '  ChartLine,\n' +
-    '  ClipboardCheck,\n' +
-    '  ClipboardPen,\n' +
-    '  Download,\n' +
-    '  FilePlus,\n' +
-    '  FileText,\n' +
-    '  House,\n' +
-    '  Layers,\n' +
-    '  LayoutDashboard,\n' +
-    '  Lightbulb,\n' +
-    '  MessageSquare,\n' +
-    '  Package,\n' +
-    '  PackageCheck,\n' +
-    '  PackageOpen,\n' +
-    '  Send,\n' +
-    '  SlidersHorizontal,\n' +
-    '  Store,\n' +
-    '  Truck,\n' +
-    '}\n' +
-    '\n' +
-    "const CHAVE_GRUPOS = 'pcp_menu_grupos' // só preferência de tela, não é dado\n" +
-    '\n' +
-    'const lerPreferencia = (): Record<string, boolean> => {\n' +
-    '  try {\n' +
-    "    return JSON.parse(localStorage.getItem(CHAVE_GRUPOS) || '{}') || {}\n" +
-    '  } catch {\n' +
-    '    return {}\n' +
-    '  }\n' +
-    '}\n' +
-    '\n' +
-    'function Item({ item, pathname }: { item: ItemMenu; pathname: string }) {\n' +
-    '  const { setOpenMobile } = useSidebar()\n' +
-    '  const Icone = ICONES[item.icone] ?? House\n' +
-    "  const ativo = item.rota === '/' ? pathname === '/' : pathname === item.rota || pathname.startsWith(item.rota + '/')\n" +
-    '  return (\n' +
-    '    <SidebarMenuItem>\n' +
-    '      <SidebarMenuButton asChild isActive={ativo} tooltip={item.rotulo}>\n' +
-    '        <NavLink to={item.rota} onClick={() => setOpenMobile(false)}>\n' +
-    '          <Icone />\n' +
-    '          <span>{item.rotulo}</span>\n' +
-    '        </NavLink>\n' +
-    '      </SidebarMenuButton>\n' +
-    '    </SidebarMenuItem>\n' +
-    '  )\n' +
-    '}\n' +
-    '\n' +
-    'function Menu({ areas, pathname }: { areas: string[] | null; pathname: string }) {\n' +
-    '  const { state, isMobile } = useSidebar()\n' +
-    '  const [preferencia, setPreferencia] = useState<Record<string, boolean>>(lerPreferencia)\n' +
-    '  const { inicio, grupos } = menuDaPessoa(areas)\n' +
-    '  const grupoAtual = grupoDaRota(pathname)\n' +
-    "  const recolhido = state === 'collapsed' && !isMobile\n" +
-    '\n' +
-    '  const alternar = (g: string, aberto: boolean) => {\n' +
-    '    const novo = { ...preferencia, [g]: aberto }\n' +
-    '    setPreferencia(novo)\n' +
-    '    try {\n' +
-    '      localStorage.setItem(CHAVE_GRUPOS, JSON.stringify(novo))\n' +
-    '    } catch {\n' +
-    '      // sem armazenamento: a escolha vale só nesta tela\n' +
-    '    }\n' +
-    '  }\n' +
-    '\n' +
-    '  return (\n' +
-    '    <SidebarContent>\n' +
-    '      <SidebarGroup>\n' +
-    '        <SidebarGroupContent>\n' +
-    '          <SidebarMenu>\n' +
-    '            <Item item={inicio} pathname={pathname} />\n' +
-    '          </SidebarMenu>\n' +
-    '        </SidebarGroupContent>\n' +
-    '      </SidebarGroup>\n' +
-    '      {areas !== null && areas.length === 0 && (\n' +
-    '        <p className="px-4 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">\n' +
-    '          {MENSAGEM_SEM_ACESSO}\n' +
-    '        </p>\n' +
-    '      )}\n' +
-    '      {grupos.map(({ grupo, itens }) => {\n' +
-    '        // O grupo da tela aberta fica aberto; os outros começam fechados. No menu recolhido, todos mostram os ícones.\n' +
-    '        const aberto = recolhido || (preferencia[grupo] ?? grupo === grupoAtual)\n' +
-    '        return (\n' +
-    '          <Collapsible key={grupo} open={aberto} onOpenChange={(v) => alternar(grupo, v)}>\n' +
-    '            <SidebarGroup className="py-0">\n' +
-    '              <CollapsibleTrigger asChild>\n' +
-    '                <SidebarGroupLabel asChild>\n' +
-    '                  <button type="button" className="w-full justify-between hover:bg-sidebar-accent">\n' +
-    '                    <span>{grupo}</span>\n' +
-    "                    <ChevronDown className={aberto ? 'rotate-180 transition-transform' : 'transition-transform'} />\n" +
-    '                  </button>\n' +
-    '                </SidebarGroupLabel>\n' +
-    '              </CollapsibleTrigger>\n' +
-    '              <CollapsibleContent>\n' +
-    '                <SidebarGroupContent>\n' +
-    '                  <SidebarMenu>\n' +
-    '                    {itens.map((i) => (\n' +
-    '                      <Item key={i.rota} item={i} pathname={pathname} />\n' +
-    '                    ))}\n' +
-    '                  </SidebarMenu>\n' +
-    '                </SidebarGroupContent>\n' +
-    '              </CollapsibleContent>\n' +
-    '            </SidebarGroup>\n' +
-    '          </Collapsible>\n' +
-    '        )\n' +
-    '      })}\n' +
-    '    </SidebarContent>\n' +
-    '  )\n' +
-    '}\n' +
-    '\n' +
-    'export default function Layout() {\n' +
-    '  const { user, isAuthenticated, signOut } = useAuth()\n' +
-    '  const { pathname } = useLocation()\n' +
-    '  const [areas, setAreas] = useState<string[] | null>(null)\n' +
-    '  const [alertasAbertos, setAlertasAbertos] = useState<number | null>(null)\n' +
-    '\n' +
-    '  useEffect(() => {\n' +
-    '    if (!isAuthenticated) {\n' +
-    '      setAreas(null)\n' +
-    '      return\n' +
-    '    }\n' +
-    '    let vivo = true\n' +
-    '    obterPerfil()\n' +
-    '      .then((r: RespostaPerfil) => {\n' +
-    '        if (!vivo) return\n' +
-    '        const minhas = r.perfil ? r.perfil.areas : []\n' +
-    '        setAreas(minhas)\n' +
-    '        if (temPainel(minhas))\n' +
-    '          obterContadorAlertas()\n' +
-    '            .then((c) => {\n' +
-    '              if (vivo) setAlertasAbertos(c.abertos)\n' +
-    '            })\n' +
-    '            .catch(() => {\n' +
-    '              if (vivo) setAlertasAbertos(null) // falha: o sino fica sem número\n' +
-    '            })\n' +
-    '      })\n' +
-    '      .catch(() => {\n' +
-    '        if (vivo) setAreas([])\n' +
-    '      })\n' +
-    '    return () => {\n' +
-    '      vivo = false\n' +
-    '    }\n' +
-    '  }, [isAuthenticated])\n' +
-    '\n' +
-    '  if (!isAuthenticated) return <Outlet />\n' +
-    '\n' +
-    "  const nome = String(user?.name || '').trim() || String(user?.email || '')\n" +
-    '\n' +
-    '  return (\n' +
-    '    <SidebarProvider>\n' +
-    '      <Sidebar collapsible="icon">\n' +
-    '        <SidebarHeader>\n' +
-    '          <Link to="/" className="px-2 py-1 text-sm font-semibold group-data-[collapsible=icon]:hidden">\n' +
-    '            PCP American Goodies\n' +
-    '          </Link>\n' +
-    '        </SidebarHeader>\n' +
-    '        <Menu areas={areas} pathname={pathname} />\n' +
-    '        <SidebarRail />\n' +
-    '      </Sidebar>\n' +
-    '      <SidebarInset className="min-w-0">\n' +
-    '        <header className="flex h-12 items-center gap-2 border-b px-3">\n' +
-    '          <SidebarTrigger aria-label="Abrir ou recolher o menu" />\n' +
-    '          <h2 className="flex-1 truncate text-sm font-medium">{tituloDaRota(pathname)}</h2>\n' +
-    '          {temPainel(areas) && (\n' +
-    '            <Button asChild variant="ghost" size="sm" aria-label="Alertas abertos">\n' +
-    '              <Link to="/alertas">\n' +
-    '                <Bell className="h-4 w-4" />\n' +
-    '                {alertasAbertos !== null && alertasAbertos > 0 && (\n' +
-    '                  <span className="ml-1 text-xs font-medium">{alertasAbertos}</span>\n' +
-    '                )}\n' +
-    '              </Link>\n' +
-    '            </Button>\n' +
-    '          )}\n' +
-    '          <DropdownMenu>\n' +
-    '            <DropdownMenuTrigger asChild>\n' +
-    '              <Button variant="ghost" size="sm" aria-label="Menu da pessoa">\n' +
-    '                <CircleUser className="h-4 w-4" />\n' +
-    '                <span className="ml-1 hidden max-w-[10rem] truncate text-xs sm:inline">{nome}</span>\n' +
-    '              </Button>\n' +
-    '            </DropdownMenuTrigger>\n' +
-    '            <DropdownMenuContent align="end">\n' +
-    '              <DropdownMenuLabel className="max-w-[16rem] truncate">{nome}</DropdownMenuLabel>\n' +
-    '              <DropdownMenuSeparator />\n' +
-    '              <DropdownMenuItem asChild>\n' +
-    '                <Link to="/trocar-senha">Trocar senha</Link>\n' +
-    '              </DropdownMenuItem>\n' +
-    '              <DropdownMenuItem onClick={signOut}>Sair</DropdownMenuItem>\n' +
-    '            </DropdownMenuContent>\n' +
-    '          </DropdownMenu>\n' +
-    '        </header>\n' +
-    '        <div className="flex min-w-0 flex-1 flex-col">\n' +
-    '          <Outlet />\n' +
-    '        </div>\n' +
-    '      </SidebarInset>\n' +
-    '    </SidebarProvider>\n' +
-    '  )\n' +
-    '}\n'
-  
-      at TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-agenornetto-pasta-sem-t-tulo-American-Goodies/6e82d670-e180-40fb-84f6-c3ab99dd8527/scratchpad/ws/tests/pcp/spec-4-001.test.mjs:319:10)
-      at Test.runInAsyncScope (node:async_hooks:227:14)
-      at Test.run (node:internal/test_runner/test:1402:25)
-      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
-      at Test.postRun (node:internal/test_runner/test:1542:19)
-      at Test.run (node:internal/test_runner/test:1467:12)
-      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: `import { useEffect, useState } from 'react'\nimport { Link, NavLink, Outlet, useLocation } from 'react-router-dom'\nimport {\n  ArrowLeftRight,\n  BadgeCheck,\n  Bell,\n  Building2,\n  CalendarClock,\n  CalendarRange,\n  ChartColumn,\n  ChartLine,\n  ChevronDown,\n  CircleUser,\n  ClipboardCheck,\n  ClipboardPen,\n  Download,\n  FilePlus,\n  FileText,\n  House,\n  Layers,\n  LayoutDashboard,\n  Lightbulb,\n  MessageSquare,\n  Package,\n  PackageCheck,\n  PackageOpen,\n  Send,\n  SlidersHorizontal,\n  Store,\n  Truck,\n  type LucideIcon,\n} from 'lucide-react'\nimport { useAuth } from '@/hooks/use-auth'\nimport { obterPerfil, type RespostaPerfil } from '@/services/pcp-access'\nimport { obterContadorAlertas } from '@/services/pcp-alertas'\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\nimport { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarGroupLabel,\n  SidebarHeader,\n  SidebarInset,\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n  SidebarRail,\n  SidebarTrigger,\n  useSidebar,\n} from '@/components/ui/sidebar'\nimport {\n  MENSAGEM_SEM_ACESSO,\n  grupoDaRota,\n  menuDaPessoa,\n  temPainel,\n  tituloDaRota,\n  type ItemMenu,\n} from '@/lib/pcp/menu'\n\nconst ICONES: Record<string, LucideIcon> = {\n  ArrowLeftRight,\n  BadgeCheck,\n  Bell,\n  Building2,\n  CalendarClock,\n  CalendarRange,\n  ChartColumn,\n  ChartLine,\n  ClipboardCheck,\n  ClipboardPen,\n  Download,\n  FilePlus,\n  FileText,\n  House,\n  Layers,\n  LayoutDashboard,\n  Lightbulb,\n  MessageSquare,\n  Package,\n  PackageCheck,\n  PackageOpen,\n  Send,\n  SlidersHorizontal,\n  Store,\n  Truck,\n}\n\nconst CHAVE_GRUPOS = 'pcp_menu_grupos' // só preferência de tela, não é dado\n\nconst lerPreferencia = (): Record<string, boolean> => {\n  try {\n    return JSON.parse(localStorage.getItem(CHAVE_GRUPOS) || '{}') || {}\n  } catch {\n    return {}\n  }\n}\n\nfunction Item({ item, pathname }: { item: ItemMenu; pathname: string }) {\n  const { setOpenMobile } = useSidebar()\n  const Icone = ICONES[item.icone] ?? House\n  const ativo = item.rota === '/' ? pathname === '/' : pathname === item.rota || pathname.startsWith(item.rota + '/')\n  return (\n    <SidebarMenuItem>\n      <SidebarMenuButton asChild isActive={ativo} tooltip={item.rotulo}>\n        <NavLink to={item.rota} onClick={() => setOpenMobile(false)}>\n          <Icone />\n          <span>{item.rotulo}</span>\n        </NavLink>\n      </SidebarMenuButton>\n    </SidebarMenuItem>\n  )\n}\n\nfunction Menu({ areas, pathname }: { areas: string[] | null; pathname: string }) {\n  const { state, isMobile } = useSidebar()\n  const [preferencia, setPreferencia] = useState<Record<string, boolean>>(lerPreferencia)\n  const { inicio, grupos } = menuDaPessoa(areas)\n  const grupoAtual = grupoDaRota(pathname)\n  const recolhido = state === 'collapsed' && !isMobile\n\n  const alternar = (g: string, aberto: boolean) => {\n    const novo = { ...preferencia, [g]: aberto }\n    setPreferencia(novo)\n    try {\n      localStorage.setItem(CHAVE_GRUPOS, JSON.stringify(novo))\n    } catch {\n      // sem armazenamento: a escolha vale só nesta tela\n    }\n  }\n\n  return (\n    <SidebarContent>\n      <SidebarGroup>\n        <SidebarGroupContent>\n          <SidebarMenu>\n            <Item item={inicio} pathname={pathname} />\n          </SidebarMenu>\n        </SidebarGroupContent>\n      </SidebarGroup>\n      {areas !== null && areas.length === 0 && (\n        <p className="px-4 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">\n          {MENSAGEM_SEM_ACESSO}\n        </p>\n      )}\n      {grupos.map(({ grupo, itens }) => {\n        // O grupo da tela aberta fica aberto; os outros começam fechados. No menu recolhido, todos mostram os ícones.\n        const aberto = recolhido || (preferencia[grupo] ?? grupo === grupoAtual)\n        return (\n          <Collapsible key={grupo} open={aberto} onOpenChange={(v) => alternar(grupo, v)}>\n            <SidebarGroup className="py-0">\n              <CollapsibleTrigger asChild>\n                <SidebarGroupLabel asChild>\n                  <button type="button" className="w-full justify-between hover:bg-sidebar-accent">\n                    <span>{grupo}</span>\n                    <ChevronDown className={aberto ? 'rotate-180 transition-transform' : 'transition-transform'} />\n                  </button>\n                </SidebarGroupLabel>\n              </CollapsibleTrigger>\n              <CollapsibleContent>\n                <SidebarGroupContent>\n                  <SidebarMenu>\n                    {itens.map((i) => (\n                      <Item key={i.rota} item={i} pathname={pathname} />\n                    ))}\n                  </SidebarMenu>\n                </SidebarGroupContent>\n              </CollapsibleContent>\n            </SidebarGroup>\n          </Collapsible>\n        )\n      })}\n    </SidebarContent>\n  )\n}\n\nexport default function Layout() {\n  const { user, isAuthenticated, signOut } = useAuth()\n  const { pathname } = useLocation()\n  const [areas, setAreas] = useState<string[] | null>(null)\n  const [alertasAbertos, setAlertasAbertos] = useState<number | null>(null)\n\n  useEffect(() => {\n    if (!isAuthenticated) {\n      setAreas(null)\n      return\n    }\n    let vivo = true\n    obterPerfil()\n      .then((r: RespostaPerfil) => {\n        if (!vivo) return\n        const minhas = r.perfil ? r.perfil.areas : []\n        setAreas(minhas)\n        if (temPainel(minhas))\n          obterContadorAlertas()\n            .then((c) => {\n              if (vivo) setAlertasAbertos(c.abertos)\n            })\n            .catch(() => {\n              if (vivo) setAlertasAbertos(null) // falha: o sino fica sem número\n            })\n      })\n      .catch(() => {\n        if (vivo) setAreas([])\n      })\n    return () => {\n      vivo = false\n    }\n  }, [isAuthenticated])\n\n  if (!isAuthenticated) return <Outlet />\n\n  const nome = String(user?.name || '').trim() || String(user?.email || '')\n\n  return (\n    <SidebarProvider>\n      <Sidebar collapsible="icon">\n        <SidebarHeader>\n          <Link to="/" className="px-2 py-1 text-sm font-semibold group-data-[collapsible=icon]:hidden">\n            PCP American Goodies\n          </Link>\n        </SidebarHeader>\n        <Menu areas={areas} pathname={pathname} />\n        <SidebarRail />\n      </Sidebar>\n      <SidebarInset className="min-w-0">\n        <header className="flex h-12 items-center gap-2 border-b px-3">\n          <SidebarTrigger aria-label="Abrir ou recolher o menu" />\n          <h2 className="flex-1 truncate text-sm font-medium">{tituloDaRota(pathname)}</h2>\n          {temPainel(areas) && (\n            <Button asChild variant="ghost" size="sm" aria-label="Alertas abertos">\n              <Link to="/alertas">\n                <Bell className="h-4 w-4" />\n                {alertasAbertos !== null && alertasAbertos > 0 && (\n                  <span className="ml-1 text-xs font-medium">{alertasAbertos}</span>\n                )}\n              </Link>\n            </Button>\n          )}\n          <DropdownMenu>\n            <DropdownMenuTrigger asChild>\n              <Button variant="ghost" size="sm" aria-label="Menu da pessoa">\n                <CircleUser className="h-4 w-4" />\n                <span className="ml-1 hidden max-w-[10rem] truncate text-xs sm:inline">{nome}</span>\n              </Button>\n            </DropdownMenuTrigger>\n            <DropdownMenuContent align="end">\n              <DropdownMenuLabel className="max-w-[16rem] truncate">{nome}</DropdownMenuLabel>\n              <DropdownMenuSeparator />\n              <DropdownMenuItem asChild>\n                <Link to="/trocar-senha">Trocar senha</Link>\n              </DropdownMenuItem>\n              <DropdownMenuItem onClick={signOut}>Sair</DropdownMenuItem>\n            </DropdownMenuContent>\n          </DropdownMenu>\n        </header>\n        <div className="flex min-w-0 flex-1 flex-col">\n          <Outlet />\n        </div>\n      </SidebarInset>\n    </SidebarProvider>\n  )\n}\n`,
-    expected: /area: 'conferir_expedicao\|painel'/,
-    operator: 'match',
-    diff: 'simple'
-  }
+ℹ duration_ms 815.520875

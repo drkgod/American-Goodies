@@ -316,7 +316,8 @@ test('CA-4-05: a troca fixa da área da conferência não existe mais; a rota e 
   assert.doesNotMatch(app, /DEMO_CONFERENCIA/)
   assert.doesNotMatch(lay, /DEMO_CONFERENCIA|ITENS_DEMO/)
   assert.match(app, /area="conferir_expedicao\|painel"/)
-  assert.match(lay, /area: 'conferir_expedicao\|painel'/)
+  const menu = readFileSync(new URL('../../src/lib/pcp/menu.ts', import.meta.url), 'utf8') // lista do menu (SPEC-4-003)
+  assert.match(menu, /area: 'conferir_expedicao\|painel'/)
   assert.match(prot, /area\.split\('\|'\)/)
 })
 
