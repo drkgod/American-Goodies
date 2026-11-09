@@ -13,6 +13,7 @@ import ComoFunciona from '@/components/ComoFunciona'
 import { mensagemDeErro, semInformacao, textoSeguro } from '@/lib/pcp/textos'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Skeleton } from '@/components/ui/skeleton'
+import Aviso from '@/components/Aviso'
 
 const fmtData = (iso: string | null | undefined) =>
   iso ? new Date(iso).toLocaleString('pt-BR') : '—'
@@ -191,12 +192,9 @@ const Painel = () => {
       </Card>
 
       {erro && (
-        <div
-          className="mb-6 rounded-md border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
-          role="alert"
-        >
+        <Aviso nivel="bloqueio" topo>
           {erro}
-        </div>
+        </Aviso>
       )}
 
       {carregando && (
@@ -204,12 +202,9 @@ const Painel = () => {
       )}
 
       {!carregando && resposta && !resposta.disponivel && (
-        <div
-          className="mb-6 rounded-md border border-warning/30 bg-warning/10 px-4 py-3 text-sm text-warning"
-          role="status"
-        >
+        <Aviso nivel="atencao">
           Painel indisponível — {textoSeguro(resposta.motivo, 'sem dados autorizados')}
-        </div>
+        </Aviso>
       )}
 
       {!carregando && resposta?.disponivel && blocos && (

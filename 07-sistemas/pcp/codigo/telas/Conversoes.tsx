@@ -8,6 +8,7 @@ import { mensagemDeErro, textoSeguro } from '@/lib/pcp/textos'
 import { obterConversoes, salvarConversao, type RespostaConversoes } from '@/services/pcp-compras'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Skeleton } from '@/components/ui/skeleton'
+import Aviso from '@/components/Aviso'
 
 const textoDoErro = (e: any): string => {
   const d = e?.response ?? e?.data
@@ -78,12 +79,9 @@ const Conversoes = () => {
         <p>Mudar o fator cria uma versão nova; documentos antigos mantêm o que usaram.</p>
       </ComoFunciona>
       {erro && (
-        <div
-          className="mb-4 rounded-md border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
-          role="alert"
-        >
+        <Aviso nivel="bloqueio" topo>
           {erro}
-        </div>
+        </Aviso>
       )}
       {!erro && !dados && <Skeleton className="h-24 w-full" aria-label="Carregando" />}
       {aviso && (

@@ -13,6 +13,7 @@ import { conciliarProduto } from '@/lib/pcp/conciliacao'
 import ComoFunciona from '@/components/ComoFunciona'
 import { mensagemDeErro, semInformacao, textoSeguro } from '@/lib/pcp/textos'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import Aviso from '@/components/Aviso'
 
 const Catalogo = () => {
   const [piloto, setPiloto] = useState<RespostaPiloto | null>(null)
@@ -120,7 +121,7 @@ const Catalogo = () => {
               </div>
             </div>
             {pilotoConciliado.bloqueios.length > 0 && (
-              <div className="mt-3 rounded-md border border-warning/30 bg-warning/10 px-3 py-2 text-warning">
+              <Aviso nivel="atencao" topo>
                 <p className="font-medium">
                   O que está faltando (nada é preenchido sozinho):
                 </p>
@@ -129,7 +130,7 @@ const Catalogo = () => {
                     <li key={b}>{textoSeguro(b, 'Falta um dado oficial.')}</li>
                   ))}
                 </ul>
-              </div>
+              </Aviso>
             )}
             {pilotoConciliado.ficha && pilotoConciliado.ficha.itens.length > 0 && (
               <div className="mt-3">
@@ -182,14 +183,11 @@ const Catalogo = () => {
         </Card>
       )}
       {piloto && !piloto.disponivel && (
-        <div
-          className="mb-6 rounded-md border border-warning/30 bg-warning/10 px-4 py-3 text-sm text-warning"
-          role="status"
-        >
+        <Aviso nivel="atencao">
           Produto de conferência indisponível — nada foi inventado. Motivo:{' '}
           {textoSeguro(piloto.motivo, 'não foi possível consultar agora.')}
           {piloto.detalhe ? ` (${textoSeguro(piloto.detalhe, '')})` : ''}
-        </div>
+        </Aviso>
       )}
 
       <Card className="mb-6">
@@ -222,19 +220,13 @@ const Catalogo = () => {
       </Card>
 
       {erro && (
-        <div
-          className="mb-6 rounded-md border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
-          role="alert"
-        >
+        <Aviso nivel="bloqueio">
           {erro}
-        </div>
+        </Aviso>
       )}
 
       {dados && !dados.disponivel && (
-        <div
-          className="mb-6 rounded-md border border-warning/30 bg-warning/10 px-4 py-3 text-sm text-warning"
-          role="status"
-        >
+        <Aviso nivel="atencao">
           <p className="font-semibold">
             Catálogo indisponível com dado oficial — nada foi inventado.
           </p>
@@ -248,7 +240,7 @@ const Catalogo = () => {
               {textoSeguro(p, 'Há uma pendência neste cadastro.')}
             </p>
           ))}
-        </div>
+        </Aviso>
       )}
 
       {dados && dados.disponivel && (
@@ -364,12 +356,12 @@ const Catalogo = () => {
                     {detalhe.produto.familia || '—'}
                   </div>
                 </div>
-                <div className="rounded-md border border-warning/30 bg-warning/10 px-3 py-2 text-warning">
+                <Aviso nivel="atencao">
                   Ficha técnica: <strong>ainda não disponível</strong> — o Omie não entrega a ficha
                   por esta conexão. Nada é inventado.
-                </div>
+                </Aviso>
                 {detalhe.pendencias && detalhe.pendencias.length > 0 && (
-                  <div className="rounded-md border border-warning/30 bg-warning/10 px-3 py-2 text-warning">
+                  <Aviso nivel="atencao">
                     <p className="font-medium">
                       Pendências deste item (nada é preenchido sozinho):
                     </p>
@@ -378,7 +370,7 @@ const Catalogo = () => {
                         <li key={i}>{textoSeguro(p, 'Há uma pendência neste item.')}</li>
                       ))}
                     </ul>
-                  </div>
+                  </Aviso>
                 )}
                 {detalhe.saldo &&
                   (detalhe.saldo.disponivel ? (
