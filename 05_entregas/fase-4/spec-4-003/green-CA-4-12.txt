@@ -1,0 +1,11 @@
+✔ CA-4-12: cada perfil vê só os itens das suas áreas e os grupos vazios somem (0.926042ms)
+✔ CA-4-12: perfil sem área só tem o Início; a mensagem de acesso não liberado existe (0.681792ms)
+✔ CA-4-12: o grupo e o título seguem a rota aberta (0.155083ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.054792

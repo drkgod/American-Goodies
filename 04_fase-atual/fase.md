@@ -47,9 +47,11 @@ tarefas que já têm um.
 - [/] Tirar do sistema os arquivos de diagnóstico que guardam chave de acesso ao Omie @"American Goodies"
   > Os arquivos de diagnóstico com chave são apagados e nenhum outro arquivo do sistema guarda chave ou senha. SPEC-4-001 · CA-4-35.
   > Resultado parcial (06/11/2026, Skip v0.0.202, ref 9e6da11): os 3 hooks de diagnóstico (`pcp_catalogo_dirigido_run`, `pcp_diag_omie_bruto`, `pcp_diag_prod4`) estão apagados no ar, com o segredo de reserva. Falta a busca de segredo em todo o projeto (CA-4-35): não há ferramenta de busca no Skip e ler os ~170 arquivos um a um não cabe; fica para a SPEC-4-007. Lidas até aqui: migrations 0003 e 0022 (só `$secrets.get`, sem valor).
-- [ ] Organizar o menu lateral por área, com ícones e versão para celular @"American Goodies"
+- [/] Organizar o menu lateral por área, com ícones e versão para celular @"American Goodies"
+  > Resultado parcial (09/11/2026, Skip v0.0.207, ref bdb4d6a): menu lateral do kit com 6 grupos e 25 itens com ícones (lista única `menu.ts`, áreas iguais às de hoje), recolhe para ícones no computador e abre num painel lateral no celular, grupo da tela aberta aberto e preferência guardada no navegador; cabeçalho com nome da tela, sino com a contagem (só `painel`) e menu da pessoa (Trocar senha, Sair). Provas: CA-4-11 (4) e CA-4-12 (3); regressão verde. Falta a medição de largura em 360 e 1280 px e as capturas, que pedem sessão aberta (usuário de teste, CL-PEND-016).
   > O menu passa a ter 6 grupos com ícones, recolhe no computador e abre por um botão no celular; o cabeçalho mostra a tela, os alertas e o menu da pessoa. Cada pessoa vê só as telas das suas áreas. SPEC-4-003 · CA-4-11 a CA-4-13.
-- [ ] Montar a tela inicial com os atalhos e os alertas de cada pessoa @"American Goodies"
+- [/] Montar a tela inicial com os atalhos e os alertas de cada pessoa @"American Goodies"
+  > Resultado parcial (09/11/2026, Skip v0.0.207, ref bdb4d6a): `/` abre para qualquer perfil ativo (guarda "*"), com saudação por horário de São Paulo, primeiro nome, data, cartão de alertas só para `painel` e atalhos agrupados das áreas da pessoa; sem o texto "Fase". Prova: CA-4-14 (2). Falta ver no navegador com sessão (usuário de teste).
   > A tela inicial mostra a saudação, a data, os alertas abertos e os atalhos de quem entrou. SPEC-4-003 · CA-4-14.
 - [ ] Reescrever títulos, mensagens de erro e explicações na língua da operação @"American Goodies"
   > Mensagens de erro e estados ficam em português simples, num lugar só; a explicação de cada regra vai para "Como funciona". SPEC-4-004 · CA-4-16 a CA-4-18.

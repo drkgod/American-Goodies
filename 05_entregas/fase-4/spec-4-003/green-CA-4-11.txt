@@ -1,0 +1,12 @@
+✔ CA-4-11: a lista tem exatamente as 25 entradas, cada uma com grupo, rótulo, rota, área e ícone (0.718125ms)
+✔ CA-4-11: a área de cada item é igual à de hoje (0.086917ms)
+✔ CA-4-11: grupos e ícones seguem a tabela da SPEC (1.080667ms)
+✔ CA-4-11: as rotas fora do menu continuam abrindo pelos links de origem (0.110125ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 93.759792

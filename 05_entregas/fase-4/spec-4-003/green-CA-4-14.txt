@@ -1,0 +1,10 @@
+✔ CA-4-14: a saudação segue o horário de São Paulo, com o primeiro nome ou sem nome (37.404542ms)
+✔ CA-4-14: a tela inicial abre para qualquer perfil ativo, sem a palavra "Fase", e o sino e o cartão são só do painel (1.5965ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 100.399917
