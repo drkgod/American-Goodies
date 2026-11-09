@@ -1,9 +1,9 @@
 # GREEN CA-4-19 — SPEC-4-005
-✔ CA-4-19: número com vírgula, milhar com ponto e sem casas inúteis (41.184375ms)
-✔ CA-4-19: moeda em reais com 2 casas (0.18125ms)
-✔ CA-4-19: quantidade com unidade junto (0.135625ms)
-✔ CA-4-19: data dd/mm/aaaa e hora HH:MM no horário de São Paulo, inclusive na virada do dia (6.0935ms)
-✔ CA-4-19: valor desconhecido mostra "—", nunca 0 (0.093833ms)
+✔ CA-4-19: número com vírgula, milhar com ponto e sem casas inúteis (10.551209ms)
+✔ CA-4-19: moeda em reais com 2 casas (0.172917ms)
+✔ CA-4-19: quantidade com unidade junto (0.124708ms)
+✔ CA-4-19: data dd/mm/aaaa e hora HH:MM no horário de São Paulo, inclusive na virada do dia (3.110459ms)
+✔ CA-4-19: valor desconhecido mostra "—", nunca 0 (0.09225ms)
 ℹ tests 5
 ℹ pass 5
 ℹ fail 0

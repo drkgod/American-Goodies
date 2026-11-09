@@ -17,6 +17,8 @@ import { Skeleton } from '@/components/ui/skeleton'
 import Aviso from '@/components/Aviso'
 import Confirmar from '@/components/Confirmar'
 import { toast } from 'sonner'
+import Selo from '@/components/Selo'
+import { dataEHora } from '@/lib/pcp/formato'
 
 const ROTULO_ESTADO: Record<string, string> = {
   preparada: 'Aguarda autorização do dono',
@@ -133,7 +135,7 @@ const EnvioOmie = () => {
                 <span>
                   Ordem {i.ordem || i.op_id}
                 </span>
-                <Badge variant="outline">{ROTULO_ESTADO[i.estado] ?? rotuloEstado(i.estado)}</Badge>
+                <Selo estado={i.estado} rotulo={ROTULO_ESTADO[i.estado]} />
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
@@ -162,7 +164,7 @@ const EnvioOmie = () => {
                 <p className="text-xs">
                   Autorizada por {i.autorizada_por}
                   {i.autorizada_em
-                    ? ' em ' + new Date(i.autorizada_em).toLocaleString('pt-BR')
+                    ? ' em ' + dataEHora(i.autorizada_em)
                     : ''}
                   .
                 </p>

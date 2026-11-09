@@ -12,6 +12,7 @@ import {
   resumoParaCsv,
   type ResumoExportacao,
 } from '@/services/pcp-exportacao'
+import { dataEHora } from '@/lib/pcp/formato'
 
 // Nome da coleção como a pessoa lê: sem o prefixo do sistema e sem sublinhado.
 const nomeColecao = (c: string) => String(c).replace(/^pcp_/, '').replace(/_/g, ' ')
@@ -142,7 +143,7 @@ const Exportacao = () => {
           <CardContent className="text-sm space-y-1">
             <div className="text-xs text-muted-foreground">
               {resumo.identificacao} · gerado em{' '}
-              {new Date(resumo.gerado_em).toLocaleString('pt-BR')}
+              {dataEHora(resumo.gerado_em)}
             </div>
             {resumo.linhas.map((l) => (
               <div key={l.colecao} className="flex flex-wrap gap-x-3">

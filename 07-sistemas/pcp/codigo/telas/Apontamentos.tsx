@@ -32,6 +32,7 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import Escolha from '@/components/Escolha'
 import Aviso from '@/components/Aviso'
+import Paginacao, { fatiar } from '@/components/Paginacao'
 
 // Apontamentos: a cozinha e o encaixotamento gravam no servidor (SPEC-4-001). O identificador do evento
 // nasce aqui e é reaproveitado no reenvio da mesma tentativa, para o servidor reconhecer a repetição.
@@ -141,6 +142,7 @@ const Apontamentos = () => {
     }
   }
 
+  const [paginaEv, setPaginaEv] = useState(1)
   const [retif, setRetif] = useState<EventoLido | null>(null)
   const [novaQtd, setNovaQtd] = useState('')
   const [motivoRetif, setMotivoRetif] = useState('')
@@ -349,6 +351,7 @@ const Apontamentos = () => {
               <p className="text-muted-foreground">Nenhum evento registrado.</p>
             )}
             {eventos.length > 0 && (
+              <>
               <Table className="w-full">
                 <TableHeader>
                   <TableRow className="text-left text-muted-foreground">
@@ -361,7 +364,7 @@ const Apontamentos = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {eventos.map((e) => (
+                  {fatiar(eventos, paginaEv).map((e) => (
                     <TableRow
                       key={e.evento_id}
                       className={retificados.has(e.evento_id) ? 'opacity-60' : ''}
@@ -397,6 +400,8 @@ const Apontamentos = () => {
                   ))}
                 </TableBody>
               </Table>
+              <Paginacao total={eventos.length} pagina={paginaEv} onPagina={setPaginaEv} />
+              </>
             )}
           </CardContent>
         </Card>

@@ -16,8 +16,8 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Skeleton } from '@/components/ui/skeleton'
 import Aviso from '@/components/Aviso'
-
-const moeda = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+import { data as formatarData, moeda } from '@/lib/pcp/formato'
+import { toast } from 'sonner'
 
 const textoDoErro = (e: any): string => {
   const d = e?.response ?? e?.data
@@ -77,9 +77,12 @@ const Recebimentos = () => {
   const agir = async (fn: () => Promise<any>, ok: (r: any) => string) => {
     setAviso(null)
     try {
-      setAviso(ok(await fn()))
+      const t = ok(await fn())
+      setAviso(t)
+      toast.success(t, { duration: 4000 })
     } catch (e: any) {
       setAviso(textoDoErro(e))
+      toast.error(textoDoErro(e), { duration: Infinity, closeButton: true })
     }
     carregar()
   }
@@ -225,7 +228,7 @@ const Recebimentos = () => {
                   {r.chave} — {r.fornecedor}
                 </span>
                 <span className="text-sm font-normal text-muted-foreground">
-                  {new Date(r.data + 'T12:00:00').toLocaleDateString('pt-BR')} · por{' '}
+                  {formatarData(r.data)} · por{' '}
                   {r.registrado_por}
                 </span>
               </CardTitle>
@@ -372,7 +375,7 @@ const Recebimentos = () => {
                   <TableCell className="py-2 pr-3 font-mono">{p.pedido}</TableCell>
                   <TableCell className="py-2 pr-3">{p.numero}</TableCell>
                   <TableCell className="py-2 pr-3">
-                    {new Date(p.vencimento + 'T12:00:00').toLocaleDateString('pt-BR')}
+                    {formatarData(p.vencimento)}
                   </TableCell>
                   <TableCell className="py-2 pr-3">{moeda(p.valor)}</TableCell>
                   <TableCell className="py-2">

@@ -14,6 +14,7 @@ import ComoFunciona from '@/components/ComoFunciona'
 import { mensagemDeErro, semInformacao, textoSeguro } from '@/lib/pcp/textos'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import Aviso from '@/components/Aviso'
+import { dataEHora } from '@/lib/pcp/formato'
 
 const Catalogo = () => {
   const [piloto, setPiloto] = useState<RespostaPiloto | null>(null)
@@ -248,7 +249,7 @@ const Catalogo = () => {
           <CardHeader>
             <CardTitle className="text-base">
               Produtos do Omie — {dados.total} registro(s) · atualizado{' '}
-              {dados.atualizado_em ? new Date(dados.atualizado_em).toLocaleString('pt-BR') : '—'}
+              {dados.atualizado_em ? dataEHora(dados.atualizado_em) : '—'}
             </CardTitle>
           </CardHeader>
           <CardContent>

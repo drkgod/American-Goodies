@@ -1,6 +1,6 @@
-# GREEN CA-4-23 (parte estática) — SPEC-4-005
-✔ CA-4-23: telas com gravação mostram aviso flutuante de sucesso (some em 4 s) e de erro (fica até fechar) (1.062792ms)
-✔ CA-4-23: as 4 ações da SPEC pedem confirmação e a correção de apontamento usa janela (0.388959ms)
+# GREEN CA-4-23 — SPEC-4-005
+✔ CA-4-23: telas com gravação mostram aviso flutuante de sucesso (some em 4 s) e de erro (fica até fechar) (1.051917ms)
+✔ CA-4-23: as 4 ações da SPEC pedem confirmação e a correção de apontamento usa janela (0.388416ms)
 ℹ tests 2
 ℹ pass 2
 ℹ fail 0

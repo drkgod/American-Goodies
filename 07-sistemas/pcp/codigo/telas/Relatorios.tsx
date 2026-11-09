@@ -12,6 +12,7 @@ import {
   type RelatorioQualquer,
   type RodapeRelatorio,
 } from '@/services/pcp-relatorios'
+import { dataEHora } from '@/lib/pcp/formato'
 
 const BLOCOS = [
   ['producao', 'Produção: planejado, produzido e conferido'],
@@ -35,7 +36,7 @@ const Rodape = ({ r }: { r: RodapeRelatorio }) => (
     <div>
       Período {r.periodo.de} a {r.periodo.ate} · fonte: {textoSeguro(r.fonte, 'sistema')} ·
       atualizado em{' '}
-      {r.atualizado_em ? new Date(r.atualizado_em).toLocaleString('pt-BR') : 'sem registro'}
+      {r.atualizado_em ? dataEHora(r.atualizado_em) : 'sem registro'}
     </div>
     {r.lacunas.map((l) => (
       <div key={l} className="text-warning">

@@ -18,9 +18,7 @@ import Escolha from '@/components/Escolha'
 import Aviso from '@/components/Aviso'
 import Confirmar from '@/components/Confirmar'
 import { toast } from 'sonner'
-
-const moeda = (n: number | null) =>
-  n === null ? 'pendente' : n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+import { dataEHora, moeda } from '@/lib/pcp/formato'
 
 const ORIGEM: Record<string, string> = {
   omie: 'Omie direto',
@@ -192,7 +190,7 @@ const Linha = ({
           )}
           {p.volumes && (
             <span className="text-xs text-muted-foreground">
-              conferido por {p.volumes.por} em {new Date(p.volumes.em).toLocaleString('pt-BR')}
+              conferido por {p.volumes.por} em {dataEHora(p.volumes.em)}
             </span>
           )}
         </div>
@@ -257,7 +255,7 @@ const Linha = ({
         )}
         {p.liberacao && (
           <div className="text-xs text-muted-foreground">
-            Liberado por {p.liberacao.por} em {new Date(p.liberacao.em).toLocaleString('pt-BR')}. A
+            Liberado por {p.liberacao.por} em {dataEHora(p.liberacao.em)}. A
             nota fiscal é emitida por uma pessoa no Omie.
           </div>
         )}
@@ -346,7 +344,7 @@ const PedidosPreparacao = () => {
             duplicatas a revisar · {dados.totais?.sem_unidade} sem unidade ·{' '}
             {dados.totais?.nomes_a_revisar} nomes de canal a revisar.{' '}
             {dados.ultimo_sucesso
-              ? `Última leitura: ${new Date(dados.ultimo_sucesso).toLocaleString('pt-BR')}.`
+              ? `Última leitura: ${dataEHora(dados.ultimo_sucesso)}.`
               : ''}
             {dados.omie_lote === false
               ? ' Pedidos do Omie ainda sem leitura ativa: só os manuais aparecem.'

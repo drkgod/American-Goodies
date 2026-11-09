@@ -22,3 +22,7 @@
 ## 3ª etapa (v0.0.213, ref 37e4dc6)
 - `Aviso` em todas as caixas de aviso; `Confirmar` (alert-dialog) em Autorizar (Envio ao Omie), Liberar para faturar, Aprovar compra e Aprovar consolidação; aviso flutuante ao salvar em 5 telas. CA-4-22 e a parte estática do CA-4-23 verdes; regressão 279 de 279.
 - Falta: `Selo` nos estados, `formato.ts` nos números das tabelas, paginação, avisos flutuantes nas telas de cadastro, capturas.
+
+## 4ª etapa (v0.0.214, ref b2c0754)
+- `Selo` nos estados de Alertas, Envio ao Omie, Requisições e Histórico de preços; datas, horas e valores pelo `formato.ts`; paginação (`Paginacao`) em Entregas, Histórico de preços e Apontamentos; aviso ao salvar nos cadastros. Regressão 279 de 279.
+- Pendente: capturas de salvar com sucesso e com erro (Requisições, Apontamentos, Preparação de pedidos) com usuário de teste (CL-PEND-016); números das demais tabelas pelo `numero()` conforme cada tela for revisada.

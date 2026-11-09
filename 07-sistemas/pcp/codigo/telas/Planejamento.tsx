@@ -21,6 +21,7 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import Escolha from '@/components/Escolha'
 import Aviso from '@/components/Aviso'
+import { toast } from 'sonner'
 
 // Planejamento: a programação fica no servidor (SPEC-4-001). Os parâmetros e o calendário vêm da versão
 // aprovada em /parametros; sem eles, "Publicar" fica desabilitado. A tela relê o estado a cada 30 segundos
@@ -114,6 +115,8 @@ const Planejamento = () => {
     const r = await publicarProgramacaoServidor(estado.programacao?.versao ?? 0, linhas)
     const m = mensagemDaPublicacao(r.http, r.corpo)
     setResultado(textoSeguro(m.texto, 'Não foi possível publicar. Tente de novo.'))
+    if (m.ok) toast.success(textoSeguro(m.texto, 'Programação publicada.'), { duration: 4000 })
+    else toast.error(textoSeguro(m.texto, 'Não foi possível publicar.'), { duration: Infinity, closeButton: true })
     if (m.ok) setLinhas([])
     if (m.recarregar) await carregar()
     setPublicando(false)

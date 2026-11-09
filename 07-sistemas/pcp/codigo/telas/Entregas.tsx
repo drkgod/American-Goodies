@@ -7,13 +7,16 @@ import { obterEntregas, type EntregaCompra, type RespostaEntregas } from '@/serv
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Skeleton } from '@/components/ui/skeleton'
 import Aviso from '@/components/Aviso'
+import { data as formatarData, dataEHora, numero, quantidade } from '@/lib/pcp/formato'
+import Paginacao, { fatiar } from '@/components/Paginacao'
 
 const data = (iso: string | null) =>
-  iso ? new Date(iso + 'T12:00:00').toLocaleDateString('pt-BR') : 'sem previsão'
+  iso ? formatarData(iso) : 'sem previsão'
 
 const Entregas = () => {
   const [dados, setDados] = useState<RespostaEntregas | null>(null)
   const [erro, setErro] = useState<string | null>(null)
+  const [pagina, setPagina] = useState(1)
 
   useEffect(() => {
     obterEntregas()
@@ -27,7 +30,7 @@ const Entregas = () => {
       )
   }, [])
 
-  const porFornecedor = (dados?.entregas ?? []).reduce<Record<string, EntregaCompra[]>>(
+  const porFornecedor = fatiar(dados?.entregas ?? [], pagina).reduce<Record<string, EntregaCompra[]>>(
     (acc, x) => {
       const k = x.fornecedor ?? 'não informado'
       ;(acc[k] = acc[k] ?? []).push(x)
@@ -57,7 +60,7 @@ const Entregas = () => {
       {dados && (
         <p className="mb-4 text-xs text-muted-foreground">
           {dados.ultima_leitura
-            ? `Última leitura do Omie: ${new Date(dados.ultima_leitura).toLocaleString('pt-BR')}.`
+            ? `Última leitura do Omie: ${dataEHora(dados.ultima_leitura)}.`
             : 'Os pedidos de compra ainda não foram lidos do Omie; a lista aparece quando a leitura estiver liberada.'}
         </p>
       )}
@@ -66,6 +69,7 @@ const Entregas = () => {
           <CardContent className="py-6 text-sm">Nenhuma entrega para mostrar.</CardContent>
         </Card>
       )}
+      <Paginacao total={dados?.entregas.length ?? 0} pagina={pagina} onPagina={setPagina} />
       {Object.entries(porFornecedor).map(([fornecedor, lista]) => {
         const r = dados?.resumo.find((x) => x.fornecedor === fornecedor)
         return (
@@ -98,10 +102,10 @@ const Entregas = () => {
                       <TableCell className="py-2 pr-3 font-mono">{x.produto_id}</TableCell>
                       <TableCell className="py-2 pr-3">{data(x.data_prevista)}</TableCell>
                       <TableCell className="py-2 pr-3">
-                        {x.quantidade_pedida} {x.unidade ?? ''}
+                        {quantidade(x.quantidade_pedida, x.unidade)}
                       </TableCell>
-                      <TableCell className="py-2 pr-3">{x.quantidade_recebida}</TableCell>
-                      <TableCell className="py-2 pr-3">{x.restante}</TableCell>
+                      <TableCell className="py-2 pr-3">{numero(x.quantidade_recebida)}</TableCell>
+                      <TableCell className="py-2 pr-3">{numero(x.restante)}</TableCell>
                       <TableCell className="py-2 space-x-1">
                         {x.cancelado && <Badge variant="outline">cancelado</Badge>}
                         {x.atrasado && (

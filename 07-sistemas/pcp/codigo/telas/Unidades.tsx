@@ -17,6 +17,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import Escolha from '@/components/Escolha'
 import Aviso from '@/components/Aviso'
+import { data as formatarData, moeda } from '@/lib/pcp/formato'
+import { toast } from 'sonner'
 
 const TIPOS: Record<string, string> = {
   franquia: 'franquia',
@@ -33,8 +35,6 @@ const textoDoErro = (e: any): string => {
   if (d?.erro === 'nada_a_revisar') return 'Este nome não está aguardando revisão.'
   return e?.status ? mensagemDeErro(e) : 'Não foi possível concluir agora. Tente de novo em instantes.'
 }
-
-const moeda = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
 const Unidades = () => {
   const [dados, setDados] = useState<RespostaUnidades | null>(null)
@@ -68,8 +68,10 @@ const Unidades = () => {
     try {
       await fn()
       setAviso(ok)
+      toast.success(ok, { duration: 4000 })
     } catch (e: any) {
       setAviso(textoDoErro(e))
+      toast.error(textoDoErro(e), { duration: Infinity, closeButton: true })
     }
     carregar()
   }
@@ -184,7 +186,7 @@ const Unidades = () => {
                   <TableCell className="py-2 pr-3">{TIPOS[x.tipo] ?? rotuloEstado(x.tipo)}</TableCell>
                   <TableCell className="py-2 pr-3">{x.versao}</TableCell>
                   <TableCell className="py-2">
-                    {x.alterado_por}, {new Date(x.alterado_em).toLocaleDateString('pt-BR')}
+                    {x.alterado_por}, {formatarData(x.alterado_em)}
                   </TableCell>
                 </TableRow>
               ))}
@@ -391,7 +393,7 @@ const Unidades = () => {
                     {moeda(p.preco)} / {p.unidade}
                   </TableCell>
                   <TableCell className="py-2 pr-3">
-                    {new Date(p.vigencia_inicio + 'T12:00:00').toLocaleDateString('pt-BR')}
+                    {formatarData(p.vigencia_inicio)}
                   </TableCell>
                   <TableCell className="py-2">{p.versao}</TableCell>
                 </TableRow>
