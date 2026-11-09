@@ -1,0 +1,25 @@
+{
+  "descricao": "Exceções da varredura CA-4-15 (SPEC-4-004). Cada uma tem o arquivo, o trecho exato e o motivo. Texto que a pessoa lê nunca entra aqui.",
+  "excecoes": [
+    {
+      "arquivo": "pages/Parametros.tsx",
+      "trecho": "replay",
+      "motivo": "Valor de código devolvido pelo servidor, usado só em comparação (r.estado === 'replay'); a tela mostra 'Já registrado'."
+    },
+    {
+      "arquivo": "pages/ParametrosAlerta.tsx",
+      "trecho": "replay",
+      "motivo": "Valor de código devolvido pelo servidor, usado só em comparação (r.estado === 'replay'); a tela mostra 'Nada mudou: é a versão vigente.'."
+    },
+    {
+      "arquivo": "pages/Sugestoes.tsx",
+      "trecho": "replay",
+      "motivo": "Valor de código devolvido pelo módulo de regra, usado só em comparação (r.estado === 'replay'); a tela mostra 'Já registrado'."
+    },
+    {
+      "arquivo": "pages/HistoricoVendas.tsx",
+      "trecho": "replay",
+      "motivo": "Valor de código devolvido pelo servidor, usado só em comparação (r.estado === 'replay'); a tela mostra 'Nada mudou: é a regra vigente.'."
+    }
+  ]
+}

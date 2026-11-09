@@ -1,0 +1,4 @@
+# Regressão — node --test tests/pcp/*.test.mjs (254 anteriores + 13 da SPEC-4-004)
+ℹ tests 267
+ℹ pass 267
+ℹ fail 0

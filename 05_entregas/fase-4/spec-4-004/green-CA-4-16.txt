@@ -1,0 +1,10 @@
+# GREEN CA-4-16 — SPEC-4-004
+# comando: node --test --test-name-pattern "CA-4-16" tests/pcp/spec-4-004.test.mjs
+✔ CA-4-16: cada situação da tabela devolve a mensagem combinada (1.43ms)
+✔ CA-4-16: 425 mostra a hora da nova tentativa (horário de São Paulo) ou o texto sem hora (42.209917ms)
+✔ CA-4-16: motivo com padrão proibido nunca chega à tela (0.913ms)
+✔ CA-4-16: código de erro desconhecido cai na mensagem genérica, sem mostrar o código (0.118041ms)
+✔ CA-4-16: palavras auxiliares (sem informação, bloqueado) (0.082333ms)
+ℹ tests 5
+ℹ pass 5
+ℹ fail 0

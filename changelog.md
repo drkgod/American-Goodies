@@ -2,6 +2,10 @@
 
 ## 2026-11-09
 
+- 2026-11-09 · [MCC/Claude] · **SPEC-4-004: telas na língua da operação (Skip v0.0.208, ref 02ed133).**
+  - Novo `textos.ts` (estados, mensagens de erro, `textoSeguro`) e componente "Como funciona" (fechado por padrão); 31 telas com subtítulo curto, mensagens pelo módulo e sem termos técnicos; títulos dos loops trocados.
+  - Varredura limpa com 3 exceções documentadas; regressão 267 de 267. Evidência em `05_entregas/fase-4/spec-4-004/`. Tarefas em andamento até as capturas (usuário de teste).
+- 2026-11-09 · [MCC/Claude] · **SPEC-4-003: menu lateral por área e tela inicial (Skip v0.0.207).** Evidência em `05_entregas/fase-4/spec-4-003/`.
 - 2026-11-09 · [MCC/Claude] · **SPEC-4-001: Apontamentos, Conferências/aprovação e Consolidações pelo servidor (Skip v0.0.204 e v0.0.205).**
   - /apontamentos, /conferencias e /consolidacoes leem e gravam só pelas rotas de produção, com releitura a cada 30 s; sem constantes de demonstração; /consolidacoes é só leitura.
   - Guarda e menu de Conferências aceitam `conferir_expedicao` ou `painel`; a troca fixa `DEMO_CONFERENCIA` saiu.

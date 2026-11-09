@@ -1,0 +1,8 @@
+# GREEN CA-4-15 — SPEC-4-004
+# comando: node --test --test-name-pattern "CA-4-15" tests/pcp/spec-4-004.test.mjs
+✔ CA-4-15: nenhum texto de tela tem padrão proibido fora da lista de exceções (8.113459ms)
+✔ CA-4-15: toda exceção da lista tem motivo e ainda é encontrada na tela (1.816167ms)
+✔ CA-4-15: a varredura enxerga os padrões (a própria regra acha os exemplos da SPEC) (0.1075ms)
+ℹ tests 3
+ℹ pass 3
+ℹ fail 0

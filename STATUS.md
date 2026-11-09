@@ -18,9 +18,10 @@
   - notas de entrada em revisão (CL-PEND-007).
 - **Gravações no Omie:** todas desligadas; só ligam com a autorização do dono, uma por vez.
 - **Andamento da SPEC-4-001 (09/11):** marca de demonstração (fechada), diagnósticos apagados, Planejamento, Apontamentos, Conferências/aprovação e Consolidações ligados ao servidor; as tarefas ficam em andamento até a prova no servidor com o usuário de teste (SPEC-4-007).
-- **Ambiente:** projeto Skip 62774; última versão v0.0.205 (ref 8cb5fd8).
+- **Andamento da SPEC-4-003 e 4-004 (09/11):** menu e tela inicial no ar (v0.0.207); textos da operação no ar (v0.0.208): módulo `textos.ts`, "Como funciona" fechado, mensagens de erro e estados em português simples nas 31 telas, varredura de termos técnicos limpa. Tarefas em andamento até as capturas (sessão com usuário de teste).
+- **Ambiente:** projeto Skip 62774; última versão v0.0.208 (ref 02ed133).
 
-Próxima ação: levar a produção gravada para os relatórios, os alertas e a exportação (SPEC-4-001, CA-4-33).
+Próxima ação: SPEC-4-005 (tabelas, avisos e números no formato brasileiro).
 
 ## Histórico da fase 3
 

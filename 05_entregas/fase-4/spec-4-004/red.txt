@@ -1,0 +1,27 @@
+# RED — antes de criar src/lib/pcp/textos.ts e o componente ComoFunciona (SPEC-4-004)
+# comando: node --test tests/pcp/spec-4-004.test.mjs
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/private/tmp/claude-501/-Users-agenornetto-pasta-sem-t-tulo-American-Goodies/6e82d670-e180-40fb-84f6-c3ab99dd8527/scratchpad/ws-red-4004/src/lib/pcp/textos.ts' imported from /private/tmp/claude-501/-Users-agenornetto-pasta-sem-t-tulo-American-Goodies/6e82d670-e180-40fb-84f6-c3ab99dd8527/scratchpad/ws-red-4004/tests/pcp/spec-4-004.test.mjs
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///private/tmp/claude-501/-Users-agenornetto-pasta-sem-t-tulo-American-Goodies/6e82d670-e180-40fb-84f6-c3ab99dd8527/scratchpad/ws-red-4004/src/lib/pcp/textos.ts'
+}
+
+Node.js v24.22.1
+✖ tests/pcp/spec-4-004.test.mjs (42.002791ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 50.488708
+
+✖ failing tests:
+
+test at tests/pcp/spec-4-004.test.mjs:1:1
+✖ tests/pcp/spec-4-004.test.mjs (42.002791ms)
+  'test failed'

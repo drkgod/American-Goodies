@@ -1,0 +1,7 @@
+# GREEN CA-4-17 — SPEC-4-004
+# comando: node --test --test-name-pattern "CA-4-17" tests/pcp/spec-4-004.test.mjs
+✔ CA-4-17: todo estado usado pelas telas tem rótulo no dicionário, e o rótulo é limpo (4.457625ms)
+✔ CA-4-17: estado sem rótulo mostra "outro estado" e avisa no console (0.129792ms)
+ℹ tests 2
+ℹ pass 2
+ℹ fail 0
