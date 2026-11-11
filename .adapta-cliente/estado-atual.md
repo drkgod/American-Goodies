@@ -11,11 +11,11 @@
 - bloqueios_localizados: chave do Omie bloqueada desde 22/10 (CL-PEND-006; não chamar o Omie até o aviso do dono); logo e cores (CL-PEND-015); usuário de teste (CL-PEND-016); origem das notas de entrada em revisão (CL-PEND-007)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: v0.0.216 (ref 2fa7a40), publicada (09/11)
+- skip_versao: v0.0.218 (ref 5518a65), publicada (11/11)
 - pendente_github: nao (GitHub HEAD 0384181b = Skip v0.0.216, conferido 10/11 01:25Z)
 - aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-11-06-1124-verificacao-ao-vivo.md
 - ultima_acao: 09/11 — sessão de construção da fase 4 até a v0.0.216: SPEC-4-005 em 4 etapas (tabelas, avisos, selos, formato e paginação), SPEC-4-006 no celular e no tablet (284 de 284), SPEC-4-002 na parte sem logo (título, idioma, login, fonte); tarefas em andamento até as capturas
-- proxima_acao: SPEC-4-002 (3 propostas de visual, depende de logo e cores) e SPEC-4-007 (o que não depende do Omie nem do usuário de teste)
+- proxima_acao: SPEC-4-007 (depende dos usuários de teste e do aviso do Omie)
 - em_espera: nenhuma — remoção dos 2 hooks de diagnóstico confirmada na produção v0.0.203; resta a busca de segredo e a marcação da CA-4-35, que são da construção (fora desta recuperação); e a evidência da SPEC-4-002 (parte sem logo, v0.0.216) ainda não está em 05_entregas/fase-4/spec-4-002 — pendência da construção
 - atualizado_em: 2026-11-10T01:25:00Z
 

@@ -31,6 +31,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { useAuth } from '@/hooks/use-auth'
+import Marca from '@/components/Marca'
 import { obterPerfil, type RespostaPerfil } from '@/services/pcp-access'
 import { obterContadorAlertas } from '@/services/pcp-alertas'
 import { Button } from '@/components/ui/button'
@@ -226,8 +227,9 @@ export default function Layout() {
     <SidebarProvider>
       <Sidebar collapsible="icon">
         <SidebarHeader>
-          <Link to="/" className="px-2 py-1 text-sm font-semibold group-data-[collapsible=icon]:hidden">
-            PCP American Goodies
+          <Link to="/" className="flex items-center gap-2 px-2 py-1 text-sm font-semibold">
+            <Marca className="h-8 w-8 shrink-0" />
+            <span className="group-data-[collapsible=icon]:hidden">PCP American Goodies</span>
           </Link>
         </SidebarHeader>
         <Menu areas={areas} pathname={pathname} />

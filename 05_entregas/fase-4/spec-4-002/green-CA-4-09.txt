@@ -1,0 +1,5 @@
+# GREEN CA-4-09 — SPEC-4-002
+✔ CA-4-09: o login é centralizado, mostra a marca e o nome, e cabe em 360 px (0.715208ms)
+ℹ tests 1
+ℹ pass 1
+ℹ fail 0

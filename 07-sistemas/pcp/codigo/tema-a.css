@@ -1,0 +1,36 @@
+/* Espelho dos tokens do tema (proposta A, SPEC-4-002) — o arquivo vivo é src/main.css no Skip. */
+:root {
+  --background: 36 100% 97%;
+  --foreground: 28 69% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 28 69% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 28 69% 10%;
+  --primary: 24 100% 35%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 40 69% 88%;
+  --secondary-foreground: 23 79% 18%;
+  --muted: 37 70% 94%;
+  --muted-foreground: 26 30% 32%;
+  --accent: 37 70% 94%;
+  --accent-foreground: 28 69% 10%;
+  --destructive: 0 72% 42%;
+  --destructive-foreground: 0 0% 100%;
+  --brand: 28 87% 51%;
+  --brand-marrom: 23 79% 18%;
+  --success: 142 72% 24%;
+  --success-foreground: 0 0% 100%;
+  --warning: 26 90% 32%;
+  --warning-foreground: 0 0% 100%;
+  --info: 224 76% 42%;
+  --info-foreground: 0 0% 100%;
+  --border: 36 45% 85%;
+  --input: 36 45% 85%;
+  --ring: 24 100% 35%;
+  --sidebar-background: 23 79% 18%;
+  --sidebar-foreground: 40 69% 88%;
+  --sidebar-primary: 24 100% 35%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 24 100% 35%;
+  --sidebar-accent-foreground: 0 0% 100%;
+}

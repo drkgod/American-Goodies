@@ -1,0 +1,6 @@
+# GREEN CA-4-07 — SPEC-4-002
+✔ CA-4-07: os pares do tema aplicado cumprem 4,5:1 (2.986375ms)
+✔ CA-4-07: o tema usa o marrom e o laranja da marca (proposta A: menu marrom, botão em laranja escuro) (0.124458ms)
+ℹ tests 2
+ℹ pass 2
+ℹ fail 0

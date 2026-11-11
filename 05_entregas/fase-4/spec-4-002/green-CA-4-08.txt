@@ -1,0 +1,5 @@
+# GREEN CA-4-08 — SPEC-4-002
+✔ CA-4-08: a aba mostra "PCP American Goodies", o ícone da marca e o idioma é pt-BR (0.759958ms)
+ℹ tests 1
+ℹ pass 1
+ℹ fail 0
