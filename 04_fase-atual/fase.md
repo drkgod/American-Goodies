@@ -84,7 +84,8 @@ tarefas que já têm um.
   > Depois do aviso do dono de que o Omie liberou a chave, catálogo, 90 dias, fornecedores, pedidos de compra, entregas, clientes e históricos são lidos um por vez e conferidos. SPEC-4-007 · CA-4-27.
 - [ ] Conferir no servidor todas as telas e rotas com o usuário de teste @"American Goodies"
   > Com os usuários de teste criados pelo dono, as rotas das fases 3 e 4 são chamadas no servidor, com tudo marcado como demonstração, e as provas de todas as fases rodam. SPEC-4-007 · CA-4-28.
-- [ ] Preparar a sessão final: provas de ponta a ponta e roteiro de cada área @"American Goodies"
+- [/] Preparar a sessão final: provas de ponta a ponta e roteiro de cada área @"American Goodies"
   > Provas verdes na véspera, contas reais com os acessos aprovados, roteiro de cada área e lista do que está pronto para ligar no Omie; o dono é avisado para marcar a data. SPEC-4-007 · CA-4-29.
+  > Resultado parcial (11/11/2026): roteiro por área, condições de cada gravação e rotina e provas da véspera atualizados em `05_entregas/fase-4/spec-4-007/preparacao-validacao-final.md`. Faltam: rotas no servidor com sessão aberta (CA-4-28), espelho dos hooks, contas reais com as ações da matriz (CL-003) e o aviso ao dono para marcar a data.
 - [ ] Fazer a sessão de validação final com a equipe @"American Goodies"
   > Com a equipe, o fluxo inteiro com dados reais, as gravações no Omie ligadas pelo dono uma por vez, a conferência do visual no aparelho de cada um e o aceite. SPEC-4-007 · CA-4-30 a CA-4-32.
