@@ -2,6 +2,7 @@
 
 ## 2026-11-11
 
+- 2026-11-11 · [MCC/Claude] · **SPEC-4-002: logo oficial do Mr. Cheney no login e no menu (Skip v0.0.219, ref 04fe21b).** Substitui a marca provisória; conferido no login publicado.
 - 2026-11-11 · [MCC/Claude] · **SPEC-4-002: proposta A escolhida pelo dono e aplicada (Skip v0.0.217 e v0.0.218, ref 5518a65).** Tema nas cores do Mr. Cheney, marca provisória, ícone, título, idioma e login. Regressão 289 de 289. Faltam capturas e o logo de 512 px ou mais.
 - 2026-11-11 · [MCC/Claude] · **SPEC-4-002: 3 propostas de visual montadas** com o logo recebido e cores extraídas dele; aguardando a escolha do dono (CL-008). Nada aplicado no sistema ainda.
 

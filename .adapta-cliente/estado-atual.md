@@ -11,7 +11,7 @@
 - bloqueios_localizados: chave do Omie bloqueada desde 22/10 (CL-PEND-006; não chamar o Omie até o aviso do dono); logo e cores (CL-PEND-015); usuário de teste (CL-PEND-016); origem das notas de entrada em revisão (CL-PEND-007)
 - sistema: pcp
 - skip_projeto: 62774
-- skip_versao: v0.0.218 (ref 5518a65), publicada (11/11)
+- skip_versao: v0.0.219 (ref 04fe21b), publicada (11/11)
 - pendente_github: nao (GitHub HEAD 0384181b = Skip v0.0.216, conferido 10/11 01:25Z)
 - aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-11-06-1124-verificacao-ao-vivo.md
 - ultima_acao: 09/11 — sessão de construção da fase 4 até a v0.0.216: SPEC-4-005 em 4 etapas (tabelas, avisos, selos, formato e paginação), SPEC-4-006 no celular e no tablet (284 de 284), SPEC-4-002 na parte sem logo (título, idioma, login, fonte); tarefas em andamento até as capturas

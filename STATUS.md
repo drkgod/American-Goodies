@@ -21,8 +21,8 @@
 - **Andamento da SPEC-4-003 e 4-004 (09/11):** menu e tela inicial no ar (v0.0.207); textos da operação no ar (v0.0.208): módulo `textos.ts`, "Como funciona" fechado, mensagens de erro e estados em português simples nas 31 telas, varredura de termos técnicos limpa. Tarefas em andamento até as capturas (sessão com usuário de teste).
 - **Ambiente:** projeto Skip 62774; última versão v0.0.208 (ref 02ed133).
 
-- **SPEC-4-002 (11/11):** o dono escolheu a proposta A e ela está no ar (Skip v0.0.218): tema nas cores do Mr. Cheney, marca provisória, ícone, título e login. Faltam o logo em SVG ou PNG de 512 px ou mais e as capturas (usuário de teste).
-- **Ambiente atual:** projeto Skip 62774; última versão v0.0.218 (ref 5518a65).
+- **SPEC-4-002 (11/11):** o dono escolheu a proposta A e ela está no ar (Skip v0.0.218): tema nas cores do Mr. Cheney, logo oficial (v0.0.219), ícone, título e login. Faltam as capturas (usuário de teste).
+- **Ambiente atual:** projeto Skip 62774; última versão v0.0.219 (ref 04fe21b).
 
 Próxima ação: SPEC-4-007 (depende dos usuários de teste e do aviso do Omie).
 
