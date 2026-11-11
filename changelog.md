@@ -1,5 +1,9 @@
 # Changelog operacional
 
+## 2026-11-11
+
+- 2026-11-11 · [MCC/Claude] · **SPEC-4-002: 3 propostas de visual montadas** com o logo recebido e cores extraídas dele; aguardando a escolha do dono (CL-008). Nada aplicado no sistema ainda.
+
 ## 2026-11-09
 
 - 2026-11-09 · [MCC/Claude] · **SPEC-4-002, parte sem logo (Skip v0.0.216, ref 2fa7a40):** título "PCP American Goodies", `lang="pt-BR"`, login centralizado com o nome, fonte Inter e algarismos de largura fixa. Propostas de visual e cores esperam o logo e as cores da marca (CL-PEND-015).
