@@ -16,7 +16,7 @@ Versão no ar: Skip v0.0.223 (ref 80a1bbb). Esta versão substitui a de 30/10 (`
 |---|---|---|
 | VF-01, módulos | 289 de 289 testes automáticos passaram (Node v24.22.1), espelhados em `07-sistemas/pcp/codigo/`. | Repetir na véspera. |
 | VF-01, rotas no servidor | Nenhuma rota foi chamada com sessão aberta. | Sessão de teste do dono (a senha da conta de teste está no cofre do Skip; o Maestro não entra com senha). CA-4-28. |
-| VF-01, espelho | Telas, componentes, tema e migrations 0047 e 0048 espelhados. Hooks espelhados (11/11): programação publicada, estado da produção, apontamento, conferência, aprovação da consolidação, marca de demonstração, dados por área e porta de login. | Os outros cerca de 90 hooks (compras, faturamento, Omie, alertas, assistente) ainda não estão espelhados. |
+| VF-01, espelho | Telas, componentes, tema e migrations 0047 e 0048 espelhados. Hooks espelhados (11/11): programação publicada, estado da produção, apontamento, conferência, aprovação da consolidação, marca de demonstração, dados por área, porta de login e os 5 do envio da ordem de produção ao Omie (fila, autorizar, desautorizar, enviar, conferir). | Os outros cerca de 85 hooks (compras, faturamento, Omie, alertas, assistente) ainda não estão espelhados. |
 | VF-04, simulador | Provas de clique duplo, trabalhador duplicado, chave desligada e resposta perdida existem para as três escritas (`spec-3-002*.test.mjs` e correlatos). | Repetir na véspera. |
 | Telas no celular e tablet | Provas estáticas verdes (SPEC-4-006). | Medição em 360, 768 e 1280 px e capturas com sessão aberta. |
 
