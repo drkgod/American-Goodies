@@ -55,7 +55,7 @@ export const listarUsuarios = () =>
 
 /** Cria a conta e o perfil numa só operação. */
 export const criarUsuario = (dados: EntradaNovoUsuario) =>
-  pb.send('/backend/v1/pcp/usuarios', { method: 'POST', body: dados }) as Promise<{
+  pb.send('/backend/v1/pcp/usuarios/criar', { method: 'POST', body: dados }) as Promise<{
     ok: boolean
     usuario: string
     perfil: string
@@ -101,6 +101,22 @@ export const ROTULO_ACAO: Record<string, string> = {
   executar_sync_omie: 'Sincronizar com o Omie',
   consultar_faturamento: 'Consultar o faturamento',
   editar_unidade: 'Editar unidades e preços',
+  consultar_compras: 'Consultar compras',
+  editar_fornecedor: 'Editar fornecedores',
+  editar_conversao: 'Editar conversões',
+  editar_requisicao: 'Editar requisições',
+  aprovar_compra: 'Aprovar compras',
+  autorizar_excecao_compra: 'Autorizar exceção de compra',
+  conferir_recebimento: 'Conferir recebimento',
+  conferir_financeiro_recebimento: 'Conferir recebimento no financeiro',
+  preparar_pedido: 'Preparar pedidos',
+  conferir_volumes: 'Conferir volumes',
+  liberar_faturamento: 'Liberar faturamento',
+  consultar_alertas: 'Consultar alertas',
+  tratar_alerta: 'Tratar alertas',
+  consultar_assistente: 'Usar o assistente',
+  exportar_dados: 'Exportar dados',
+  validar_loop: 'Validar os ciclos de revisão',
   administrar_usuarios: 'Administrar usuários',
 }
 

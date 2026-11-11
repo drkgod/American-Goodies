@@ -28,6 +28,7 @@ import {
   SlidersHorizontal,
   Store,
   Truck,
+  Users,
   type LucideIcon,
 } from 'lucide-react'
 import { useAuth } from '@/hooks/use-auth'
@@ -95,6 +96,7 @@ const ICONES: Record<string, LucideIcon> = {
   SlidersHorizontal,
   Store,
   Truck,
+  Users,
 }
 
 const CHAVE_GRUPOS = 'pcp_menu_grupos' // só preferência de tela, não é dado

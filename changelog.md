@@ -2,6 +2,7 @@
 
 ## 2026-11-11
 
+- 2026-11-11 · [MCC/Claude] · **Tela de Usuários no ar (Skip v0.0.226, ref 14bb9e1), rota `/usuarios`, sem item no menu** (o menu tem exatamente 25 entradas pela SPEC-4-003). Hook `pcp_usuarios` (lista, criar, perfil, senha) com as ações da matriz v3 e sem `autorizar_escrita_omie`; migration 0049 repara `acoes` e `pontos` de perfis quebrados sem apagar o que não entende e não concede `administrar_usuarios` a ninguém. A migration 0048 de `tela-usuarios/` foi substituída pela 0049 (o número 0048 já era a marca de teste). Pendente: o dono decide quem administra usuários.
 - 2026-11-11 · [MCC/Claude] · **Espelho dos 5 hooks do envio da ordem de produção ao Omie** (fila, autorizar, desautorizar, enviar, conferir) em `07-sistemas/pcp/codigo/`. Sem segredo (só o nome dos segredos no cofre). Restam cerca de 85 hooks sem espelho.
 - 2026-11-11 · [MCC/Claude] · **Espelho dos 8 hooks da produção no servidor** em `07-sistemas/pcp/codigo/` (programação, estado, apontamento, conferência, aprovação, marca de demonstração, dados por área, porta de login). Os demais hooks seguem sem espelho.
 - 2026-11-11 · [MCC/Claude] · **SPEC-4-007: preparação da sessão final atualizada** (roteiro por área, condições das gravações e rotinas, provas da véspera) em `05_entregas/fase-4/spec-4-007/preparacao-validacao-final.md`.

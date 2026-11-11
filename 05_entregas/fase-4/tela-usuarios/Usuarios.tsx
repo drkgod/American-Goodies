@@ -119,9 +119,7 @@ const Usuarios = () => {
     return (
       <div className="container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold mb-4">Usuários</h1>
-        <Aviso nivel="bloqueio" topo>
-          {erro}
-        </Aviso>
+        <Aviso nivel="bloqueio">{erro}</Aviso>
       </div>
     )
   }
@@ -153,9 +151,7 @@ const Usuarios = () => {
       </ComoFunciona>
 
       {aviso && (
-        <Aviso nivel="info" topo>
-          {aviso}
-        </Aviso>
+        <Aviso nivel="info">{aviso}</Aviso>
       )}
 
       {(dados.sem_perfil > 0 || dados.perfis_orfaos > 0) && (

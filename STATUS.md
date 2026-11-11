@@ -22,7 +22,7 @@
 - **Ambiente:** projeto Skip 62774; última versão v0.0.208 (ref 02ed133).
 
 - **SPEC-4-002 (11/11):** o dono escolheu a proposta A e ela está no ar (Skip v0.0.218): tema nas cores do Mr. Cheney, logo oficial (v0.0.219), ícone, título e login. Faltam as capturas (usuário de teste).
-- **Ambiente atual:** projeto Skip 62774; última versão v0.0.223 (ref 80a1bbb).
+- **Ambiente atual:** projeto Skip 62774; última versão v0.0.226 (ref 14bb9e1).
 
 Próxima ação: SPEC-4-007 (depende dos usuários de teste e do aviso do Omie).
 
