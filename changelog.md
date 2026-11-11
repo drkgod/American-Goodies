@@ -2,6 +2,7 @@
 
 ## 2026-11-11
 
+- 2026-11-11 · [MCC/Claude] · **Espelho dos 8 hooks da produção no servidor** em `07-sistemas/pcp/codigo/` (programação, estado, apontamento, conferência, aprovação, marca de demonstração, dados por área, porta de login). Os demais hooks seguem sem espelho.
 - 2026-11-11 · [MCC/Claude] · **SPEC-4-007: preparação da sessão final atualizada** (roteiro por área, condições das gravações e rotinas, provas da véspera) em `05_entregas/fase-4/spec-4-007/preparacao-validacao-final.md`.
 - 2026-11-11 · [MCC/Claude] · **SPEC-4-001: migration 0048 marca como teste os perfis das contas sintéticas `@pcp.local` (Skip v0.0.223, ref 80a1bbb, publicada).** Só marca perfil existente; não cria conta nem senha. A senha dessas contas está no cofre do Skip e o Maestro não a usa; entrar com sessão aberta continua sendo feito pelo dono.
 - 2026-11-11 · [MCC/Claude] · **SPEC-4-002: logo oficial do Mr. Cheney no login e no menu (Skip v0.0.219, ref 04fe21b).** Substitui a marca provisória; conferido no login publicado.
