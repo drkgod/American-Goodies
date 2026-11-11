@@ -7,7 +7,7 @@ Registro do Maestro. **Não é a aprovação da matriz.** A matriz v2 de 21/10 c
 | Ação | Pessoa informada |
 |---|---|
 | Conferir recebimento | Angela (conta `angela.silva`) |
-| Conferir recebimento (segunda pessoa) | "Pedro" — sem sobrenome nem conta; pessoa nova, fora da matriz v2. A confirmar se é a ação de conferência do financeiro. |
+| Conferir recebimento (segunda pessoa) | "Pedro", responsável de contas a receber (financeiro) — sem sobrenome nem conta; pessoa nova, fora da matriz v2. Lido pelo Maestro como a ação `conferir_financeiro_recebimento`; o dono confirma. |
 | Assistente | Keoma |
 | Exportação | Keoma |
 | Validação dos loops | Keoma |
@@ -25,6 +25,6 @@ Registro do Maestro. **Não é a aprovação da matriz.** A matriz v2 de 21/10 c
 
 ## Pendências para fechar a v3
 
-- Nome completo e função de "Pedro", e qual ação ele recebe. O Maestro não cria conta nem perfil.
+- Nome completo de "Pedro" e confirmação de que ele recebe `conferir_financeiro_recebimento`. O Maestro não cria conta nem perfil.
 - Resposta do dono à proposta acima.
 - Autorizar escrita no Omie continua só do dono.
